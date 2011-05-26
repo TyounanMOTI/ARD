@@ -84,12 +84,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ARD.h" />
+    <ClInclude Include="ard_engine.h" />
     <ClInclude Include="geometry.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ARD.cpp" />
-    <ClCompile Include="test\ARD_test.cpp" />
+    <ClCompile Include="ard_engine.cpp" />
+    <ClCompile Include="test\ard_engine_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
