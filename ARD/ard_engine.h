@@ -8,7 +8,7 @@
 class ARDEngine
 {
 public:
-  ARDEngine(boost::shared_ptr<const Geometry> geometry) : geometry(geometry) {};
+  explicit ARDEngine(boost::shared_ptr<const Geometry> geometry) : geometry(geometry) {};
 
 private:
   boost::shared_ptr<const Geometry> geometry;
