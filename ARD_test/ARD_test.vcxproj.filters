@@ -18,5 +18,8 @@
     <ClCompile Include="test\ard_engine_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="rectangular_geometry_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
