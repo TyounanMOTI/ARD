@@ -1,7 +1,7 @@
 #ifndef ARD_ENGINE_H
 #define ARD_ENGINE_H
 
-#include <geometry.h>
+#include "geometry.h"
 #include <boost/shared_ptr.hpp>
 // ARD: Adaptive Rectangular Decomposition
 // solver class
