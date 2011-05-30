@@ -87,17 +87,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="include\ard_engine.h" />
-    <ClInclude Include="include\geometry.h" />
-    <ClInclude Include="include\rectangular_geometry.h" />
-    <ClInclude Include="include\rectangular_sound_field.h" />
-    <ClInclude Include="include\sound_field.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\ard_engine.cpp" />
-    <ClCompile Include="src\rectangular_geometry.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
