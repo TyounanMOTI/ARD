@@ -10,9 +10,4 @@
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="dll_build_test.cpp">
-      <Filter>テスト ファイル</Filter>
-    </ClCompile>
-  </ItemGroup>
 </Project>
