@@ -3,5 +3,5 @@
 using namespace ARD;
 
 int Pressure::Size() {
-  return 200;
+  return width*height;
 }

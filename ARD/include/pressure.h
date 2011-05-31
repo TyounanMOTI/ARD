@@ -6,7 +6,11 @@ namespace ARD
   class Pressure
   {
   public:
+    Pressure(int width, int height) : width(width), height(height) {};
     int Size();
+
+  private:
+    int width, height;
   };
 }
 

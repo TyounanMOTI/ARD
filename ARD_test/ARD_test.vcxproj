@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mode_test.cpp" />
+    <ClCompile Include="pressure_test.cpp" />
     <ClCompile Include="test\sound_field_test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
