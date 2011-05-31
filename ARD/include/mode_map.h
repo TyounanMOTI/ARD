@@ -5,6 +5,7 @@
 
 namespace ARD
 {
+  class Pressure;
   class ModeMap
   {
   public:
