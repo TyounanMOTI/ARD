@@ -9,3 +9,9 @@ TEST(SizeTest, WidthHeight) {
   EXPECT_TRUE(subject->width == 20);
   EXPECT_TRUE(subject->height == 10);
 }
+
+TEST(SizeTest, Euqality) {
+  Size subject(20, 10);
+  Size other(10, 20);
+  EXPECT_FALSE(subject == other);
+}

@@ -3,5 +3,5 @@
 using namespace ARD;
 
 bool Size::operator==(const Size& other) const {
-  return true;
+  return ((width == other.width) && (height == other.height));
 }
