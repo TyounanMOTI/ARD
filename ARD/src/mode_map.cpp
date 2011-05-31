@@ -7,5 +7,5 @@ Pressure* ModeMap::InverseDCT() {
 }
 
 int ModeMap::Size() {
-  return 0;
+  return width*height;
 }
