@@ -1,23 +1,26 @@
 #include <gtest/gtest.h>
 #include <boost/shared_ptr.hpp>
 #include <pressure.h>
+#include <size.h>
 
 using namespace ARD;
 
 class PressureTest : public testing::Test {
 protected:
   virtual void SetUp() {
-    subject = PressurePtr(new Pressure(30,10));
+    size = Size(30, 10);
+    subject = PressurePtr(new Pressure(size));
   }
 
   typedef boost::shared_ptr<Pressure> PressurePtr;
   PressurePtr subject;
+  Size size;
 };
 
-TEST_F(PressureTest, Size) {
-  EXPECT_TRUE(subject->Size() == 300);
+TEST_F(PressureTest, GetSize) {
+  EXPECT_EQ(subject->GetSize(), size);
 }
 
 TEST_F(PressureTest, DCT) {
-  EXPECT_TRUE(subject->DCT()->Size() == subject->Size());
+  EXPECT_EQ(subject->DCT()->GetSize(), subject->GetSize());
 }

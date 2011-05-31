@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="src\mode_map.cpp" />
     <ClCompile Include="src\pressure.cpp" />
+    <ClCompile Include="src\size.cpp" />
     <ClCompile Include="src\sound_field.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -3,9 +3,9 @@
 using namespace ARD;
 
 Pressure* ModeMap::InverseDCT() {
-  return new Pressure(width, height);
+  return new Pressure(size);
 }
 
-int ModeMap::Size() {
-  return width*height;
+Size ModeMap::GetSize() {
+  return size;
 }

@@ -2,10 +2,10 @@
 
 using namespace ARD;
 
-int Pressure::Size() {
-  return width*height;
+Size Pressure::GetSize() {
+  return size;
 }
 
 ModeMap* Pressure::DCT() {
-  return new ModeMap(width, height);
+  return new ModeMap(size);
 }

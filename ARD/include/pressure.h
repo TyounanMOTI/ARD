@@ -2,6 +2,7 @@
 #define PRESSURE_H
 
 #include "mode_map.h"
+#include "size.h"
 
 namespace ARD
 {
@@ -9,12 +10,12 @@ namespace ARD
   class Pressure
   {
   public:
-    Pressure(int width, int height) : width(width), height(height) {};
+    Pressure(const Size size) : size(size) {};
     ModeMap* DCT();
-    int Size();
+    Size GetSize();
 
   private:
-    int width, height;
+    const Size size;
   };
 }
 
