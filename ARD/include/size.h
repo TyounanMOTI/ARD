@@ -11,6 +11,7 @@ namespace ARD
     
     bool operator==(const Size& other) const;
 
+  private:
     int width, height;
   };
 };
