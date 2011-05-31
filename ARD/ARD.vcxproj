@@ -19,6 +19,7 @@
     <ClInclude Include="include\mode_map.h" />
     <ClInclude Include="include\pressure.h" />
     <ClInclude Include="include\signal.h" />
+    <ClInclude Include="include\size.h" />
     <ClInclude Include="include\sound_field.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
