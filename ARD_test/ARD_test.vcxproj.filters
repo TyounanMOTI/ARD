@@ -11,9 +11,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test\pressure_test.cpp">
-      <Filter>テスト ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="test\sound_field_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
@@ -21,6 +18,9 @@
       <Filter>テスト ファイル</Filter>
     </ClCompile>
     <ClCompile Include="test\size_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\pressure_map_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
   </ItemGroup>

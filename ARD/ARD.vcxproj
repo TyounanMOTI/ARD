@@ -12,13 +12,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\mode_map.cpp" />
-    <ClCompile Include="src\pressure.cpp" />
+    <ClCompile Include="src\pressure_map.cpp" />
     <ClCompile Include="src\size.cpp" />
     <ClCompile Include="src\sound_field.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\mode_map.h" />
-    <ClInclude Include="include\pressure.h" />
+    <ClInclude Include="include\pressure_map.h" />
     <ClInclude Include="include\signal.h" />
     <ClInclude Include="include\size.h" />
     <ClInclude Include="include\sound_field.h" />

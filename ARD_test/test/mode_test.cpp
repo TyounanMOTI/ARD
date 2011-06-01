@@ -2,7 +2,7 @@
 #include <boost/scoped_ptr.hpp>
 #include <boost/shared_ptr.hpp>
 
-#include <pressure.h>
+#include <pressure_map.h>
 #include <mode_map.h>
 
 using namespace ARD;
@@ -21,8 +21,8 @@ protected:
 };
 
 TEST_F(ModeMapTest, InverseDCT) {
-  boost::scoped_ptr<Pressure> pressure(subject->InverseDCT());
-  EXPECT_EQ(pressure->GetSize(), subject->GetSize());
+  boost::scoped_ptr<PressureMap> PressureMap(subject->InverseDCT());
+  EXPECT_EQ(PressureMap->GetSize(), subject->GetSize());
 }
 
 TEST_F(ModeMapTest, GetSize) {

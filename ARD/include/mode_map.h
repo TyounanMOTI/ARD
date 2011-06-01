@@ -1,17 +1,17 @@
 #ifndef MODE_MAP_H
 #define MODE_MAP_H
 
-#include "pressure.h"
+#include "pressure_map.h"
 #include "size.h"
 
 namespace ARD
 {
-  class Pressure;
+  class PressureMap;
   class ModeMap
   {
   public:
     ModeMap(Size size) : size(size) {};
-    Pressure* InverseDCT();
+    PressureMap* InverseDCT();
     Size GetSize();
 
   private:
