@@ -17,10 +17,6 @@ protected:
   Size size;
 };
 
-TEST_F(PressureMapTest, GetSize) {
-  EXPECT_EQ(subject->GetSize(), size);
-}
-
 TEST_F(PressureMapTest, DCT) {
   EXPECT_EQ(subject->DCT()->GetSize(), subject->GetSize());
 }

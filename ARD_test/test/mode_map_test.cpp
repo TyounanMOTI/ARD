@@ -24,7 +24,3 @@ TEST_F(ModeMapTest, InverseDCT) {
   boost::scoped_ptr<PressureMap> PressureMap(subject->InverseDCT());
   EXPECT_EQ(PressureMap->GetSize(), subject->GetSize());
 }
-
-TEST_F(ModeMapTest, GetSize) {
-  EXPECT_EQ(subject->GetSize(), size);
-}
