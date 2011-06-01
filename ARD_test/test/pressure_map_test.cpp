@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <boost/shared_ptr.hpp>
+#include <boost/scoped_ptr.hpp>
 #include <pressure_map.h>
 #include <size.h>
 
@@ -18,5 +19,6 @@ protected:
 };
 
 TEST_F(PressureMapTest, DCT) {
-  EXPECT_EQ(subject->DCT()->GetSize(), subject->GetSize());
+  boost::scoped_ptr<ModeMap> transformed(subject->DCT());
+  EXPECT_EQ(transformed->GetSize(), subject->GetSize());
 }
