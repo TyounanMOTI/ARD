@@ -1,21 +1,18 @@
 #ifndef PRESSURE_MAP_H
 #define PRESSURE_MAP_H
 
+#include "multi_array.h"
 #include "mode_map.h"
 #include "size.h"
 
 namespace ARD
 {
   class ModeMap;
-  class PressureMap
+  class PressureMap : public MultiArray
   {
   public:
-    PressureMap(const Size size) : size(size) {};
+    PressureMap(Size size) : MultiArray(size) {};
     ModeMap* DCT();
-    Size GetSize();
-
-  private:
-    const Size size;
   };
 }
 
