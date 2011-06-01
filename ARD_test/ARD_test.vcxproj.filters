@@ -14,13 +14,13 @@
     <ClCompile Include="test\sound_field_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="test\mode_test.cpp">
-      <Filter>テスト ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="test\size_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
     <ClCompile Include="test\pressure_map_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="test\mode_map_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
   </ItemGroup>

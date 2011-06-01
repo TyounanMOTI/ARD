@@ -82,7 +82,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test\mode_test.cpp" />
+    <ClCompile Include="test\mode_map_test.cpp" />
     <ClCompile Include="test\pressure_map_test.cpp" />
     <ClCompile Include="test\size_test.cpp" />
     <ClCompile Include="test\sound_field_test.cpp" />
