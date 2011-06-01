@@ -4,13 +4,21 @@
 
 using namespace ARD;
 
-TEST(SizeTest, Euqality) {
-  Size subject(20, 10);
+class SizeTest : public testing::Test
+{
+protected:
+  virtual void SetUp() {
+    subject = Size(20, 10);
+  }
+
+  Size subject;
+};
+
+TEST_F(SizeTest, Euqality) {
   Size other(10, 20);
   EXPECT_FALSE(subject == other);
 }
 
-TEST(SizeTest, Length) {
-  Size subject(20, 10);
+TEST_F(SizeTest, Length) {
   EXPECT_EQ(subject.Length(), 200);
 }
