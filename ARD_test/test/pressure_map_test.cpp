@@ -18,7 +18,12 @@ protected:
   Size size;
 };
 
-TEST_F(PressureMapTest, DCT) {
+TEST_F(PressureMapTest, DCTReturnSameSize) {
   boost::scoped_ptr<ModeMap> transformed(subject->DCT());
   EXPECT_EQ(transformed->GetSize(), subject->GetSize());
+}
+
+TEST_F(PressureMapTest, UninitializedDCT) {
+  boost::scoped_ptr<ModeMap> transformed(subject->DCT());
+  EXPECT_EQ(transformed->GetData(0,0), 0.0);
 }
