@@ -10,3 +10,10 @@ TEST(MultiArrayTest, GetSize) {
   
   EXPECT_EQ(subject->GetSize(), size);
 }
+
+TEST(MultiArrayTest, GetArrayElement) {
+  Size size(20, 10);
+  boost::scoped_ptr<MultiArray> subject(new MultiArray(size));
+  
+  EXPECT_EQ(subject->GetData(0,0), 0.0);
+}

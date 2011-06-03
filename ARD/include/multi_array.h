@@ -11,6 +11,7 @@ namespace ARD
     MultiArray() : size(Size(0,0)) {};
     MultiArray(Size size) : size(size) {};
     Size GetSize();
+    double GetData(const int x, const int y);
 
   protected:
     Size size;
