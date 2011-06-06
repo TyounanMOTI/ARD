@@ -7,8 +7,6 @@
 
 namespace ARD
 {
-  typedef boost::shared_ptr<Microphone> MicrophonePointer;
-
   class ModePool
   {
   public:
