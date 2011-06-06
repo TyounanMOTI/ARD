@@ -3,6 +3,7 @@
 
 #include <boost/shared_ptr.hpp>
 #include "position.h"
+#include "signal.h"
 
 namespace ARD
 {
@@ -10,6 +11,7 @@ namespace ARD
   {
   public:
     Microphone(const Position position) : position(position) {};
+    Signal* Content();
 
   private:
     Position position;

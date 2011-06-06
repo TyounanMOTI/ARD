@@ -29,5 +29,8 @@
     <ClCompile Include="test\mode_pool_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="test\microphone_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
