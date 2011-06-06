@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test\mode_map_test.cpp" />
+    <ClCompile Include="test\mode_pool_test.cpp" />
     <ClCompile Include="test\multi_array_test.cpp" />
     <ClCompile Include="test\pressure_map_test.cpp" />
     <ClCompile Include="test\size_test.cpp" />

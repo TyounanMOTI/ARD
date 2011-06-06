@@ -12,14 +12,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\mode_map.cpp" />
+    <ClCompile Include="src\mode_pool.cpp" />
     <ClCompile Include="src\multi_array.cpp" />
     <ClCompile Include="src\pressure_map.cpp" />
     <ClCompile Include="src\size.cpp" />
     <ClCompile Include="src\sound_field.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\microphone.h" />
     <ClInclude Include="include\mode_map.h" />
+    <ClInclude Include="include\mode_pool.h" />
     <ClInclude Include="include\multi_array.h" />
+    <ClInclude Include="include\position.h" />
     <ClInclude Include="include\pressure_map.h" />
     <ClInclude Include="include\signal.h" />
     <ClInclude Include="include\size.h" />
@@ -71,6 +75,7 @@
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>./include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_ITERATOR_DEBUG_LEVEL=0;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
