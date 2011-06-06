@@ -27,3 +27,9 @@ TEST_F(PressureMapTest, UninitializedDCT) {
   boost::scoped_ptr<ModeMap> transformed(subject->DCT());
   EXPECT_EQ(transformed->GetData(0,0), 0.0);
 }
+
+TEST_F(PressureMapTest, Record) {
+  MicrophonePointer mic(new Microphone(Position(2,1)));
+  MicrophonePointer recorded(subject->Record(mic));
+  EXPECT_EQ(recorded, mic);
+}
