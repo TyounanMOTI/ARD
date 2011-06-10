@@ -9,3 +9,7 @@ std::vector<short> Signal::content() {
 const short Signal::at(const unsigned long pos) {
   return content_.at(pos);
 }
+
+const int Signal::length() {
+  return length_;
+}
