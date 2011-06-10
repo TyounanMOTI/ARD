@@ -5,14 +5,22 @@
 
 using namespace ARD;
 
-TEST(MicrophoneTest, InitialContentShouldEmpty) {
-  MicrophonePointer mic(new Microphone(Position(2, 1)));
-  EXPECT_TRUE(mic->Content().empty());
+class MicrophoneTest : public testing::Test
+{
+protected:
+  virtual void SetUp() {
+    subject = MicrophonePointer(new Microphone(Position(2, 1)));
+  }
+
+  MicrophonePointer subject;
+};
+
+TEST_F(MicrophoneTest, InitialContentShouldEmpty) {
+  EXPECT_TRUE(subject->Content().empty());
 }
 
-TEST(MicrophoneTest, Push) {
-  MicrophonePointer subject(new Microphone(Position(2,1)));
+TEST_F(MicrophoneTest, Push) {
   subject->Push(Pressure(10));
   subject->Push(Pressure(5));
-  EXPECT_EQ(subject->Content().front(), Pressure(10));
+  EXPECT_EQ(subject->Content().back(), Pressure(5));
 }
