@@ -12,15 +12,14 @@ class ModeMapTest : public testing::Test
 protected:
   virtual void SetUp() {
     size = Size(20, 10);
-    subject = ModeMapPtr(new ModeMap(size));
+    subject = ModeMapPointer(new ModeMap(size));
   }
 
-  typedef boost::shared_ptr<ModeMap> ModeMapPtr;
-  ModeMapPtr subject;
+  ModeMapPointer subject;
   Size size;
 };
 
 TEST_F(ModeMapTest, InverseDCT) {
-  boost::scoped_ptr<PressureMap> transformed(subject->InverseDCT());
+  PressureMapPointer transformed(subject->InverseDCT());
   EXPECT_EQ(transformed->size(), subject->size());
 }

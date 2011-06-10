@@ -10,16 +10,15 @@ class PressureMapTest : public testing::Test {
 protected:
   virtual void SetUp() {
     size = Size(30, 10);
-    subject = PressureMapPtr(new PressureMap(size));
+    subject = PressureMapPointer(new PressureMap(size));
   }
-
-  typedef boost::shared_ptr<PressureMap> PressureMapPtr;
-  PressureMapPtr subject;
+  
+  PressureMapPointer subject;
   Size size;
 };
 
 TEST_F(PressureMapTest, DCTReturnSameSize) {
-  boost::scoped_ptr<ModeMap> transformed(subject->DCT());
+  ModeMapPointer transformed(subject->DCT());
   EXPECT_EQ(transformed->size(), subject->size());
 }
 

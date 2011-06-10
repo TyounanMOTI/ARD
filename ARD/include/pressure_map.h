@@ -10,13 +10,17 @@
 namespace ARD
 {
   class ModeMap;
+  typedef boost::shared_ptr<ModeMap> ModeMapPointer;
+  
   class PressureMap : public MultiArray
   {
   public:
     PressureMap(Size size) : MultiArray(size) {};
-    ModeMap* DCT();
+    ModeMapPointer DCT();
     MicrophonePointer Record(MicrophonePointer microphone);
-  };
-}
+  };  
+
+  typedef boost::shared_ptr<PressureMap> PressureMapPointer;
+};
 
 #endif
