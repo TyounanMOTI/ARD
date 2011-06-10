@@ -18,15 +18,15 @@ protected:
 };
 
 TEST_F(MultiArrayTest, GetSize) {
-  EXPECT_EQ(subject->GetSize(), size);
+  EXPECT_EQ(subject->size(), size);
 }
 
 TEST_F(MultiArrayTest, GetArrayElement) {
-  subject->SetContent(Position(0,0), Pressure(0.0));
-  EXPECT_EQ(subject->Content(Position(0,0)), Pressure(0.0));
+  subject->set_content(Position(0,0), Pressure(0.0));
+  EXPECT_EQ(subject->content(Position(0,0)), Pressure(0.0));
 }
 
 TEST_F(MultiArrayTest, SetArrayElement) {
-  subject->SetContent(Position(0,0), Pressure(1.0));
-  EXPECT_EQ(subject->Content(Position(0,0)), Pressure(1.0));
+  subject->set_content(Position(0,0), Pressure(1.0));
+  EXPECT_EQ(subject->content(Position(0,0)), Pressure(1.0));
 }

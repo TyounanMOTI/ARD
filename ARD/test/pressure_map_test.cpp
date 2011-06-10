@@ -20,12 +20,12 @@ protected:
 
 TEST_F(PressureMapTest, DCTReturnSameSize) {
   boost::scoped_ptr<ModeMap> transformed(subject->DCT());
-  EXPECT_EQ(transformed->GetSize(), subject->GetSize());
+  EXPECT_EQ(transformed->size(), subject->size());
 }
 
 TEST_F(PressureMapTest, Record) {
   MicrophonePointer mic(new Microphone(Position(2,1)));
-  subject->SetContent(Position(2,1), Pressure(10));
+  subject->set_content(Position(2,1), Pressure(10));
   subject->Record(mic);
-  EXPECT_EQ(Pressure(10), mic->Content().back());
+  EXPECT_EQ(Pressure(10), mic->content().back());
 }

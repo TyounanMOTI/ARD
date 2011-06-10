@@ -20,7 +20,7 @@ protected:
 };
 
 TEST_F(SignalTest, InitializeWithContent) {
-  Content output = subject.Content();
+  Content output = subject.content();
   EXPECT_EQ(output[0], 5);
 }
 

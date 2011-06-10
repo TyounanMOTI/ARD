@@ -3,10 +3,10 @@
 using namespace ARD;
 
 ModeMap* PressureMap::DCT() {
-  return new ModeMap(GetSize());
+  return new ModeMap(size());
 }
 
 MicrophonePointer PressureMap::Record(MicrophonePointer microphone) {
-  microphone->Push(Content(microphone->position()));
+  microphone->Push(content(microphone->position()));
   return microphone;
 }

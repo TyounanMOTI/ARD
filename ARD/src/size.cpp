@@ -9,3 +9,11 @@ bool Size::operator==(const Size& other) const {
 int Size::Length() {
   return width_*height_;
 }
+
+const int Size::width() {
+  return width_;
+}
+
+const int Size::height() {
+  return height_;
+}

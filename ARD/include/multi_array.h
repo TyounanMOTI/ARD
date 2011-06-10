@@ -15,13 +15,13 @@ namespace ARD
     MultiArray() : size_(Size(0,0)) {};
     MultiArray(Size size);
     virtual ~MultiArray();
-    Size GetSize();
-    Pressure Content(Position position);
-    void SetContent(Position position, Pressure input);
+    Size size();
+    Pressure content(Position position);
+    void set_content(Position position, Pressure input);
 
   private:
     Size size_;
-    fftw_complex* content;
+    fftw_complex* content_;
   };
   
   const size_t MultiArrayIndexFromPosition(Position position, Size size);

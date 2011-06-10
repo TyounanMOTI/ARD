@@ -2,7 +2,7 @@
 
 using namespace ARD;
 
-PressureQueue Microphone::Content() {
+PressureQueue Microphone::content() {
   return content_;
 }
 
