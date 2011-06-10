@@ -8,7 +8,7 @@ namespace ARD
   class SoundField
   {
   public:
-    Signal* Update();
+    Signal Update();
   };
 }
 

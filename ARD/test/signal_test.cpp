@@ -10,25 +10,24 @@ class SignalTest : public testing::Test {
 protected:
   virtual void SetUp() {
     content.push_back(5);
-    subject = SignalPointer(new Signal(content));
+    subject = Signal(content);
   }
 
   typedef std::vector<short> Content;
-  typedef boost::shared_ptr<Signal> SignalPointer;
   Content content;
-  SignalPointer subject;
+  Signal subject;
 };
 
 TEST_F(SignalTest, InitializeWithContent) {
-  Content output = subject->Content();
+  Content output = subject.Content();
   EXPECT_EQ(output[0], 5);
 }
 
 TEST_F(SignalTest, ContentIsClonedAtInitialization) {
   content.push_back(10);
-  EXPECT_THROW(subject->at(1), std::out_of_range);
+  EXPECT_THROW(subject.at(1), std::out_of_range);
 }
 
 TEST_F(SignalTest, At) {
-  EXPECT_EQ(subject->at(0), 5);
+  EXPECT_EQ(subject.at(0), 5);
 }

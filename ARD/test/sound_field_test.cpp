@@ -6,6 +6,6 @@ using namespace ARD;
 
 TEST(SoundField, Update) {
   boost::scoped_ptr<SoundField> subject(new SoundField());
-  boost::scoped_ptr<Signal> signal(subject->Update());
-  EXPECT_TRUE(signal->length == 0);
+  Signal signal(subject->Update());
+  EXPECT_TRUE(signal.length == 0);
 }
