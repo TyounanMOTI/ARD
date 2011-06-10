@@ -11,10 +11,12 @@ namespace ARD
   {
   public:
     Microphone(const Position position) : position(position) {};
-    Signal* Content();
+    Microphone(const Position position, const Signal content) : position(position), content(content) {};
+    Signal Content();
 
   private:
     Position position;
+    Signal content;
   };
 
   typedef boost::shared_ptr<Microphone> MicrophonePointer;

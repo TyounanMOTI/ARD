@@ -2,6 +2,6 @@
 
 using namespace ARD;
 
-Signal* Microphone::Content() {
-  return new Signal();
+Signal Microphone::Content() {
+  return content;
 }
