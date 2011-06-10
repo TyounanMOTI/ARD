@@ -3,7 +3,7 @@
 using namespace ARD;
 
 ModeMap* PressureMap::DCT() {
-  return new ModeMap(size_);
+  return new ModeMap(GetSize());
 }
 
 MicrophonePointer PressureMap::Record(MicrophonePointer microphone) {

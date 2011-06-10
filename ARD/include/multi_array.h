@@ -13,7 +13,7 @@ namespace ARD
     Size GetSize();
     double GetData(const int x, const int y);
 
-  protected:
+  private:
     Size size_;
   };
 };
