@@ -24,3 +24,11 @@ TEST_F(MicrophoneTest, Push) {
   subject->Push(Pressure(5));
   EXPECT_EQ(subject->Content().back(), Pressure(5));
 }
+
+TEST_F(MicrophoneTest, Pop) {
+  subject->Push(Pressure(10));
+  subject->Push(Pressure(30));
+  subject->Push(Pressure(50));
+  subject->Pop(2);
+  EXPECT_EQ(subject->Content().back(), 50);
+}

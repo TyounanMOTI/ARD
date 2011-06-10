@@ -17,6 +17,7 @@ namespace ARD
     Microphone(const Position position) : position(position) {};
     PressureQueue Content();
     void Push(const Pressure input);
+    void Pop(const int amount);
 
   private:
     Position position;
