@@ -6,6 +6,6 @@ std::vector<short> Signal::Content() {
   return content;
 }
 
-short Signal::at(const unsigned long pos) {
+const short Signal::at(const unsigned long pos) {
   return content.at(pos);
 }

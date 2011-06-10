@@ -20,14 +20,13 @@ protected:
 };
 
 TEST_F(SignalTest, InitializeWithContent) {
-  std::vector<short> output = subject->Content();
+  Content output = subject->Content();
   EXPECT_EQ(output[0], 5);
 }
 
 TEST_F(SignalTest, ContentIsClonedAtInitialization) {
   content.push_back(10);
-  std::vector<short> output = subject->Content();
-  EXPECT_NE(output[1], 10);
+  EXPECT_THROW(subject->at(1), std::out_of_range);
 }
 
 TEST_F(SignalTest, At) {
