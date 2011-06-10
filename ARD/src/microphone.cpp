@@ -2,6 +2,10 @@
 
 using namespace ARD;
 
-Signal Microphone::Content() {
+PressureQueue Microphone::Content() {
   return content;
+}
+
+void Microphone::Push(Pressure pressure) {
+  content.push(pressure);
 }

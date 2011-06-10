@@ -7,13 +7,11 @@ using namespace ARD;
 
 TEST(MicrophoneTest, InitialContentShouldEmpty) {
   MicrophonePointer mic(new Microphone(Position(2, 1)));
-  EXPECT_EQ(mic->Content().length, 0);
+  EXPECT_TRUE(mic->Content().empty());
 }
 
-TEST(MicrophoneTest, InitializeWithContent) {
-  std::vector<short> content;
-  content.push_back(5);
-  Signal input = Signal(content);
-  MicrophonePointer mic(new Microphone(Position(2,1), input));
-  EXPECT_EQ(mic->Content().at(0), 5);
+TEST(MicrophoneTest, Push) {
+  MicrophonePointer subject(new Microphone(Position(2,1)));
+  subject->Push(Pressure(10));
+  EXPECT_EQ(subject->Content().front(), Pressure(10));
 }
