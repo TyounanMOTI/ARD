@@ -12,4 +12,5 @@ namespace ARD
     const long x_, y_;
   };
 };
-#endif // POSITION_H
+
+#endif //POSITION_H
