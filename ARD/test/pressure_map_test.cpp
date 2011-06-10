@@ -25,7 +25,7 @@ TEST_F(PressureMapTest, DCTReturnSameSize) {
 
 TEST_F(PressureMapTest, UninitializedDCT) {
   boost::scoped_ptr<ModeMap> transformed(subject->DCT());
-  EXPECT_EQ(transformed->GetData(Position(0,0)), 0.0);
+  EXPECT_EQ(transformed->Content(Position(0,0)), 0.0);
 }
 
 TEST_F(PressureMapTest, Record) {

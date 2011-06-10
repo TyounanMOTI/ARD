@@ -16,8 +16,8 @@ namespace ARD
     MultiArray(Size size);
     virtual ~MultiArray();
     Size GetSize();
-    Pressure GetData(Position position);
-    void SetData(Position position, Pressure input);
+    Pressure Content(Position position);
+    void SetContent(Position position, Pressure input);
 
   private:
     Size size_;

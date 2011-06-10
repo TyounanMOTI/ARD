@@ -15,10 +15,10 @@ Size MultiArray::GetSize() {
   return size_;
 }
 
-Pressure MultiArray::GetData(Position position) {
+Pressure MultiArray::Content(Position position) {
   return content[position.Y() + position.X()*size_.Height()][0];
 }
 
-void MultiArray::SetData(Position position, double input) {
+void MultiArray::SetContent(Position position, double input) {
   content[position.Y() + position.X()*size_.Height()][0] = input;
 }
