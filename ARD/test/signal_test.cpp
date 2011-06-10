@@ -29,3 +29,7 @@ TEST_F(SignalTest, ContentIsClonedAtInitialization) {
   std::vector<short> output = subject->Content();
   EXPECT_NE(output[1], 10);
 }
+
+TEST_F(SignalTest, At) {
+  EXPECT_EQ(subject->at(0), 5);
+}
