@@ -23,3 +23,9 @@ TEST_F(SignalTest, InitializeWithContent) {
   std::vector<short> output = subject->Content();
   EXPECT_EQ(output[0], 5);
 }
+
+TEST_F(SignalTest, ContentIsClonedAtInitialization) {
+  content.push_back(10);
+  std::vector<short> output = subject->Content();
+  EXPECT_NE(output[1], 10);
+}
