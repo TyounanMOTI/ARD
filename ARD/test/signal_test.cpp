@@ -2,6 +2,7 @@
 #include <boost/scoped_ptr.hpp>
 #include <boost/shared_ptr.hpp>
 #include <vector>
+#include <stdexcept>
 #include <signal.h>
 
 using namespace ARD;
