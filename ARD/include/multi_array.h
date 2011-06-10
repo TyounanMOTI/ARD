@@ -2,6 +2,7 @@
 #define MULTI_ARRAY_H
 
 #include <size.h>
+#include "position.h"
 
 namespace ARD
 {
@@ -11,7 +12,7 @@ namespace ARD
     MultiArray() : size_(Size(0,0)) {};
     MultiArray(Size size) : size_(size) {};
     Size GetSize();
-    double GetData(const int x, const int y);
+    double GetData(Position position);
 
   private:
     Size size_;

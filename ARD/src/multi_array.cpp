@@ -6,6 +6,6 @@ Size MultiArray::GetSize() {
   return size_;
 }
 
-double MultiArray::GetData(const int x, const int y) {
+double MultiArray::GetData(Position position) {
   return 0.0;
 }
