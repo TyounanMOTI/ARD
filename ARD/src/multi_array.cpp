@@ -16,9 +16,13 @@ Size MultiArray::GetSize() {
 }
 
 Pressure MultiArray::Content(Position position) {
-  return content[position.Y() + position.X()*size_.Height()][0];
+  return content[MultiArrayIndexFromPosition(position, size_)][0];
 }
 
 void MultiArray::SetContent(Position position, double input) {
-  content[position.Y() + position.X()*size_.Height()][0] = input;
+  content[MultiArrayIndexFromPosition(position, size_)][0] = input;
+}
+
+const size_t ARD::MultiArrayIndexFromPosition(Position position, Size size) {
+  return position.Y() + position.X()*size.Height();
 }

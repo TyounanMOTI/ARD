@@ -23,6 +23,8 @@ namespace ARD
     Size size_;
     fftw_complex* content;
   };
+  
+  const size_t MultiArrayIndexFromPosition(Position position, Size size);
 };
 
 #endif
