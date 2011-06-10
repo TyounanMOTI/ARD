@@ -6,6 +6,10 @@ PressureQueue Microphone::Content() {
   return content_;
 }
 
+const Position Microphone::position() {
+  return position_;
+}
+
 void Microphone::Push(Pressure pressure) {
   content_.push(pressure);
 }

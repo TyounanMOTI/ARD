@@ -25,6 +25,7 @@ TEST_F(PressureMapTest, DCTReturnSameSize) {
 
 TEST_F(PressureMapTest, Record) {
   MicrophonePointer mic(new Microphone(Position(2,1)));
-  MicrophonePointer recorded(subject->Record(mic));
-  EXPECT_EQ(recorded, mic);
+  subject->SetContent(Position(2,1), Pressure(10));
+  subject->Record(mic);
+  EXPECT_EQ(Pressure(10), mic->Content().back());
 }

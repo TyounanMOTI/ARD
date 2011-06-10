@@ -16,11 +16,12 @@ namespace ARD
   public:
     Microphone(const Position position) : position_(position) {};
     PressureQueue Content();
+    const Position position();
     void Push(const Pressure input);
     void Pop(const int amount);
 
   private:
-    Position position_;
+    class Position position_;
     PressureQueue content_;
   };
 

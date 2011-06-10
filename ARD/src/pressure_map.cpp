@@ -7,5 +7,6 @@ ModeMap* PressureMap::DCT() {
 }
 
 MicrophonePointer PressureMap::Record(MicrophonePointer microphone) {
+  microphone->Push(Content(microphone->position()));
   return microphone;
 }
