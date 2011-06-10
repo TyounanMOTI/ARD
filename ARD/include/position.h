@@ -6,10 +6,10 @@ namespace ARD
   class Position
   {
   public:
-    Position(const long x, const long y) : x(x), y(y) {};
+    Position(const long x, const long y) : x_(x), y_(y) {};
 
   private:
-    const long x, y;
+    const long x_, y_;
   };
 };
 #endif // POSITION_H

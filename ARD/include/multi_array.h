@@ -8,13 +8,13 @@ namespace ARD
   class MultiArray
   {
   public:
-    MultiArray() : size(Size(0,0)) {};
-    MultiArray(Size size) : size(size) {};
+    MultiArray() : size_(Size(0,0)) {};
+    MultiArray(Size size) : size_(size) {};
     Size GetSize();
     double GetData(const int x, const int y);
 
   protected:
-    Size size;
+    Size size_;
   };
 };
 

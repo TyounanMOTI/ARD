@@ -14,14 +14,14 @@ namespace ARD
   class Microphone
   {
   public:
-    Microphone(const Position position) : position(position) {};
+    Microphone(const Position position) : position_(position) {};
     PressureQueue Content();
     void Push(const Pressure input);
     void Pop(const int amount);
 
   private:
-    Position position;
-    PressureQueue content;
+    Position position_;
+    PressureQueue content_;
   };
 
   typedef boost::shared_ptr<Microphone> MicrophonePointer;

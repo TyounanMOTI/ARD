@@ -6,15 +6,15 @@ namespace ARD
   class Size
   {
   public:
-    Size() : width(0), height(0) {};
-    Size(int width, int height) : width(width), height(height) {};
+    Size() : width_(0), height_(0) {};
+    Size(int width, int height) : width_(width), height_(height) {};
 
     int Length();
     
     bool operator==(const Size& other) const;
 
   private:
-    int width, height;
+    int width_, height_;
   };
 };
 

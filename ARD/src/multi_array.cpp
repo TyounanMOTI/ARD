@@ -3,7 +3,7 @@
 using namespace ARD;
 
 Size MultiArray::GetSize() {
-  return size;
+  return size_;
 }
 
 double MultiArray::GetData(const int x, const int y) {

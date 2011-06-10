@@ -8,15 +8,15 @@ namespace ARD
   class Signal
   {
   public:
-    explicit Signal() : length(0) {};
-    explicit Signal(std::vector<short> content) : content(content) {};
+    explicit Signal() : length_(0) {};
+    explicit Signal(std::vector<short> content) : content_(content) {};
     std::vector<short> Content();
     const short at(const unsigned long pos);
 
-    int length;
+    int length_;
 
   private:
-    std::vector<short> content;
+    std::vector<short> content_;
   };
 }
 
