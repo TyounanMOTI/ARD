@@ -13,5 +13,6 @@ TEST(MicrophoneTest, InitialContentShouldEmpty) {
 TEST(MicrophoneTest, Push) {
   MicrophonePointer subject(new Microphone(Position(2,1)));
   subject->Push(Pressure(10));
+  subject->Push(Pressure(5));
   EXPECT_EQ(subject->Content().front(), Pressure(10));
 }
