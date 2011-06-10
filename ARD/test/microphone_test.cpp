@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 #include <boost/scoped_ptr.hpp>
 #include <microphone.h>
-#include <signal.h>
 
 using namespace ARD;
 
