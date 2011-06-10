@@ -5,10 +5,10 @@
 #include <queue>
 #include "position.h"
 #include "signal.h"
+#include "pressure.h"
 
 namespace ARD
 {
-  typedef double Pressure;
   typedef std::queue<Pressure> PressureQueue;
 
   class Microphone

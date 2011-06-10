@@ -3,7 +3,6 @@
 #include <multi_array.h>
 
 using namespace ARD;
-typedef boost::shared_ptr<MultiArray> MultiArrayPtr;
 
 class MultiArrayTest : public testing::Test
 {
@@ -14,6 +13,7 @@ protected:
   }
   
   Size size;
+  typedef boost::shared_ptr<MultiArray> MultiArrayPtr;
   MultiArrayPtr subject;
 };
 
@@ -22,5 +22,11 @@ TEST_F(MultiArrayTest, GetSize) {
 }
 
 TEST_F(MultiArrayTest, GetArrayElement) {
-  EXPECT_EQ(subject->GetData(Position(0,0)), 0.0);
+  subject->SetData(Position(0,0), Pressure(0.0));
+  EXPECT_EQ(subject->GetData(Position(0,0)), Pressure(0.0));
+}
+
+TEST_F(MultiArrayTest, SetArrayElement) {
+  subject->SetData(Position(0,0), Pressure(1.0));
+  EXPECT_EQ(subject->GetData(Position(0,0)), Pressure(1.0));
 }

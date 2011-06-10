@@ -2,10 +2,23 @@
 
 using namespace ARD;
 
+MultiArray::MultiArray(Size size) : size_(size) {
+  content = static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex)*size_.Length()));
+
+}
+
+MultiArray::~MultiArray() {
+  fftw_free(content);
+}
+
 Size MultiArray::GetSize() {
   return size_;
 }
 
-double MultiArray::GetData(Position position) {
-  return 0.0;
+Pressure MultiArray::GetData(Position position) {
+  return content[position.Y() + position.X()*size_.Height()][0];
+}
+
+void MultiArray::SetData(Position position, double input) {
+  content[position.Y() + position.X()*size_.Height()][0] = input;
 }

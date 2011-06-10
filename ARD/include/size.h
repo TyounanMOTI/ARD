@@ -10,6 +10,8 @@ namespace ARD
     Size(int width, int height) : width_(width), height_(height) {};
 
     int Length();
+    const int Width() { return width_; };
+    const int Height() { return height_; };
     
     bool operator==(const Size& other) const;
 
