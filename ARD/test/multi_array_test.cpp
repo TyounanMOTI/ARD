@@ -35,5 +35,9 @@ TEST_F(MultiArrayTest, InitializeWithFFTWComplexArray) {
   content[MultiArrayIndexFromPosition(Position(5,3), size)][0] = Pressure(1.0);
   subject = MultiArrayPointer(new MultiArray(size, content));
   EXPECT_EQ(Pressure(1.0), subject->content(Position(5,3)));
+  
+  // still can change content's value?
+  subject->set_content(Position(5,3), Pressure(5.0));
+  EXPECT_EQ(Pressure(5.0), subject->content(Position(5,3)));
 }
 

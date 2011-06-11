@@ -15,8 +15,8 @@ namespace ARD
   {
   public:
     MultiArray() : size_(Size(0,0)) {};
-    MultiArray(Size size);
-    MultiArray(Size size, FFTWComplexArray content) : size_(size), content_(content) {};
+    MultiArray(const Size& size);
+    MultiArray(const Size& size, const FFTWComplexArray& content) : size_(size), content_(content) {};
     virtual ~MultiArray() {};
     
     const Size size() const;
