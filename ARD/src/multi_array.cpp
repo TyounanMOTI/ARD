@@ -3,12 +3,9 @@
 using namespace ARD;
 
 MultiArray::MultiArray(Size size) : size_(size) {
-  content_ = static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex)*size_.Length()));
+  content_ = FFTWComplexArray(static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex)*size_.Length())),
+                              fftw_free);
 
-}
-
-MultiArray::~MultiArray() {
-  fftw_free(content_);
 }
 
 Size MultiArray::size() {

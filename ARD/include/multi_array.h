@@ -9,19 +9,21 @@
 
 namespace ARD
 {
+  typedef boost::shared_array<fftw_complex> FFTWComplexArray;
   class MultiArray
   {
   public:
     MultiArray() : size_(Size(0,0)) {};
     MultiArray(Size size);
-    virtual ~MultiArray();
+    virtual ~MultiArray() {};
+    
     Size size();
     Pressure content(Position position);
     void set_content(Position position, Pressure input);
 
   private:
     Size size_;
-    fftw_complex* content_;
+    FFTWComplexArray content_;
   };
   
   const size_t MultiArrayIndexFromPosition(Position position, Size size);
