@@ -9,12 +9,11 @@ class MultiArrayTest : public testing::Test
 protected:
   virtual void SetUp() {
     size = Size(20, 10);
-    subject = MultiArrayPtr(new MultiArray(size));
+    subject = MultiArrayPointer(new MultiArray(size));
   }
   
   Size size;
-  typedef boost::shared_ptr<MultiArray> MultiArrayPtr;
-  MultiArrayPtr subject;
+  MultiArrayPointer subject;
 };
 
 TEST_F(MultiArrayTest, GetSize) {
@@ -30,3 +29,4 @@ TEST_F(MultiArrayTest, SetArrayElement) {
   subject->set_content(Position(0,0), Pressure(1.0));
   EXPECT_EQ(subject->content(Position(0,0)), Pressure(1.0));
 }
+

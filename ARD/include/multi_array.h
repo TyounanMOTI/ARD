@@ -4,6 +4,7 @@
 #include <size.h>
 #include <fftw3.h>
 #include <boost/shared_array.hpp>
+#include <boost/shared_ptr.hpp>
 #include "position.h"
 #include "pressure.h"
 
@@ -25,6 +26,8 @@ namespace ARD
     const Size size_;
     FFTWComplexArray content_;
   };
+  
+  typedef boost::shared_ptr<MultiArray> MultiArrayPointer;
   
   const size_t MultiArrayIndexFromPosition(const Position& position, const Size& size);
 };
