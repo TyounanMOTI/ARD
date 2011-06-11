@@ -21,7 +21,7 @@ protected:
 
 TEST_F(SignalTest, InitializeWithContent) {
   Content output = subject.content();
-  EXPECT_EQ(output[0], 5);
+  EXPECT_EQ(5, output[0]);
 }
 
 TEST_F(SignalTest, ContentIsClonedAtInitialization) {
@@ -30,5 +30,5 @@ TEST_F(SignalTest, ContentIsClonedAtInitialization) {
 }
 
 TEST_F(SignalTest, At) {
-  EXPECT_EQ(subject.at(0), 5);
+  EXPECT_EQ(5, subject.at(0));
 }

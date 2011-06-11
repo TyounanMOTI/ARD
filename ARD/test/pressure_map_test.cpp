@@ -19,7 +19,7 @@ protected:
 
 TEST_F(PressureMapTest, DCTReturnSameSize) {
   ModeMapPointer transformed(subject->DCT());
-  EXPECT_EQ(transformed->size(), subject->size());
+  EXPECT_EQ(subject->size(), transformed->size());
 }
 
 TEST_F(PressureMapTest, Record) {

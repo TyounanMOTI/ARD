@@ -21,7 +21,7 @@ TEST_F(MicrophoneTest, InitialContentShouldEmpty) {
 TEST_F(MicrophoneTest, Push) {
   subject->Push(Pressure(10));
   subject->Push(Pressure(5));
-  EXPECT_EQ(subject->content().back(), Pressure(5));
+  EXPECT_EQ(Pressure(5), subject->content().back());
 }
 
 TEST_F(MicrophoneTest, Pop) {
@@ -29,5 +29,5 @@ TEST_F(MicrophoneTest, Pop) {
   subject->Push(Pressure(30));
   subject->Push(Pressure(50));
   subject->Pop(2);
-  EXPECT_EQ(subject->content().back(), 50);
+  EXPECT_EQ(50, subject->content().back());
 }

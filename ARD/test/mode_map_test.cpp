@@ -21,5 +21,5 @@ protected:
 
 TEST_F(ModeMapTest, InverseDCT) {
   PressureMapPointer transformed(subject->InverseDCT());
-  EXPECT_EQ(transformed->size(), subject->size());
+  EXPECT_EQ(subject->size(), transformed->size());
 }

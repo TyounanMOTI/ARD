@@ -17,17 +17,17 @@ protected:
 };
 
 TEST_F(MultiArrayTest, GetSize) {
-  EXPECT_EQ(subject->size(), size);
+  EXPECT_EQ(size, subject->size());
 }
 
 TEST_F(MultiArrayTest, GetArrayElement) {
   subject->set_content(Position(0,0), Pressure(0.0));
-  EXPECT_EQ(subject->content(Position(0,0)), Pressure(0.0));
+  EXPECT_EQ(Pressure(0.0), subject->content(Position(0,0)));
 }
 
 TEST_F(MultiArrayTest, SetArrayElement) {
   subject->set_content(Position(0,0), Pressure(1.0));
-  EXPECT_EQ(subject->content(Position(0,0)), Pressure(1.0));
+  EXPECT_EQ(Pressure(1.0), subject->content(Position(0,0)));
 }
 
 TEST_F(MultiArrayTest, InitializeWithFFTWComplexArray) {

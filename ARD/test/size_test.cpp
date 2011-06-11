@@ -16,9 +16,9 @@ protected:
 
 TEST_F(SizeTest, Euqality) {
   Size other(10, 20);
-  EXPECT_FALSE(subject == other);
+  EXPECT_FALSE(other == subject);
 }
 
 TEST_F(SizeTest, Length) {
-  EXPECT_EQ(subject.Length(), 200);
+  EXPECT_EQ(200, subject.Length());
 }

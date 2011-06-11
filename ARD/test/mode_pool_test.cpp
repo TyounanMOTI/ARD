@@ -12,5 +12,5 @@ TEST(ModePoolTest, Update) {
   MicrophonePointer mic(new Microphone(Position(5, 3)));
   MicrophonePointer result(subject->Update(mic));
 
-  EXPECT_EQ(mic, result);
+  EXPECT_EQ(result, mic);
 }
