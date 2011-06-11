@@ -6,14 +6,14 @@ bool Size::operator==(const Size& other) const {
   return ((width_ == other.width_) && (height_ == other.height_));
 }
 
-int Size::Length() {
+int Size::Length() const {
   return width_*height_;
 }
 
-const int Size::width() {
+int Size::width() const {
   return width_;
 }
 
-const int Size::height() {
+int Size::height() const {
   return height_;
 }

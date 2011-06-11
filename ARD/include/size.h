@@ -9,9 +9,9 @@ namespace ARD
     Size() : width_(0), height_(0) {};
     Size(int width, int height) : width_(width), height_(height) {};
 
-    int Length();
-    const int width();
-    const int height();
+    int Length() const;
+    int width() const;
+    int height() const;
     
     bool operator==(const Size& other) const;
 

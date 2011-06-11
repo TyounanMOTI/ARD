@@ -26,7 +26,7 @@ namespace ARD
     FFTWComplexArray content_;
   };
   
-  const size_t MultiArrayIndexFromPosition(Position position, Size size);
+  const size_t MultiArrayIndexFromPosition(const Position& position, const Size& size);
 };
 
 #endif

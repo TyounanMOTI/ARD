@@ -20,6 +20,6 @@ void MultiArray::set_content(Position position, double input) {
   content_[MultiArrayIndexFromPosition(position, size_)][0] = input;
 }
 
-const size_t ARD::MultiArrayIndexFromPosition(Position position, Size size) {
+const size_t ARD::MultiArrayIndexFromPosition(const Position& position, const Size& size) {
   return position.y() + position.x()*size.height();
 }
