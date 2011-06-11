@@ -14,8 +14,8 @@ namespace ARD
   class ModeMap : public MultiArray
   {
   public:
-    ModeMap(Size size) : MultiArray(size) {};
-    PressureMapPointer InverseDCT();
+    ModeMap(const Size& size) : MultiArray(size) {};
+    PressureMapPointer InverseDCT() const;
   };  
 
   typedef boost::shared_ptr<ModeMap> ModeMapPointer;

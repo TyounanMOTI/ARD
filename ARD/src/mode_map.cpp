@@ -2,6 +2,6 @@
 
 using namespace ARD;
 
-PressureMapPointer ModeMap::InverseDCT() {
+PressureMapPointer ModeMap::InverseDCT() const {
   return PressureMapPointer(new PressureMap(size()));
 }

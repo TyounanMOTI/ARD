@@ -17,12 +17,12 @@ namespace ARD
     MultiArray(Size size);
     virtual ~MultiArray() {};
     
-    Size size();
-    Pressure content(Position position);
-    void set_content(Position position, Pressure input);
+    const Size size() const;
+    const Pressure content(const Position& position) const;
+    void set_content(const Position& position, const Pressure& input);
 
   private:
-    Size size_;
+    const Size size_;
     FFTWComplexArray content_;
   };
   

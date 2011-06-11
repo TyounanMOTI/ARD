@@ -14,14 +14,14 @@ namespace ARD
   class Microphone
   {
   public:
-    Microphone(const Position position) : position_(position) {};
-    PressureQueue content();
-    const Position position();
-    void Push(const Pressure input);
+    Microphone(const Position& position) : position_(position) {};
+    const PressureQueue content() const;
+    const Position position() const;
+    void Push(const Pressure& input);
     void Pop(const int amount);
 
   private:
-    class Position position_;
+    Position position_;
     PressureQueue content_;
   };
 

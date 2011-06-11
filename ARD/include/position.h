@@ -7,8 +7,8 @@ namespace ARD
   {
   public:
     Position(const long x, const long y) : x_(x), y_(y) {};
-    const long x() const { return x_; };
-    const long y() const { return y_; };
+    long x() const { return x_; };
+    long y() const { return y_; };
 
   private:
     const long x_, y_;

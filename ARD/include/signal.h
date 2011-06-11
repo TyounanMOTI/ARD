@@ -10,9 +10,9 @@ namespace ARD
   public:
     explicit Signal() : length_(0) {};
     explicit Signal(std::vector<short> content) : content_(content) {};
-    std::vector<short> content();
-    const short at(const unsigned long pos);
-    const int length();
+    std::vector<short> content() const;
+    short at(const unsigned long pos) const;
+    int length() const;
     
   private:
     int length_;

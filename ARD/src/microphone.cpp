@@ -2,15 +2,15 @@
 
 using namespace ARD;
 
-PressureQueue Microphone::content() {
+const PressureQueue Microphone::content() const {
   return content_;
 }
 
-const Position Microphone::position() {
+const Position Microphone::position() const {
   return position_;
 }
 
-void Microphone::Push(Pressure pressure) {
+void Microphone::Push(const Pressure& pressure) {
   content_.push(pressure);
 }
 

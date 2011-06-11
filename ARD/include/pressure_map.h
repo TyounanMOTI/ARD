@@ -15,9 +15,9 @@ namespace ARD
   class PressureMap : public MultiArray
   {
   public:
-    PressureMap(Size size) : MultiArray(size) {};
-    ModeMapPointer DCT();
-    MicrophonePointer Record(MicrophonePointer microphone);
+    PressureMap(const Size& size) : MultiArray(size) {};
+    ModeMapPointer DCT() const;
+    MicrophonePointer Record(MicrophonePointer microphone) const;
   };  
 
   typedef boost::shared_ptr<PressureMap> PressureMapPointer;

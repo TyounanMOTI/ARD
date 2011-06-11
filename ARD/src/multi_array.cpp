@@ -8,15 +8,15 @@ MultiArray::MultiArray(Size size) : size_(size) {
 
 }
 
-Size MultiArray::size() {
+const Size MultiArray::size() const {
   return size_;
 }
 
-Pressure MultiArray::content(Position position) {
+const Pressure MultiArray::content(const Position& position) const {
   return content_[MultiArrayIndexFromPosition(position, size_)][0];
 }
 
-void MultiArray::set_content(Position position, double input) {
+void MultiArray::set_content(const Position& position, const Pressure& input) {
   content_[MultiArrayIndexFromPosition(position, size_)][0] = input;
 }
 

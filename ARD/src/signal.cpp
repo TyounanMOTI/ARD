@@ -2,14 +2,14 @@
 
 using namespace ARD;
 
-std::vector<short> Signal::content() {
+std::vector<short> Signal::content() const {
   return content_;
 }
 
-const short Signal::at(const unsigned long pos) {
+short Signal::at(const unsigned long pos) const {
   return content_.at(pos);
 }
 
-const int Signal::length() {
+int Signal::length() const {
   return length_;
 }
