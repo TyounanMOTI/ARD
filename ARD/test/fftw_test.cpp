@@ -43,12 +43,12 @@ TEST(FFTWTest, DFT) {
 }
 
 TEST(FFTWTest, DCT) {
-  size_t size = 128;
+  int size = 128;
   boost::shared_array<double> input(static_cast<double*>(fftw_malloc(sizeof(double)*size)), fftw_free);
   boost::shared_array<double> output(static_cast<double*>(fftw_malloc(sizeof(double)*size)), fftw_free);
  
   fftw_plan plan = fftw_plan_r2r_1d(size, input.get(), output.get(), FFTW_REDFT10, FFTW_MEASURE);
-  for (size_t i = 0; i < size; i++) {
+  for (int i = 0; i < size; i++) {
     input[i] = 10.0;
   }
   fftw_execute(plan);
