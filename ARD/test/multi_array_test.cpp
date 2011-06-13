@@ -31,7 +31,8 @@ TEST_F(MultiArrayTest, SetArrayElement) {
 }
 
 TEST_F(MultiArrayTest, InitializeWithFFTWComplexArray) {
-  FFTWComplexArray content = FFTWComplexArray(static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex)*size.Length())));
+  FFTWComplexArray content = FFTWComplexArray(static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex)*size.Length())),
+                                              fftw_free);
   content[MultiArrayIndexFromPosition(Position(5,3), size)][0] = Pressure(1.0);
   subject = MultiArrayPointer(new MultiArray(size, content));
   EXPECT_EQ(Pressure(1.0), subject->content(Position(5,3)));
