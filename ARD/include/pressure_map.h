@@ -11,6 +11,7 @@ namespace ARD
 {
   class ModeMap;
   typedef boost::shared_ptr<ModeMap> ModeMapPointer;
+  typedef double Pressure;
   
   class PressureMap : public MultiArray
   {

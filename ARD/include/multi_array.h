@@ -10,13 +10,13 @@
 
 namespace ARD
 {
-  typedef boost::shared_array<fftw_complex> FFTWComplexArray;
+  typedef boost::shared_array<double> FFTWArray;
   class MultiArray
   {
   public:
     MultiArray() : size_(Size(0,0)) {};
     MultiArray(const Size& size);
-    MultiArray(const Size& size, const FFTWComplexArray& content) : size_(size), content_(content) {};
+    MultiArray(const Size& size, const FFTWArray& content) : size_(size), content_(content) {};
     virtual ~MultiArray() {};
     
     const Size size() const;
@@ -25,7 +25,7 @@ namespace ARD
 
   private:
     const Size size_;
-    FFTWComplexArray content_;
+    FFTWArray content_;
   };
   
   typedef boost::shared_ptr<MultiArray> MultiArrayPointer;

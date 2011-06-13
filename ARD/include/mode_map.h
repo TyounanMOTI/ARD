@@ -10,7 +10,8 @@ namespace ARD
 {
   class PressureMap;
   typedef boost::shared_ptr<PressureMap> PressureMapPointer;
-  
+  typedef double ModeCoefficient;
+
   class ModeMap : public MultiArray
   {
   public:
