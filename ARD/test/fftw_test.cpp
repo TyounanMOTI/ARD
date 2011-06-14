@@ -17,6 +17,16 @@ void PlotFFTWRealArray(size_t size, double* input) {
   }
 }
 
+void OutputFFTWReal2DArray(int width, int height, double* input) {
+  std::ofstream ofs("data.txt", std::ios::out | std::ios::trunc);
+  for (int row = 0; row < height; row++) {
+    for (int col = 0; col < width; col++) {
+      ofs << input[row*width + col] << ' ';
+    }
+    ofs << std::endl;
+  }
+}
+
 TEST(FFTWTest, initialization) {
   fftw_complex* subject = static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex) * 100));
   subject[0][0] = 4.0;
@@ -56,5 +66,26 @@ TEST(FFTWTest, DCT) {
   EXPECT_EQ(size*2*10.0, output[0]);
 //  PlotFFTWRealArray(size, output.get());
 
+  fftw_destroy_plan(plan);
+}
+
+TEST(FFTWTest, DCT2D) {
+  int width = 128;
+  int height = 128;
+  int length = width*height;
+  boost::shared_array<double> input(static_cast<double*>(fftw_malloc(sizeof(double)*length)), fftw_free);
+  boost::shared_array<double> output(static_cast<double*>(fftw_malloc(sizeof(double)*length)), fftw_free);
+  
+  fftw_plan plan = fftw_plan_r2r_2d(width, height, input.get(), output.get(), FFTW_REDFT10, FFTW_REDFT10, FFTW_MEASURE);
+  for (int row = 0; row < height; row++) {
+    for (int col = 0; col < width; col++) {
+      input[row*width + col] = 1.0;
+    }
+  }
+  fftw_execute(plan);
+  OutputFFTWReal2DArray(width, height, output.get());
+  EXPECT_EQ(2*2*width*height*1.0, output[0]);
+  EXPECT_EQ(0, output[100]);
+  
   fftw_destroy_plan(plan);
 }
