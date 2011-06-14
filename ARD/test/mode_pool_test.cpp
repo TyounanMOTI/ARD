@@ -5,7 +5,7 @@
 
 using namespace ARD;
 
-TEST(ModePoolTest, Update) {
+TEST(ModePoolTest, UpdateReturnsSuppliedMicrophone) {
   boost::scoped_ptr<ModePool> subject(new ModePool());
 
   typedef boost::shared_ptr<Microphone> MicrophonePointer;
