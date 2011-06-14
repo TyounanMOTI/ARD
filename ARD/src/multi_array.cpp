@@ -3,7 +3,7 @@
 using namespace ARD;
 
 MultiArray::MultiArray(const Size& size) : size_(size) {
-  content_ = FFTWArray(static_cast<double*>(fftw_malloc(sizeof(double)*size_.Length())),
+  content_ = MultiArrayContent(static_cast<double*>(fftw_malloc(sizeof(double)*size_.Length())),
                        fftw_free);
 }
 

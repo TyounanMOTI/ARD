@@ -10,13 +10,13 @@
 
 namespace ARD
 {
-  typedef boost::shared_array<double> FFTWArray;
+  typedef boost::shared_array<double> MultiArrayContent;
   class MultiArray
   {
   public:
     MultiArray() : size_(Size(0,0)) {};
     MultiArray(const Size& size);
-    MultiArray(const Size& size, const FFTWArray& content) : size_(size), content_(content) {};
+    MultiArray(const Size& size, const MultiArrayContent& content) : size_(size), content_(content) {};
     virtual ~MultiArray() {};
     
     const Size size() const;
@@ -25,7 +25,7 @@ namespace ARD
 
   private:
     const Size size_;
-    FFTWArray content_;
+    MultiArrayContent content_;
   };
   
   typedef boost::shared_ptr<MultiArray> MultiArrayPointer;
