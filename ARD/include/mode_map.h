@@ -5,12 +5,13 @@
 #include "multi_array.h"
 #include "pressure_map.h"
 #include "size.h"
+#include "precision.h"
 
 namespace ARD
 {
   class PressureMap;
   typedef boost::shared_ptr<PressureMap> PressureMapPointer;
-  typedef double ModeCoefficient;
+  typedef Precision ModeCoefficient;
 
   class ModeMap : public MultiArray
   {

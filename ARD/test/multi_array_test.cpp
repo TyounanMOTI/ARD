@@ -21,24 +21,24 @@ TEST_F(MultiArrayTest, GetSize) {
 }
 
 TEST_F(MultiArrayTest, GetArrayElement) {
-  subject->set_content(Position(0,0), Pressure(0.0));
-  EXPECT_EQ(Pressure(0.0), subject->content(Position(0,0)));
+  subject->set_content(Position(0,0), Precision(0.0));
+  EXPECT_EQ(Precision(0.0), subject->content(Position(0,0)));
 }
 
 TEST_F(MultiArrayTest, SetArrayElement) {
-  subject->set_content(Position(0,0), Pressure(1.0));
-  EXPECT_EQ(Pressure(1.0), subject->content(Position(0,0)));
+  subject->set_content(Position(0,0), Precision(1.0));
+  EXPECT_EQ(Precision(1.0), subject->content(Position(0,0)));
 }
 
 TEST_F(MultiArrayTest, InitializeWithFFTWComplexArray) {
   MultiArrayContent content = MultiArrayContent(static_cast<double*>(fftw_malloc(sizeof(double)*size.Length())),
                                 fftw_free);
-  content[MultiArrayIndexFromPosition(Position(5,3), size)] = Pressure(1.0);
+  content[MultiArrayIndexFromPosition(Position(5,3), size)] = Precision(1.0);
   subject = MultiArrayPointer(new MultiArray(size, content));
-  EXPECT_EQ(Pressure(1.0), subject->content(Position(5,3)));
+  EXPECT_EQ(Precision(1.0), subject->content(Position(5,3)));
   
   // still can change content's value?
-  subject->set_content(Position(5,3), Pressure(5.0));
-  EXPECT_EQ(Pressure(5.0), subject->content(Position(5,3)));
+  subject->set_content(Position(5,3), Precision(5.0));
+  EXPECT_EQ(Precision(5.0), subject->content(Position(5,3)));
 }
 

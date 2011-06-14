@@ -11,11 +11,11 @@ const Size MultiArray::size() const {
   return size_;
 }
 
-const Pressure MultiArray::content(const Position& position) const {
+const Precision MultiArray::content(const Position& position) const {
   return content_[MultiArrayIndexFromPosition(position, size_)];
 }
 
-void MultiArray::set_content(const Position& position, const Pressure& input) {
+void MultiArray::set_content(const Position& position, const Precision& input) {
   content_[MultiArrayIndexFromPosition(position, size_)] = input;
 }
 

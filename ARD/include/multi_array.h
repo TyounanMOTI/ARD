@@ -6,7 +6,7 @@
 #include <boost/shared_array.hpp>
 #include <boost/shared_ptr.hpp>
 #include "position.h"
-#include "pressure.h"
+#include "precision.h"
 
 namespace ARD
 {
@@ -20,8 +20,8 @@ namespace ARD
     virtual ~MultiArray() {};
     
     const Size size() const;
-    const Pressure content(const Position& position) const;
-    void set_content(const Position& position, const Pressure& input);
+    const Precision content(const Position& position) const;
+    void set_content(const Position& position, const Precision& input);
 
   private:
     const Size size_;
