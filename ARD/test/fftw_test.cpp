@@ -66,7 +66,7 @@ TEST(FFTWTest, DCT2D) {
   fftw_destroy_plan(plan);
 }
 
-TEST(FFTWTest, IDCT2D) {
+TEST(FFTWTest, IDCT2DOnlyValueInHead) {
   int width = 128;
   int height = 128;
   int length = width*height;
@@ -82,7 +82,7 @@ TEST(FFTWTest, IDCT2D) {
   input[0] = 1.0;
   fftw_execute(plan);
   
-  OutputFFTWReal2DArray(width, height, output.get());
+//  OutputFFTWReal2DArray(width, height, output.get());
   
   EXPECT_EQ(1.0, output[0]);
   EXPECT_EQ(1.0, output[100]);
