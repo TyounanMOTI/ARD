@@ -19,7 +19,7 @@ namespace ARD
     PressureMap(const Size& size) : MultiArray(size) {};
     ModeMapPointer DCT() const;
     MicrophonePointer Record(MicrophonePointer microphone) const;
-  };  
+  };
 
   typedef boost::shared_ptr<PressureMap> PressureMapPointer;
 };
