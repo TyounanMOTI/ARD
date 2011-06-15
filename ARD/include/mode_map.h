@@ -17,6 +17,7 @@ namespace ARD
   {
   public:
     ModeMap(const Size& size) : MultiArray(size) {};
+    ModeMap(const Size& size, const MultiArrayContent& content) : MultiArray(size, content) {};
     PressureMapPointer InverseDCT() const;
   };  
 

@@ -7,6 +7,7 @@
 #include "size.h"
 #include "microphone.h"
 #include "pressure.h"
+#include <fftw3.h>
 
 namespace ARD
 {
@@ -16,9 +17,14 @@ namespace ARD
   class PressureMap : public MultiArray
   {
   public:
-    PressureMap(const Size& size) : MultiArray(size) {};
+    PressureMap(const Size& size);
+    ~PressureMap();
     ModeMapPointer DCT() const;
     MicrophonePointer Record(MicrophonePointer microphone) const;
+
+  private:
+    ModeMapPointer dct_output_buffer_;
+    fftw_plan dct_plan_;
   };
 
   typedef boost::shared_ptr<PressureMap> PressureMapPointer;
