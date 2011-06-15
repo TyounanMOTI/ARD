@@ -30,7 +30,7 @@ TEST_F(PressureMapTest, DCTForDirectCurrent) {
     }
   }
   ModeMapPointer transformed(subject->DCT());
-  EXPECT_EQ(ModeCoefficient(size.Length()*2*2*1.0), transformed->content(Position(0,0)));
+  EXPECT_EQ(ModeCoefficient(1.0), transformed->content(Position(0,0)));
   EXPECT_EQ(ModeCoefficient(0.0), transformed->content(Position(19,9)));
   
 //  OutputFFTWReal2DArray(subject->size().width(), subject->size().height(), transformed->get());

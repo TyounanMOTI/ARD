@@ -8,8 +8,9 @@ PressureMap::PressureMap(const Size& size) : MultiArray(size) {
   this->FillByZero();
 }
 
-ModeMapPointer PressureMap::DCT() const {
+ModeMapPointer PressureMap::DCT() {
   fftw_execute(dct_plan_.get());
+  dct_output_buffer_->Normalize();
   return dct_output_buffer_;
 }
 
