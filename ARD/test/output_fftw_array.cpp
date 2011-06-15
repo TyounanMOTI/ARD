@@ -1,6 +1,6 @@
 #include "output_fftw_array.h"
 
-void PlotFFTWComplexArray(size_t size, fftw_complex* input) {
+void OutputRealArrayOfFFTWComplexArray(size_t size, fftw_complex* input) {
   std::ofstream ofs("data.txt", std::ios::out | std::ios::trunc);
   for (size_t i = 0; i < size; i++) {
     ofs << input[i][0] << std::endl;

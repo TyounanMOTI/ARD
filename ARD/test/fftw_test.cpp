@@ -23,7 +23,7 @@ TEST(FFTWTest, DFT) {
   fftw_execute(plan);
   
   EXPECT_EQ(size*10.0, output[0][0]);
-//  PlotFFTWComplexArray(size, output);
+//  OutputRealArrayOfFFTWComplexArray(size, output);
   
   fftw_destroy_plan(plan);
 }
@@ -40,7 +40,7 @@ TEST(FFTWTest, DCT) {
   fftw_execute(plan);
 
   EXPECT_EQ(size*2*10.0, output[0]);
-//  PlotFFTWRealArray(size, output.get());
+//  OutputFFTWRealArray(size, output.get());
 
   fftw_destroy_plan(plan);
 }
