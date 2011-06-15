@@ -13,6 +13,7 @@ namespace ARD
 {
   class ModeMap;
   typedef boost::shared_ptr<ModeMap> ModeMapPointer;
+  typedef boost::shared_ptr<fftw_plan_s> FFTWPlan;
   
   class PressureMap : public MultiArray
   {
@@ -24,7 +25,7 @@ namespace ARD
 
   private:
     ModeMapPointer dct_output_buffer_;
-    fftw_plan dct_plan_;
+    FFTWPlan dct_plan_;
   };
 
   typedef boost::shared_ptr<PressureMap> PressureMapPointer;
