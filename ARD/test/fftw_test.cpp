@@ -1,31 +1,7 @@
 #include <gtest/gtest.h>
-#include <fstream>
 #include <boost/shared_array.hpp>
 #include <fftw3.h>
-
-void PlotFFTWComplexArray(size_t size, fftw_complex* input) {
-  std::ofstream ofs("data.txt", std::ios::out | std::ios::trunc);
-  for (size_t i = 0; i < size; i++) {
-    ofs << input[i][0] << std::endl;
-  }
-}
-
-void PlotFFTWRealArray(size_t size, double* input) {
-  std::ofstream ofs("data.txt", std::ios::out | std::ios::trunc);
-  for (size_t i = 0; i < size; i++) {
-    ofs << input[i] << std::endl;
-  }
-}
-
-void OutputFFTWReal2DArray(int width, int height, double* input) {
-  std::ofstream ofs("data.txt", std::ios::out | std::ios::trunc);
-  for (int row = 0; row < height; row++) {
-    for (int col = 0; col < width; col++) {
-      ofs << input[row*width + col] << ' ';
-    }
-    ofs << std::endl;
-  }
-}
+#include "output_fftw_array.h"
 
 TEST(FFTWTest, initialization) {
   fftw_complex* subject = static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex) * 100));
