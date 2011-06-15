@@ -65,3 +65,27 @@ TEST(FFTWTest, DCT2D) {
   
   fftw_destroy_plan(plan);
 }
+
+TEST(FFTWTest, IDCT2D) {
+  int width = 128;
+  int height = 128;
+  int length = width*height;
+  boost::shared_array<double> input(static_cast<double*>(fftw_malloc(sizeof(double)*length)), fftw_free);
+  boost::shared_array<double> output(static_cast<double*>(fftw_malloc(sizeof(double)*length)), fftw_free);
+  
+  fftw_plan plan = fftw_plan_r2r_2d(width, height, input.get(), output.get(), FFTW_REDFT01, FFTW_REDFT01, FFTW_MEASURE);
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      input[y*width + x] = 0.0;
+    }
+  }
+  input[0] = 1.0;
+  fftw_execute(plan);
+  
+  OutputFFTWReal2DArray(width, height, output.get());
+  
+  EXPECT_EQ(1.0, output[0]);
+  EXPECT_EQ(1.0, output[100]);
+  
+  fftw_destroy_plan(plan);
+}
