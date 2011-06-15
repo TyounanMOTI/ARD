@@ -36,6 +36,12 @@ TEST_F(MultiArrayTest, SetArrayElement) {
   EXPECT_EQ(Precision(1.0), subject->content(Position(0,0)));
 }
 
+TEST_F(MultiArrayTest, FillByZero) {
+  subject->FillByZero();
+  EXPECT_EQ(Precision(0.0), subject->content(Position(0,0)));
+  EXPECT_EQ(Precision(0.0), subject->content(Position(10,9)));
+}
+
 TEST_F(MultiArrayTest, InitializeWithFFTWComplexArray) {
   MultiArrayContent content = MultiArrayContent(static_cast<double*>(fftw_malloc(sizeof(double)*size.Length())),
                                 fftw_free);

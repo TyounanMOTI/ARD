@@ -23,6 +23,7 @@ namespace ARD
     const Size size() const;
     const Precision content(const Position& position) const;
     void set_content(const Position& position, const Precision& input);
+    void FillByZero();
 
   private:
     const Size size_;
