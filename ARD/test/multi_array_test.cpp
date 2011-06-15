@@ -20,6 +20,12 @@ TEST_F(MultiArrayTest, GetSize) {
   EXPECT_EQ(size, subject->size());
 }
 
+TEST_F(MultiArrayTest, GetRawPointer) {
+  Precision* out = subject->get();
+  out[MultiArrayIndexFromPosition(Position(1,2), subject->size())] = Precision(10.0);
+  EXPECT_EQ(Precision(10.0), subject->content(Position(1,2)));
+}
+
 TEST_F(MultiArrayTest, GetArrayElement) {
   subject->set_content(Position(0,0), Precision(0.0));
   EXPECT_EQ(Precision(0.0), subject->content(Position(0,0)));

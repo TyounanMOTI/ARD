@@ -19,6 +19,7 @@ namespace ARD
     MultiArray(const Size& size, const MultiArrayContent& content) : size_(size), content_(content) {};
     virtual ~MultiArray() {};
     
+    Precision* get() const;
     const Size size() const;
     const Precision content(const Position& position) const;
     void set_content(const Position& position, const Precision& input);

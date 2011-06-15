@@ -7,6 +7,10 @@ MultiArray::MultiArray(const Size& size) : size_(size) {
                        fftw_free);
 }
 
+Precision* MultiArray::get() const {
+  return content_.get();
+}
+
 const Size MultiArray::size() const {
   return size_;
 }
