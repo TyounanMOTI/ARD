@@ -59,7 +59,7 @@ TEST(FFTWTest, DCT2D) {
     }
   }
   fftw_execute(plan);
-  OutputFFTWReal2DArray(width, height, output.get());
+//  OutputFFTWReal2DArray(width, height, output.get());
   EXPECT_EQ(2*2*width*height*1.0, output[0]);
   EXPECT_EQ(0, output[100]);
   
