@@ -39,7 +39,7 @@ TEST_F(MultiArrayTest, SetArrayElement) {
 TEST_F(MultiArrayTest, FillByZero) {
   subject->FillByZero();
   EXPECT_EQ(Precision(0.0), subject->content(Position(0,0)));
-  EXPECT_EQ(Precision(0.0), subject->content(Position(10,9)));
+  EXPECT_EQ(Precision(0.0), subject->content(Position(19,9)));
 }
 
 TEST_F(MultiArrayTest, InitializeWithFFTWComplexArray) {
@@ -53,4 +53,10 @@ TEST_F(MultiArrayTest, InitializeWithFFTWComplexArray) {
   subject->set_content(Position(5,3), Precision(5.0));
   EXPECT_EQ(Precision(5.0), subject->content(Position(5,3)));
 }
+
+TEST(MultiArrayIndexFromPosition, LastIndex) {
+  Size size(20, 10);
+  EXPECT_EQ(size.Length() - 1, MultiArrayIndexFromPosition(Position(19,9), size));
+}
+
 

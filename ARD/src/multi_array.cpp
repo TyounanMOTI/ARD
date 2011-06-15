@@ -24,13 +24,13 @@ void MultiArray::set_content(const Position& position, const Precision& input) {
 }
 
 void MultiArray::FillByZero() {
-  for (int i = 0; i < size().height(); i++) {
-    for (int j = 0; j < size().width(); j++) {
-      set_content(Position(i,j), Precision(0.0));
+  for (int y = 0; y < size().height(); y++) {
+    for (int x = 0; x < size().width(); x++) {
+      set_content(Position(x,y), Precision(0.0));
     }
   }
 }
 
 const size_t ARD::MultiArrayIndexFromPosition(const Position& position, const Size& size) {
-  return position.y() + position.x()*size.height();
+  return position.x() + position.y()*size.width();
 }
