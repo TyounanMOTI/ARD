@@ -10,7 +10,7 @@
 
 namespace ARD
 {
-  typedef boost::shared_array<double> MultiArrayContent;
+  typedef boost::shared_array<Precision> MultiArrayContent;
   class MultiArray
   {
   public:
