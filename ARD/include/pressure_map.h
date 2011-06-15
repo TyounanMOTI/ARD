@@ -19,7 +19,6 @@ namespace ARD
   {
   public:
     PressureMap(const Size& size);
-    ~PressureMap();
     ModeMapPointer DCT() const;
     MicrophonePointer Record(MicrophonePointer microphone) const;
 
