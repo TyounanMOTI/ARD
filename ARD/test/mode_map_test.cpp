@@ -19,7 +19,7 @@ protected:
   Size size;
 };
 
-TEST_F(ModeMapTest, InverseDCT) {
+TEST_F(ModeMapTest, InverseDCTReturnsSameSize) {
   PressureMapPointer transformed(subject->InverseDCT());
   EXPECT_EQ(subject->size(), transformed->size());
 }
