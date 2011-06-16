@@ -15,6 +15,10 @@ const Size MultiArray::size() const {
   return size_;
 }
 
+MultiArrayContent MultiArray::content() const {
+  return content_;
+}
+
 const Precision MultiArray::content(const Position& position) const {
   return content_[MultiArrayIndexFromPosition(position, size_)];
 }

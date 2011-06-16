@@ -23,7 +23,7 @@ namespace ARD
     MicrophonePointer Record(MicrophonePointer microphone) const;
 
   private:
-    ModeMapPointer dct_output_buffer_;
+    MultiArrayPointer dct_output_buffer_;
     FFTWPlan dct_plan_;
   };
 
