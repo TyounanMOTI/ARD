@@ -19,10 +19,15 @@ namespace ARD
   {
   public:
     PressureMap(const Size& size);
+    PressureMap(const Size& size, const MultiArrayContent content);
     ModeMapPointer DCT();
     MicrophonePointer Record(MicrophonePointer microphone) const;
 
   private:
+    void Init();
+    void InitOutputBuffer();
+    void InitPlan();
+    
     MultiArrayPointer dct_output_buffer_;
     FFTWPlan dct_plan_;
   };

@@ -5,6 +5,7 @@ using namespace ARD;
 MultiArray::MultiArray(const Size& size) : size_(size) {
   content_ = MultiArrayContent(static_cast<double*>(fftw_malloc(sizeof(double)*size_.Length())),
                        fftw_free);
+  FillByZero();
 }
 
 Precision* MultiArray::get() const {

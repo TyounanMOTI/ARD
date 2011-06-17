@@ -3,9 +3,24 @@
 using namespace ARD;
 
 PressureMap::PressureMap(const Size& size) : MultiArray(size) {
-  dct_output_buffer_ = MultiArrayPointer(new MultiArray(size));
-  dct_plan_ = FFTWPlan(fftw_plan_r2r_2d(size.width(), size.height(), get(), dct_output_buffer_->get(), FFTW_REDFT10, FFTW_REDFT10, FFTW_ESTIMATE), fftw_destroy_plan);
-  this->FillByZero();
+  Init();
+}
+
+PressureMap::PressureMap(const Size& size, const MultiArrayContent content) : MultiArray(size, content) {
+  Init();
+}
+
+void PressureMap::Init() {
+  InitOutputBuffer();
+  InitPlan();
+}
+
+void PressureMap::InitOutputBuffer() {
+  dct_output_buffer_ = MultiArrayPointer(new MultiArray(size()));
+}
+
+void PressureMap::InitPlan() {
+  dct_plan_ = FFTWPlan(fftw_plan_r2r_2d(size().width(), size().height(), get(), dct_output_buffer_->get(), FFTW_REDFT10, FFTW_REDFT10, FFTW_ESTIMATE), fftw_destroy_plan);
 }
 
 ModeMapPointer PressureMap::DCT() {
