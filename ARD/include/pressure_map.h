@@ -3,7 +3,7 @@
 
 #include <boost/shared_ptr.hpp>
 #include "multi_array.h"
-#include "mode_map.h"
+#include "pressure_spectrum.h"
 #include "size.h"
 #include "microphone.h"
 #include "pressure.h"
@@ -11,8 +11,8 @@
 
 namespace ARD
 {
-  class ModeMap;
-  typedef boost::shared_ptr<ModeMap> ModeMapPointer;
+  class PressureSpectrum;
+  typedef boost::shared_ptr<PressureSpectrum> PressureSpectrumPointer;
   typedef boost::shared_ptr<fftw_plan_s> FFTWPlan;
   
   class PressureMap : public MultiArray
@@ -20,7 +20,7 @@ namespace ARD
   public:
     PressureMap(const Size& size);
     PressureMap(const Size& size, const MultiArrayContent content);
-    ModeMapPointer DCT();
+    PressureSpectrumPointer DCT();
     MicrophonePointer Record(MicrophonePointer microphone) const;
 
   private:

@@ -19,7 +19,7 @@ protected:
 };
 
 TEST_F(PressureMapTest, DCTReturnSameSize) {
-  ModeMapPointer transformed(subject->DCT());
+  PressureSpectrumPointer transformed(subject->DCT());
   EXPECT_EQ(subject->size(), transformed->size());
 }
 
@@ -29,7 +29,7 @@ TEST_F(PressureMapTest, DCTForDirectCurrent) {
       subject->set_content(Position(x,y), Pressure(1.0));
     }
   }
-  ModeMapPointer transformed(subject->DCT());
+  PressureSpectrumPointer transformed(subject->DCT());
   EXPECT_EQ(ModeCoefficient(1.0), transformed->content(Position(0,0)));
   EXPECT_EQ(ModeCoefficient(0.0), transformed->content(Position(19,9)));
   
