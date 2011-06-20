@@ -2,7 +2,7 @@
 #include <boost/scoped_ptr.hpp>
 #include <boost/shared_ptr.hpp>
 
-#include <pressure_map.h>
+#include <pressure_field.h>
 #include <pressure_spectrum.h>
 #include "output_fftw_array.h"
 
@@ -30,13 +30,13 @@ TEST_F(PressureSpectrumTest, InitializeWithMultiArrayContent) {
 }
 
 TEST_F(PressureSpectrumTest, InverseDCTReturnsSameSize) {
-  PressureMapPointer transformed(subject->InverseDCT());
+  PressureFieldPointer transformed(subject->InverseDCT());
   EXPECT_EQ(subject->size(), transformed->size());
 }
 
 TEST_F(PressureSpectrumTest, InverseDCTForDataOnlyValueOnHead) {
   subject->set_content(Position(0,0), ModeCoefficient(1.0));
-  PressureMapPointer transformed(subject->InverseDCT());
+  PressureFieldPointer transformed(subject->InverseDCT());
   EXPECT_EQ(Pressure(1.0), transformed->content(Position(0,0)));
   EXPECT_EQ(Pressure(1.0), transformed->content(Position(10,9)));
 //  OutputFFTWReal2DArray(size.width(), size.height(), transformed->get());

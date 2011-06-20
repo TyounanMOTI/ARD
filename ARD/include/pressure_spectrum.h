@@ -3,15 +3,15 @@
 
 #include <boost/shared_ptr.hpp>
 #include "multi_array.h"
-#include "pressure_map.h"
+#include "pressure_field.h"
 #include "size.h"
 #include "precision.h"
 #include <fftw3.h>
 
 namespace ARD
 {
-  class PressureMap;
-  typedef boost::shared_ptr<PressureMap> PressureMapPointer;
+  class PressureField;
+  typedef boost::shared_ptr<PressureField> PressureFieldPointer;
   typedef Precision ModeCoefficient;
   typedef boost::shared_ptr<fftw_plan_s> FFTWPlan;
 
@@ -20,7 +20,7 @@ namespace ARD
   public:
     PressureSpectrum(const Size& size);
     PressureSpectrum(const Size& size, const MultiArrayContent content);
-    PressureMapPointer InverseDCT();
+    PressureFieldPointer InverseDCT();
     void Normalize();
 
   private:
