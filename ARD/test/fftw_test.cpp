@@ -23,7 +23,7 @@ TEST(FFTWTest, DFT) {
   fftw_execute(plan);
   
   EXPECT_EQ(size*10.0, output[0][0]);
-  OutputRealArrayOfFFTWComplexArray(size, output);
+//  OutputRealArrayOfFFTWComplexArray(size, output);
   
   fftw_destroy_plan(plan);
 }
