@@ -20,8 +20,8 @@ protected:
   Size size;
 };
 
-TEST_F(PressureSpectrumTest, InitializeWithMultiArrayContent) {
-  MultiArrayContent content(static_cast<Precision*>(fftw_malloc(sizeof(Precision)*size.Length())),
+TEST_F(PressureSpectrumTest, InitializeWithFFTWArrayContent) {
+  FFTWArrayContent content(static_cast<Precision*>(fftw_malloc(sizeof(Precision)*size.Length())),
                             fftw_free);
   content[0] = Precision(1.0);
   PressureSpectrumPointer mode_map(new PressureSpectrum(size, content));

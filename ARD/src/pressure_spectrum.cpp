@@ -2,11 +2,11 @@
 
 using namespace ARD;
 
-PressureSpectrum::PressureSpectrum(const Size& size) : MultiArray(size) {
+PressureSpectrum::PressureSpectrum(const Size& size) : FFTWArray(size) {
   Init();
 }
 
-PressureSpectrum::PressureSpectrum(const Size& size, const MultiArrayContent content) : MultiArray(size, content) {
+PressureSpectrum::PressureSpectrum(const Size& size, const FFTWArrayContent content) : FFTWArray(size, content) {
   Init();
 }
 
@@ -16,7 +16,7 @@ void PressureSpectrum::Init() {
 }
 
 void PressureSpectrum::InitOutputBuffer() {
-  idct_output_buffer_ = MultiArrayPointer(new MultiArray(size()));
+  idct_output_buffer_ = FFTWArrayPointer(new FFTWArray(size()));
 }
 
 void PressureSpectrum::InitPlan() {

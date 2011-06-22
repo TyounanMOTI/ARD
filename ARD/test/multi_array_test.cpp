@@ -1,52 +1,52 @@
 #include <gtest/gtest.h>
 #include <boost/shared_ptr.hpp>
-#include <multi_array.h>
+#include <fftw_array.h>
 
 using namespace ARD;
 
-class MultiArrayTest : public testing::Test
+class FFTWArrayTest : public testing::Test
 {
 protected:
   virtual void SetUp() {
     size = Size(20, 10);
-    subject = MultiArrayPointer(new MultiArray(size));
+    subject = FFTWArrayPointer(new FFTWArray(size));
   }
   
   Size size;
-  MultiArrayPointer subject;
+  FFTWArrayPointer subject;
 };
 
-TEST_F(MultiArrayTest, GetSize) {
+TEST_F(FFTWArrayTest, GetSize) {
   EXPECT_EQ(size, subject->size());
 }
 
-TEST_F(MultiArrayTest, GetRawPointer) {
+TEST_F(FFTWArrayTest, GetRawPointer) {
   Precision* out = subject->get();
-  out[MultiArrayIndexFromPosition(Position(1,2), subject->size())] = Precision(10.0);
+  out[FFTWArrayIndexFromPosition(Position(1,2), subject->size())] = Precision(10.0);
   EXPECT_EQ(Precision(10.0), subject->content(Position(1,2)));
 }
 
-TEST_F(MultiArrayTest, GetArrayElement) {
+TEST_F(FFTWArrayTest, GetArrayElement) {
   subject->set_content(Position(0,0), Precision(0.0));
   EXPECT_EQ(Precision(0.0), subject->content(Position(0,0)));
 }
 
-TEST_F(MultiArrayTest, SetArrayElement) {
+TEST_F(FFTWArrayTest, SetArrayElement) {
   subject->set_content(Position(0,0), Precision(1.0));
   EXPECT_EQ(Precision(1.0), subject->content(Position(0,0)));
 }
 
-TEST_F(MultiArrayTest, FillByZero) {
+TEST_F(FFTWArrayTest, FillByZero) {
   subject->FillByZero();
   EXPECT_EQ(Precision(0.0), subject->content(Position(0,0)));
   EXPECT_EQ(Precision(0.0), subject->content(Position(19,9)));
 }
 
-TEST_F(MultiArrayTest, InitializeWithFFTWComplexArray) {
-  MultiArrayContent content = MultiArrayContent(static_cast<double*>(fftw_malloc(sizeof(double)*size.Length())),
+TEST_F(FFTWArrayTest, InitializeWithFFTWComplexArray) {
+  FFTWArrayContent content = FFTWArrayContent(static_cast<double*>(fftw_malloc(sizeof(double)*size.Length())),
                                 fftw_free);
-  content[MultiArrayIndexFromPosition(Position(5,3), size)] = Precision(1.0);
-  subject = MultiArrayPointer(new MultiArray(size, content));
+  content[FFTWArrayIndexFromPosition(Position(5,3), size)] = Precision(1.0);
+  subject = FFTWArrayPointer(new FFTWArray(size, content));
   EXPECT_EQ(Precision(1.0), subject->content(Position(5,3)));
   
   // still can change content's value?
@@ -54,9 +54,9 @@ TEST_F(MultiArrayTest, InitializeWithFFTWComplexArray) {
   EXPECT_EQ(Precision(5.0), subject->content(Position(5,3)));
 }
 
-TEST(MultiArrayIndexFromPosition, LastIndex) {
+TEST(FFTWArrayIndexFromPosition, LastIndex) {
   Size size(20, 10);
-  EXPECT_EQ(size.Length() - 1, MultiArrayIndexFromPosition(Position(19,9), size));
+  EXPECT_EQ(size.Length() - 1, FFTWArrayIndexFromPosition(Position(19,9), size));
 }
 
 

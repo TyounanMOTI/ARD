@@ -2,11 +2,11 @@
 
 using namespace ARD;
 
-PressureField::PressureField(const Size& size) : MultiArray(size) {
+PressureField::PressureField(const Size& size) : FFTWArray(size) {
   Init();
 }
 
-PressureField::PressureField(const Size& size, const MultiArrayContent content) : MultiArray(size, content) {
+PressureField::PressureField(const Size& size, const FFTWArrayContent content) : FFTWArray(size, content) {
   Init();
 }
 
@@ -16,7 +16,7 @@ void PressureField::Init() {
 }
 
 void PressureField::InitOutputBuffer() {
-  dct_output_buffer_ = MultiArrayPointer(new MultiArray(size()));
+  dct_output_buffer_ = FFTWArrayPointer(new FFTWArray(size()));
 }
 
 void PressureField::InitPlan() {
