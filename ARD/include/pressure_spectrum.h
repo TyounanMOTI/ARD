@@ -6,6 +6,7 @@
 #include "pressure_field.h"
 #include "size.h"
 #include "precision.h"
+#include "fftw_plan.h"
 #include <fftw3.h>
 
 namespace ARD
@@ -13,7 +14,6 @@ namespace ARD
   class PressureField;
   typedef boost::shared_ptr<PressureField> PressureFieldPointer;
   typedef Precision ModeCoefficient;
-  typedef boost::shared_ptr<fftw_plan_s> FFTWPlan;
 
   class PressureSpectrum : public Spectrum
   {
