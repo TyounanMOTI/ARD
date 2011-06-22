@@ -3,7 +3,7 @@
 #include <boost/scoped_ptr.hpp>
 #include <pressure_field.h>
 #include <size.h>
-#include "output_fftw_array.h"
+#include "plot/output_fftw_array.h"
 
 using namespace ARD;
 

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <boost/shared_array.hpp>
 #include <fftw3.h>
-#include "output_fftw_array.h"
+#include "plot/output_fftw_array.h"
 
 TEST(FFTWTest, initialization) {
   fftw_complex* subject = static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex) * 100));
@@ -23,7 +23,7 @@ TEST(FFTWTest, DFT) {
   fftw_execute(plan);
   
   EXPECT_EQ(size*10.0, output[0][0]);
-//  OutputRealArrayOfFFTWComplexArray(size, output);
+  OutputRealArrayOfFFTWComplexArray(size, output);
   
   fftw_destroy_plan(plan);
 }
