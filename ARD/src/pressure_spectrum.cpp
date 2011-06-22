@@ -2,11 +2,11 @@
 
 using namespace ARD;
 
-PressureSpectrum::PressureSpectrum(const Size& size) : FFTWArray(size) {
+PressureSpectrum::PressureSpectrum(const Size& size) : Spectrum(size) {
   Init();
 }
 
-PressureSpectrum::PressureSpectrum(const Size& size, const FFTWArrayContent content) : FFTWArray(size, content) {
+PressureSpectrum::PressureSpectrum(const Size& size, const FFTWArrayContent content) : Spectrum(size, content) {
   Init();
 }
 
@@ -16,7 +16,7 @@ void PressureSpectrum::Init() {
 }
 
 void PressureSpectrum::InitOutputBuffer() {
-  idct_output_buffer_ = FFTWArrayPointer(new FFTWArray(size()));
+  idct_output_buffer_ = SpectrumPointer(new Spectrum(size()));
 }
 
 void PressureSpectrum::InitPlan() {
@@ -27,12 +27,4 @@ PressureFieldPointer PressureSpectrum::InverseDCT() {
   fftw_execute(idct_plan_.get());
   PressureFieldPointer pressure_field(new PressureField(size(), idct_output_buffer_->content()));
   return pressure_field;
-}
-
-void PressureSpectrum::Normalize() {
-  for (int y = 0; y < size().height(); y++) {
-    for (int x = 0; x < size().width(); x++) {
-      set_content(Position(x,y), content(Position(x,y))/(4*size().Length()));
-    }
-  }
 }

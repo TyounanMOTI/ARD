@@ -2,7 +2,7 @@
 #define PRESSURE_SPECTRUM_H
 
 #include <boost/shared_ptr.hpp>
-#include "fftw_array.h"
+#include "spectrum.h"
 #include "pressure_field.h"
 #include "size.h"
 #include "precision.h"
@@ -15,13 +15,12 @@ namespace ARD
   typedef Precision ModeCoefficient;
   typedef boost::shared_ptr<fftw_plan_s> FFTWPlan;
 
-  class PressureSpectrum : public FFTWArray
+  class PressureSpectrum : public Spectrum
   {
   public:
     PressureSpectrum(const Size& size);
     PressureSpectrum(const Size& size, const FFTWArrayContent content);
     PressureFieldPointer InverseDCT();
-    void Normalize();
 
   private:
     void Init();
