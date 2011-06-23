@@ -9,7 +9,7 @@ namespace ARD {
   {
   public:
     Spectrum(const Size& size) : FFTWArray(size) {};
-    Spectrum(const Size& size, const FFTWArrayContent content) : FFTWArray(size, content) {};
+    Spectrum(const Size& size, const FFTWArrayPointer content) : FFTWArray(size, content) {};
     void Normalize();
   };
 

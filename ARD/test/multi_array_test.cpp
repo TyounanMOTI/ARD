@@ -42,16 +42,14 @@ TEST_F(FFTWArrayTest, FillByZero) {
   EXPECT_EQ(Precision(0.0), subject->content(Position(19,9)));
 }
 
-TEST_F(FFTWArrayTest, InitializeWithFFTWComplexArray) {
-  FFTWArrayContent content = FFTWArrayContent(static_cast<double*>(fftw_malloc(sizeof(double)*size.Length())),
-                                fftw_free);
-  content[FFTWArrayIndexFromPosition(Position(5,3), size)] = Precision(1.0);
-  subject = FFTWArrayPointer(new FFTWArray(size, content));
-  EXPECT_EQ(Precision(1.0), subject->content(Position(5,3)));
+TEST_F(FFTWArrayTest, InitializeWithFFTWArray) {
+  subject->set_content(Position(5,3), Precision(1.0));
+  FFTWArrayPointer result = FFTWArrayPointer(new FFTWArray(size, subject));
+  EXPECT_EQ(Precision(1.0), result->content(Position(5,3)));
   
   // still can change content's value?
   subject->set_content(Position(5,3), Precision(5.0));
-  EXPECT_EQ(Precision(5.0), subject->content(Position(5,3)));
+  EXPECT_EQ(Precision(5.0), result->content(Position(5,3)));
 }
 
 TEST(FFTWArrayIndexFromPosition, LastIndex) {

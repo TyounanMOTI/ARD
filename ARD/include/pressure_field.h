@@ -19,7 +19,7 @@ namespace ARD
   {
   public:
     PressureField(const Size& size);
-    PressureField(const Size& size, const FFTWArrayContent content);
+    PressureField(const Size& size, const FFTWArrayPointer content);
     PressureSpectrumPointer DCT();
     MicrophonePointer Record(MicrophonePointer microphone) const;
 

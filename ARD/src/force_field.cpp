@@ -7,7 +7,7 @@ ForceField::ForceField(const Size& size) : FFTWArray(size) {
   FillByZero();
 }
 
-ForceField::ForceField(const Size& size, const FFTWArrayContent content) : FFTWArray(size, content) {
+ForceField::ForceField(const Size& size, const FFTWArrayPointer content) : FFTWArray(size, content) {
   Init();
 }
 
@@ -26,7 +26,7 @@ void ForceField::InitPlan() {
 
 ForceSpectrumPointer ForceField::DCT() {
   fftw_execute(dct_plan_.get());
-  ForceSpectrumPointer output(new ForceSpectrum(size(), dct_output_buffer_->content()));
+  ForceSpectrumPointer output(new ForceSpectrum(size(), dct_output_buffer_));
   output->Normalize();
   return output;
 }

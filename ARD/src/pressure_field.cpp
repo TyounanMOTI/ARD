@@ -6,7 +6,7 @@ PressureField::PressureField(const Size& size) : FFTWArray(size) {
   Init();
 }
 
-PressureField::PressureField(const Size& size, const FFTWArrayContent content) : FFTWArray(size, content) {
+PressureField::PressureField(const Size& size, const FFTWArrayPointer content) : FFTWArray(size, content) {
   Init();
 }
 
@@ -25,7 +25,7 @@ void PressureField::InitPlan() {
 
 PressureSpectrumPointer PressureField::DCT() {
   fftw_execute(dct_plan_.get());
-  PressureSpectrumPointer mode_map = PressureSpectrumPointer(new PressureSpectrum(size(), dct_output_buffer_->content()));
+  PressureSpectrumPointer mode_map = PressureSpectrumPointer(new PressureSpectrum(size(), dct_output_buffer_));
   mode_map->Normalize();
   return mode_map;
 }

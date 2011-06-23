@@ -21,12 +21,10 @@ protected:
   Size size;
 };
 
-TEST_F(PressureSpectrumTest, InitializeWithFFTWArrayContent) {
-  FFTWArrayContent content(static_cast<Precision*>(fftw_malloc(sizeof(Precision)*size.Length())),
-                            fftw_free);
-  content[0] = Precision(1.0);
-  PressureSpectrumPointer mode_map(new PressureSpectrum(size, content));
-  EXPECT_EQ(Precision(1.0), mode_map->content(Position(0,0)));
+TEST_F(PressureSpectrumTest, InitializeWithFFTWArray) {
+  subject->set_content(Position(0,0), Precision(1.0));
+  PressureSpectrumPointer result(new PressureSpectrum(size, subject));
+  EXPECT_EQ(Precision(1.0), result->content(Position(0,0)));
 //  OutputFFTWReal2DArray(size.width(), size.height(), mode_map->get());
 }
 

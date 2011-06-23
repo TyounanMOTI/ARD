@@ -12,7 +12,7 @@ namespace ARD {
   {
   public:
     ForceField(const Size& size);
-    ForceField(const Size& size, const FFTWArrayContent content);
+    ForceField(const Size& size, const FFTWArrayPointer content);
     ForceSpectrumPointer DCT();
 
   private:

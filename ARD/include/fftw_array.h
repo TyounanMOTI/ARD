@@ -11,12 +11,15 @@
 namespace ARD
 {
   typedef boost::shared_array<Precision> FFTWArrayContent;
+  class FFTWArray;
+  typedef boost::shared_ptr<FFTWArray> FFTWArrayPointer;
+
   class FFTWArray
   {
   public:
     FFTWArray() : size_(Size(0,0)) {};
     FFTWArray(const Size& size);
-    FFTWArray(const Size& size, const FFTWArrayContent content) : size_(size), content_(content) {};
+    FFTWArray(const Size& size, const FFTWArrayPointer content) : size_(size), content_(content->content_) {};
     virtual ~FFTWArray() {};
     
     Precision* get() const;
@@ -30,9 +33,7 @@ namespace ARD
     const Size size_;
     FFTWArrayContent content_;
   };
-  
-  typedef boost::shared_ptr<FFTWArray> FFTWArrayPointer;
-  
+
   const size_t FFTWArrayIndexFromPosition(const Position& position, const Size& size);
 };
 

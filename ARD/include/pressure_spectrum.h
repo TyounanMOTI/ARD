@@ -17,7 +17,7 @@ namespace ARD
   {
   public:
     PressureSpectrum(const Size& size);
-    PressureSpectrum(const Size& size, const FFTWArrayContent content);
+    PressureSpectrum(const Size& size, const FFTWArrayPointer content);
     PressureFieldPointer InverseDCT();
 
   private:
