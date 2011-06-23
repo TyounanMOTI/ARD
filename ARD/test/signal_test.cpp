@@ -14,13 +14,12 @@ protected:
     subject = Signal(content);
   }
 
-  typedef std::vector<short> Content;
-  Content content;
+  SignalContent content;
   Signal subject;
 };
 
 TEST_F(SignalTest, InitializeWithContent) {
-  Content output = subject.content();
+  SignalContent output = subject.content();
   EXPECT_EQ(5, output[0]);
 }
 

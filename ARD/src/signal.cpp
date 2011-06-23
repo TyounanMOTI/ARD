@@ -2,7 +2,7 @@
 
 using namespace ARD;
 
-std::vector<short> Signal::content() const {
+SignalContent Signal::content() const {
   return content_;
 }
 
