@@ -6,9 +6,8 @@
 using namespace ARD;
 
 TEST(SpectrumPoolTest, UpdateReturnsSuppliedMicrophone) {
-  boost::scoped_ptr<SpectrumPool> subject(new SpectrumPool());
+  SpectrumPoolPointer subject(new SpectrumPool());
 
-  typedef boost::shared_ptr<Microphone> MicrophonePointer;
   MicrophonePointer mic(new Microphone(Position(5, 3)));
   MicrophonePointer result(subject->Update(mic));
 

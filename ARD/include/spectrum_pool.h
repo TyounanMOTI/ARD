@@ -12,6 +12,8 @@ namespace ARD
   public:
     MicrophonePointer Update(MicrophonePointer microphone);
   };
+
+  typedef boost::shared_ptr<SpectrumPool> SpectrumPoolPointer;
 };
 
 #endif // SPECTRUM_POOL_H
