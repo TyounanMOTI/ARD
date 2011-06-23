@@ -16,10 +16,6 @@ const Size FFTWArray::size() const {
   return size_;
 }
 
-FFTWArrayContent FFTWArray::content() const {
-  return content_;
-}
-
 const Precision FFTWArray::content(const Position& position) const {
   return content_[FFTWArrayIndexFromPosition(position, size_)];
 }
