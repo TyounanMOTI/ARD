@@ -16,7 +16,7 @@ void PressureSpectrum::Init() {
 }
 
 void PressureSpectrum::InitOutputBuffer() {
-  idct_output_buffer_ = SpectrumPointer(new Spectrum(size()));
+  idct_output_buffer_ = FFTWArrayPointer(new FFTWArray(size()));
 }
 
 void PressureSpectrum::InitPlan() {
