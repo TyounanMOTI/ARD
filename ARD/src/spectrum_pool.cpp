@@ -2,6 +2,6 @@
 
 using namespace ARD;
 
-MicrophonePointer SpectrumPool::Update(MicrophonePointer microphone) {
-  return microphone;
+PressureFieldPointer SpectrumPool::Update() {
+  return PressureFieldPointer(new PressureField(Size(10, 20)));
 }
