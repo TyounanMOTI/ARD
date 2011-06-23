@@ -5,7 +5,7 @@
 using namespace ARD;
 
 TEST(SceneTest, Update) {
-  boost::scoped_ptr<Scene> subject(new Scene());
+  ScenePointer subject(new Scene());
   Signal signal(subject->Update());
   EXPECT_EQ(0, signal.size());
 }
