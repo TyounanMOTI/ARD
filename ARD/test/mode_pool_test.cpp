@@ -1,12 +1,12 @@
 #include <gtest/gtest.h>
 #include <boost/scoped_ptr.hpp>
 #include <boost/shared_ptr.hpp>
-#include <mode_pool.h>
+#include <spectrum_pool.h>
 
 using namespace ARD;
 
-TEST(ModePoolTest, UpdateReturnsSuppliedMicrophone) {
-  boost::scoped_ptr<ModePool> subject(new ModePool());
+TEST(SpectrumPoolTest, UpdateReturnsSuppliedMicrophone) {
+  boost::scoped_ptr<SpectrumPool> subject(new SpectrumPool());
 
   typedef boost::shared_ptr<Microphone> MicrophonePointer;
   MicrophonePointer mic(new Microphone(Position(5, 3)));

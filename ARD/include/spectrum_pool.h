@@ -1,5 +1,5 @@
-#ifndef MODE_POOL_H
-#define MODE_POOL_H
+#ifndef SPECTRUM_POOL_H
+#define SPECTRUM_POOL_H
 
 #include <boost/shared_ptr.hpp>
 #include "position.h"
@@ -7,11 +7,11 @@
 
 namespace ARD
 {
-  class ModePool
+  class SpectrumPool
   {
   public:
     MicrophonePointer Update(MicrophonePointer microphone);
   };
 };
 
-#endif // MODE_POOL_H
+#endif // SPECTRUM_POOL_H
