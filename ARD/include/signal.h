@@ -12,7 +12,7 @@ namespace ARD
   public:
     explicit Signal() {};
     explicit Signal(SignalContent content) : content_(content) {};
-    std::vector<short> content() const;
+    SignalContent content() const;
     short at(const unsigned long pos) const;
     int size() const;
     
