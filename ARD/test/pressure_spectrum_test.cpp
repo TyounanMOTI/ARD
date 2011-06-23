@@ -4,6 +4,7 @@
 
 #include <pressure_field.h>
 #include <pressure_spectrum.h>
+#include <mode_coefficient.h>
 #include "plot/output_fftw_array.h"
 
 using namespace ARD;
