@@ -10,6 +10,6 @@ short Signal::at(const unsigned long pos) const {
   return content_.at(pos);
 }
 
-int Signal::length() const {
-  return length_;
+int Signal::size() const {
+  return content_.size();
 }
