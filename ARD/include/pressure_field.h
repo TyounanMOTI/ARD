@@ -13,23 +13,13 @@ namespace ARD
 {
   class PressureSpectrum;
   typedef boost::shared_ptr<PressureSpectrum> PressureSpectrumPointer;
-  typedef boost::shared_ptr<fftw_plan_s> FFTWPlan;
   
   class PressureField : public FFTWArray
   {
   public:
-    PressureField(const Size& size);
-    PressureField(const Size& size, const FFTWArrayPointer content);
-    PressureSpectrumPointer DCT();
+    PressureField(const Size& size) : FFTWArray(size) {};
+    PressureField(const Size& size, const FFTWArrayPointer content) : FFTWArray(size, content) {};
     MicrophonePointer Record(MicrophonePointer microphone) const;
-
-  private:
-    void Init();
-    void InitOutputBuffer();
-    void InitPlan();
-    
-    FFTWArrayPointer dct_output_buffer_;
-    FFTWPlan dct_plan_;
   };
 
   typedef boost::shared_ptr<PressureField> PressureFieldPointer;
