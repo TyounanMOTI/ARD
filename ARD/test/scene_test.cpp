@@ -5,15 +5,23 @@
 
 using namespace ARD;
 
-TEST(SceneTest, Update) {
-  Size size(20, 10);
-  ScenePointer subject(new Scene(size));
+class SceneTest : public testing::Test
+{
+protected:
+  virtual void SetUp() {
+    size = Size(20, 10);
+    subject = ScenePointer(new Scene(size));
+  }
+
+  Size size;
+  ScenePointer subject;
+};
+
+TEST_F(SceneTest, Update) {
   Signal signal(subject->Update());
   EXPECT_EQ(0, signal.size());
 }
 
-TEST(SceneTest, InitializeWithSize) {
-  Size size(20, 10);
-  ScenePointer subject(new Scene(size));
+TEST_F(SceneTest, InitializeWithSize) {
   EXPECT_EQ(size, subject->size());
 }
