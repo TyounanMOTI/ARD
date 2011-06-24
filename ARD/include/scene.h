@@ -4,6 +4,7 @@
 #include <boost/shared_ptr.hpp>
 #include "signal.h"
 #include "size.h"
+#include "microphone.h"
 
 namespace ARD
 {
@@ -11,11 +12,13 @@ namespace ARD
   {
   public:
     Scene(const Size& size) : size_(size) {};
-    Signal Update();
+    MicrophonePointer Update();
     Size size() { return size_; };
+    void set_microphone(MicrophonePointer microphone) { microphone_ = microphone; };
 
   private:
     Size size_;
+    MicrophonePointer microphone_;
   };
 
   typedef boost::shared_ptr<Scene> ScenePointer;

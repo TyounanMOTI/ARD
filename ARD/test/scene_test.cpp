@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 #include <boost/scoped_ptr.hpp>
 #include <scene.h>
-#include <size.h>
 
 using namespace ARD;
 
@@ -17,9 +16,10 @@ protected:
   ScenePointer subject;
 };
 
-TEST_F(SceneTest, Update) {
-  Signal signal(subject->Update());
-  EXPECT_EQ(0, signal.size());
+TEST_F(SceneTest, UpdateReturnsMicrophone) {
+  MicrophonePointer microphone = MicrophonePointer(new Microphone(Position(5,5)));
+  subject->set_microphone(microphone);
+  EXPECT_EQ(microphone, subject->Update());
 }
 
 TEST_F(SceneTest, InitializeWithSize) {
