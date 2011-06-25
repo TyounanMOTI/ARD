@@ -20,8 +20,8 @@ enum LOOP_EXIT_TYPE{
 // return: > 0   - error
 //         == 0  - normal exit
 //         == -1 - continue
-int loop(SDL_Event event) {
-  switch (event.type) {
+int loop(SDL_Event* event) {
+  switch (event->type) {
     case SDL_QUIT: return EXIT;
     default: break;
   }
@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
   SDL_Event event;
   int status;
   while(SDL_WaitEvent(&event) >= 0) {
-    status = loop(event);
+    status = loop(&event);
     if (status != CONTINUE) {
       return status;
     }
