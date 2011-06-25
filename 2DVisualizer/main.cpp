@@ -22,6 +22,12 @@ enum LOOP_EXIT_TYPE{
 //         == -1 - continue
 int loop(SDL_Event* event) {
   switch (event->type) {
+    case SDL_KEYDOWN: 
+    {
+      Uint8* keys = SDL_GetKeyState(NULL);
+      if (keys[SDLK_q]) return EXIT;
+      break;      
+    }
     case SDL_QUIT: return EXIT;
     default: break;
   }
