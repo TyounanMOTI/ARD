@@ -6,11 +6,23 @@ void draw();
 void put_pixel_mono(SDL_Surface* surface, int x, int y, Uint8 depth);
 
 SDL_Surface* g_screen;
+Uint32* map;
+int width;
+int height;
 
 void Init() {
+  width = 800;
+  height = 600;
   SDL_Init(SDL_INIT_VIDEO);
   atexit(SDL_Quit);
-  g_screen = SDL_SetVideoMode(800, 600, 24, SDL_HWSURFACE|SDL_DOUBLEBUF);
+  g_screen = SDL_SetVideoMode(width, height, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+  
+  map = (Uint32*)malloc(sizeof(Uint32)*width*height);
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      map[y*width + x] = 64;
+    }
+  }
 }
 
 enum LOOP_EXIT_TYPE{
@@ -51,12 +63,16 @@ int loop(SDL_Event* event) {
 }
 
 void draw() {
-  put_pixel_mono(g_screen, 10, 10, 128);
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      put_pixel_mono(g_screen, x, y, 64);
+    }
+  }
 }
 
 void put_pixel_mono(SDL_Surface* surface, int x, int y, Uint8 depth) {
-  Uint32 mono = SDL_MapRGBA(surface->format, depth, depth, depth, depth);
-  Uint32* pixel = (Uint32*)surface->pixels + y*surface->pitch + x*surface->format->BitsPerPixel;
+  Uint32 mono = SDL_MapRGBA(surface->format, depth, depth, depth, 0);
+  Uint32* pixel = (Uint32*)surface->pixels + y*width + x;
   
   *pixel = mono;
 }
