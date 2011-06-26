@@ -2,6 +2,9 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_main.h>
 
+void draw();
+void put_pixel_mono(SDL_Surface* surface, int x, int y, Uint8 depth);
+
 SDL_Surface* g_screen;
 
 void Init() {
@@ -31,7 +34,31 @@ int loop(SDL_Event* event) {
     case SDL_QUIT: return EXIT;
     default: break;
   }
+  
+  if (SDL_MUSTLOCK(g_screen)) {
+    SDL_LockSurface(g_screen);
+  }
+  
+  draw();
+  
+  if (SDL_MUSTLOCK(g_screen)) {
+    SDL_UnlockSurface(g_screen);
+  }
+  
+  SDL_Flip(g_screen);
+  
   return CONTINUE;
+}
+
+void draw() {
+  put_pixel_mono(g_screen, 10, 10, 128);
+}
+
+void put_pixel_mono(SDL_Surface* surface, int x, int y, Uint8 depth) {
+  Uint32 mono = SDL_MapRGBA(surface->format, depth, depth, depth, depth);
+  Uint32* pixel = (Uint32*)surface->pixels + y*surface->pitch + x*surface->format->BitsPerPixel;
+  
+  *pixel = mono;
 }
 
 int main(int argc, char** argv) {
