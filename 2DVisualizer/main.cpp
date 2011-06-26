@@ -7,7 +7,7 @@ SDL_Surface* g_screen;
 void Init() {
   SDL_Init(SDL_INIT_VIDEO);
   atexit(SDL_Quit);
-  g_screen = SDL_SetVideoMode(800, 600, 24, SDL_SWSURFACE);  
+  g_screen = SDL_SetVideoMode(800, 600, 24, SDL_HWSURFACE|SDL_DOUBLEBUF);
 }
 
 enum LOOP_EXIT_TYPE{
