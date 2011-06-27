@@ -21,7 +21,7 @@ void Init() {
   map = (double*)malloc(sizeof(double)*width*height);
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
-      map[y*width + x] = -2000;
+      map[y*width + x] = -1500;
     }
   }
 }
@@ -89,5 +89,7 @@ int main(int argc, char** argv) {
       return status;
     }
   }
+
+  free(map);
   return 0;
 }
