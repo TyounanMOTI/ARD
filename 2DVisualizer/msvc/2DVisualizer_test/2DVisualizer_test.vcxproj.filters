@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="テスト ファイル">
+      <UniqueIdentifier>{48fdb08f-3f64-4093-bc2a-c57b450c78b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{8fecd554-69a8-428c-b409-01bdfe1ba276}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{796dc245-0bd7-4a26-bc19-65680f18b0ad}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\test\multi_array_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\transforms_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\transforms.cpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\transforms.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
