@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <boost/random.hpp>
 #include <SDL/SDL.h>
 #include <SDL/SDL_main.h>
 #include "transforms.h"
@@ -17,11 +18,15 @@ void Init() {
   SDL_Init(SDL_INIT_VIDEO);
   atexit(SDL_Quit);
   g_screen = SDL_SetVideoMode(width, height, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+
+  boost::minstd_rand gen( 42 );
+  boost::uniform_real<> dst( -200, 200 );
+  boost::variate_generator<boost::minstd_rand&, boost::uniform_real<>> rand( gen, dst );
   
   map = (double*)malloc(sizeof(double)*width*height);
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
-      map[y*width + x] = -1500;
+      map[y*width + x] = rand();
     }
   }
 }
@@ -66,7 +71,7 @@ int loop(SDL_Event* event) {
 void draw() {
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
-      put_pixel_mono(g_screen, x, y, quantize_to_uint8(map[y*width+x], 2000));
+      put_pixel_mono(g_screen, x, y, quantize_to_uint8(map[y*width+x], 200));
     }
   }
 }
