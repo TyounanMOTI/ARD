@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ARD_test", "..\ARD\msvc\ARD
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoundEngine", "..\SoundEngine\msvc\SoundEngine\SoundEngine.vcxproj", "{E0ADAD9B-1ED2-42B5-97EE-F2B1F4CCBC7A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2DVisualizer", "..\2DVisualizer\msvc\2DVisualizer\2DVisualizer.vcxproj", "{98EB1A4C-627E-4AA9-ADFC-CEFFBBF17A5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -59,6 +61,14 @@ Global
 		{E0ADAD9B-1ED2-42B5-97EE-F2B1F4CCBC7A}.Plot2D|Win32.Build.0 = Plot2D|Win32
 		{E0ADAD9B-1ED2-42B5-97EE-F2B1F4CCBC7A}.Release|Win32.ActiveCfg = Release|Win32
 		{E0ADAD9B-1ED2-42B5-97EE-F2B1F4CCBC7A}.Release|Win32.Build.0 = Release|Win32
+		{98EB1A4C-627E-4AA9-ADFC-CEFFBBF17A5B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{98EB1A4C-627E-4AA9-ADFC-CEFFBBF17A5B}.Debug|Win32.Build.0 = Debug|Win32
+		{98EB1A4C-627E-4AA9-ADFC-CEFFBBF17A5B}.Plot1D|Win32.ActiveCfg = Release|Win32
+		{98EB1A4C-627E-4AA9-ADFC-CEFFBBF17A5B}.Plot1D|Win32.Build.0 = Release|Win32
+		{98EB1A4C-627E-4AA9-ADFC-CEFFBBF17A5B}.Plot2D|Win32.ActiveCfg = Release|Win32
+		{98EB1A4C-627E-4AA9-ADFC-CEFFBBF17A5B}.Plot2D|Win32.Build.0 = Release|Win32
+		{98EB1A4C-627E-4AA9-ADFC-CEFFBBF17A5B}.Release|Win32.ActiveCfg = Release|Win32
+		{98EB1A4C-627E-4AA9-ADFC-CEFFBBF17A5B}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
