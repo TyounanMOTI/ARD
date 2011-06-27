@@ -21,6 +21,9 @@
     <ClCompile Include="..\..\transforms.cpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\test\boost_rand_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\transforms.h">

@@ -91,6 +91,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\test\boost_rand_test.cpp" />
     <ClCompile Include="..\..\test\multi_array_test.cpp" />
     <ClCompile Include="..\..\test\transforms_test.cpp" />
     <ClCompile Include="..\..\transforms.cpp" />
