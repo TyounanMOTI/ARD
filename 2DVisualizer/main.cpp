@@ -1,12 +1,13 @@
 #include <stdlib.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_main.h>
+#include "transforms.h"
 
 void draw();
 void put_pixel_mono(SDL_Surface* surface, int x, int y, Uint8 depth);
 
 SDL_Surface* g_screen;
-Uint32* map;
+double* map;
 int width;
 int height;
 
@@ -17,10 +18,10 @@ void Init() {
   atexit(SDL_Quit);
   g_screen = SDL_SetVideoMode(width, height, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
   
-  map = (Uint32*)malloc(sizeof(Uint32)*width*height);
+  map = (double*)malloc(sizeof(double)*width*height);
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
-      map[y*width + x] = 64;
+      map[y*width + x] = -2000;
     }
   }
 }
@@ -65,7 +66,7 @@ int loop(SDL_Event* event) {
 void draw() {
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
-      put_pixel_mono(g_screen, x, y, 64);
+      put_pixel_mono(g_screen, x, y, quantize_to_uint8(map[y*width+x], 2000));
     }
   }
 }
