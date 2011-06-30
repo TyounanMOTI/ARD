@@ -1,34 +1,27 @@
 #include <stdlib.h>
-#include <boost/random.hpp>
+#include <boost/shared_ptr.hpp>
 #include <SDL/SDL.h>
 #include <SDL/SDL_main.h>
 #include "transforms.h"
+#include "sound_field.h"
 
-void draw();
+void draw_pressure_field(DoubleArray pressure_field, double max);
 void put_pixel_mono(SDL_Surface* surface, int x, int y, Uint8 depth);
 
 SDL_Surface* g_screen;
+boost::shared_ptr<SoundField> sound_field;
 double* map;
 int width;
 int height;
 
 void Init() {
-  width = 800;
-  height = 600;
+  width = 200;
+  height = 200;
   SDL_Init(SDL_INIT_VIDEO);
   atexit(SDL_Quit);
   g_screen = SDL_SetVideoMode(width, height, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
 
-  boost::minstd_rand gen( 42 );
-  boost::uniform_real<> dst( -200, 200 );
-  boost::variate_generator<boost::minstd_rand&, boost::uniform_real<>> rand( gen, dst );
-  
-  map = (double*)malloc(sizeof(double)*width*height);
-  for (int y = 0; y < height; y++) {
-    for (int x = 0; x < width; x++) {
-      map[y*width + x] = rand();
-    }
-  }
+  sound_field = boost::shared_ptr<SoundField>(new SoundField(width, height));
 }
 
 enum LOOP_EXIT_TYPE{
@@ -37,11 +30,11 @@ enum LOOP_EXIT_TYPE{
   ERROR,
 };
 
-// main loop.
+// event.
 // return: > 0   - error
 //         == 0  - normal exit
 //         == -1 - continue
-int loop(SDL_Event* event) {
+int act_event(SDL_Event* event) {
   switch (event->type) {
     case SDL_KEYDOWN: 
     {
@@ -52,26 +45,31 @@ int loop(SDL_Event* event) {
     case SDL_QUIT: return EXIT;
     default: break;
   }
-  
+  return CONTINUE;
+}
+
+int loop() {
+  DoubleArray pressure_field = sound_field->Update();
+
   if (SDL_MUSTLOCK(g_screen)) {
     SDL_LockSurface(g_screen);
   }
   
-  draw();
-  
+  draw_pressure_field(pressure_field, 0.0001);
+
   if (SDL_MUSTLOCK(g_screen)) {
     SDL_UnlockSurface(g_screen);
   }
   
   SDL_Flip(g_screen);
-  
-  return CONTINUE;
+
+  return 0;
 }
 
-void draw() {
+void draw_pressure_field(DoubleArray pressure_field, double max) {
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
-      put_pixel_mono(g_screen, x, y, quantize_to_uint8(map[y*width+x], 200));
+      put_pixel_mono(g_screen, x, y, quantize_to_uint8(pressure_field[y*width+x], max));
     }
   }
 }
@@ -88,10 +86,14 @@ int main(int argc, char** argv) {
 
   SDL_Event event;
   int status;
-  while(SDL_WaitEvent(&event) >= 0) {
-    status = loop(&event);
-    if (status != CONTINUE) {
-      return status;
+
+  while(1) {
+    loop();
+    while (SDL_PollEvent(&event)) {
+      status = act_event(&event);
+      if (status != CONTINUE) {
+        return status;
+      }
     }
   }
 
