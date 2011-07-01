@@ -38,9 +38,6 @@
     <ClCompile Include="..\..\test\scene_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\test\signal_test.cpp">
-      <Filter>テスト ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\test\size_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>

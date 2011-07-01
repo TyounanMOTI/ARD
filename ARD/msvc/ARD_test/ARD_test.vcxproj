@@ -167,7 +167,6 @@ python D:\workspace\ARD\ARD\test\plot\plot_1d.py D:\workspace\ARD\msvc\ARD_test\
     <ClCompile Include="..\..\test\pressure_field_test.cpp" />
     <ClCompile Include="..\..\test\pressure_spectrum_test.cpp" />
     <ClCompile Include="..\..\test\scene_test.cpp" />
-    <ClCompile Include="..\..\test\signal_test.cpp" />
     <ClCompile Include="..\..\test\size_test.cpp" />
   </ItemGroup>
   <ItemGroup>
