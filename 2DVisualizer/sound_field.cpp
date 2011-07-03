@@ -58,7 +58,7 @@ DoubleArray SoundField::Update() {
   Normalize(pressure_spectrum_next_, width_*height_*4);
     
   step_++;
-  printf("%d\n", step_);
+  printf("%ld\n", step_);
 
   return pressure_spectrum_next_;
 }
