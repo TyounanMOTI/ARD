@@ -14,7 +14,7 @@ namespace ARD
     explicit Signal(SignalContent content) : content_(content) {};
     SignalContent content() const;
     short at(const unsigned long pos) const;
-    int size() const;
+    size_t size() const;
     
   private:
     SignalContent content_;
