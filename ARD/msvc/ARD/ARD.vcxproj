@@ -28,6 +28,7 @@
     <ClInclude Include="..\..\include\pressure_field.h" />
     <ClInclude Include="..\..\include\pressure_spectrum.h" />
     <ClInclude Include="..\..\include\scene.h" />
+    <ClInclude Include="..\..\include\signal.h" />
     <ClInclude Include="..\..\include\size.h" />
     <ClInclude Include="..\..\include\spectrum.h" />
     <ClInclude Include="..\..\include\spectrum_pool.h" />
@@ -39,6 +40,7 @@
     <ClCompile Include="..\..\src\pressure_field.cpp" />
     <ClCompile Include="..\..\src\pressure_spectrum.cpp" />
     <ClCompile Include="..\..\src\scene.cpp" />
+    <ClCompile Include="..\..\src\signal.cpp" />
     <ClCompile Include="..\..\src\size.cpp" />
     <ClCompile Include="..\..\src\spectrum.cpp" />
     <ClCompile Include="..\..\src\spectrum_pool.cpp" />
