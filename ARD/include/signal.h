@@ -2,22 +2,21 @@
 #define SIGNAL_H
 
 #include <boost/shared_ptr.hpp>
-#include <boost/shared_array.hpp>
+#include <vector>
 
 namespace ARD
 {
   typedef unsigned short SignalLevel;
-  typedef boost::shared_array<SignalLevel> SignalContent;
+  typedef std::vector<SignalLevel> SignalContent;
   
   class Signal
   {
   public:
-    Signal(SignalContent content, long length);
+    Signal(SignalContent content) : content_(content), head_(0) {};
     SignalLevel Pop();
 
   private:
     SignalContent content_;
-    long length_;
     long head_;
   };
 
