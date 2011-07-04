@@ -19,7 +19,7 @@ private:
   void SwapSpectrumBuffers();
   void FillByZero(DoubleArray target);
   int PositionToIndex(int x, int y);
-  void SoundField::Normalize(DoubleArray field, double max);
+  void Normalize(DoubleArray field, double max);
 
   long step_;
   static const double dt_;
