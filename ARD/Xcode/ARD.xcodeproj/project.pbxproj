@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9D39095F13C0715B00A4B0A1 /* spectrum_pool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D39095E13C0713200A4B0A1 /* spectrum_pool.h */; };
 		9D39096113C0718A00A4B0A1 /* spectrum_pool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D39096013C0718A00A4B0A1 /* spectrum_pool.cpp */; };
+		9D59932513C3155F0022C280 /* source_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D59932313C3155F0022C280 /* source_test.cpp */; };
+		9D59932713C316270022C280 /* source.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D59932613C316260022C280 /* source.h */; };
+		9D59932A13C317680022C280 /* source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D59932813C317680022C280 /* source.cpp */; };
 		9D8FC0DE13B1F4CD00D244A9 /* fftw_array.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8FC0CD13B1F4CD00D244A9 /* fftw_array.h */; };
 		9D8FC0DF13B1F4CD00D244A9 /* fftw_plan.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8FC0CE13B1F4CD00D244A9 /* fftw_plan.h */; };
 		9D8FC0E013B1F4CD00D244A9 /* force_field.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8FC0CF13B1F4CD00D244A9 /* force_field.h */; };
@@ -67,6 +70,9 @@
 		9D2AE34513A5079B003BD84E /* plot_1d.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = plot_1d.py; path = ../../ARD/test/plot/plot_1d.py; sourceTree = "<group>"; };
 		9D39095E13C0713200A4B0A1 /* spectrum_pool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spectrum_pool.h; sourceTree = "<group>"; };
 		9D39096013C0718A00A4B0A1 /* spectrum_pool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spectrum_pool.cpp; sourceTree = "<group>"; };
+		9D59932313C3155F0022C280 /* source_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = source_test.cpp; sourceTree = "<group>"; };
+		9D59932613C316260022C280 /* source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = source.h; sourceTree = "<group>"; };
+		9D59932813C317680022C280 /* source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = source.cpp; sourceTree = "<group>"; };
 		9D8FC0CD13B1F4CD00D244A9 /* fftw_array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fftw_array.h; sourceTree = "<group>"; };
 		9D8FC0CE13B1F4CD00D244A9 /* fftw_plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fftw_plan.h; sourceTree = "<group>"; };
 		9D8FC0CF13B1F4CD00D244A9 /* force_field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = force_field.h; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 				9D8FC0DC13B1F4CD00D244A9 /* size.h */,
 				9D39095E13C0713200A4B0A1 /* spectrum_pool.h */,
 				9D8FC0DD13B1F4CD00D244A9 /* spectrum.h */,
+				9D59932613C316260022C280 /* source.h */,
 			);
 			name = include;
 			path = ../../ARD/include;
@@ -232,6 +239,7 @@
 				9D8FC0F713B1F4E900D244A9 /* size.cpp */,
 				9D8FC0F813B1F4E900D244A9 /* spectrum.cpp */,
 				9D39096013C0718A00A4B0A1 /* spectrum_pool.cpp */,
+				9D59932813C317680022C280 /* source.cpp */,
 			);
 			name = src;
 			path = ../../ARD/src;
@@ -250,6 +258,7 @@
 				9D8FC10F13B1F55800D244A9 /* scene_test.cpp */,
 				9D8FC11013B1F55800D244A9 /* signal_test.cpp */,
 				9D8FC11113B1F55800D244A9 /* size_test.cpp */,
+				9D59932313C3155F0022C280 /* source_test.cpp */,
 			);
 			name = test;
 			path = ../../ARD/test;
@@ -279,6 +288,7 @@
 				9D8FC0ED13B1F4CD00D244A9 /* size.h in Headers */,
 				9D39095F13C0715B00A4B0A1 /* spectrum_pool.h in Headers */,
 				9D8FC0EE13B1F4CD00D244A9 /* spectrum.h in Headers */,
+				9D59932713C316270022C280 /* source.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +379,7 @@
 				9D8FC10113B1F4E900D244A9 /* size.cpp in Sources */,
 				9D8FC10213B1F4E900D244A9 /* spectrum.cpp in Sources */,
 				9D39096113C0718A00A4B0A1 /* spectrum_pool.cpp in Sources */,
+				9D59932A13C317680022C280 /* source.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +398,7 @@
 				9D8FC11913B1F55800D244A9 /* scene_test.cpp in Sources */,
 				9D8FC11A13B1F55800D244A9 /* signal_test.cpp in Sources */,
 				9D8FC11B13B1F55800D244A9 /* size_test.cpp in Sources */,
+				9D59932513C3155F0022C280 /* source_test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
