@@ -30,3 +30,7 @@ ForceSpectrumPointer ForceField::DCT() {
   output->Normalize();
   return output;
 }
+
+void ForceField::EmitSound(const SourcePointer source) {
+  set_content(source->position(), Power(source->Pop()));
+}

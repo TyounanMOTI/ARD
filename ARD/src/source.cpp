@@ -2,7 +2,7 @@
 
 using namespace ARD;
 
-Source::Source(std::vector<Power> content) {
+Source::Source(const Position& position, std::vector<Power> content) : position_(position) {
   std::copy(content.begin(), content.end(), content_.begin());
 }
 
