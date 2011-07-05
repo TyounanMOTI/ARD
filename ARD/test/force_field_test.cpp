@@ -7,10 +7,19 @@
 
 using namespace ARD;
 
-TEST(ForceFieldTest, DCT) {
-  Size size(10, 20);
-  ForceFieldPointer subject(new ForceField(size));
+class ForceFieldTest : public testing::Test
+{
+protected:
+  virtual void SetUp() {
+    size = Size(10, 20);
+    subject = ForceFieldPointer(new ForceField(size));
+  }
+  
+  Size size;
+  ForceFieldPointer subject;
+};
 
+TEST_F(ForceFieldTest, DCT) {
   for (int y = 0; y < size.height(); y++) {
     for (int x = 0; x < size.width(); x++) {
       subject->set_content(Position(x,y), Power(1.0));
@@ -24,10 +33,7 @@ TEST(ForceFieldTest, DCT) {
 //  OutputFFTWReal2DArray(size.width(), size.height(), output->get());
 }
 
-TEST(ForceFieldTest, EmitSound) {
-  Size size(10, 20);
-  ForceFieldPointer subject(new ForceField(size));
-
+TEST_F(ForceFieldTest, EmitSound) {
   std::vector<Power> content;
   content.push_back(Power(2.0));
   SourcePointer source(new Source(Position(7,7), content));
