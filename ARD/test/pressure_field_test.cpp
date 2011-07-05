@@ -17,10 +17,3 @@ protected:
   PressureFieldPointer subject;
   Size size;
 };
-
-TEST_F(PressureFieldTest, Record) {
-  MicrophonePointer mic(new Microphone(Position(2,1)));
-  subject->set_content(Position(2,1), Pressure(10));
-  subject->Record(mic);
-  EXPECT_EQ(Pressure(10), mic->content().back());
-}

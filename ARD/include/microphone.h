@@ -6,11 +6,12 @@
 #include "position.h"
 #include "signal.h"
 #include "pressure.h"
+#include "pressure_field.h"
 
 namespace ARD
 {
   typedef std::queue<Pressure> PressureQueue;
-
+  typedef boost::shared_ptr<PressureField> PressureFieldPointer;
   class Microphone
   {
   public:
@@ -19,6 +20,7 @@ namespace ARD
     const Position position() const;
     void Push(const Pressure& input);
     void Pop(const int amount);
+    void Record(const PressureFieldPointer field);
 
   private:
     Position position_;

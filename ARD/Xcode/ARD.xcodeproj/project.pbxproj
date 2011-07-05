@@ -31,7 +31,6 @@
 		9D8FC0F913B1F4E900D244A9 /* fftw_array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC0EF13B1F4E900D244A9 /* fftw_array.cpp */; };
 		9D8FC0FA13B1F4E900D244A9 /* force_field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC0F013B1F4E900D244A9 /* force_field.cpp */; };
 		9D8FC0FB13B1F4E900D244A9 /* microphone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC0F113B1F4E900D244A9 /* microphone.cpp */; };
-		9D8FC0FD13B1F4E900D244A9 /* pressure_field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC0F313B1F4E900D244A9 /* pressure_field.cpp */; };
 		9D8FC0FE13B1F4E900D244A9 /* pressure_spectrum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC0F413B1F4E900D244A9 /* pressure_spectrum.cpp */; };
 		9D8FC0FF13B1F4E900D244A9 /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC0F513B1F4E900D244A9 /* scene.cpp */; };
 		9D8FC10013B1F4E900D244A9 /* signal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC0F613B1F4E900D244A9 /* signal.cpp */; };
@@ -92,7 +91,6 @@
 		9D8FC0EF13B1F4E900D244A9 /* fftw_array.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fftw_array.cpp; sourceTree = "<group>"; };
 		9D8FC0F013B1F4E900D244A9 /* force_field.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = force_field.cpp; sourceTree = "<group>"; };
 		9D8FC0F113B1F4E900D244A9 /* microphone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = microphone.cpp; sourceTree = "<group>"; };
-		9D8FC0F313B1F4E900D244A9 /* pressure_field.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pressure_field.cpp; sourceTree = "<group>"; };
 		9D8FC0F413B1F4E900D244A9 /* pressure_spectrum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pressure_spectrum.cpp; sourceTree = "<group>"; };
 		9D8FC0F513B1F4E900D244A9 /* scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scene.cpp; sourceTree = "<group>"; };
 		9D8FC0F613B1F4E900D244A9 /* signal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = signal.cpp; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 				9D8FC0EF13B1F4E900D244A9 /* fftw_array.cpp */,
 				9D8FC0F013B1F4E900D244A9 /* force_field.cpp */,
 				9D8FC0F113B1F4E900D244A9 /* microphone.cpp */,
-				9D8FC0F313B1F4E900D244A9 /* pressure_field.cpp */,
 				9D8FC0F413B1F4E900D244A9 /* pressure_spectrum.cpp */,
 				9D8FC0F513B1F4E900D244A9 /* scene.cpp */,
 				9D8FC0F613B1F4E900D244A9 /* signal.cpp */,
@@ -372,7 +369,6 @@
 				9D8FC0F913B1F4E900D244A9 /* fftw_array.cpp in Sources */,
 				9D8FC0FA13B1F4E900D244A9 /* force_field.cpp in Sources */,
 				9D8FC0FB13B1F4E900D244A9 /* microphone.cpp in Sources */,
-				9D8FC0FD13B1F4E900D244A9 /* pressure_field.cpp in Sources */,
 				9D8FC0FE13B1F4E900D244A9 /* pressure_spectrum.cpp in Sources */,
 				9D8FC0FF13B1F4E900D244A9 /* scene.cpp in Sources */,
 				9D8FC10013B1F4E900D244A9 /* signal.cpp in Sources */,
@@ -427,6 +423,7 @@
 		9DFD7BBC13978B7F0073F9E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				USER_HEADER_SEARCH_PATHS = /Users/TyounanMOTI/Develop/ARD/ARD/include;
 			};
@@ -435,6 +432,7 @@
 		9DFD7BBD13978B7F0073F9E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				USER_HEADER_SEARCH_PATHS = /Users/TyounanMOTI/Develop/ARD/ARD/include;
 			};

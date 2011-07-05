@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <boost/scoped_ptr.hpp>
 #include <microphone.h>
+#include <pressure_field.h>
 
 using namespace ARD;
 
@@ -30,4 +31,11 @@ TEST_F(MicrophoneTest, Pop) {
   subject->Push(Pressure(50));
   subject->Pop(2);
   EXPECT_EQ(50, subject->content().back());
+}
+
+TEST_F(MicrophoneTest, Record) {
+  PressureFieldPointer field(new PressureField(Size(10,20)));
+  field->set_content(Position(2,1), Pressure(10));
+  subject->Record(field);
+  EXPECT_EQ(Pressure(10), subject->content().back());
 }

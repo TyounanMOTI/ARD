@@ -5,7 +5,6 @@
 #include "fftw_array.h"
 #include "pressure_spectrum.h"
 #include "size.h"
-#include "microphone.h"
 #include "pressure.h"
 #include <fftw3.h>
 
@@ -19,7 +18,6 @@ namespace ARD
   public:
     PressureField(const Size& size) : FFTWArray(size) {};
     PressureField(const Size& size, const FFTWArrayPointer content) : FFTWArray(size, content) {};
-    MicrophonePointer Record(MicrophonePointer microphone) const;
   };
 
   typedef boost::shared_ptr<PressureField> PressureFieldPointer;

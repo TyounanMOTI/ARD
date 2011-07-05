@@ -19,3 +19,7 @@ void Microphone::Pop(const int amount) {
     content_.pop();
   }
 }
+
+void Microphone::Record(const PressureFieldPointer field) {
+  Push(field->content(position()));
+}
