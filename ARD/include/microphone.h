@@ -19,7 +19,7 @@ namespace ARD
     const PressureQueue content() const;
     const Position position() const;
     const Pressure Pop();
-    void Record(const PressureFieldPointer field);
+    virtual void Record(const PressureFieldPointer field);
 
   private:
     void Push(const Pressure& input);
