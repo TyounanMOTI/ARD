@@ -10,10 +10,6 @@ const Position Microphone::position() const {
   return position_;
 }
 
-void Microphone::Push(const Pressure& pressure) {
-  content_.push(pressure);
-}
-
 const Pressure Microphone::Pop() {
   Pressure result = content_.front();
   content_.pop();
@@ -22,4 +18,8 @@ const Pressure Microphone::Pop() {
 
 void Microphone::Record(const PressureFieldPointer field) {
   Push(field->content(position()));
+}
+
+void Microphone::Push(const Pressure& pressure) {
+  content_.push(pressure);
 }

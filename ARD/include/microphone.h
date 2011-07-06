@@ -18,12 +18,12 @@ namespace ARD
     Microphone(const Position& position) : position_(position) {};
     const PressureQueue content() const;
     const Position position() const;
-    void Push(const Pressure& input);
     const Pressure Pop();
     void Record(const PressureFieldPointer field);
 
-
   private:
+    void Push(const Pressure& input);
+
     Position position_;
     PressureQueue content_;
   };
