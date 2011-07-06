@@ -14,10 +14,10 @@ void Microphone::Push(const Pressure& pressure) {
   content_.push(pressure);
 }
 
-void Microphone::Pop(const int amount) {
-  for (int i = 0; i < amount; i++) {
-    content_.pop();
-  }
+const Pressure Microphone::Pop() {
+  Pressure result = content_.front();
+  content_.pop();
+  return result;
 }
 
 void Microphone::Record(const PressureFieldPointer field) {
