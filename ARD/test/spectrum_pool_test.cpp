@@ -1,6 +1,4 @@
 #include <gtest/gtest.h>
-#include <boost/scoped_ptr.hpp>
-#include <boost/shared_ptr.hpp>
 #include <spectrum_pool.h>
 
 using namespace ARD;

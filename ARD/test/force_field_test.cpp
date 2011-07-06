@@ -1,8 +1,6 @@
 #include <gtest/gtest.h>
 #include <force_field.h>
-#include <source.h>
 #include <mode_coefficient.h>
-#include <power.h>
 #include "plot/output_fftw_array.h"
 
 using namespace ARD;
