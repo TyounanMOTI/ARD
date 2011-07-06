@@ -13,8 +13,8 @@ namespace ARD
   {
   public:
     Source(const Position& position, std::vector<Power> content);
-    Power Pop();
-    const Position position() { return position_; };
+    const Power Pop();
+    const Position position() const { return position_; };
     
   private:
     Position position_;
