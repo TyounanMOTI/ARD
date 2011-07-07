@@ -41,7 +41,7 @@
 		9D8FC11313B1F55800D244A9 /* force_field_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC10913B1F55800D244A9 /* force_field_test.cpp */; };
 		9D8FC11413B1F55800D244A9 /* microphone_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC10A13B1F55800D244A9 /* microphone_test.cpp */; };
 		9D8FC11513B1F55800D244A9 /* spectrum_pool_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC10B13B1F55800D244A9 /* spectrum_pool_test.cpp */; };
-		9D8FC11613B1F55800D244A9 /* multi_array_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC10C13B1F55800D244A9 /* multi_array_test.cpp */; };
+		9D8FC11613B1F55800D244A9 /* fftw_array_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC10C13B1F55800D244A9 /* fftw_array_test.cpp */; };
 		9D8FC11713B1F55800D244A9 /* pressure_field_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC10D13B1F55800D244A9 /* pressure_field_test.cpp */; };
 		9D8FC11813B1F55800D244A9 /* pressure_spectrum_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC10E13B1F55800D244A9 /* pressure_spectrum_test.cpp */; };
 		9D8FC11913B1F55800D244A9 /* scene_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC10F13B1F55800D244A9 /* scene_test.cpp */; };
@@ -102,7 +102,7 @@
 		9D8FC10913B1F55800D244A9 /* force_field_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = force_field_test.cpp; sourceTree = "<group>"; };
 		9D8FC10A13B1F55800D244A9 /* microphone_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = microphone_test.cpp; sourceTree = "<group>"; };
 		9D8FC10B13B1F55800D244A9 /* spectrum_pool_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spectrum_pool_test.cpp; sourceTree = "<group>"; };
-		9D8FC10C13B1F55800D244A9 /* multi_array_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = multi_array_test.cpp; sourceTree = "<group>"; };
+		9D8FC10C13B1F55800D244A9 /* fftw_array_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fftw_array_test.cpp; sourceTree = "<group>"; };
 		9D8FC10D13B1F55800D244A9 /* pressure_field_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pressure_field_test.cpp; sourceTree = "<group>"; };
 		9D8FC10E13B1F55800D244A9 /* pressure_spectrum_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pressure_spectrum_test.cpp; sourceTree = "<group>"; };
 		9D8FC10F13B1F55800D244A9 /* scene_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scene_test.cpp; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 				9D8FC10913B1F55800D244A9 /* force_field_test.cpp */,
 				9D8FC10A13B1F55800D244A9 /* microphone_test.cpp */,
 				9D8FC10B13B1F55800D244A9 /* spectrum_pool_test.cpp */,
-				9D8FC10C13B1F55800D244A9 /* multi_array_test.cpp */,
+				9D8FC10C13B1F55800D244A9 /* fftw_array_test.cpp */,
 				9D8FC10D13B1F55800D244A9 /* pressure_field_test.cpp */,
 				9D8FC10E13B1F55800D244A9 /* pressure_spectrum_test.cpp */,
 				9D8FC10F13B1F55800D244A9 /* scene_test.cpp */,
@@ -388,7 +388,7 @@
 				9D8FC11313B1F55800D244A9 /* force_field_test.cpp in Sources */,
 				9D8FC11413B1F55800D244A9 /* microphone_test.cpp in Sources */,
 				9D8FC11513B1F55800D244A9 /* spectrum_pool_test.cpp in Sources */,
-				9D8FC11613B1F55800D244A9 /* multi_array_test.cpp in Sources */,
+				9D8FC11613B1F55800D244A9 /* fftw_array_test.cpp in Sources */,
 				9D8FC11713B1F55800D244A9 /* pressure_field_test.cpp in Sources */,
 				9D8FC11813B1F55800D244A9 /* pressure_spectrum_test.cpp in Sources */,
 				9D8FC11913B1F55800D244A9 /* scene_test.cpp in Sources */,
