@@ -15,6 +15,7 @@ namespace ARD
   class Microphone
   {
   public:
+    Microphone() : position_(Position(0,0)) {};
     Microphone(const Position& position) : position_(position) {};
     const PressureQueue content() const;
     const Position position() const;

@@ -33,6 +33,7 @@
     <ClInclude Include="..\..\include\source.h" />
     <ClInclude Include="..\..\include\spectrum.h" />
     <ClInclude Include="..\..\include\spectrum_pool.h" />
+    <ClInclude Include="..\..\include\whole_field_microphone.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\fftw_array.cpp" />
@@ -45,6 +46,7 @@
     <ClCompile Include="..\..\src\source.cpp" />
     <ClCompile Include="..\..\src\spectrum.cpp" />
     <ClCompile Include="..\..\src\spectrum_pool.cpp" />
+    <ClCompile Include="..\..\src\whole_field_microphone.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{043709F5-5323-4DE4-AAA4-FDFAE619CA92}</ProjectGuid>

@@ -65,6 +65,9 @@
     <ClInclude Include="..\..\include\spectrum_pool.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\whole_field_microphone.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\fftw_array.cpp">
@@ -95,6 +98,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\spectrum_pool.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\whole_field_microphone.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
