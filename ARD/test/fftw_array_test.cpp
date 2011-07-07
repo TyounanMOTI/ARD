@@ -16,6 +16,14 @@ protected:
   FFTWArrayPointer subject;
 };
 
+TEST_F(FFTWArrayTest, Copy) {
+  subject->set_content(Position(1,2), Precision(10.0));
+  FFTWArrayPointer p_copied(new FFTWArray(*subject));
+  EXPECT_EQ(Precision(10.0), p_copied->content(Position(1,2)));
+  subject->set_content(Position(1,2), Precision(5.0));
+  EXPECT_EQ(Precision(10.0), p_copied->content(Position(1,2)));
+}
+
 TEST_F(FFTWArrayTest, GetSize) {
   EXPECT_EQ(size, subject->size());
 }
@@ -56,5 +64,3 @@ TEST(FFTWArrayIndexFromPosition, LastIndex) {
   Size size(20, 10);
   EXPECT_EQ(size.Length() - 1, FFTWArrayIndexFromPosition(Position(19,9), size));
 }
-
-
