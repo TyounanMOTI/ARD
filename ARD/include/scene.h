@@ -4,7 +4,7 @@
 #include <boost/shared_ptr.hpp>
 #include "signal.h"
 #include "size.h"
-#include "point_microphone.h"
+#include "microphone.h"
 #include "source.h"
 
 namespace ARD
@@ -13,14 +13,14 @@ namespace ARD
   {
   public:
     Scene(const Size& size) : size_(size) {};
-    PointMicrophonePointer Update();
+    MicrophonePointer Update();
     Size size() { return size_; };
-    void set_microphone(PointMicrophonePointer microphone) { microphone_ = microphone; };
+    void set_microphone(MicrophonePointer microphone) { microphone_ = microphone; };
     void set_source(SourcePointer source) { source_ = source; };
 
   private:
     Size size_;
-    PointMicrophonePointer microphone_;
+    MicrophonePointer microphone_;
     SourcePointer source_;
   };
 

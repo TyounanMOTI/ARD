@@ -1,6 +1,6 @@
 #include <scene.h>
 using namespace ARD;
 
-PointMicrophonePointer Scene::Update() {
+MicrophonePointer Scene::Update() {
   return microphone_;
 }
