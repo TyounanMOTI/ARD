@@ -26,9 +26,6 @@
     <ClCompile Include="..\..\test\microphone_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\test\multi_array_test.cpp">
-      <Filter>テスト ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\test\pressure_field_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>

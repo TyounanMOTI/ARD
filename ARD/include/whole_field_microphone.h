@@ -2,11 +2,11 @@
 #define WHOLE_FIELD_MICROPHONE_H
 
 #include <boost/shared_ptr.hpp>
-#include "microphone.h"
+#include <queue>
 #include "pressure_field.h"
 
 namespace ARD {
-  class WholeFieldMicrophone : public Microphone
+  class WholeFieldMicrophone
   {
   public:
     WholeFieldMicrophone() {};
