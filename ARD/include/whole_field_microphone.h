@@ -13,6 +13,7 @@ namespace ARD {
     WholeFieldMicrophone() {};
     const PressureFieldPointer Pop();
     void Record(const PressureFieldPointer field);
+    void Plot(PressureFieldPointer field);
 
   private:
     std::queue<PressureFieldPointer> content_;
