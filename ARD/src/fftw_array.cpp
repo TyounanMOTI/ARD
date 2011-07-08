@@ -8,6 +8,12 @@ FFTWArray::FFTWArray(const Size& size) : size_(size) {
   FillByZero();
 }
 
+FFTWArray::FFTWArray(const FFTWArray& original) : size_(original.size_) {
+  content_ = FFTWArrayContent(static_cast<Precision*>(fftw_malloc(sizeof(Precision)*original.size_.Length())),
+                              fftw_free);
+  memcpy(content_.get(), original.content_.get(), sizeof(Precision)*original.size_.Length());
+}
+
 Precision* FFTWArray::get() const {
   return content_.get();
 }
