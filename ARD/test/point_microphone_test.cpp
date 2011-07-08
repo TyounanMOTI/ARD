@@ -9,10 +9,12 @@ class PointMicrophoneTest : public testing::Test
 {
 protected:
   virtual void SetUp() {
-    subject = PointMicrophonePointer(new PointMicrophone(Position(2, 1)));
+    subject.reset(new PointMicrophone(Position(2, 1)));
+    field.reset(new PressureField(Size(10,20)));
   }
 
   PointMicrophonePointer subject;
+  PressureFieldPointer field;
 };
 
 TEST_F(PointMicrophoneTest, InitialContentShouldEmpty) {
@@ -20,14 +22,12 @@ TEST_F(PointMicrophoneTest, InitialContentShouldEmpty) {
 }
 
 TEST_F(PointMicrophoneTest, Record) {
-  PressureFieldPointer field(new PressureField(Size(10,20)));
   field->set_content(Position(2,1), Pressure(10));
   subject->Record(field);
   EXPECT_EQ(Pressure(10), subject->content().back());
 }
 
 TEST_F(PointMicrophoneTest, Pop) {
-  PressureFieldPointer field(new PressureField(Size(10,20)));
   field->set_content(Position(2,1), Pressure(10));
   subject->Record(field);
   field->set_content(Position(2,1), Pressure(20));
