@@ -19,6 +19,7 @@
     <ClInclude Include="..\..\include\fftw_plan.h" />
     <ClInclude Include="..\..\include\force_field.h" />
     <ClInclude Include="..\..\include\force_spectrum.h" />
+    <ClInclude Include="..\..\include\microphone.h" />
     <ClInclude Include="..\..\include\point_microphone.h" />
     <ClInclude Include="..\..\include\mode_coefficient.h" />
     <ClInclude Include="..\..\include\position.h" />

@@ -4,9 +4,10 @@
 #include <boost/shared_ptr.hpp>
 #include <queue>
 #include "pressure_field.h"
+#include "microphone.h"
 
 namespace ARD {
-  class WholeFieldMicrophone
+  class WholeFieldMicrophone : public Microphone
   {
   public:
     WholeFieldMicrophone() {};
