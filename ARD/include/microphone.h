@@ -12,6 +12,7 @@ namespace ARD
     Microphone() {};
     virtual ~Microphone() {};
     virtual void Record(const PressureFieldPointer field) = 0;
+    virtual void Plot(PressureFieldPointer field) = 0;
   };
 
   typedef boost::shared_ptr<Microphone> MicrophonePointer;
