@@ -9,5 +9,5 @@ Uint8 quantize_to_uint8(double input, double max) {
     return 0;
   }
 
-  return output;
+  return (Uint8)output;
 }

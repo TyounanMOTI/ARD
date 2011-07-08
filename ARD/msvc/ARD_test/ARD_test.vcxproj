@@ -84,7 +84,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>D:\workspace\ARD\ARD\include</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PreprocessorDefinitions>_ITERATOR_DEBUG_LEVEL=0;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -158,6 +158,7 @@ python D:\workspace\ARD\ARD\test\plot\plot_1d.py D:\workspace\ARD\msvc\ARD_test\
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\develop\SDK\gmock-1.6.0\src\gmock_main.cc" />
     <ClCompile Include="..\..\test\fftw_test.cpp" />
     <ClCompile Include="..\..\test\force_field_test.cpp" />
     <ClCompile Include="..\..\test\point_microphone_test.cpp" />

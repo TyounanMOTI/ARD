@@ -18,16 +18,19 @@
     <ClCompile Include="..\..\test\transforms_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\transforms.cpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\test\boost_rand_test.cpp">
       <Filter>テスト ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\develop\SDK\gmock-1.6.0\src\gmock_main.cc">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\transforms.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\transforms.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

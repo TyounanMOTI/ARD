@@ -50,6 +50,7 @@
     <ClCompile Include="..\..\test\point_microphone_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\develop\SDK\gmock-1.6.0\src\gmock_main.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\test\plot\output_fftw_array.h">

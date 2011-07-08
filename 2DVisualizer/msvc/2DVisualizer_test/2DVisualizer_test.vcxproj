@@ -54,7 +54,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_ITERATOR_DEBUG_LEVEL=0;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalIncludeDirectories>D:\workspace\ARD\2DVisualizer</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -91,6 +91,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\develop\SDK\gmock-1.6.0\src\gmock_main.cc" />
     <ClCompile Include="..\..\test\boost_rand_test.cpp" />
     <ClCompile Include="..\..\test\multi_array_test.cpp" />
     <ClCompile Include="..\..\test\transforms_test.cpp" />
