@@ -11,7 +11,7 @@ namespace ARD {
   {
   public:
     WholeFieldMicrophone() {};
-    const PressureFieldPointer Pop();
+    const Pressure Pop();
     void Record(const PressureFieldPointer field);
     void Plot(PressureFieldPointer field);
 

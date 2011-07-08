@@ -11,6 +11,7 @@ namespace ARD
   public:
     Microphone() {};
     virtual ~Microphone() {};
+    virtual const Pressure Pop() = 0;
     virtual void Record(const PressureFieldPointer field) = 0;
     virtual void Plot(PressureFieldPointer field) = 0;
   };

@@ -19,16 +19,21 @@ protected:
 
 TEST_F(WholeFieldMicrophoneTest, Record) {
   field->set_content(Position(10,10), Pressure(20.0));
-
   subject->Record(field);
-  EXPECT_EQ(Pressure(20.0), subject->Pop()->content(Position(10,10)));
+
+  PressureFieldPointer result(new PressureField(size));
+  subject->Plot(result);
+  EXPECT_EQ(Pressure(20.0), result->content(Position(10,10)));
 }
 
 TEST_F(WholeFieldMicrophoneTest, RecordCopiesField) {
   field->set_content(Position(10,10), Pressure(20.0));
   subject->Record(field);
   field->set_content(Position(10,10), Pressure(10.0));
-  EXPECT_EQ(Pressure(20.0), subject->Pop()->content(Position(10,10)));
+
+  PressureFieldPointer result(new PressureField(size));
+  subject->Plot(result);
+  EXPECT_EQ(Pressure(20.0), result->content(Position(10,10)));
 }
 
 TEST_F(WholeFieldMicrophoneTest, Plot) {
