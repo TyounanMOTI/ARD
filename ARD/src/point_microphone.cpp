@@ -17,9 +17,5 @@ const Pressure PointMicrophone::Pop() {
 }
 
 void PointMicrophone::Record(const PressureFieldPointer field) {
-  Push(field->content(position()));
-}
-
-void PointMicrophone::Push(const Pressure& pressure) {
-  content_.push(pressure);
+  content_.push(field->content(position()));
 }

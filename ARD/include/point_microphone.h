@@ -24,8 +24,6 @@ namespace ARD
     void Record(const PressureFieldPointer field);
 
   private:
-    void Push(const Pressure& input);
-
     Position position_;
     PressureQueue content_;
   };
