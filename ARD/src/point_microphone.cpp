@@ -19,3 +19,7 @@ const Pressure PointMicrophone::Pop() {
 void PointMicrophone::Record(const PressureFieldPointer field) {
   content_.push(field->content(position()));
 }
+
+void PointMicrophone::Plot(PressureFieldPointer field) {
+  field->set_content(position_, Pop());
+}

@@ -22,6 +22,7 @@ namespace ARD
     const Position position() const;
     const Pressure Pop();
     void Record(const PressureFieldPointer field);
+    void Plot(PressureFieldPointer field);
 
   private:
     Position position_;
