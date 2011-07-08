@@ -17,7 +17,7 @@ protected:
 };
 
 TEST_F(SceneTest, UpdateReturnsMicrophone) {
-  MicrophonePointer microphone = MicrophonePointer(new Microphone(Position(5,5)));
+  PointMicrophonePointer microphone = PointMicrophonePointer(new PointMicrophone(Position(5,5)));
   subject->set_microphone(microphone);
   EXPECT_EQ(microphone, subject->Update());
 }

@@ -3,7 +3,7 @@
 
 #include <boost/shared_ptr.hpp>
 #include "position.h"
-#include "microphone.h"
+#include "point_microphone.h"
 #include "pressure_field.h"
 
 namespace ARD

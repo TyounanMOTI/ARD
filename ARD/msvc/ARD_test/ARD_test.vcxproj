@@ -160,7 +160,7 @@ python D:\workspace\ARD\ARD\test\plot\plot_1d.py D:\workspace\ARD\msvc\ARD_test\
   <ItemGroup>
     <ClCompile Include="..\..\test\fftw_test.cpp" />
     <ClCompile Include="..\..\test\force_field_test.cpp" />
-    <ClCompile Include="..\..\test\microphone_test.cpp" />
+    <ClCompile Include="..\..\test\point_microphone_test.cpp" />
     <ClCompile Include="..\..\test\plot\output_fftw_array.cpp" />
     <ClCompile Include="..\..\test\pressure_field_test.cpp" />
     <ClCompile Include="..\..\test\pressure_spectrum_test.cpp" />

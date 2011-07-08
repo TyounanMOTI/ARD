@@ -1,5 +1,5 @@
-#ifndef MICROPHONE_H
-#define MICROPHONE_H
+#ifndef POINT_MICROPHONE_H
+#define POINT_MICROPHONE_H
 
 #include <boost/shared_ptr.hpp>
 #include <queue>
@@ -12,11 +12,11 @@ namespace ARD
 {
   typedef std::queue<Pressure> PressureQueue;
   typedef boost::shared_ptr<PressureField> PressureFieldPointer;
-  class Microphone
+  class PointMicrophone
   {
   public:
-    Microphone() : position_(Position(0,0)) {};
-    Microphone(const Position& position) : position_(position) {};
+    PointMicrophone() : position_(Position(0,0)) {};
+    PointMicrophone(const Position& position) : position_(position) {};
     const PressureQueue content() const;
     const Position position() const;
     const Pressure Pop();
@@ -29,7 +29,7 @@ namespace ARD
     PressureQueue content_;
   };
 
-  typedef boost::shared_ptr<Microphone> MicrophonePointer;
+  typedef boost::shared_ptr<PointMicrophone> PointMicrophonePointer;
 };
 
-#endif // MICROPHONE_H
+#endif // POINT_MICROPHONE_H
