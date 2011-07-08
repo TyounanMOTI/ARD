@@ -9,5 +9,5 @@ const PressureFieldPointer WholeFieldMicrophone::Pop() {
 }
 
 void WholeFieldMicrophone::Record(const PressureFieldPointer field) {
-  content_.push(field);
+  content_.push(PressureFieldPointer(new PressureField(*field)));
 }
