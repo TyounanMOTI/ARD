@@ -12,8 +12,9 @@
 		9D39097213C0737A00A4B0A1 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D39097113C0737A00A4B0A1 /* libfftw3.dylib */; };
 		9D7B8C2013B4D22900295959 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7B8C1F13B4D22900295959 /* SDLMain.m */; };
 		9D7B8C2413B4D4C000295959 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7B8C2313B4D4C000295959 /* SDL.framework */; };
-		9D7B8C2613B4D4C800295959 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7B8C2513B4D4C800295959 /* Cocoa.framework */; };
 		9D7B8C2913B4DC2C00295959 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D7B8C2713B4DC2C00295959 /* main.cpp */; };
+		9D8F90B813C8B7C800A87C85 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7B8C2513B4D4C800295959 /* Cocoa.framework */; };
+		9D8F90BD13C8BBA000A87C85 /* ARD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8F90BB13C8BB8C00A87C85 /* ARD.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +44,7 @@
 		9D7B8C2313B4D4C000295959 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = Library/Frameworks/SDL.framework; sourceTree = SDKROOT; };
 		9D7B8C2513B4D4C800295959 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9D7B8C2713B4DC2C00295959 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../2DVisualizer/main.cpp; sourceTree = "<group>"; };
+		9D8F90BB13C8BB8C00A87C85 /* ARD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D7B8C2613B4D4C800295959 /* Cocoa.framework in Frameworks */,
+				9D8F90BD13C8BBA000A87C85 /* ARD.framework in Frameworks */,
+				9D8F90B813C8B7C800A87C85 /* Cocoa.framework in Frameworks */,
 				9D7B8C2413B4D4C000295959 /* SDL.framework in Frameworks */,
 				9D39097213C0737A00A4B0A1 /* libfftw3.dylib in Frameworks */,
 			);
@@ -104,6 +107,7 @@
 		9D7B8C2213B4D2E400295959 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				9D8F90BB13C8BB8C00A87C85 /* ARD.framework */,
 				9D7B8C2513B4D4C800295959 /* Cocoa.framework */,
 				9D7B8C2313B4D4C000295959 /* SDL.framework */,
 				9D7B8C1E13B4D22900295959 /* SDLMain.h */,
@@ -172,6 +176,7 @@
 		9D7B8C1113B4D06300295959 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -190,6 +195,7 @@
 		9D7B8C1213B4D06300295959 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -208,7 +214,12 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/Users/TyounanMOTI/Develop/ARD/ARD/include,
+					/usr/local/include,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -220,7 +231,12 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					/Users/TyounanMOTI/Develop/ARD/ARD/include,
+					/usr/local/include,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
