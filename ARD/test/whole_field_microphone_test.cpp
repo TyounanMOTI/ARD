@@ -46,3 +46,9 @@ TEST_F(WholeFieldMicrophoneTest, Plot) {
   EXPECT_EQ(Pressure(20.0), result->content(Position(10,10)));
   EXPECT_EQ(Pressure(5.0), result->content(Position(0,0)));
 }
+
+TEST_F(WholeFieldMicrophoneTest, PlotEmpty) {
+  PressureFieldPointer result(new PressureField(size));
+  subject->Plot(result);
+  EXPECT_EQ(Pressure(0.0), result->content(Position(0,0)));
+}

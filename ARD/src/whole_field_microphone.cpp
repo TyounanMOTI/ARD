@@ -12,6 +12,9 @@ void WholeFieldMicrophone::Record(const PressureFieldPointer field) {
 }
 
 void WholeFieldMicrophone::Plot(PressureFieldPointer field) {
+  if (content_.empty()) {
+    return;
+  }
   PressureFieldPointer front = content_.front();
   Size size = field->size();
   for (int y = 0; y < size.height(); y++) {
