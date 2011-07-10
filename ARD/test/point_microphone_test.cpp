@@ -40,6 +40,10 @@ TEST_F(PointMicrophoneTest, Pop) {
   EXPECT_EQ(Pressure(20), subject->Pop());
 }
 
+TEST_F(PointMicrophoneTest_Pop_Test, EmptyPop) {
+  EXPECT_EQ(Pressure(0), subject->Pop());
+}
+
 TEST_F(PointMicrophoneTest, Plot) {
   field->set_content(position, Pressure(10));
   subject->Record(field);

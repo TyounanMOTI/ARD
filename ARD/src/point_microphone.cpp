@@ -11,6 +11,9 @@ const Position PointMicrophone::position() const {
 }
 
 const Pressure PointMicrophone::Pop() {
+  if (content_.empty()) {
+    return Pressure(0);
+  }
   Pressure result = content_.front();
   content_.pop();
   return result;
