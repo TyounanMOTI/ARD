@@ -54,11 +54,10 @@ int act_event(SDL_Event* event) {
 }
 
 int loop() {
-  static ARD::MicrophonePointer mic = g_scene->Update();
-  static ARD::PressureFieldPointer dummy_field(new ARD::PressureField(size));
-  dummy_field->set_content(ARD::Position(10,20), ARD::Pressure(0.0001));
-  mic->Record(dummy_field);
-  static ARD::PressureFieldPointer pressure_field(new ARD::PressureField(size));
+  static ARD::MicrophonePointer mic;
+  mic = g_scene->Update();
+  static ARD::PressureFieldPointer pressure_field;
+  pressure_field.reset(new ARD::PressureField(size));
   mic->Plot(pressure_field);
 
   if (SDL_MUSTLOCK(g_screen)) {
