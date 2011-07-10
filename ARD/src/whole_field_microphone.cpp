@@ -3,7 +3,9 @@
 using namespace ARD;
 
 const Pressure WholeFieldMicrophone::Pop() {
-  content_.pop();
+  if (!content_.empty()) {
+    content_.pop();
+  }
   return Pressure(0.0);
 }
 
