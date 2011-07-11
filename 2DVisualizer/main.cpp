@@ -12,6 +12,7 @@ void put_pixel_mono(SDL_Surface* surface, int x, int y, Uint8 depth);
 SDL_Surface* g_screen;
 ARD::ScenePointer g_scene;
 ARD::WholeFieldMicrophonePointer g_mic;
+ARD::SourcePointer g_source;
 ARD::Size size;
 int width;
 int height;
@@ -27,6 +28,10 @@ void Init() {
   g_scene.reset(new ARD::Scene(size));
   g_mic.reset(new ARD::WholeFieldMicrophone());
   g_scene->set_microphone(g_mic);
+  std::vector<ARD::Power> sourceContent;
+  sourceContent.push_back(ARD::Power(10000.0));
+  g_source.reset(new ARD::Source(ARD::Position(10,10), sourceContent));
+  g_scene->set_source(g_source);
 }
 
 enum LOOP_EXIT_TYPE{
