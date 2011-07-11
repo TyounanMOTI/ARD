@@ -12,7 +12,7 @@ namespace ARD
   class SpectrumPool
   {
   public:
-    PressureSpectrumPointer Update(const ForceSpectrumPointer forceSpectrum);
+    PressureSpectrumPointer Update(const ForceSpectrumPointer force_spectrum);
   };
 
   typedef boost::shared_ptr<SpectrumPool> SpectrumPoolPointer;

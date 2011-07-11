@@ -2,6 +2,6 @@
 
 using namespace ARD;
 
-PressureSpectrumPointer SpectrumPool::Update(const ForceSpectrumPointer forceSpectrum) {
-  return PressureSpectrumPointer(new PressureSpectrum(forceSpectrum->size()));
+PressureSpectrumPointer SpectrumPool::Update(const ForceSpectrumPointer force_spectrum) {
+  return PressureSpectrumPointer(new PressureSpectrum(force_spectrum->size()));
 }
