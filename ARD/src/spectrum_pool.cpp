@@ -2,6 +2,6 @@
 
 using namespace ARD;
 
-PressureFieldPointer SpectrumPool::Update() {
-  return PressureFieldPointer(new PressureField(Size(10, 20)));
+PressureSpectrumPointer SpectrumPool::Update() {
+  return PressureSpectrumPointer(new PressureSpectrum(Size(10, 20)));
 }

@@ -4,14 +4,14 @@
 #include <boost/shared_ptr.hpp>
 #include "position.h"
 #include "point_microphone.h"
-#include "pressure_field.h"
+#include "pressure_spectrum.h"
 
 namespace ARD
 {
   class SpectrumPool
   {
   public:
-    PressureFieldPointer Update();
+    PressureSpectrumPointer Update();
   };
 
   typedef boost::shared_ptr<SpectrumPool> SpectrumPoolPointer;
