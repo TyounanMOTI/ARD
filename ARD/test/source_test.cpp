@@ -11,3 +11,9 @@ TEST(SourceTest, Pop) {
   EXPECT_EQ(Power(5.0), subject->Pop());
   EXPECT_EQ(Power(1.0), subject->Pop());
 }
+
+TEST(SourceTest, EmptyPop) {
+  std::vector<Power> content;
+  SourcePointer subject(new Source(Position(0,0), content));
+  EXPECT_EQ(Power(0.0), subject->Pop());
+}

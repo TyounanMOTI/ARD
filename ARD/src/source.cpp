@@ -7,6 +7,9 @@ Source::Source(const Position& position, std::vector<Power> content) : position_
 }
 
 const Power Source::Pop() {
+  if (content_.empty()) {
+    return Power(0.0);
+  }
   Power result = content_.front();
   content_.pop_front();
   return result;
