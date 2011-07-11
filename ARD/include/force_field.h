@@ -3,7 +3,6 @@
 
 #include <boost/shared_ptr.hpp>
 #include "force_spectrum.h"
-#include "source.h"
 #include "fftw_plan.h"
 #include <fftw_array.h>
 
@@ -15,7 +14,6 @@ namespace ARD {
     ForceField(const Size& size);
     ForceField(const Size& size, const FFTWArrayPointer content);
     ForceSpectrumPointer DCT();
-    void EmitSound(const SourcePointer source);
 
   private:
     void Init();

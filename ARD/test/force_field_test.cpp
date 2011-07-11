@@ -2,6 +2,7 @@
 #include <force_field.h>
 #include <mode_coefficient.h>
 #include "plot/output_fftw_array.h"
+#include "power.h"
 
 using namespace ARD;
 
@@ -29,12 +30,4 @@ TEST_F(ForceFieldTest, DCT) {
   EXPECT_EQ(ModeCoefficient(0.0), output->content(Position(9,19)));
 
 //  OutputFFTWReal2DArray(size.width(), size.height(), output->get());
-}
-
-TEST_F(ForceFieldTest, EmitSound) {
-  std::vector<Power> content;
-  content.push_back(Power(2.0));
-  SourcePointer source(new Source(Position(7,7), content));
-  subject->EmitSound(source);
-  EXPECT_EQ(Power(2.0), subject->content(Position(7,7)));
 }

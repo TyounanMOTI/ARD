@@ -6,6 +6,7 @@
 #include <deque>
 #include "power.h"
 #include "position.h"
+#include "force_field.h"
 
 namespace ARD
 {
@@ -14,9 +15,11 @@ namespace ARD
   public:
     Source(const Position& position, std::vector<Power> content);
     const Power Pop();
+    void Emit(ForceFieldPointer force);
     const Position position() const { return position_; };
     
   private:
+
     Position position_;
     std::deque<Power> content_;
   };

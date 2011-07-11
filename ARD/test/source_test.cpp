@@ -3,17 +3,35 @@
 
 using namespace ARD;
 
-TEST(SourceTest, Pop) {
+class SourceTest : public testing::Test
+{
+protected:
+  virtual void SetUp() {
+    position = Position(0,0);
+  }
+
+  Position position;
   std::vector<Power> content;
+  SourcePointer subject;
+};
+
+TEST_F(SourceTest, Pop) {
   content.push_back(Power(5.0));
   content.push_back(Power(1.0));
-  SourcePointer subject(new Source(Position(0,0), content));
+  subject.reset(new Source(position, content));
   EXPECT_EQ(Power(5.0), subject->Pop());
   EXPECT_EQ(Power(1.0), subject->Pop());
 }
 
-TEST(SourceTest, EmptyPop) {
-  std::vector<Power> content;
-  SourcePointer subject(new Source(Position(0,0), content));
+TEST_F(SourceTest, EmptyPop) {
+  subject.reset(new Source(position, content));
   EXPECT_EQ(Power(0.0), subject->Pop());
+}
+
+TEST_F(SourceTest, Emit) {
+  content.push_back(Power(5.0));
+  subject.reset(new Source(position, content));
+  ForceFieldPointer force(new ForceField(Size(20,10)));
+  subject->Emit(force);
+  EXPECT_EQ(Power(5.0), force->content(position));
 }

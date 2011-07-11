@@ -14,3 +14,7 @@ const Power Source::Pop() {
   content_.pop_front();
   return result;
 }
+
+void Source::Emit(ForceFieldPointer force) {
+  force->set_content(position_, Pop());
+}
