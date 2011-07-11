@@ -11,7 +11,7 @@ class SceneTest : public testing::Test
 protected:
   virtual void SetUp() {
     size = Size(20, 10);
-    subject = ScenePointer(new Scene(size));
+    subject = ScenePointer(new Scene(size, 0.001));
     std::vector<Power> source_content;
     source.reset(new Source(Position(2,3), source_content));
     microphone.reset(new PointMicrophone(Position(2,3)));

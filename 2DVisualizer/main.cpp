@@ -18,18 +18,18 @@ int width;
 int height;
 
 void Init() {
-  width = 200;
-  height = 200;
+  width = 256;
+  height = 256;
   SDL_Init(SDL_INIT_VIDEO);
   atexit(SDL_Quit);
   g_screen = SDL_SetVideoMode(width, height, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
 
   size = ARD::Size(width, height);
-  g_scene.reset(new ARD::Scene(size));
+  g_scene.reset(new ARD::Scene(size, 0.001));
   g_mic.reset(new ARD::WholeFieldMicrophone());
   g_scene->set_microphone(g_mic);
   std::vector<ARD::Power> sourceContent;
-//  sourceContent.push_back(ARD::Power(10000.0));
+  sourceContent.push_back(ARD::Power(10000.0));
   g_source.reset(new ARD::Source(ARD::Position(10,10), sourceContent));
   g_scene->set_source(g_source);
 }
@@ -69,7 +69,7 @@ int loop() {
     SDL_LockSurface(g_screen);
   }
   
-  draw_pressure_field(pressure_field->get(), 0.0001);
+  draw_pressure_field(pressure_field->get(), 0.001);
 
   if (SDL_MUSTLOCK(g_screen)) {
     SDL_UnlockSurface(g_screen);

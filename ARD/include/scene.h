@@ -14,7 +14,7 @@ namespace ARD
   class Scene
   {
   public:
-    Scene(const Size& size);
+    Scene(const Size& size, const double dt);
     MicrophonePointer Update();
     Size size() { return size_; };
     void set_microphone(MicrophonePointer microphone) { microphone_ = microphone; };

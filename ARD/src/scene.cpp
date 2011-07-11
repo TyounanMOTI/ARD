@@ -1,9 +1,9 @@
 #include <scene.h>
 using namespace ARD;
 
-Scene::Scene(const Size& size) : size_(size) {
+Scene::Scene(const Size& size, const double dt) : size_(size) {
   force_field_.reset(new ForceField(size));
-  spectrum_pool_.reset(new SpectrumPool());
+  spectrum_pool_.reset(new SpectrumPool(size, dt));
 }
 
 MicrophonePointer Scene::Update() {
