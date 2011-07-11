@@ -12,10 +12,17 @@ protected:
   virtual void SetUp() {
     size = Size(20, 10);
     subject = ScenePointer(new Scene(size));
+    std::vector<Power> source_content;
+    source.reset(new Source(Position(2,3), source_content));
+    microphone.reset(new PointMicrophone(Position(2,3)));
+    subject->set_source(source);
+    subject->set_microphone(microphone);
   }
 
   Size size;
   ScenePointer subject;
+  SourcePointer source;
+  MicrophonePointer microphone;
 };
 
 TEST_F(SceneTest, UpdateReturnsMicrophone) {

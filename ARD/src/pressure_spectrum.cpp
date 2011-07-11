@@ -4,6 +4,7 @@ using namespace ARD;
 
 PressureSpectrum::PressureSpectrum(const Size& size) : Spectrum(size) {
   Init();
+  FillByZero();
 }
 
 PressureSpectrum::PressureSpectrum(const Size& size, const FFTWArrayPointer content) : Spectrum(size, content) {

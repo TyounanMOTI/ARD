@@ -29,7 +29,7 @@ void Init() {
   g_mic.reset(new ARD::WholeFieldMicrophone());
   g_scene->set_microphone(g_mic);
   std::vector<ARD::Power> sourceContent;
-  sourceContent.push_back(ARD::Power(10000.0));
+//  sourceContent.push_back(ARD::Power(10000.0));
   g_source.reset(new ARD::Source(ARD::Position(10,10), sourceContent));
   g_scene->set_source(g_source);
 }

@@ -6,13 +6,15 @@
 #include "size.h"
 #include "microphone.h"
 #include "source.h"
+#include "force_field.h"
+#include "spectrum_pool.h"
 
 namespace ARD
 {
   class Scene
   {
   public:
-    Scene(const Size& size) : size_(size) {};
+    Scene(const Size& size);
     MicrophonePointer Update();
     Size size() { return size_; };
     void set_microphone(MicrophonePointer microphone) { microphone_ = microphone; };
@@ -22,6 +24,8 @@ namespace ARD
     Size size_;
     MicrophonePointer microphone_;
     SourcePointer source_;
+    ForceFieldPointer force_field_;
+    SpectrumPoolPointer spectrum_pool_;
   };
 
   typedef boost::shared_ptr<Scene> ScenePointer;
