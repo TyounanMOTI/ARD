@@ -36,7 +36,7 @@ omega[0][0] = 1.0
 image = imshow(field, vmin=0.0001, vmax=0.005)
 
 mic = zeros(4000)
-for i in arange(0, 100):
+for i in arange(0, 2000):
     M_next = 2*M_now*cos(omega*dt) - M_prev + 2*F_mode/omega**2*(1-cos(omega*dt))
     M_next[0,0] = 2*M_now[0,0] - M_prev[0,0]
     P = idct2d(M_next)
