@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <boost/shared_ptr.hpp>
+#include <boost/format.hpp>
+#include <string>
 #include <SDL/SDL.h>
 #include <SDL/SDL_main.h>
 #include "transforms.h"
@@ -16,6 +18,7 @@ ARD::SourcePointer g_source;
 ARD::Size size;
 int width;
 int height;
+int g_iteration;
 
 void Init() {
   width = 256;
@@ -32,6 +35,8 @@ void Init() {
   sourceContent.push_back(ARD::Power(10000.0));
   g_source.reset(new ARD::Source(ARD::Position(10,10), sourceContent));
   g_scene->set_source(g_source);
+  
+  g_iteration = 0;
 }
 
 enum LOOP_EXIT_TYPE{
@@ -76,7 +81,12 @@ int loop() {
   }
   
   SDL_Flip(g_screen);
-
+  
+  boost::format f = boost::format("/Users/TyounanMOTI/Pictures/visualizer/%05d.bmp") % g_iteration;
+  const char* filename = str(f).c_str();
+  SDL_SaveBMP(g_screen, filename);
+  g_iteration++;
+  
   return 0;
 }
 

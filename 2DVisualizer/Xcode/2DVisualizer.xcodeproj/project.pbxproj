@@ -76,6 +76,9 @@
 		9D39097313C0737E00A4B0A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D8F90BB13C8BB8C00A87C85 /* ARD.framework */,
+				9D7B8C2513B4D4C800295959 /* Cocoa.framework */,
+				9D7B8C2313B4D4C000295959 /* SDL.framework */,
 				9D39097113C0737A00A4B0A1 /* libfftw3.dylib */,
 			);
 			name = Frameworks;
@@ -107,9 +110,6 @@
 		9D7B8C2213B4D2E400295959 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9D8F90BB13C8BB8C00A87C85 /* ARD.framework */,
-				9D7B8C2513B4D4C800295959 /* Cocoa.framework */,
-				9D7B8C2313B4D4C000295959 /* SDL.framework */,
 				9D7B8C1E13B4D22900295959 /* SDLMain.h */,
 				9D7B8C1F13B4D22900295959 /* SDLMain.m */,
 			);
@@ -179,6 +179,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
@@ -198,11 +199,13 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Release;
