@@ -1,0 +1,9 @@
+re-implementing "Efﬁcient and Accurate Sound Propagation Using Adaptive Rectangular Decomposition" by Nikunj Raghuvanshi, Rahul Narain, Ming C. Lin
+
+requires: FFTW, SDL, Boost
+works on: MacOSX, Windows
+MIT License.
+
+contact: tyounan.moti@gmail.com
+Hirotoshi Yoshitaka
+@tyounanmoti
