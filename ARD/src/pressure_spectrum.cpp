@@ -21,7 +21,7 @@ void PressureSpectrum::InitOutputBuffer() {
 }
 
 void PressureSpectrum::InitPlan() {
-  idct_plan_ = FFTWPlan(fftw_plan_r2r_2d(size().width(), size().height(), get(), idct_output_buffer_->get(), FFTW_REDFT01, FFTW_REDFT01, FFTW_ESTIMATE), fftw_destroy_plan);
+  idct_plan_ = FFTWPlan(fftw_plan_r2r_2d(size().height(), size().width(), get(), idct_output_buffer_->get(), FFTW_REDFT01, FFTW_REDFT01, FFTW_ESTIMATE), fftw_destroy_plan);
 }
 
 PressureFieldPointer PressureSpectrum::InverseDCT() {

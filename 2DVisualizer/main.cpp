@@ -21,7 +21,7 @@ int height;
 int g_iteration;
 
 void Init() {
-  width = 256;
+  width = 512;
   height = 256;
   SDL_Init(SDL_INIT_VIDEO);
   atexit(SDL_Quit);

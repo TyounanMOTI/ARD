@@ -21,7 +21,7 @@ void ForceField::InitOutputBuffer() {
 }
 
 void ForceField::InitPlan() {
-  dct_plan_ = FFTWPlan(fftw_plan_r2r_2d(size().width(), size().height(), get(), dct_output_buffer_->get(), FFTW_REDFT10, FFTW_REDFT10, FFTW_ESTIMATE), fftw_destroy_plan);
+  dct_plan_ = FFTWPlan(fftw_plan_r2r_2d(size().height(), size().width(), get(), dct_output_buffer_->get(), FFTW_REDFT10, FFTW_REDFT10, FFTW_ESTIMATE), fftw_destroy_plan);
 }
 
 ForceSpectrumPointer ForceField::DCT() {
