@@ -33,7 +33,7 @@ void Init() {
   g_scene->set_microphone(g_mic);
   std::vector<ARD::Power> sourceContent;
   sourceContent.push_back(ARD::Power(10000.0));
-  g_source.reset(new ARD::Source(ARD::Position(10,10), sourceContent));
+  g_source.reset(new ARD::Source(ARD::Position(100,100), sourceContent));
   g_scene->set_source(g_source);
   
   g_iteration = 0;
@@ -53,7 +53,7 @@ int act_event(SDL_Event* event) {
   switch (event->type) {
     case SDL_KEYDOWN: 
     {
-      Uint8* keys = SDL_GetKeyState(NULL);
+      Uint8* keys = SDL_GetKeyboardState(NULL);
       if (keys[SDLK_q]) return EXIT;
       break;      
     }
@@ -82,11 +82,13 @@ int loop() {
   
   SDL_Flip(g_screen);
   
+/*
   boost::format f = boost::format("/Users/TyounanMOTI/Pictures/visualizer/%05d.bmp") % g_iteration;
   const char* filename = str(f).c_str();
   SDL_SaveBMP(g_screen, filename);
   g_iteration++;
-  
+*/
+
   return 0;
 }
 
