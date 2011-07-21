@@ -11,9 +11,10 @@
 #include <whole_field_microphone.h>
 
 void draw_pressure_field(double* pressure_field, double max);
-void put_pixel_mono(SDL_Surface* surface, int x, int y, Uint8 depth);
 
-SDL_Surface* g_screen;
+SDL_Window* g_window;
+SDL_Renderer* g_renderer;
+
 ARD::ScenePointer g_scene;
 ARD::WholeFieldMicrophonePointer g_mic;
 ARD::SourcePointer g_source;
@@ -26,8 +27,10 @@ void Init() {
   width = 512;
   height = 256;
   SDL_Init(SDL_INIT_VIDEO);
-  atexit(SDL_Quit);
-  g_screen = SDL_SetVideoMode(width, height, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+  SDL_VideoInit(NULL);
+  g_window = SDL_CreateWindow("ARD", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height,
+                              SDL_WINDOW_SHOWN);
+  g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
 
   size = ARD::Size(width, height);
   g_scene.reset(new ARD::Scene(size, 0.001));
@@ -39,6 +42,13 @@ void Init() {
   g_scene->set_source(g_source);
   
   g_iteration = 0;
+}
+
+int Quit(int return_value) {
+  SDL_DestroyRenderer(g_renderer);
+  SDL_VideoQuit();
+  SDL_Quit();
+  return return_value;
 }
 
 enum LOOP_EXIT_TYPE{
@@ -65,7 +75,7 @@ int act_event(SDL_Event* event) {
   return CONTINUE;
 }
 
-int loop() {
+void loop() {
   static ARD::MicrophonePointer mic;
   {
     boost::timer t;
@@ -76,19 +86,14 @@ int loop() {
 
   pressure_field.reset(new ARD::PressureField(size));
   mic->Plot(pressure_field);
-
-  if (SDL_MUSTLOCK(g_screen)) {
-    SDL_LockSurface(g_screen);
-  }
   
-  draw_pressure_field(pressure_field->get(), 0.001);
-
-  if (SDL_MUSTLOCK(g_screen)) {
-    SDL_UnlockSurface(g_screen);
-  }
-
-  SDL_Flip(g_screen);
+  {
+    boost::timer t;
+    draw_pressure_field(pressure_field->get(), 0.001);
   
+    SDL_RenderPresent(g_renderer);
+    std::cout << "Render: " << t.elapsed() << std::endl;
+  }
 /*
   boost::format f = boost::format("/Users/TyounanMOTI/Pictures/visualizer/%05d.bmp") % g_iteration;
   const char* filename = str(f).c_str();
@@ -96,22 +101,16 @@ int loop() {
   g_iteration++;
 */
 
-  return 0;
 }
 
 void draw_pressure_field(double* pressure_field, double max) {
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
-      put_pixel_mono(g_screen, x, y, quantize_to_uint8(pressure_field[y*width+x], max));
+      Uint8 mono = quantize_to_uint8(pressure_field[y*width+x], max);
+      SDL_SetRenderDrawColor(g_renderer, mono, mono, mono, 255);
+      SDL_RenderDrawPoint(g_renderer, x, y);
     }
   }
-}
-
-void put_pixel_mono(SDL_Surface* surface, int x, int y, Uint8 depth) {
-  Uint32 mono = SDL_MapRGBA(surface->format, depth, depth, depth, 0);
-  Uint32* pixel = (Uint32*)surface->pixels + y*width + x;
-  
-  *pixel = mono;
 }
 
 int main(int argc, char** argv) {
@@ -125,10 +124,10 @@ int main(int argc, char** argv) {
     while (SDL_PollEvent(&event)) {
       status = act_event(&event);
       if (status != CONTINUE) {
-        return status;
+        Quit(status);
       }
     }
   }
 
-  return 0;
+  Quit(0);
 }

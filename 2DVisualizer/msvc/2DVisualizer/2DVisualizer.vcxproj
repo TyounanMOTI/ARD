@@ -74,6 +74,7 @@
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>D:\develop\lib;$(LibraryPath)</LibraryPath>
     <ExecutablePath>D:\develop\bin;$(ExecutablePath)</ExecutablePath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -86,6 +87,7 @@
     <IncludePath>D:\workspace\ARD\ARD\include;D:\develop\include;$(IncludePath)</IncludePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <LibraryPath>D:\develop\lib;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
