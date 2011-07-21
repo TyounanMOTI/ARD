@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <boost/shared_ptr.hpp>
 #include <boost/format.hpp>
+#include <boost/timer.hpp>
+#include <boost/progress.hpp>
 #include <string>
 #include <SDL/SDL.h>
 #include <SDL/SDL_main.h>
@@ -65,8 +67,13 @@ int act_event(SDL_Event* event) {
 
 int loop() {
   static ARD::MicrophonePointer mic;
-  mic = g_scene->Update();
+  {
+    boost::timer t;
+    mic = g_scene->Update();
+    std::cout << "Update(): " << t.elapsed() << std::endl;
+  }
   static ARD::PressureFieldPointer pressure_field;
+
   pressure_field.reset(new ARD::PressureField(size));
   mic->Plot(pressure_field);
 
@@ -79,7 +86,7 @@ int loop() {
   if (SDL_MUSTLOCK(g_screen)) {
     SDL_UnlockSurface(g_screen);
   }
-  
+
   SDL_Flip(g_screen);
   
 /*
