@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D22195713DD4D99003534D6 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22195613DD4D99003534D6 /* libfftw3.dylib */; };
 		9D39096713C0730800A4B0A1 /* sound_field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D39096313C0730800A4B0A1 /* sound_field.cpp */; };
 		9D39096813C0730800A4B0A1 /* transforms.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D39096513C0730800A4B0A1 /* transforms.cpp */; };
-		9D39097213C0737A00A4B0A1 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D39097113C0737A00A4B0A1 /* libfftw3.dylib */; };
-		9D7B8C2013B4D22900295959 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D7B8C1F13B4D22900295959 /* SDLMain.m */; };
 		9D7B8C2413B4D4C000295959 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7B8C2313B4D4C000295959 /* SDL.framework */; };
 		9D7B8C2913B4DC2C00295959 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D7B8C2713B4DC2C00295959 /* main.cpp */; };
 		9D8F90B813C8B7C800A87C85 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D7B8C2513B4D4C800295959 /* Cocoa.framework */; };
@@ -30,6 +29,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9D22195613DD4D99003534D6 /* libfftw3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfftw3.dylib; path = /usr/local/lib/libfftw3.dylib; sourceTree = "<absolute>"; };
 		9D39096313C0730800A4B0A1 /* sound_field.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sound_field.cpp; path = ../sound_field.cpp; sourceTree = "<group>"; };
 		9D39096413C0730800A4B0A1 /* sound_field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sound_field.h; path = ../sound_field.h; sourceTree = "<group>"; };
 		9D39096513C0730800A4B0A1 /* transforms.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = transforms.cpp; path = ../transforms.cpp; sourceTree = "<group>"; };
@@ -37,10 +37,7 @@
 		9D39096B13C0733800A4B0A1 /* boost_rand_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boost_rand_test.cpp; sourceTree = "<group>"; };
 		9D39096C13C0733800A4B0A1 /* multi_array_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = multi_array_test.cpp; sourceTree = "<group>"; };
 		9D39096D13C0733800A4B0A1 /* transforms_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = transforms_test.cpp; sourceTree = "<group>"; };
-		9D39097113C0737A00A4B0A1 /* libfftw3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfftw3.dylib; path = SDKs/MacOSX10.6.sdk/usr/local/lib/libfftw3.dylib; sourceTree = DEVELOPER_DIR; };
 		9D7B8C0A13B4D06300295959 /* 2DVisualizer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 2DVisualizer; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D7B8C1E13B4D22900295959 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SDLMain.h; path = ../../2DVisualizer/mac/SDLMain.h; sourceTree = "<group>"; };
-		9D7B8C1F13B4D22900295959 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SDLMain.m; path = ../../2DVisualizer/mac/SDLMain.m; sourceTree = "<group>"; };
 		9D7B8C2313B4D4C000295959 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = Library/Frameworks/SDL.framework; sourceTree = SDKROOT; };
 		9D7B8C2513B4D4C800295959 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9D7B8C2713B4DC2C00295959 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../2DVisualizer/main.cpp; sourceTree = "<group>"; };
@@ -55,7 +52,7 @@
 				9D8F90BD13C8BBA000A87C85 /* ARD.framework in Frameworks */,
 				9D8F90B813C8B7C800A87C85 /* Cocoa.framework in Frameworks */,
 				9D7B8C2413B4D4C000295959 /* SDL.framework in Frameworks */,
-				9D39097213C0737A00A4B0A1 /* libfftw3.dylib in Frameworks */,
+				9D22195713DD4D99003534D6 /* libfftw3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,10 +73,10 @@
 		9D39097313C0737E00A4B0A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9D22195613DD4D99003534D6 /* libfftw3.dylib */,
 				9D8F90BB13C8BB8C00A87C85 /* ARD.framework */,
 				9D7B8C2513B4D4C800295959 /* Cocoa.framework */,
 				9D7B8C2313B4D4C000295959 /* SDL.framework */,
-				9D39097113C0737A00A4B0A1 /* libfftw3.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -110,8 +107,6 @@
 		9D7B8C2213B4D2E400295959 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9D7B8C1E13B4D22900295959 /* SDLMain.h */,
-				9D7B8C1F13B4D22900295959 /* SDLMain.m */,
 			);
 			name = "Support Files";
 			sourceTree = "<group>";
@@ -163,7 +158,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D7B8C2013B4D22900295959 /* SDLMain.m in Sources */,
 				9D7B8C2913B4DC2C00295959 /* main.cpp in Sources */,
 				9D39096713C0730800A4B0A1 /* sound_field.cpp in Sources */,
 				9D39096813C0730800A4B0A1 /* transforms.cpp in Sources */,

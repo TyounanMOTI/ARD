@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D22195313DD45A4003534D6 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22195113DD4596003534D6 /* libfftw3.dylib */; };
+		9D22195413DD4BD6003534D6 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22195113DD4596003534D6 /* libfftw3.dylib */; };
 		9D8F905A13C89C4700A87C85 /* fftw_array.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904613C89C4700A87C85 /* fftw_array.h */; };
 		9D8F905B13C89C4700A87C85 /* fftw_plan.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904713C89C4700A87C85 /* fftw_plan.h */; };
 		9D8F905C13C89C4700A87C85 /* force_field.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904813C89C4700A87C85 /* force_field.h */; };
@@ -55,8 +57,6 @@
 		9DFD7C0D13978C5B0073F9E5 /* ARD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD7BDD13978BCB0073F9E5 /* ARD.framework */; };
 		9DFD7C1113978C730073F9E5 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD7C1013978C730073F9E5 /* gtest.framework */; };
 		9DFD7C1813978EAE0073F9E5 /* libgtest_main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD7C1713978EAE0073F9E5 /* libgtest_main.a */; };
-		9DFD7C1C139895800073F9E5 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD7C1B139895800073F9E5 /* libfftw3.dylib */; };
-		9DFD7C6513A25F8D0073F9E5 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD7C1B139895800073F9E5 /* libfftw3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9D22195113DD4596003534D6 /* libfftw3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfftw3.dylib; path = /usr/local/lib/libfftw3.dylib; sourceTree = "<absolute>"; };
 		9D2AE34513A5079B003BD84E /* plot_1d.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = plot_1d.py; path = ../../ARD/test/plot/plot_1d.py; sourceTree = "<group>"; };
 		9D8F904613C89C4700A87C85 /* fftw_array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fftw_array.h; path = ../include/fftw_array.h; sourceTree = "<group>"; };
 		9D8F904713C89C4700A87C85 /* fftw_plan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = fftw_plan.h; path = ../include/fftw_plan.h; sourceTree = "<group>"; };
@@ -124,7 +125,6 @@
 		9DFD7C0413978C450073F9E5 /* ARD_test.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; name = ARD_test.1; path = ARD_test/ARD_test.1; sourceTree = SOURCE_ROOT; };
 		9DFD7C1013978C730073F9E5 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = SDKs/MacOSX10.6.sdk/Library/Frameworks/gtest.framework; sourceTree = DEVELOPER_DIR; };
 		9DFD7C1713978EAE0073F9E5 /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest_main.a; path = ../../../../../../Library/Frameworks/gtest.framework/Versions/A/Resources/libgtest_main.a; sourceTree = "<group>"; };
-		9DFD7C1B139895800073F9E5 /* libfftw3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfftw3.dylib; path = SDKs/MacOSX10.6.sdk/usr/local/lib/libfftw3.dylib; sourceTree = DEVELOPER_DIR; };
 		9DFD7C1D1398B7950073F9E5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../../../.gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DFD7C6513A25F8D0073F9E5 /* libfftw3.dylib in Frameworks */,
+				9D22195313DD45A4003534D6 /* libfftw3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +141,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DFD7C1C139895800073F9E5 /* libfftw3.dylib in Frameworks */,
 				9DFD7C1113978C730073F9E5 /* gtest.framework in Frameworks */,
 				9DFD7C0D13978C5B0073F9E5 /* ARD.framework in Frameworks */,
+				9D22195413DD4BD6003534D6 /* libfftw3.dylib in Frameworks */,
 				9DFD7C1813978EAE0073F9E5 /* libgtest_main.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,7 +254,7 @@
 			children = (
 				9DFD7C1013978C730073F9E5 /* gtest.framework */,
 				9DFD7BDD13978BCB0073F9E5 /* ARD.framework */,
-				9DFD7C1B139895800073F9E5 /* libfftw3.dylib */,
+				9D22195113DD4596003534D6 /* libfftw3.dylib */,
 				9DFD7C1713978EAE0073F9E5 /* libgtest_main.a */,
 			);
 			name = Frameworks;
@@ -440,6 +440,7 @@
 			buildSettings = {
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				USER_HEADER_SEARCH_PATHS = /Users/TyounanMOTI/Develop/ARD/ARD/include;
 			};
 			name = Debug;
@@ -449,6 +450,7 @@
 			buildSettings = {
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = /usr/local/include;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				USER_HEADER_SEARCH_PATHS = /Users/TyounanMOTI/Develop/ARD/ARD/include;
 			};
 			name = Release;
@@ -471,13 +473,13 @@
 				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = "ARD/ARD-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -502,13 +504,13 @@
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = "ARD/ARD-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -529,7 +531,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -538,7 +540,7 @@
 					/usr/local/lib,
 					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/gtest.framework/Versions/A/Resources\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
@@ -556,7 +558,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -565,7 +567,8 @@
 					/usr/local/lib,
 					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/gtest.framework/Versions/A/Resources\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = macosx;
