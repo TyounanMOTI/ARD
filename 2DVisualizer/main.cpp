@@ -9,6 +9,7 @@
 #include "transforms.h"
 #include <scene.h>
 #include <whole_field_microphone.h>
+#include <math.h>
 
 void draw_pressure_field(double* pressure_field, double max);
 
@@ -22,23 +23,25 @@ ARD::Size size;
 int width;
 int height;
 int g_iteration;
+int g_zoom;
 
 void Init() {
-  width = 512;
-  height = 256;
+  g_zoom = 3;
+  width = 2600;
+  height = 2600;
   SDL_Init(SDL_INIT_VIDEO);
   SDL_VideoInit(NULL);
-  g_window = SDL_CreateWindow("ARD", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height,
+  g_window = SDL_CreateWindow("ARD", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width/g_zoom, height/g_zoom,
                               SDL_WINDOW_SHOWN);
   g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
 
   size = ARD::Size(width, height);
-  g_scene.reset(new ARD::Scene(size, 0.001));
+  g_scene.reset(new ARD::Scene(size, 1.0/44100.0));
   g_mic.reset(new ARD::WholeFieldMicrophone());
   g_scene->set_microphone(g_mic);
   std::vector<ARD::Power> sourceContent;
   sourceContent.push_back(ARD::Power(10000.0));
-  g_source.reset(new ARD::Source(ARD::Position(100,100), sourceContent));
+  g_source.reset(new ARD::Source(ARD::Position(width/2,height/2), sourceContent));
   g_scene->set_source(g_source);
   
   g_iteration = 0;
@@ -48,7 +51,7 @@ int Quit(int return_value) {
   SDL_DestroyRenderer(g_renderer);
   SDL_VideoQuit();
   SDL_Quit();
-  return return_value;
+  exit(return_value);
 }
 
 enum LOOP_EXIT_TYPE{
@@ -76,11 +79,15 @@ int act_event(SDL_Event* event) {
 }
 
 void loop() {
+  std::cerr << g_iteration << std::endl;
+
   static ARD::MicrophonePointer mic;
   {
     boost::timer t;
+
     mic = g_scene->Update();
-    std::cout << "Update(): " << t.elapsed() << std::endl;
+
+    std::cout << t.elapsed() << std::endl;
   }
   static ARD::PressureFieldPointer pressure_field;
 
@@ -88,11 +95,8 @@ void loop() {
   mic->Plot(pressure_field);
   
   {
-    boost::timer t;
-    draw_pressure_field(pressure_field->get(), 0.001);
-  
+    draw_pressure_field(pressure_field->get(), 0.0003);
     SDL_RenderPresent(g_renderer);
-    std::cout << "Render: " << t.elapsed() << std::endl;
   }
 /*
   boost::format f = boost::format("/Users/TyounanMOTI/Pictures/visualizer/%05d.bmp") % g_iteration;
@@ -101,12 +105,13 @@ void loop() {
   g_iteration++;
 */
 
+  g_iteration++;
 }
 
 void draw_pressure_field(double* pressure_field, double max) {
-  for (int y = 0; y < height; y++) {
-    for (int x = 0; x < width; x++) {
-      Uint8 mono = quantize_to_uint8(pressure_field[y*width+x], max);
+  for (int y = 0; y < height/g_zoom; y++) {
+    for (int x = 0; x < width/g_zoom; x++) {
+      Uint8 mono = quantize_to_uint8(pressure_field[(int)floor((double)(y*width+x)*g_zoom)], max);
       SDL_SetRenderDrawColor(g_renderer, mono, mono, mono, 255);
       SDL_RenderDrawPoint(g_renderer, x, y);
     }
@@ -126,6 +131,10 @@ int main(int argc, char** argv) {
       if (status != CONTINUE) {
         Quit(status);
       }
+    }
+
+    if (g_iteration > 2000) {
+      break;
     }
   }
 
