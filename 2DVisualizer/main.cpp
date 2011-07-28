@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <boost/shared_ptr.hpp>
 #include <boost/format.hpp>
-#include <boost/timer.hpp>
 #include <boost/progress.hpp>
 #include <string>
 #include <SDL/SDL.h>
@@ -10,6 +9,14 @@
 #include <scene.h>
 #include <whole_field_microphone.h>
 #include <math.h>
+
+#ifdef WIN32
+#include <winstl/performance/performance_counter.hpp>
+using namespace winstl;
+#else
+#include <unixstl/performance/performance_counter.hpp>
+using namepspace unixstl;
+#endif // WIN32
 
 void draw_pressure_field(double* pressure_field, double max);
 
@@ -26,9 +33,9 @@ int g_iteration;
 int g_zoom;
 
 void Init() {
-  g_zoom = 3;
-  width = 2600;
-  height = 2600;
+  g_zoom = 1;
+  width = 512;
+  height = 512;
   SDL_Init(SDL_INIT_VIDEO);
   SDL_VideoInit(NULL);
   g_window = SDL_CreateWindow("ARD", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width/g_zoom, height/g_zoom,
@@ -36,7 +43,7 @@ void Init() {
   g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
 
   size = ARD::Size(width, height);
-  g_scene.reset(new ARD::Scene(size, 1.0/44100.0));
+  g_scene.reset(new ARD::Scene(size, 1.0/2000.0));
   g_mic.reset(new ARD::WholeFieldMicrophone());
   g_scene->set_microphone(g_mic);
   std::vector<ARD::Power> sourceContent;
@@ -57,7 +64,7 @@ int Quit(int return_value) {
 enum LOOP_EXIT_TYPE{
   CONTINUE = -1,
   EXIT,
-  ERROR,
+  FAIL,
 };
 
 // event.
@@ -80,15 +87,19 @@ int act_event(SDL_Event* event) {
 
 void loop() {
   std::cerr << g_iteration << std::endl;
+  performance_counter t;
 
   static ARD::MicrophonePointer mic;
+
   {
-    boost::timer t;
+    t.start();
 
     mic = g_scene->Update();
 
-    std::cout << t.elapsed() << std::endl;
+    t.stop();
+    std::cout << t.get_microseconds()/10e6 << std::endl;
   }
+
   static ARD::PressureFieldPointer pressure_field;
 
   pressure_field.reset(new ARD::PressureField(size));
