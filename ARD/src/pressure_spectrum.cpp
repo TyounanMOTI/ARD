@@ -2,12 +2,12 @@
 
 using namespace ARD;
 
-PressureSpectrum::PressureSpectrum(const Size& size) : Spectrum(size) {
+PressureSpectrum::PressureSpectrum(const Size& size) : FFTWArray(size) {
   Init();
   FillByZero();
 }
 
-PressureSpectrum::PressureSpectrum(const PressureSpectrum& original) : Spectrum(original) {
+PressureSpectrum::PressureSpectrum(const PressureSpectrum& original) : FFTWArray(original) {
   Init();
 }
 

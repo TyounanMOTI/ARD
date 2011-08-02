@@ -56,9 +56,6 @@
     <ClInclude Include="..\..\include\source.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\spectrum.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\spectrum_pool.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -94,9 +91,6 @@
     <ClCompile Include="..\..\src\source.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\spectrum.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\spectrum_pool.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -104,6 +98,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\point_microphone.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\force_spectrum.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

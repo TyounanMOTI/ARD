@@ -2,7 +2,7 @@
 #define PRESSURE_SPECTRUM_H
 
 #include <boost/shared_ptr.hpp>
-#include "spectrum.h"
+#include "fftw_array.h"
 #include "pressure_field.h"
 #include "size.h"
 #include "fftw_plan.h"
@@ -13,7 +13,7 @@ namespace ARD
   class PressureField;
   typedef boost::shared_ptr<PressureField> PressureFieldPointer;
 
-  class PressureSpectrum : public Spectrum
+  class PressureSpectrum : public FFTWArray
   {
   public:
     PressureSpectrum(const Size& size);

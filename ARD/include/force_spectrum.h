@@ -2,15 +2,16 @@
 #define FORCE_SPECTRUM_H
 
 #include <boost/shared_ptr.hpp>
-#include <spectrum.h>
+#include <fftw_array.h>
 
 namespace ARD
 {
-  class ForceSpectrum : public Spectrum
+  class ForceSpectrum : public FFTWArray
   {
   public:
-    ForceSpectrum(const Size& size) : Spectrum(size) {};
-    ForceSpectrum(const ForceSpectrum& original) : Spectrum(original) {};
+    ForceSpectrum(const Size& size) : FFTWArray(size) {};
+    ForceSpectrum(const ForceSpectrum& original) : FFTWArray(original) {};
+    void Normalize();
   };
 
   typedef boost::shared_ptr<ForceSpectrum> ForceSpectrumPointer;
