@@ -23,11 +23,11 @@ const Size FFTWArray::size() const {
 }
 
 const Precision FFTWArray::content(const Position& position) const {
-  return content_[FFTWArrayIndexFromPosition(position, size_)];
+  return content_[position.Serialize(size_)];
 }
 
 void FFTWArray::set_content(const Position& position, const Precision& input) {
-  content_[FFTWArrayIndexFromPosition(position, size_)] = input;
+  content_[position.Serialize(size_)] = input;
 }
 
 void FFTWArray::FillByZero() {

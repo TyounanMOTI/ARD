@@ -12,7 +12,7 @@ namespace ARD
     Position(const long x, const long y) : x_(x), y_(y) {};
     long x() const { return x_; };
     long y() const { return y_; };
-    long Serialize(const Size& size);
+    long Serialize(const Size& size) const;
 
   private:
     long x_, y_;

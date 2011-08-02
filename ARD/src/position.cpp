@@ -2,6 +2,6 @@
 
 using namespace ARD;
 
-long Position::Serialize(const Size& size) {
+long Position::Serialize(const Size& size) const {
   return size.width()*y_ + x_;
 }
