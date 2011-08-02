@@ -15,7 +15,7 @@
 using namespace winstl;
 #else
 #include <unixstl/performance/performance_counter.hpp>
-using namepspace unixstl;
+using namespace unixstl;
 #endif // WIN32
 
 void draw_pressure_field(double* pressure_field, double max);

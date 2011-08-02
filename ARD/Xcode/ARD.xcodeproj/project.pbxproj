@@ -27,7 +27,6 @@
 		9D8F906913C89C4700A87C85 /* size.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905513C89C4700A87C85 /* size.h */; };
 		9D8F906A13C89C4700A87C85 /* source.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905613C89C4700A87C85 /* source.h */; };
 		9D8F906B13C89C4700A87C85 /* spectrum_pool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905713C89C4700A87C85 /* spectrum_pool.h */; };
-		9D8F906C13C89C4700A87C85 /* spectrum.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905813C89C4700A87C85 /* spectrum.h */; };
 		9D8F906D13C89C4700A87C85 /* whole_field_microphone.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905913C89C4700A87C85 /* whole_field_microphone.h */; };
 		9D8F907B13C89C9200A87C85 /* fftw_array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907013C89C9200A87C85 /* fftw_array.cpp */; };
 		9D8F907C13C89C9200A87C85 /* force_field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907113C89C9200A87C85 /* force_field.cpp */; };
@@ -37,7 +36,6 @@
 		9D8F908013C89C9200A87C85 /* signal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907513C89C9200A87C85 /* signal.cpp */; };
 		9D8F908113C89C9200A87C85 /* size.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907613C89C9200A87C85 /* size.cpp */; };
 		9D8F908213C89C9200A87C85 /* source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907713C89C9200A87C85 /* source.cpp */; };
-		9D8F908313C89C9200A87C85 /* spectrum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907813C89C9200A87C85 /* spectrum.cpp */; };
 		9D8F908413C89C9200A87C85 /* spectrum_pool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907913C89C9200A87C85 /* spectrum_pool.cpp */; };
 		9D8F908513C89C9200A87C85 /* whole_field_microphone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907A13C89C9200A87C85 /* whole_field_microphone.cpp */; };
 		9D8F909813C89CA300A87C85 /* fftw_array_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F908713C89CA300A87C85 /* fftw_array_test.cpp */; };
@@ -53,6 +51,9 @@
 		9D8F90A313C89CA300A87C85 /* spectrum_pool_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F909613C89CA300A87C85 /* spectrum_pool_test.cpp */; };
 		9D8F90A413C89CA300A87C85 /* whole_field_microphone_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F909713C89CA300A87C85 /* whole_field_microphone_test.cpp */; };
 		9D8FC10713B1F50500D244A9 /* output_fftw_array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC10513B1F50500D244A9 /* output_fftw_array.cpp */; };
+		9DC6DC5513E85520001B4F82 /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC5413E85520001B4F82 /* position.cpp */; };
+		9DC6DC5713E85527001B4F82 /* force_spectrum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC5613E85527001B4F82 /* force_spectrum.cpp */; };
+		9DC6DC5913E85545001B4F82 /* position_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC5813E85545001B4F82 /* position_test.cpp */; };
 		9DFD7BEB13978BCB0073F9E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DFD7BE913978BCB0073F9E5 /* InfoPlist.strings */; };
 		9DFD7C0D13978C5B0073F9E5 /* ARD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD7BDD13978BCB0073F9E5 /* ARD.framework */; };
 		9DFD7C1113978C730073F9E5 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD7C1013978C730073F9E5 /* gtest.framework */; };
@@ -90,7 +91,6 @@
 		9D8F905513C89C4700A87C85 /* size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = size.h; path = ../include/size.h; sourceTree = "<group>"; };
 		9D8F905613C89C4700A87C85 /* source.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = source.h; path = ../include/source.h; sourceTree = "<group>"; };
 		9D8F905713C89C4700A87C85 /* spectrum_pool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = spectrum_pool.h; path = ../include/spectrum_pool.h; sourceTree = "<group>"; };
-		9D8F905813C89C4700A87C85 /* spectrum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = spectrum.h; path = ../include/spectrum.h; sourceTree = "<group>"; };
 		9D8F905913C89C4700A87C85 /* whole_field_microphone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = whole_field_microphone.h; path = ../include/whole_field_microphone.h; sourceTree = "<group>"; };
 		9D8F907013C89C9200A87C85 /* fftw_array.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fftw_array.cpp; sourceTree = "<group>"; };
 		9D8F907113C89C9200A87C85 /* force_field.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = force_field.cpp; sourceTree = "<group>"; };
@@ -100,7 +100,6 @@
 		9D8F907513C89C9200A87C85 /* signal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = signal.cpp; sourceTree = "<group>"; };
 		9D8F907613C89C9200A87C85 /* size.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = size.cpp; sourceTree = "<group>"; };
 		9D8F907713C89C9200A87C85 /* source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = source.cpp; sourceTree = "<group>"; };
-		9D8F907813C89C9200A87C85 /* spectrum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spectrum.cpp; sourceTree = "<group>"; };
 		9D8F907913C89C9200A87C85 /* spectrum_pool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spectrum_pool.cpp; sourceTree = "<group>"; };
 		9D8F907A13C89C9200A87C85 /* whole_field_microphone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = whole_field_microphone.cpp; sourceTree = "<group>"; };
 		9D8F908713C89CA300A87C85 /* fftw_array_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fftw_array_test.cpp; sourceTree = "<group>"; };
@@ -118,6 +117,9 @@
 		9D8FC10513B1F50500D244A9 /* output_fftw_array.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = output_fftw_array.cpp; path = ../../ARD/test/plot/output_fftw_array.cpp; sourceTree = "<group>"; };
 		9D8FC10613B1F50500D244A9 /* output_fftw_array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = output_fftw_array.h; path = ../../ARD/test/plot/output_fftw_array.h; sourceTree = "<group>"; };
 		9D9EA52D13A733E000994A17 /* plot_2d.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = plot_2d.py; path = ../../ARD/test/plot/plot_2d.py; sourceTree = "<group>"; };
+		9DC6DC5413E85520001B4F82 /* position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = position.cpp; sourceTree = "<group>"; };
+		9DC6DC5613E85527001B4F82 /* force_spectrum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = force_spectrum.cpp; sourceTree = "<group>"; };
+		9DC6DC5813E85545001B4F82 /* position_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = position_test.cpp; sourceTree = "<group>"; };
 		9DFD7BDD13978BCB0073F9E5 /* ARD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFD7BE813978BCB0073F9E5 /* ARD-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ARD-Info.plist"; sourceTree = "<group>"; };
 		9DFD7BEA13978BCB0073F9E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -183,7 +185,6 @@
 				9D8F905513C89C4700A87C85 /* size.h */,
 				9D8F905613C89C4700A87C85 /* source.h */,
 				9D8F905713C89C4700A87C85 /* spectrum_pool.h */,
-				9D8F905813C89C4700A87C85 /* spectrum.h */,
 				9D8F905913C89C4700A87C85 /* whole_field_microphone.h */,
 			);
 			name = include;
@@ -194,13 +195,14 @@
 			children = (
 				9D8F907013C89C9200A87C85 /* fftw_array.cpp */,
 				9D8F907113C89C9200A87C85 /* force_field.cpp */,
+				9DC6DC5613E85527001B4F82 /* force_spectrum.cpp */,
 				9D8F907213C89C9200A87C85 /* point_microphone.cpp */,
+				9DC6DC5413E85520001B4F82 /* position.cpp */,
 				9D8F907313C89C9200A87C85 /* pressure_spectrum.cpp */,
 				9D8F907413C89C9200A87C85 /* scene.cpp */,
 				9D8F907513C89C9200A87C85 /* signal.cpp */,
 				9D8F907613C89C9200A87C85 /* size.cpp */,
 				9D8F907713C89C9200A87C85 /* source.cpp */,
-				9D8F907813C89C9200A87C85 /* spectrum.cpp */,
 				9D8F907913C89C9200A87C85 /* spectrum_pool.cpp */,
 				9D8F907A13C89C9200A87C85 /* whole_field_microphone.cpp */,
 			);
@@ -215,6 +217,7 @@
 				9D8F908813C89CA300A87C85 /* fftw_test.cpp */,
 				9D8F908913C89CA300A87C85 /* force_field_test.cpp */,
 				9D8F908F13C89CA300A87C85 /* point_microphone_test.cpp */,
+				9DC6DC5813E85545001B4F82 /* position_test.cpp */,
 				9D8F909013C89CA300A87C85 /* pressure_field_test.cpp */,
 				9D8F909113C89CA300A87C85 /* pressure_spectrum_test.cpp */,
 				9D8F909213C89CA300A87C85 /* scene_test.cpp */,
@@ -297,7 +300,6 @@
 				9D8F906913C89C4700A87C85 /* size.h in Headers */,
 				9D8F906A13C89C4700A87C85 /* source.h in Headers */,
 				9D8F906B13C89C4700A87C85 /* spectrum_pool.h in Headers */,
-				9D8F906C13C89C4700A87C85 /* spectrum.h in Headers */,
 				9D8F906D13C89C4700A87C85 /* whole_field_microphone.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,9 +389,10 @@
 				9D8F908013C89C9200A87C85 /* signal.cpp in Sources */,
 				9D8F908113C89C9200A87C85 /* size.cpp in Sources */,
 				9D8F908213C89C9200A87C85 /* source.cpp in Sources */,
-				9D8F908313C89C9200A87C85 /* spectrum.cpp in Sources */,
 				9D8F908413C89C9200A87C85 /* spectrum_pool.cpp in Sources */,
 				9D8F908513C89C9200A87C85 /* whole_field_microphone.cpp in Sources */,
+				9DC6DC5513E85520001B4F82 /* position.cpp in Sources */,
+				9DC6DC5713E85527001B4F82 /* force_spectrum.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +413,7 @@
 				9D8F90A213C89CA300A87C85 /* source_test.cpp in Sources */,
 				9D8F90A313C89CA300A87C85 /* spectrum_pool_test.cpp in Sources */,
 				9D8F90A413C89CA300A87C85 /* whole_field_microphone_test.cpp in Sources */,
+				9DC6DC5913E85545001B4F82 /* position_test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
