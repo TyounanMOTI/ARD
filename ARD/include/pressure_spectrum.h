@@ -17,7 +17,7 @@ namespace ARD
   {
   public:
     PressureSpectrum(const Size& size);
-    PressureSpectrum(const Size& size, const FFTWArrayPointer content);
+    PressureSpectrum(const PressureSpectrum& original);
     PressureFieldPointer InverseDCT();
 
   private:
@@ -25,7 +25,7 @@ namespace ARD
     void InitOutputBuffer();
     void InitPlan();
 
-    FFTWArrayPointer idct_output_buffer_;
+    PressureFieldPointer idct_output_buffer_;
     FFTWPlan idct_plan_;
   };  
 

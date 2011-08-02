@@ -17,7 +17,7 @@ namespace ARD
   {
   public:
     PressureField(const Size& size) : FFTWArray(size) {};
-    PressureField(const Size& size, const FFTWArrayPointer content) : FFTWArray(size, content) {};
+    PressureField(const PressureField& original) : FFTWArray(original) {};
   };
 
   typedef boost::shared_ptr<PressureField> PressureFieldPointer;

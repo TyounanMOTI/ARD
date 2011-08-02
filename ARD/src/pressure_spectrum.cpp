@@ -7,7 +7,7 @@ PressureSpectrum::PressureSpectrum(const Size& size) : Spectrum(size) {
   FillByZero();
 }
 
-PressureSpectrum::PressureSpectrum(const Size& size, const FFTWArrayPointer content) : Spectrum(size, content) {
+PressureSpectrum::PressureSpectrum(const PressureSpectrum& original) : Spectrum(original) {
   Init();
 }
 
@@ -17,7 +17,7 @@ void PressureSpectrum::Init() {
 }
 
 void PressureSpectrum::InitOutputBuffer() {
-  idct_output_buffer_ = FFTWArrayPointer(new FFTWArray(size()));
+  idct_output_buffer_ = PressureFieldPointer(new PressureField(size()));
 }
 
 void PressureSpectrum::InitPlan() {
@@ -26,6 +26,6 @@ void PressureSpectrum::InitPlan() {
 
 PressureFieldPointer PressureSpectrum::InverseDCT() {
   fftw_execute(idct_plan_.get());
-  PressureFieldPointer pressure_field(new PressureField(size(), idct_output_buffer_));
+  PressureFieldPointer pressure_field(new PressureField(*idct_output_buffer_));
   return pressure_field;
 }

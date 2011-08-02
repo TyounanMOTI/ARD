@@ -9,7 +9,8 @@ namespace ARD
   class ForceSpectrum : public Spectrum
   {
   public:
-    ForceSpectrum(const Size& size, const FFTWArrayPointer content) : Spectrum(size, content) {};
+    ForceSpectrum(const Size& size) : Spectrum(size) {};
+    ForceSpectrum(const ForceSpectrum& original) : Spectrum(original) {};
   };
 
   typedef boost::shared_ptr<ForceSpectrum> ForceSpectrumPointer;

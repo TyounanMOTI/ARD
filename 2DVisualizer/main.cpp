@@ -150,4 +150,5 @@ int main(int argc, char** argv) {
   }
 
   Quit(0);
+  return 0;
 }
