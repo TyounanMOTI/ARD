@@ -37,7 +37,3 @@ void FFTWArray::FillByZero() {
     }
   }
 }
-
-const size_t ARD::FFTWArrayIndexFromPosition(const Position& position, const Size& size) {
-  return position.x() + position.y()*size.width();
-}

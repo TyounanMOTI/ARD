@@ -32,8 +32,6 @@ namespace ARD
     const Size size_;
     FFTWArrayContent content_;
   };
-
-  const size_t FFTWArrayIndexFromPosition(const Position& position, const Size& size);
 };
 
 #endif
