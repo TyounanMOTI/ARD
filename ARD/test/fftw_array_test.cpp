@@ -50,6 +50,12 @@ TEST_F(FFTWArrayTest, FillByZero) {
   EXPECT_EQ(Precision(0.0), subject->content(Position(19,9)));
 }
 
+TEST_F(FFTWArrayTest, FillBy) {
+  subject->FillBy(Precision(10.0));
+  EXPECT_EQ(Precision(10.0), subject->content(Position(0,0)));
+  EXPECT_EQ(Precision(10.0), subject->content(Position(5,2)));
+}
+
 TEST(FFTWArrayIndexFromPosition, LastIndex) {
   Size size(20, 10);
   EXPECT_EQ(size.Length() - 1, Position(19,9).Serialize(size));
