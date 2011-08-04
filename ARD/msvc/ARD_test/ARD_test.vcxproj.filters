@@ -54,6 +54,9 @@
     <ClCompile Include="..\..\test\position_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\test\fftw_array_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\test\plot\output_fftw_array.h">
