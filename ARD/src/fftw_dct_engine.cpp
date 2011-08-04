@@ -15,9 +15,5 @@ void FFTWDCTEngine::Execute() {
 }
 
 void FFTWDCTEngine::Normalize() {
-  for (int y = 0; y < output_->size().height(); y++) {
-    for (int x = 0; x < input_->size().width(); x++) {
-      output_->set_content(Position(x,y), output_->content(Position(x,y))/(4*output_->size().Length()));
-    }
-  }
+  (*output_) /= 4*output_->size().Length();
 }
