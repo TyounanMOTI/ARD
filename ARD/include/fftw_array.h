@@ -28,6 +28,7 @@ namespace ARD
     void set_content(const Position& position, const Precision& input);
     void FillByZero();
     void FillBy(const Precision& input);
+    FFTWArray& operator /= (const Precision scalar);
 
   private:
     const Size size_;

@@ -55,3 +55,10 @@ TEST_F(FFTWArrayTest, FillBy) {
   EXPECT_EQ(Precision(10.0), subject->content(Position(0,0)));
   EXPECT_EQ(Precision(10.0), subject->content(Position(5,2)));
 }
+
+TEST_F(FFTWArrayTest, DivideInPlace) {
+  subject->FillBy(Precision(5.0));
+  (*subject) /= 5;
+  EXPECT_EQ(Precision(1.0), subject->content(Position(0,0)));
+  EXPECT_EQ(Precision(1.0), subject->content(Position(5,2)));
+}
