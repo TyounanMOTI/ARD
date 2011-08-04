@@ -31,11 +31,7 @@ void FFTWArray::set_content(const Position& position, const Precision& input) {
 }
 
 void FFTWArray::FillByZero() {
-  for (int y = 0; y < size().height(); y++) {
-    for (int x = 0; x < size().width(); x++) {
-      set_content(Position(x,y), Precision(0.0));
-    }
-  }
+  FillBy(Precision(0.0));
 }
 
 void FFTWArray::FillBy(const Precision& input) {
