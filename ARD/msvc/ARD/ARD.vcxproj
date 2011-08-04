@@ -28,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\fftw_array.h" />
+    <ClInclude Include="..\..\include\fftw_dct_engine.h" />
     <ClInclude Include="..\..\include\fftw_plan.h" />
     <ClInclude Include="..\..\include\force_field.h" />
     <ClInclude Include="..\..\include\force_spectrum.h" />
@@ -49,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\fftw_array.cpp" />
+    <ClCompile Include="..\..\src\fftw_dct_engine.cpp" />
     <ClCompile Include="..\..\src\force_field.cpp" />
     <ClCompile Include="..\..\src\force_spectrum.cpp" />
     <ClCompile Include="..\..\src\point_microphone.cpp" />
