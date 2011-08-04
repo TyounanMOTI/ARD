@@ -22,8 +22,8 @@ namespace ARD
     FFTWArray(const FFTWArray& original);
     virtual ~FFTWArray() {};
     
-    Precision* get() const;
-    const Size size() const;
+    Precision* get() const { return content_.get(); };
+    const Size size() const { return size_; };
     const Precision content(const Position& position) const;
     void set_content(const Position& position, const Precision& input);
     void FillByZero();

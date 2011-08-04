@@ -14,14 +14,6 @@ FFTWArray::FFTWArray(const FFTWArray& original) : size_(original.size_) {
   memcpy(content_.get(), original.content_.get(), sizeof(Precision)*original.size_.Length());
 }
 
-Precision* FFTWArray::get() const {
-  return content_.get();
-}
-
-const Size FFTWArray::size() const {
-  return size_;
-}
-
 const Precision FFTWArray::content(const Position& position) const {
   return content_[position.Serialize(size_)];
 }
