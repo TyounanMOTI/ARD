@@ -54,6 +54,9 @@
 		9DC6DC5513E85520001B4F82 /* position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC5413E85520001B4F82 /* position.cpp */; };
 		9DC6DC5713E85527001B4F82 /* force_spectrum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC5613E85527001B4F82 /* force_spectrum.cpp */; };
 		9DC6DC5913E85545001B4F82 /* position_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC5813E85545001B4F82 /* position_test.cpp */; };
+		9DC6DC6713EBE35B001B4F82 /* dct_engine_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC6613EBE35B001B4F82 /* dct_engine_test.cpp */; };
+		9DC6DC6A13EBE395001B4F82 /* fftw_dct_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC6913EBE395001B4F82 /* fftw_dct_engine.cpp */; };
+		9DC6DC6C13EBE3A2001B4F82 /* fftw_dct_engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC6DC6B13EBE3A2001B4F82 /* fftw_dct_engine.h */; };
 		9DFD7BEB13978BCB0073F9E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DFD7BE913978BCB0073F9E5 /* InfoPlist.strings */; };
 		9DFD7C0D13978C5B0073F9E5 /* ARD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD7BDD13978BCB0073F9E5 /* ARD.framework */; };
 		9DFD7C1113978C730073F9E5 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD7C1013978C730073F9E5 /* gtest.framework */; };
@@ -120,6 +123,9 @@
 		9DC6DC5413E85520001B4F82 /* position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = position.cpp; sourceTree = "<group>"; };
 		9DC6DC5613E85527001B4F82 /* force_spectrum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = force_spectrum.cpp; sourceTree = "<group>"; };
 		9DC6DC5813E85545001B4F82 /* position_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = position_test.cpp; sourceTree = "<group>"; };
+		9DC6DC6613EBE35B001B4F82 /* dct_engine_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dct_engine_test.cpp; sourceTree = "<group>"; };
+		9DC6DC6913EBE395001B4F82 /* fftw_dct_engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fftw_dct_engine.cpp; sourceTree = "<group>"; };
+		9DC6DC6B13EBE3A2001B4F82 /* fftw_dct_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fftw_dct_engine.h; path = ../include/fftw_dct_engine.h; sourceTree = "<group>"; };
 		9DFD7BDD13978BCB0073F9E5 /* ARD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFD7BE813978BCB0073F9E5 /* ARD-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ARD-Info.plist"; sourceTree = "<group>"; };
 		9DFD7BEA13978BCB0073F9E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				9D8F904613C89C4700A87C85 /* fftw_array.h */,
+				9DC6DC6B13EBE3A2001B4F82 /* fftw_dct_engine.h */,
 				9D8F904713C89C4700A87C85 /* fftw_plan.h */,
 				9D8F904813C89C4700A87C85 /* force_field.h */,
 				9D8F904913C89C4700A87C85 /* force_spectrum.h */,
@@ -193,6 +200,7 @@
 		9D8F906F13C89C9200A87C85 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				9DC6DC6913EBE395001B4F82 /* fftw_dct_engine.cpp */,
 				9D8F907013C89C9200A87C85 /* fftw_array.cpp */,
 				9D8F907113C89C9200A87C85 /* force_field.cpp */,
 				9DC6DC5613E85527001B4F82 /* force_spectrum.cpp */,
@@ -213,6 +221,7 @@
 		9D8F908613C89CA300A87C85 /* test */ = {
 			isa = PBXGroup;
 			children = (
+				9DC6DC6613EBE35B001B4F82 /* dct_engine_test.cpp */,
 				9D8F908713C89CA300A87C85 /* fftw_array_test.cpp */,
 				9D8F908813C89CA300A87C85 /* fftw_test.cpp */,
 				9D8F908913C89CA300A87C85 /* force_field_test.cpp */,
@@ -301,6 +310,7 @@
 				9D8F906A13C89C4700A87C85 /* source.h in Headers */,
 				9D8F906B13C89C4700A87C85 /* spectrum_pool.h in Headers */,
 				9D8F906D13C89C4700A87C85 /* whole_field_microphone.h in Headers */,
+				9DC6DC6C13EBE3A2001B4F82 /* fftw_dct_engine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +403,7 @@
 				9D8F908513C89C9200A87C85 /* whole_field_microphone.cpp in Sources */,
 				9DC6DC5513E85520001B4F82 /* position.cpp in Sources */,
 				9DC6DC5713E85527001B4F82 /* force_spectrum.cpp in Sources */,
+				9DC6DC6A13EBE395001B4F82 /* fftw_dct_engine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +425,7 @@
 				9D8F90A313C89CA300A87C85 /* spectrum_pool_test.cpp in Sources */,
 				9D8F90A413C89CA300A87C85 /* whole_field_microphone_test.cpp in Sources */,
 				9DC6DC5913E85545001B4F82 /* position_test.cpp in Sources */,
+				9DC6DC6713EBE35B001B4F82 /* dct_engine_test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
