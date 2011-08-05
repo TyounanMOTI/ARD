@@ -13,7 +13,6 @@ namespace ARD
 
     FFTWDCTEngine(const Size& size, const TransformDirection direction);
     const FFTWArrayPointer input() const { return input_; }
-    const FFTWArrayPointer output() const { return output_; }
     FFTWArrayPointer Execute();
 
   private:
