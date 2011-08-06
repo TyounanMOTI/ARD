@@ -1,7 +1,7 @@
 #include <scene.h>
 using namespace ARD;
 
-Scene::Scene(const Size& size, const double dt) : size_(size) {
+Scene::Scene(const Size& size, const double dt, const DCTEngineFactoryPointer engine_factory) : size_(size) {
   force_field_.reset(new ForceField(size));
   spectrum_pool_.reset(new SpectrumPool(size, dt));
 }

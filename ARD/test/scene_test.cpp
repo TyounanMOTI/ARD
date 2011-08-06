@@ -3,6 +3,7 @@
 #include <scene.h>
 #include <microphone.h>
 #include <point_microphone.h>
+#include <fftw_dct_engine_factory.h>
 
 using namespace ARD;
 
@@ -10,8 +11,9 @@ class SceneTest : public testing::Test
 {
 protected:
   virtual void SetUp() {
+    FFTWDCTEngineFactoryPointer fftw_dct_engine_factory(new FFTWDCTEngineFactory());
     size = Size(20, 10);
-    subject = ScenePointer(new Scene(size, 0.001));
+    subject = ScenePointer(new Scene(size, 0.001, fftw_dct_engine_factory));
     std::vector<Power> source_content;
     source.reset(new Source(Position(2,3), source_content));
     microphone.reset(new PointMicrophone(Position(2,3)));
@@ -31,6 +33,6 @@ TEST_F(SceneTest, UpdateReturnsMicrophone) {
   EXPECT_EQ(microphone, subject->Update());
 }
 
-TEST_F(SceneTest, InitializeWithSize) {
+TEST_F(SceneTest, Initialize) {
   EXPECT_EQ(size, subject->size());
 }

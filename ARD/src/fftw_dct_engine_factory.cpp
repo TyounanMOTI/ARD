@@ -2,6 +2,10 @@
 
 using namespace ARD;
 
-FFTWDCTEnginePointer FFTWDCTEngineFactory::GenerateEngine(const Size& size, const TransformDirection direction) {
-  return FFTWDCTEnginePointer(new FFTWDCTEngine(size, direction));
+DCTEnginePointer FFTWDCTEngineFactory::GenerateForwardEngine(const Size& size) {
+  return FFTWDCTEnginePointer(new FFTWDCTEngine(size, FFTWDCTEngine::Forward));
+}
+
+DCTEnginePointer FFTWDCTEngineFactory::GenerateBackwardEngine(const Size& size) {
+  return FFTWDCTEnginePointer(new FFTWDCTEngine(size, FFTWDCTEngine::Backward));
 }

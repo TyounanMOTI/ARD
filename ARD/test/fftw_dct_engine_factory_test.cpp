@@ -3,9 +3,9 @@
 
 using namespace ARD;
 
-TEST(FFTWDCTEngineFactoryTest, GenerateEngine) {
+TEST(FFTWDCTEngineFactoryTest, GenerateForwardEngine) {
   FFTWDCTEngineFactoryPointer factory(new FFTWDCTEngineFactory());
-  FFTWDCTEnginePointer engine(factory->GenerateEngine(Size(10,20), FFTWDCTEngine::Forward));
+  DCTEnginePointer engine(factory->GenerateForwardEngine(Size(10,20)));
   engine->input()->set_content(Position(1,2), Precision(10.0));
   EXPECT_EQ(Precision(10.0), engine->input()->content(Position(1,2)));
 }

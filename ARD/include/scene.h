@@ -8,13 +8,14 @@
 #include "source.h"
 #include "force_field.h"
 #include "spectrum_pool.h"
+#include "dct_engine_factory.h"
 
 namespace ARD
 {
   class Scene
   {
   public:
-    Scene(const Size& size, const double dt);
+    Scene(const Size& size, const double dt, const DCTEngineFactoryPointer engine_factory);
     MicrophonePointer Update();
     Size size() { return size_; };
     void set_microphone(MicrophonePointer microphone) { microphone_ = microphone; };

@@ -9,7 +9,7 @@ FFTWDCTEngine::FFTWDCTEngine(const Size& size, const TransformDirection directio
                            (fftw_r2r_kind) direction, (fftw_r2r_kind) direction, FFTW_ESTIMATE);
 }
 
-FFTWArrayPointer FFTWDCTEngine::Execute() {
+const FFTWArrayPointer FFTWDCTEngine::Execute() {
   fftw_execute(plan_);
   Normalize();
   return output_;
