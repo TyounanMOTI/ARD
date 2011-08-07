@@ -8,6 +8,7 @@
 #include "transforms.h"
 #include <scene.h>
 #include <whole_field_microphone.h>
+#include <fftw_dct_engine_factory.h>
 #include <math.h>
 
 #ifdef WIN32
@@ -43,7 +44,8 @@ void Init() {
   g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
 
   size = ARD::Size(width, height);
-  g_scene.reset(new ARD::Scene(size, 1.0/2000.0));
+  ARD::FFTWDCTEngineFactoryPointer engine_factory(new ARD::FFTWDCTEngineFactory());
+  g_scene.reset(new ARD::Scene(size, 1.0/2000.0, engine_factory));
   g_mic.reset(new ARD::WholeFieldMicrophone());
   g_scene->set_microphone(g_mic);
   std::vector<ARD::Power> sourceContent;
