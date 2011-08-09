@@ -6,12 +6,14 @@
 
 namespace ARD
 {
-  class ForceSpectrum : public FFTWArray
+  class ForceSpectrum
   {
   public:
-    ForceSpectrum(const Size& size) : FFTWArray(size) {};
-    ForceSpectrum(const FFTWArray& original) : FFTWArray(original) {};
-    void Normalize(); // deprecated. use: FFTWDCTEngine::Normalize
+    ForceSpectrum(const FFTWArrayPointer content) : content_(content) {};
+    FFTWArrayPointer content() { return content_; }
+    
+  private:
+    FFTWArrayPointer content_;
   };
 
   typedef boost::shared_ptr<ForceSpectrum> ForceSpectrumPointer;

@@ -7,5 +7,5 @@ ForceField::ForceField(const Size& size, const DCTEngineFactoryPointer engine_fa
 }
 
 ForceSpectrumPointer ForceField::DCT() {
-  return ForceSpectrumPointer(new ForceSpectrum(*engine->Execute()));
+  return ForceSpectrumPointer(new ForceSpectrum(engine->Execute()));
 }

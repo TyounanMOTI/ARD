@@ -28,8 +28,8 @@ TEST_F(ForceFieldTest, DCT) {
   }
 
   ForceSpectrumPointer output(subject->DCT());
-  EXPECT_EQ(ModeCoefficient(1.0), output->content(Position(0,0)));
-  EXPECT_EQ(ModeCoefficient(0.0), output->content(Position(9,19)));
+  EXPECT_EQ(ModeCoefficient(1.0), output->content()->content(Position(0,0)));
+  EXPECT_EQ(ModeCoefficient(0.0), output->content()->content(Position(9,19)));
 
 //  OutputFFTWReal2DArray(size.width(), size.height(), output->get());
 }
