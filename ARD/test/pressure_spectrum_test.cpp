@@ -5,6 +5,7 @@
 #include <pressure_field.h>
 #include <pressure_spectrum.h>
 #include <mode_coefficient.h>
+#include "fftw_dct_engine_factory.h"
 #include "plot/output_fftw_array.h"
 
 using namespace ARD;
@@ -14,7 +15,8 @@ class PressureSpectrumTest : public testing::Test
 protected:
   virtual void SetUp() {
     size = Size(20, 10);
-    subject = PressureSpectrumPointer(new PressureSpectrum(size));
+    DCTEngineFactoryPointer engine_factory(new FFTWDCTEngineFactory());
+    subject = PressureSpectrumPointer(new PressureSpectrum(size, engine_factory));
   }
 
   PressureSpectrumPointer subject;

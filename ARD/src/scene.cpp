@@ -3,7 +3,7 @@ using namespace ARD;
 
 Scene::Scene(const Size& size, const double dt, const DCTEngineFactoryPointer engine_factory) : size_(size) {
   force_field_.reset(new ForceField(size, engine_factory));
-  spectrum_pool_.reset(new SpectrumPool(size, dt));
+  spectrum_pool_.reset(new SpectrumPool(size, dt, engine_factory));
 }
 
 MicrophonePointer Scene::Update() {

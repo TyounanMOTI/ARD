@@ -4,10 +4,10 @@ using namespace ARD;
 
 const double SpectrumPool::c = 340.0;
 
-SpectrumPool::SpectrumPool(const Size& size, const double dt) : dt_(dt) {
-  previous_.reset(new PressureSpectrum(size));
-  now_.reset(new PressureSpectrum(size));
-  next_.reset(new PressureSpectrum(size));
+SpectrumPool::SpectrumPool(const Size& size, const double dt, const DCTEngineFactoryPointer engine_factory) : dt_(dt) {
+  previous_.reset(new PressureSpectrum(size, engine_factory));
+  now_.reset(new PressureSpectrum(size, engine_factory));
+  next_.reset(new PressureSpectrum(size, engine_factory));
 }
 
 PressureSpectrumPointer SpectrumPool::Update(const ForceSpectrumPointer force_spectrum) {

@@ -7,11 +7,14 @@ FFTWDCTEngine::FFTWDCTEngine(const Size& size, const TransformDirection directio
   output_.reset(new FFTWArray(size));
   plan_ = fftw_plan_r2r_2d(size.height(), size.width(), input_->get(), output_->get(), 
                            (fftw_r2r_kind) direction, (fftw_r2r_kind) direction, FFTW_ESTIMATE);
+  direction_ = direction;
 }
 
 const FFTWArrayPointer FFTWDCTEngine::Execute() {
   fftw_execute(plan_);
-  Normalize();
+  if (direction_ == Forward) {
+    Normalize();
+  }
   return output_;
 }
 

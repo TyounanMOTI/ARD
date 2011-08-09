@@ -26,6 +26,7 @@ namespace ARD
     fftw_plan plan_;
     FFTWArrayPointer input_;
     FFTWArrayPointer output_;
+    TransformDirection direction_;
   };
 
   typedef boost::shared_ptr<FFTWDCTEngine> FFTWDCTEnginePointer;

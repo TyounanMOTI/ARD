@@ -9,13 +9,14 @@
 #include "pressure_spectrum.h"
 #include "force_spectrum.h"
 #include "mode_coefficient.h"
+#include "dct_engine_factory.h"
 
 namespace ARD
 {
   class SpectrumPool
   {
   public:
-    SpectrumPool(const Size& size, const double dt);
+    SpectrumPool(const Size& size, const double dt, const DCTEngineFactoryPointer engine_factory);
     PressureSpectrumPointer Update(const ForceSpectrumPointer force_spectrum);
 
   private:
