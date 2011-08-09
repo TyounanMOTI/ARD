@@ -10,8 +10,8 @@ namespace ARD
   {
   public:
     ForceSpectrum(const FFTWArrayPointer content) : content_(FFTWArrayPointer(new FFTWArray(*content))) {};
-    const Size size() { return content_->size(); };
-    const Precision content(const Position& position) { return content_->content(position); };
+    const Size size() const { return content_->size(); };
+    const Precision content(const Position& position) const { return content_->content(position); };
     
   private:
     FFTWArrayPointer content_;
