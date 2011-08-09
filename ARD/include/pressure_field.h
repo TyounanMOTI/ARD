@@ -20,6 +20,7 @@ namespace ARD
     PressureField(const FFTWArrayPointer content) : content_(FFTWArrayPointer(new FFTWArray(*content))) {};
     PressureField(const PressureField& original) : content_(FFTWArrayPointer(new FFTWArray(*original.content_))) {};
     
+    Precision* get() const { return content_->get(); }
     const Size size() const { return content_->size(); };
     const Precision content(const Position& position) const { return content_->content(position); };
     void set_content(const Position& position, const Precision input) { content_->set_content(position, input); };
