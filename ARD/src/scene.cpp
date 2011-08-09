@@ -7,7 +7,7 @@ Scene::Scene(const Size& size, const double dt, const DCTEngineFactoryPointer en
 }
 
 MicrophonePointer Scene::Update() {
-  force_field_->content()->FillBy(Precision(0));
+  force_field_->FillBy(Precision(0));
   source_->Emit(force_field_);
   PressureSpectrumPointer pressure_spectrum(spectrum_pool_->Update(force_field_->DCT()));
   PressureFieldPointer pressure_field(pressure_spectrum->InverseDCT());

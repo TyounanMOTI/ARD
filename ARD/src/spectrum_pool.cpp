@@ -11,7 +11,7 @@ SpectrumPool::SpectrumPool(const Size& size, const double dt) : dt_(dt) {
 }
 
 PressureSpectrumPointer SpectrumPool::Update(const ForceSpectrumPointer force_spectrum) {
-  Size size = force_spectrum->content()->size();
+  Size size = force_spectrum->size();
   Position position;
   double omega = 0.0;
   for (long y = 0; y < size.height(); y++) {
@@ -20,7 +20,7 @@ PressureSpectrumPointer SpectrumPool::Update(const ForceSpectrumPointer force_sp
       position = Position(x,y);
       next_->set_content(position,
                         ModeCoefficient(2.0*now_->content(position)*cos(omega*dt_) - previous_->content(position)
-                        + 2.0*force_spectrum->content()->content(position)/(omega*omega)*(1-cos(omega*dt_))));
+                        + 2.0*force_spectrum->content(position)/(omega*omega)*(1-cos(omega*dt_))));
     }
   }
   next_->set_content(Position(0,0), ModeCoefficient(0.0)); // next_[0,0] is divided by zero

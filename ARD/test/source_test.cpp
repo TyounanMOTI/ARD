@@ -35,5 +35,5 @@ TEST_F(SourceTest, Emit) {
   DCTEngineFactoryPointer engine_factory(new FFTWDCTEngineFactory());
   ForceFieldPointer force(new ForceField(Size(20,10), engine_factory));
   subject->Emit(force);
-  EXPECT_EQ(Power(5.0), force->content()->content(position));
+  EXPECT_EQ(Power(5.0), force->content(position));
 }

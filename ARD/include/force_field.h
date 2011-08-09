@@ -13,8 +13,10 @@ namespace ARD {
   {
   public:
     ForceField(const Size& size, const DCTEngineFactoryPointer engine_factory);
-    FFTWArrayPointer content() { return engine->input(); };
     ForceSpectrumPointer DCT();
+    void set_content(const Position& position, const Precision& input) { engine->input()->set_content(position, input); };
+    void FillBy(const Precision& input) { engine->input()->FillBy(input); };
+    const Precision content(const Position& position) const { return engine->input()->content(position); };
 
   private:
     DCTEnginePointer engine;
