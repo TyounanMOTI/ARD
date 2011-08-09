@@ -34,6 +34,15 @@ namespace ARD
   };
   
   typedef boost::shared_ptr<FFTWArray> FFTWArrayPointer;
-};
+
+  inline const Precision FFTWArray::content(const Position& position) const {
+    return content_[position.Serialize(size_)];
+  }
+
+  inline void FFTWArray::set_content(const Position& position, const Precision& input) {
+    content_[position.Serialize(size_)] = input;
+  }
+}
+
 
 #endif // FFTW_ARRAY_H
