@@ -21,6 +21,6 @@ namespace ARD
   };
 
   typedef boost::shared_ptr<Signal> SignalPointer;
-};
+}
 
 #endif //SIGNAL_H

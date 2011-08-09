@@ -30,6 +30,6 @@ namespace ARD
   };
 
   typedef boost::shared_ptr<PointMicrophone> PointMicrophonePointer;
-};
+}
 
 #endif // POINT_MICROPHONE_H

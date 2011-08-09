@@ -7,6 +7,6 @@
 namespace ARD
 {
   typedef boost::shared_ptr<fftw_plan_s> FFTWPlan;  
-};
+}
 
 #endif // FFTW_PLAN_H

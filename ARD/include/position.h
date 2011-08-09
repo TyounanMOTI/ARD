@@ -17,6 +17,6 @@ namespace ARD
   private:
     long x_, y_;
   };
-};
+}
 
 #endif //POSITION_H

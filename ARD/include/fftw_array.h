@@ -11,8 +11,6 @@
 namespace ARD
 {
   typedef boost::shared_array<Precision> FFTWArrayContent;
-  class FFTWArray;
-  typedef boost::shared_ptr<FFTWArray> FFTWArrayPointer;
 
   class FFTWArray
   {
@@ -34,6 +32,8 @@ namespace ARD
     const Size size_;
     FFTWArrayContent content_;
   };
+  
+  typedef boost::shared_ptr<FFTWArray> FFTWArrayPointer;
 };
 
-#endif
+#endif // FFTW_ARRAY_H

@@ -6,6 +6,6 @@
 namespace ARD
 {
   typedef Precision ModeCoefficient;
-};
+}
 
 #endif // MODE_COEFFICIENT_H

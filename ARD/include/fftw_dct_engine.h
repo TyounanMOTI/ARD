@@ -1,3 +1,6 @@
+#ifndef FFTW_DCT_ENGINE_H
+#define FFTW_DCT_ENGINE_H
+
 #include <boost/shared_ptr.hpp>
 #include <fftw3.h>
 #include "dct_engine.h"
@@ -27,3 +30,5 @@ namespace ARD
 
   typedef boost::shared_ptr<FFTWDCTEngine> FFTWDCTEnginePointer;
 }
+
+#endif // FFTW_DCT_ENGINE_H

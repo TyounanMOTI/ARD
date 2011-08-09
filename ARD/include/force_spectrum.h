@@ -18,6 +18,6 @@ namespace ARD
   };
 
   typedef boost::shared_ptr<ForceSpectrum> ForceSpectrumPointer;
-};
+}
 
 #endif // FORCE_SPECTRUM_H

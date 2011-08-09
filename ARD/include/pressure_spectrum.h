@@ -30,6 +30,6 @@ namespace ARD
   };  
 
   typedef boost::shared_ptr<PressureSpectrum> PressureSpectrumPointer;
-};
+}
 
 #endif // PRESSURE_SPECTRUM_H

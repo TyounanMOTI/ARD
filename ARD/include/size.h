@@ -18,6 +18,6 @@ namespace ARD
   private:
     int width_, height_;
   };
-};
+}
 
-#endif
+#endif // SIZE_H

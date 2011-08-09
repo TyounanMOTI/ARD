@@ -6,6 +6,6 @@
 namespace ARD
 {
   typedef Precision Power;
-};
+}
 
 #endif // POWER_H

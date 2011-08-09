@@ -27,6 +27,6 @@ namespace ARD
   };
 
   typedef boost::shared_ptr<SpectrumPool> SpectrumPoolPointer;
-};
+}
 
 #endif // SPECTRUM_POOL_H

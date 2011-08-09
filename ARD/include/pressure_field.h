@@ -1,5 +1,5 @@
-#ifndef PRESSURE_MAP_H
-#define PRESSURE_MAP_H
+#ifndef PRESSURE_FIELD_H
+#define PRESSURE_FIELD_H
 
 #include <boost/shared_ptr.hpp>
 #include "fftw_array.h"
@@ -21,6 +21,6 @@ namespace ARD
   };
 
   typedef boost::shared_ptr<PressureField> PressureFieldPointer;
-};
+}
 
-#endif
+#endif // PRESSURE_FIELD_H

@@ -5,6 +5,6 @@
 
 namespace ARD {
   typedef Precision Pressure;
-};
+}
 
 #endif // PRESSURE_H

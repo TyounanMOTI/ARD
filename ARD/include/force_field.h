@@ -4,7 +4,6 @@
 #include <boost/shared_ptr.hpp>
 #include "force_spectrum.h"
 #include "dct_engine_factory.h"
-#include "fftw_plan.h"
 #include <fftw_array.h>
 
 namespace ARD {
@@ -23,6 +22,6 @@ namespace ARD {
   };
 
   typedef boost::shared_ptr<ForceField> ForceFieldPointer;
-};
+}
 
 #endif // FORCE_FIELD_H
