@@ -9,7 +9,7 @@ namespace ARD
   class ForceSpectrum
   {
   public:
-    ForceSpectrum(const FFTWArrayPointer content) : content_(content) {};
+    ForceSpectrum(const FFTWArrayPointer content) : content_(FFTWArrayPointer(new FFTWArray(*content))) {};
     FFTWArrayPointer content() { return content_; }
     
   private:
