@@ -3,25 +3,21 @@
 
 #include <boost/shared_ptr.hpp>
 #include "force_spectrum.h"
+#include "dct_engine_factory.h"
 #include "fftw_plan.h"
 #include <fftw_array.h>
 
 namespace ARD {
   class ForceSpectrum;
-  class ForceField : public FFTWArray
+  class ForceField
   {
   public:
-    ForceField(const Size& size);
-    ForceField(const ForceField& original);
+    ForceField(const Size& size, const DCTEngineFactoryPointer engine_factory);
+    FFTWArrayPointer content() { return engine->input(); };
     ForceSpectrumPointer DCT();
 
   private:
-    void Init();
-    void InitOutputBuffer();
-    void InitPlan();
-
-    ForceSpectrumPointer dct_output_buffer_;
-    FFTWPlan dct_plan_;
+    DCTEnginePointer engine;
   };
 
   typedef boost::shared_ptr<ForceField> ForceFieldPointer;

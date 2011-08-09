@@ -16,5 +16,5 @@ const Power Source::Pop() {
 }
 
 void Source::Emit(ForceFieldPointer force) {
-  force->set_content(position_, Pop());
+  force->content()->set_content(position_, Pop());
 }
