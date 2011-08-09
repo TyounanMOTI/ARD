@@ -7,5 +7,5 @@ PressureSpectrum::PressureSpectrum(const Size& size, const DCTEngineFactoryPoint
 }
 
 PressureFieldPointer PressureSpectrum::InverseDCT() {
-  return PressureFieldPointer(new PressureField(*engine->Execute()));
+  return PressureFieldPointer(new PressureField(engine->Execute()));
 }

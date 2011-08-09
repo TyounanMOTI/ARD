@@ -13,11 +13,19 @@ namespace ARD
   class PressureSpectrum;
   typedef boost::shared_ptr<PressureSpectrum> PressureSpectrumPointer;
   
-  class PressureField : public FFTWArray
+  class PressureField
   {
   public:
-    PressureField(const Size& size) : FFTWArray(size) {};
-    PressureField(const FFTWArray& original) : FFTWArray(original) {};
+    PressureField(const Size& size) : content_(FFTWArrayPointer(new FFTWArray(size))) {};
+    PressureField(const FFTWArrayPointer content) : content_(FFTWArrayPointer(new FFTWArray(*content))) {};
+    PressureField(const PressureField& original) : content_(FFTWArrayPointer(new FFTWArray(*original.content_))) {};
+    
+    const Size size() { return content_->size(); };
+    const Precision content(const Position& position) const { return content_->content(position); };
+    void set_content(const Position& position, const Precision input) { content_->set_content(position, input); };
+    
+  private:
+    FFTWArrayPointer content_;
   };
 
   typedef boost::shared_ptr<PressureField> PressureFieldPointer;
