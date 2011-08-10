@@ -18,12 +18,6 @@
       <Filter>グラフ化</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\develop\SDK\gmock-1.6.0\src\gmock_main.cc" />
-    <ClCompile Include="..\..\test\fftw_array_test.cpp">
-      <Filter>テスト ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\test\fftw_dct_engine_factory_test.cpp">
-      <Filter>テスト ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\test\fftw_dct_engine_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
@@ -61,6 +55,12 @@
       <Filter>テスト ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\..\test\whole_field_microphone_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\fftw_array_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\fftw_dct_engine_factory_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
   </ItemGroup>
