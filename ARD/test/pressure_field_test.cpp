@@ -11,7 +11,7 @@ class PressureFieldTest : public testing::Test {
 protected:
   virtual void SetUp() {
     size = Size(30, 10);
-    subject = PressureFieldPointer(new PressureField(size));
+    subject = PressureFieldPointer(new PressureField(FFTWArrayPointer(new FFTWArray(size))));
   }
   
   PressureFieldPointer subject;

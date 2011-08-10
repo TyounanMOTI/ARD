@@ -10,7 +10,7 @@ FFTWDCTEngine::FFTWDCTEngine(const Size& size, const TransformDirection directio
   direction_ = direction;
 }
 
-const FFTWArrayPointer FFTWDCTEngine::Execute() {
+const ArrayInterfacePointer FFTWDCTEngine::Execute() {
   fftw_execute(plan_);
   if (direction_ == Forward) {
     Normalize();

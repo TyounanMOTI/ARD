@@ -2,7 +2,7 @@
 #define PRESSURE_FIELD_H
 
 #include <boost/shared_ptr.hpp>
-#include "fftw_array.h"
+#include "array_interface.h"
 #include "pressure_spectrum.h"
 #include "size.h"
 #include "pressure.h"
@@ -16,9 +16,8 @@ namespace ARD
   class PressureField
   {
   public:
-    PressureField(const Size& size) : content_(FFTWArrayPointer(new FFTWArray(size))) {};
-    PressureField(const FFTWArrayPointer content) : content_(FFTWArrayPointer(new FFTWArray(*content))) {};
-    PressureField(const PressureField& original) : content_(FFTWArrayPointer(new FFTWArray(*original.content_))) {};
+    PressureField(const PressureField& original) : content_(original.content_->Clone()) {};
+    PressureField(const ArrayInterfacePointer content) : content_(content->Clone()) {};
     
     Precision* get() const { return content_->get(); }
     const Size size() const { return content_->size(); };
@@ -26,7 +25,7 @@ namespace ARD
     void set_content(const Position& position, const Precision input) { content_->set_content(position, input); };
     
   private:
-    FFTWArrayPointer content_;
+    ArrayInterfacePointer content_;
   };
 
   typedef boost::shared_ptr<PressureField> PressureFieldPointer;

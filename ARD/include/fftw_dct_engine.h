@@ -17,8 +17,8 @@ namespace ARD
     };
 
     FFTWDCTEngine(const Size& size, const TransformDirection direction);
-    const FFTWArrayPointer input() const { return input_; }
-    const FFTWArrayPointer Execute();
+    const ArrayInterfacePointer input() const { return input_; }
+    const ArrayInterfacePointer Execute();
 
   private:
     void Normalize();

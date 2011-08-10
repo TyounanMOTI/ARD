@@ -9,7 +9,7 @@ protected:
   virtual void SetUp() {
     subject.reset(new WholeFieldMicrophone());
     size = Size(20,20);
-    field.reset(new PressureField(size));
+    field.reset(new PressureField(FFTWArrayPointer(new FFTWArray(size))));
   }
 
   Size size;
@@ -21,7 +21,7 @@ TEST_F(WholeFieldMicrophoneTest, Record) {
   field->set_content(Position(10,10), Pressure(20.0));
   subject->Record(field);
 
-  PressureFieldPointer result(new PressureField(size));
+  PressureFieldPointer result(new PressureField(FFTWArrayPointer(new FFTWArray(size))));
   subject->Plot(result);
   EXPECT_EQ(Pressure(20.0), result->content(Position(10,10)));
 }
@@ -31,7 +31,7 @@ TEST_F(WholeFieldMicrophoneTest, RecordCopiesField) {
   subject->Record(field);
   field->set_content(Position(10,10), Pressure(10.0));
 
-  PressureFieldPointer result(new PressureField(size));
+  PressureFieldPointer result(new PressureField(FFTWArrayPointer(new FFTWArray(size))));
   subject->Plot(result);
   EXPECT_EQ(Pressure(20.0), result->content(Position(10,10)));
 }
@@ -41,14 +41,14 @@ TEST_F(WholeFieldMicrophoneTest, Plot) {
   field->set_content(Position(0,0), Pressure(5.0));
   subject->Record(field);
   
-  PressureFieldPointer result(new PressureField(size));
+  PressureFieldPointer result(new PressureField(FFTWArrayPointer(new FFTWArray(size))));
   subject->Plot(result);
   EXPECT_EQ(Pressure(20.0), result->content(Position(10,10)));
   EXPECT_EQ(Pressure(5.0), result->content(Position(0,0)));
 }
 
 TEST_F(WholeFieldMicrophoneTest, PlotEmpty) {
-  PressureFieldPointer result(new PressureField(size));
+  PressureFieldPointer result(new PressureField(FFTWArrayPointer(new FFTWArray(size))));
   subject->Plot(result);
   EXPECT_EQ(Pressure(0.0), result->content(Position(0,0)));
 }

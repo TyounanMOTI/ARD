@@ -104,7 +104,7 @@ void loop() {
 
   static ARD::PressureFieldPointer pressure_field;
 
-  pressure_field.reset(new ARD::PressureField(size));
+  pressure_field.reset(new ARD::PressureField(ARD::FFTWArrayPointer(new ARD::FFTWArray(size))));
   mic->Plot(pressure_field);
   
   {
