@@ -17,10 +17,20 @@
     <ClCompile Include="..\..\test\plot\output_fftw_array.cpp">
       <Filter>グラフ化</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\develop\SDK\gmock-1.6.0\src\gmock_main.cc" />
+    <ClCompile Include="..\..\test\fftw_dct_engine_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\test\fftw_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\..\test\force_field_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\point_microphone_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\position_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\..\test\pressure_field_test.cpp">
@@ -47,17 +57,10 @@
     <ClCompile Include="..\..\test\whole_field_microphone_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\test\point_microphone_test.cpp">
-      <Filter>テスト ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\develop\SDK\gmock-1.6.0\src\gmock_main.cc" />
-    <ClCompile Include="..\..\test\position_test.cpp">
-      <Filter>テスト ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\test\fftw_array_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\test\dct_engine_test.cpp">
+    <ClCompile Include="..\..\test\fftw_dct_engine_factory_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
   </ItemGroup>
