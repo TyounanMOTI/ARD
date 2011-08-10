@@ -313,12 +313,13 @@ python D:\workspace\ARD\ARD\test\plot\plot_1d.py D:\workspace\ARD\msvc\ARD_test\
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\develop\SDK\gmock-1.6.0\src\gmock_main.cc" />
-    <ClCompile Include="..\..\test\dct_engine_test.cpp" />
     <ClCompile Include="..\..\test\fftw_array_test.cpp" />
+    <ClCompile Include="..\..\test\fftw_dct_engine_factory_test.cpp" />
+    <ClCompile Include="..\..\test\fftw_dct_engine_test.cpp" />
     <ClCompile Include="..\..\test\fftw_test.cpp" />
     <ClCompile Include="..\..\test\force_field_test.cpp" />
-    <ClCompile Include="..\..\test\point_microphone_test.cpp" />
     <ClCompile Include="..\..\test\plot\output_fftw_array.cpp" />
+    <ClCompile Include="..\..\test\point_microphone_test.cpp" />
     <ClCompile Include="..\..\test\position_test.cpp" />
     <ClCompile Include="..\..\test\pressure_field_test.cpp" />
     <ClCompile Include="..\..\test\pressure_spectrum_test.cpp" />

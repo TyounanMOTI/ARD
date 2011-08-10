@@ -27,14 +27,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\dct_engine.h" />
+    <ClInclude Include="..\..\include\dct_engine_factory.h" />
     <ClInclude Include="..\..\include\fftw_array.h" />
     <ClInclude Include="..\..\include\fftw_dct_engine.h" />
+    <ClInclude Include="..\..\include\fftw_dct_engine_factory.h" />
     <ClInclude Include="..\..\include\fftw_plan.h" />
     <ClInclude Include="..\..\include\force_field.h" />
     <ClInclude Include="..\..\include\force_spectrum.h" />
     <ClInclude Include="..\..\include\microphone.h" />
-    <ClInclude Include="..\..\include\point_microphone.h" />
     <ClInclude Include="..\..\include\mode_coefficient.h" />
+    <ClInclude Include="..\..\include\point_microphone.h" />
     <ClInclude Include="..\..\include\position.h" />
     <ClInclude Include="..\..\include\power.h" />
     <ClInclude Include="..\..\include\precision.h" />
@@ -51,10 +54,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\fftw_array.cpp" />
     <ClCompile Include="..\..\src\fftw_dct_engine.cpp" />
+    <ClCompile Include="..\..\src\fftw_dct_engine_factory.cpp" />
     <ClCompile Include="..\..\src\force_field.cpp" />
-    <ClCompile Include="..\..\src\force_spectrum.cpp" />
     <ClCompile Include="..\..\src\point_microphone.cpp" />
-    <ClCompile Include="..\..\src\position.cpp" />
     <ClCompile Include="..\..\src\pressure_spectrum.cpp" />
     <ClCompile Include="..\..\src\scene.cpp" />
     <ClCompile Include="..\..\src\signal.cpp" />
