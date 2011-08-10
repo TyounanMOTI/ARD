@@ -10,6 +10,9 @@
 
 namespace ARD
 {
+  class ArrayInterface;
+  typedef boost::shared_ptr<ArrayInterface> ArrayInterfacePointer;
+
   class ArrayInterface
   {
   public:
@@ -24,10 +27,9 @@ namespace ARD
     virtual void set_content(const Position& position, const Precision input) = 0;
     virtual void FillByZero() = 0;
     virtual void FillBy(const Precision& input) = 0;
+    virtual ArrayInterfacePointer Clone() const = 0;
     virtual ArrayInterface& operator /= (const Precision scalar) = 0;
   };
-  
-  typedef boost::shared_ptr<ArrayInterface> ArrayInterfacePointer;
 }
 
 #endif // ARRAY_INTERFACE_H

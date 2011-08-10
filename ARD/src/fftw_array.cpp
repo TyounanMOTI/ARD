@@ -26,6 +26,10 @@ void FFTWArray::FillBy(const Precision& input) {
   }
 }
 
+ArrayInterfacePointer FFTWArray::Clone() const {
+  return FFTWArrayPointer(new FFTWArray(*this));
+}
+
 FFTWArray& FFTWArray::operator /= (const ARD::Precision rhs) {
   for (int y = 0; y < size().height(); y++) {
     for (int x = 0; x < size().width(); x++) {

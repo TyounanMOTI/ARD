@@ -24,6 +24,14 @@ TEST_F(FFTWArrayTest, Copy) {
   EXPECT_EQ(Precision(10.0), p_copied->content(Position(1,2)));
 }
 
+TEST_F(FFTWArrayTest, Clone) {
+  subject->set_content(Position(1,2), Precision(10.0));
+  ArrayInterfacePointer cloned(subject->Clone());
+  EXPECT_EQ(Precision(10.0), cloned->content(Position(1,2)));
+  subject->set_content(Position(1,2), Precision(5.0));
+  EXPECT_EQ(Precision(10.0), cloned->content(Position(1,2)));
+}
+
 TEST_F(FFTWArrayTest, GetSize) {
   EXPECT_EQ(size, subject->size());
 }

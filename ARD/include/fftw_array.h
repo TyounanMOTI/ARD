@@ -11,7 +11,9 @@
 
 namespace ARD
 {
+  class FFTWArray;
   typedef boost::shared_array<Precision> FFTWArrayContent;
+  typedef boost::shared_ptr<FFTWArray> FFTWArrayPointer;
 
   class FFTWArray : public ArrayInterface
   {
@@ -27,6 +29,7 @@ namespace ARD
     void set_content(const Position& position, const Precision input);
     void FillByZero();
     void FillBy(const Precision& input);
+    ArrayInterfacePointer Clone() const;
     FFTWArray& operator /= (const Precision scalar);
 
   private:
@@ -34,8 +37,6 @@ namespace ARD
     FFTWArrayContent content_;
   };
   
-  typedef boost::shared_ptr<FFTWArray> FFTWArrayPointer;
-
   inline const Precision FFTWArray::content(const Position& position) const {
     return content_[position.Serialize(size_)];
   }
