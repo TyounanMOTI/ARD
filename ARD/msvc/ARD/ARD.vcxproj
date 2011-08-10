@@ -27,6 +27,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\array_interface.h" />
     <ClInclude Include="..\..\include\dct_engine.h" />
     <ClInclude Include="..\..\include\dct_engine_factory.h" />
     <ClInclude Include="..\..\include\fftw_array.h" />

@@ -80,6 +80,9 @@
     <ClInclude Include="..\..\include\whole_field_microphone.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\array_interface.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\fftw_dct_engine_factory.cpp">

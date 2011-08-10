@@ -7,12 +7,13 @@
 #include <boost/shared_ptr.hpp>
 #include "position.h"
 #include "precision.h"
+#include "array_interface.h"
 
 namespace ARD
 {
   typedef boost::shared_array<Precision> FFTWArrayContent;
 
-  class FFTWArray
+  class FFTWArray : public ArrayInterface
   {
   public:
     FFTWArray() : size_(Size(0,0)) {};
@@ -23,7 +24,7 @@ namespace ARD
     Precision* get() const { return content_.get(); };
     const Size size() const { return size_; };
     const Precision content(const Position& position) const;
-    void set_content(const Position& position, const Precision& input);
+    void set_content(const Position& position, const Precision input);
     void FillByZero();
     void FillBy(const Precision& input);
     FFTWArray& operator /= (const Precision scalar);
@@ -39,7 +40,7 @@ namespace ARD
     return content_[position.Serialize(size_)];
   }
 
-  inline void FFTWArray::set_content(const Position& position, const Precision& input) {
+  inline void FFTWArray::set_content(const Position& position, const Precision input) {
     content_[position.Serialize(size_)] = input;
   }
 }
