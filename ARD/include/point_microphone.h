@@ -17,7 +17,7 @@ namespace ARD
   {
   public:
     PointMicrophone() : position_(Position(0,0)) {};
-    PointMicrophone(const Position& position) : position_(position) {};
+    explicit PointMicrophone(const Position& position) : position_(position) {};
     const PressureQueue content() const;
     const Position position() const;
     const Pressure Pop();

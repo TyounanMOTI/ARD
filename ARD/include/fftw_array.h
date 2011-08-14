@@ -19,7 +19,7 @@ namespace ARD
   {
   public:
     FFTWArray() : size_(Size(0,0)) {};
-    FFTWArray(const Size& size);
+    explicit FFTWArray(const Size& size);
     FFTWArray(const FFTWArray& original);
     virtual ~FFTWArray() {};
     

@@ -17,7 +17,7 @@ namespace ARD
   {
   public:
     PressureField(const PressureField& original) : content_(original.content_->Clone()) {};
-    PressureField(const ArrayInterfacePointer content) : content_(content->Clone()) {};
+    explicit PressureField(const ArrayInterfacePointer content) : content_(content->Clone()) {};
     
     Precision* get() const { return content_->get(); }
     const Size size() const { return content_->size(); };

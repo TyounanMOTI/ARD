@@ -12,7 +12,7 @@ namespace ARD
   class Signal
   {
   public:
-    Signal(SignalContent content) : content_(content), head_(0) {};
+    explicit Signal(SignalContent content) : content_(content), head_(0) {};
     SignalLevel Pop();
 
   private:
