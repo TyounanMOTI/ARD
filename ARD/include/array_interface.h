@@ -16,9 +16,6 @@ namespace ARD
   class ArrayInterface
   {
   public:
-    ArrayInterface() {};
-    ArrayInterface(const Size& size) {};
-    ArrayInterface(const ArrayInterface& original) {};
     virtual ~ArrayInterface() {};
     
     virtual Precision* get() const = 0;
