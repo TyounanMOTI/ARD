@@ -22,9 +22,10 @@ namespace ARD
     virtual const Size size() const = 0;
     virtual const Precision content(const Position& position) const = 0;
     virtual void set_content(const Position& position, const Precision input) = 0;
+    virtual ArrayInterfacePointer Clone() const = 0;
+
     virtual void FillByZero();
     virtual void FillBy(const Precision& input);
-    virtual ArrayInterfacePointer Clone() const = 0;
     virtual ArrayInterface& operator /= (const Precision scalar);
   };
 }
