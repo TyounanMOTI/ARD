@@ -28,7 +28,6 @@ namespace ARD
     const Precision content(const Position& position) const;
     void set_content(const Position& position, const Precision input);
     ArrayInterfacePointer Clone() const;
-    FFTWArray& operator /= (const Precision scalar);
 
   private:
     const Size size_;

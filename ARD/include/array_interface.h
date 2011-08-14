@@ -28,7 +28,7 @@ namespace ARD
     virtual void FillByZero();
     virtual void FillBy(const Precision& input);
     virtual ArrayInterfacePointer Clone() const = 0;
-    virtual ArrayInterface& operator /= (const Precision scalar) = 0;
+    virtual ArrayInterface& operator /= (const Precision scalar);
   };
 }
 

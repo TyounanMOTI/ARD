@@ -18,11 +18,3 @@ ArrayInterfacePointer FFTWArray::Clone() const {
   return FFTWArrayPointer(new FFTWArray(*this));
 }
 
-FFTWArray& FFTWArray::operator /= (const ARD::Precision rhs) {
-  for (int y = 0; y < size().height(); y++) {
-    for (int x = 0; x < size().width(); x++) {
-      set_content(Position(x,y), content(Position(x,y))/rhs);
-    }
-  }
-  return *this;
-}
