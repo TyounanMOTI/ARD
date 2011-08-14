@@ -14,14 +14,6 @@ FFTWArray::FFTWArray(const FFTWArray& original) : size_(original.size_) {
   memcpy(content_.get(), original.content_.get(), sizeof(Precision)*original.size_.Length());
 }
 
-void FFTWArray::FillBy(const Precision& input) {
-  for (int y = 0; y < size().height(); y++) {
-    for (int x = 0; x < size().width(); x++) {
-      set_content(Position(x,y), input);
-    }
-  }
-}
-
 ArrayInterfacePointer FFTWArray::Clone() const {
   return FFTWArrayPointer(new FFTWArray(*this));
 }
