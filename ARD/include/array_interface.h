@@ -2,7 +2,6 @@
 #define ARRAY_INTERFACE_H
 
 #include <size.h>
-#include <fftw3.h>
 #include <boost/shared_array.hpp>
 #include <boost/shared_ptr.hpp>
 #include "position.h"
