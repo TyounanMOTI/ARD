@@ -19,10 +19,10 @@ namespace ARD
     PressureField(const PressureField& original) : content_(original.content_->Clone()) {};
     explicit PressureField(const ArrayInterfacePointer content) : content_(content->Clone()) {};
     
-    Precision* get() const { return content_->get(); }
+    Precision_t* get() const { return content_->get(); }
     const Size size() const { return content_->size(); };
-    const Precision content(const Position& position) const { return content_->content(position); };
-    void set_content(const Position& position, const Precision input) { content_->set_content(position, input); };
+    const Precision_t content(const Position& position) const { return content_->content(position); };
+    void set_content(const Position& position, const Precision_t input) { content_->set_content(position, input); };
     
   private:
     ArrayInterfacePointer content_;

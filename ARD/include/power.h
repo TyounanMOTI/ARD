@@ -5,7 +5,7 @@
 
 namespace ARD
 {
-  typedef Precision Power;
+  typedef Precision_t Power;
 }
 
 #endif // POWER_H

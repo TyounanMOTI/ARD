@@ -11,7 +11,7 @@ namespace ARD
   public:
     explicit ForceSpectrum(const ArrayInterfacePointer content) : content_(content->Clone()) {};
     const Size size() const { return content_->size(); };
-    const Precision content(const Position& position) const { return content_->content(position); };
+    const Precision_t content(const Position& position) const { return content_->content(position); };
     
   private:
     ArrayInterfacePointer content_;

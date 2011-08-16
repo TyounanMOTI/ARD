@@ -17,15 +17,15 @@ namespace ARD
   public:
     virtual ~ArrayInterface() {};
     
-    virtual Precision* get() const = 0;
+    virtual Precision_t* get() const = 0;
     virtual const Size size() const = 0;
-    virtual const Precision content(const Position& position) const = 0;
-    virtual void set_content(const Position& position, const Precision input) = 0;
+    virtual const Precision_t content(const Position& position) const = 0;
+    virtual void set_content(const Position& position, const Precision_t input) = 0;
     virtual ArrayInterfacePointer Clone() const = 0;
 
     virtual void FillByZero();
-    virtual void FillBy(const Precision& input);
-    virtual ArrayInterface& operator /= (const Precision scalar);
+    virtual void FillBy(const Precision_t& input);
+    virtual ArrayInterface& operator /= (const Precision_t scalar);
   };
 }
 

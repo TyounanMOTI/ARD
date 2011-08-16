@@ -4,7 +4,7 @@
 #include "precision.h"
 
 namespace ARD {
-  typedef Precision Pressure;
+  typedef Precision_t Pressure;
 }
 
 #endif // PRESSURE_H

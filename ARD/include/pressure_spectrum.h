@@ -20,8 +20,8 @@ namespace ARD
     PressureSpectrum(const Size& size, const DCTEngineFactoryPointer engine_factory);
     PressureFieldPointer InverseDCT();
     const Size size() const { return engine->input()->size(); };
-    const Precision content(const Position& position) const { return engine->input()->content(position); };
-    void set_content(const Position& position, const Precision input) { engine->input()->set_content(position, input); };
+    const Precision_t content(const Position& position) const { return engine->input()->content(position); };
+    void set_content(const Position& position, const Precision_t input) { engine->input()->set_content(position, input); };
 
   private:
     DCTEnginePointer engine;

@@ -24,9 +24,9 @@ protected:
 };
 
 TEST_F(PressureSpectrumTest, InitializeWithFFTWArray) {
-  subject->set_content(Position(0,0), Precision(1.0));
+  subject->set_content(Position(0,0), Precision_t(1.0));
   PressureSpectrumPointer result(new PressureSpectrum(*subject));
-  EXPECT_EQ(Precision(1.0), result->content(Position(0,0)));
+  EXPECT_EQ(Precision_t(1.0), result->content(Position(0,0)));
 //  OutputFFTWReal2DArray(size.width(), size.height(), mode_map->get());
 }
 

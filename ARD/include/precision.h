@@ -1,8 +1,8 @@
-#ifndef PRECISION_H
-#define PRECISION_H
+#ifndef Precision_t_H
+#define Precision_t_H
 
 namespace ARD {
-  typedef double Precision;
+  typedef double Precision_t;
 }
 
-#endif // PRECISION_H
+#endif // Precision_t_H

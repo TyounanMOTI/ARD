@@ -3,10 +3,10 @@
 using namespace ARD;
 
 void ArrayInterface::FillByZero() {
-  FillBy(Precision(0)); 
+  FillBy(Precision_t(0)); 
 }
 
-void ArrayInterface::FillBy(const Precision& input) {
+void ArrayInterface::FillBy(const Precision_t& input) {
   for (int y = 0; y < size().height(); y++) {
     for (int x = 0; x < size().width(); x++) {
       set_content(Position(x,y), input);
@@ -14,7 +14,7 @@ void ArrayInterface::FillBy(const Precision& input) {
   }
 }
 
-ArrayInterface& ArrayInterface::operator /= (const ARD::Precision rhs) {
+ArrayInterface& ArrayInterface::operator /= (const ARD::Precision_t rhs) {
   for (int y = 0; y < size().height(); y++) {
     for (int x = 0; x < size().width(); x++) {
       set_content(Position(x,y), content(Position(x,y))/rhs);
