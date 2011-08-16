@@ -1,15 +1,20 @@
 #include <gtest/gtest.h>
 #include <whole_field_microphone.h>
+#include <fftw_array.h>
 
 using namespace ARD;
 
 class WholeFieldMicrophoneTest : public testing::Test
 {
 protected:
+  typedef boost::shared_ptr<WholeFieldMicrophone<double> > WholeFieldMicrophonePointer;
+  typedef boost::shared_ptr<ArrayInterface<double> > ArrayInterfacePointer;
+  typedef boost::shared_ptr<PressureField<double> > PressureFieldPointer;
+  
   virtual void SetUp() {
-    subject.reset(new WholeFieldMicrophone());
+    subject.reset(new WholeFieldMicrophone<double>());
     size = Size(20,20);
-    field.reset(new PressureField(FFTWArrayPointer(new FFTWArray(size))));
+    field.reset(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
   }
 
   Size size;
@@ -18,37 +23,37 @@ protected:
 };
 
 TEST_F(WholeFieldMicrophoneTest, Record) {
-  field->set_content(Position(10,10), Pressure(20.0));
+  field->set_content(Position(10,10), 20.0);
   subject->Record(field);
 
-  PressureFieldPointer result(new PressureField(FFTWArrayPointer(new FFTWArray(size))));
+  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
   subject->Plot(result);
-  EXPECT_EQ(Pressure(20.0), result->content(Position(10,10)));
+  EXPECT_EQ(20.0, result->content(Position(10,10)));
 }
 
 TEST_F(WholeFieldMicrophoneTest, RecordCopiesField) {
-  field->set_content(Position(10,10), Pressure(20.0));
+  field->set_content(Position(10,10), 20.0);
   subject->Record(field);
-  field->set_content(Position(10,10), Pressure(10.0));
+  field->set_content(Position(10,10), 10.0);
 
-  PressureFieldPointer result(new PressureField(FFTWArrayPointer(new FFTWArray(size))));
+  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
   subject->Plot(result);
-  EXPECT_EQ(Pressure(20.0), result->content(Position(10,10)));
+  EXPECT_EQ(20.0, result->content(Position(10,10)));
 }
 
 TEST_F(WholeFieldMicrophoneTest, Plot) {
-  field->set_content(Position(10,10), Pressure(20.0));
-  field->set_content(Position(0,0), Pressure(5.0));
+  field->set_content(Position(10,10), 20.0);
+  field->set_content(Position(0,0), 5.0);
   subject->Record(field);
   
-  PressureFieldPointer result(new PressureField(FFTWArrayPointer(new FFTWArray(size))));
+  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
   subject->Plot(result);
-  EXPECT_EQ(Pressure(20.0), result->content(Position(10,10)));
-  EXPECT_EQ(Pressure(5.0), result->content(Position(0,0)));
+  EXPECT_EQ(20.0, result->content(Position(10,10)));
+  EXPECT_EQ(5.0, result->content(Position(0,0)));
 }
 
 TEST_F(WholeFieldMicrophoneTest, PlotEmpty) {
-  PressureFieldPointer result(new PressureField(FFTWArrayPointer(new FFTWArray(size))));
+  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
   subject->Plot(result);
-  EXPECT_EQ(Pressure(0.0), result->content(Position(0,0)));
+  EXPECT_EQ(0.0, result->content(Position(0,0)));
 }

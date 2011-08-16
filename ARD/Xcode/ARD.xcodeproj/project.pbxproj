@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D13849B13EDA46A00C265D1 /* fftw_dct_engine_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D13849A13EDA46A00C265D1 /* fftw_dct_engine_factory.h */; };
+		9D13849B13EDA46A00C265D1 /* fftw_double_dct_engine_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D13849A13EDA46A00C265D1 /* fftw_double_dct_engine_factory.h */; };
 		9D13849D13EDA6B500C265D1 /* fftw_dct_engine_factory_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D13849C13EDA6B500C265D1 /* fftw_dct_engine_factory_test.cpp */; };
 		9D13849F13EDABA100C265D1 /* fftw_dct_engine_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D13849E13EDABA100C265D1 /* fftw_dct_engine_factory.cpp */; };
 		9D1384A113EDAE9400C265D1 /* dct_engine_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1384A013EDAE9400C265D1 /* dct_engine_factory.h */; };
@@ -15,53 +15,37 @@
 		9D22195313DD45A4003534D6 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22195113DD4596003534D6 /* libfftw3.dylib */; };
 		9D22195413DD4BD6003534D6 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22195113DD4596003534D6 /* libfftw3.dylib */; };
 		9D6E22E013F51F7E00851119 /* array_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6E22DF13F51F7E00851119 /* array_interface.h */; };
-		9D6E22E713F7BF9400851119 /* array_interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D6E22E613F7BF9400851119 /* array_interface.cpp */; };
 		9D822D7913F163A800C2EAC6 /* fftw_plan.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D822D7813F163A800C2EAC6 /* fftw_plan.h */; };
 		9D8F905A13C89C4700A87C85 /* fftw_array.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904613C89C4700A87C85 /* fftw_array.h */; };
 		9D8F905C13C89C4700A87C85 /* force_field.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904813C89C4700A87C85 /* force_field.h */; };
 		9D8F905D13C89C4700A87C85 /* force_spectrum.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904913C89C4700A87C85 /* force_spectrum.h */; };
 		9D8F905E13C89C4700A87C85 /* microphone.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904A13C89C4700A87C85 /* microphone.h */; };
-		9D8F905F13C89C4700A87C85 /* mode_coefficient.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904B13C89C4700A87C85 /* mode_coefficient.h */; };
 		9D8F906013C89C4700A87C85 /* point_microphone.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904C13C89C4700A87C85 /* point_microphone.h */; };
 		9D8F906113C89C4700A87C85 /* position.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904D13C89C4700A87C85 /* position.h */; };
-		9D8F906213C89C4700A87C85 /* power.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904E13C89C4700A87C85 /* power.h */; };
-		9D8F906313C89C4700A87C85 /* precision.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904F13C89C4700A87C85 /* precision.h */; };
 		9D8F906413C89C4700A87C85 /* pressure_field.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905013C89C4700A87C85 /* pressure_field.h */; };
 		9D8F906513C89C4700A87C85 /* pressure_spectrum.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905113C89C4700A87C85 /* pressure_spectrum.h */; };
-		9D8F906613C89C4700A87C85 /* pressure.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905213C89C4700A87C85 /* pressure.h */; };
 		9D8F906713C89C4700A87C85 /* scene.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905313C89C4700A87C85 /* scene.h */; };
-		9D8F906813C89C4700A87C85 /* signal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905413C89C4700A87C85 /* signal.h */; };
 		9D8F906913C89C4700A87C85 /* size.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905513C89C4700A87C85 /* size.h */; };
 		9D8F906A13C89C4700A87C85 /* source.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905613C89C4700A87C85 /* source.h */; };
 		9D8F906B13C89C4700A87C85 /* spectrum_pool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905713C89C4700A87C85 /* spectrum_pool.h */; };
 		9D8F906D13C89C4700A87C85 /* whole_field_microphone.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F905913C89C4700A87C85 /* whole_field_microphone.h */; };
 		9D8F907B13C89C9200A87C85 /* fftw_array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907013C89C9200A87C85 /* fftw_array.cpp */; };
-		9D8F907C13C89C9200A87C85 /* force_field.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907113C89C9200A87C85 /* force_field.cpp */; };
-		9D8F907D13C89C9200A87C85 /* point_microphone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907213C89C9200A87C85 /* point_microphone.cpp */; };
-		9D8F907E13C89C9200A87C85 /* pressure_spectrum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907313C89C9200A87C85 /* pressure_spectrum.cpp */; };
-		9D8F907F13C89C9200A87C85 /* scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907413C89C9200A87C85 /* scene.cpp */; };
-		9D8F908013C89C9200A87C85 /* signal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907513C89C9200A87C85 /* signal.cpp */; };
 		9D8F908113C89C9200A87C85 /* size.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907613C89C9200A87C85 /* size.cpp */; };
-		9D8F908213C89C9200A87C85 /* source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907713C89C9200A87C85 /* source.cpp */; };
-		9D8F908413C89C9200A87C85 /* spectrum_pool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907913C89C9200A87C85 /* spectrum_pool.cpp */; };
-		9D8F908513C89C9200A87C85 /* whole_field_microphone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F907A13C89C9200A87C85 /* whole_field_microphone.cpp */; };
 		9D8F909813C89CA300A87C85 /* fftw_array_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F908713C89CA300A87C85 /* fftw_array_test.cpp */; };
 		9D8F909913C89CA300A87C85 /* fftw_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F908813C89CA300A87C85 /* fftw_test.cpp */; };
 		9D8F909A13C89CA300A87C85 /* force_field_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F908913C89CA300A87C85 /* force_field_test.cpp */; };
 		9D8F909C13C89CA300A87C85 /* point_microphone_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F908F13C89CA300A87C85 /* point_microphone_test.cpp */; };
-		9D8F909D13C89CA300A87C85 /* pressure_field_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F909013C89CA300A87C85 /* pressure_field_test.cpp */; };
 		9D8F909E13C89CA300A87C85 /* pressure_spectrum_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F909113C89CA300A87C85 /* pressure_spectrum_test.cpp */; };
 		9D8F909F13C89CA300A87C85 /* scene_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F909213C89CA300A87C85 /* scene_test.cpp */; };
-		9D8F90A013C89CA300A87C85 /* signal_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F909313C89CA300A87C85 /* signal_test.cpp */; };
 		9D8F90A113C89CA300A87C85 /* size_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F909413C89CA300A87C85 /* size_test.cpp */; };
 		9D8F90A213C89CA300A87C85 /* source_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F909513C89CA300A87C85 /* source_test.cpp */; };
 		9D8F90A313C89CA300A87C85 /* spectrum_pool_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F909613C89CA300A87C85 /* spectrum_pool_test.cpp */; };
 		9D8F90A413C89CA300A87C85 /* whole_field_microphone_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8F909713C89CA300A87C85 /* whole_field_microphone_test.cpp */; };
 		9D8FC10713B1F50500D244A9 /* output_fftw_array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FC10513B1F50500D244A9 /* output_fftw_array.cpp */; };
 		9DC6DC5913E85545001B4F82 /* position_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC5813E85545001B4F82 /* position_test.cpp */; };
-		9DC6DC6713EBE35B001B4F82 /* fftw_dct_engine_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC6613EBE35B001B4F82 /* fftw_dct_engine_test.cpp */; };
-		9DC6DC6A13EBE395001B4F82 /* fftw_dct_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC6913EBE395001B4F82 /* fftw_dct_engine.cpp */; };
-		9DC6DC6C13EBE3A2001B4F82 /* fftw_dct_engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC6DC6B13EBE3A2001B4F82 /* fftw_dct_engine.h */; };
+		9DC6DC6713EBE35B001B4F82 /* fftw_double_dct_engine_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC6613EBE35B001B4F82 /* fftw_double_dct_engine_test.cpp */; };
+		9DC6DC6A13EBE395001B4F82 /* fftw_double_dct_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6DC6913EBE395001B4F82 /* fftw_double_dct_engine.cpp */; };
+		9DC6DC6C13EBE3A2001B4F82 /* fftw_double_dct_engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DC6DC6B13EBE3A2001B4F82 /* fftw_double_dct_engine.h */; };
 		9DFD7BEB13978BCB0073F9E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9DFD7BE913978BCB0073F9E5 /* InfoPlist.strings */; };
 		9DFD7C0D13978C5B0073F9E5 /* ARD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD7BDD13978BCB0073F9E5 /* ARD.framework */; };
 		9DFD7C1113978C730073F9E5 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD7C1013978C730073F9E5 /* gtest.framework */; };
@@ -79,7 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9D13849A13EDA46A00C265D1 /* fftw_dct_engine_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fftw_dct_engine_factory.h; path = ../include/fftw_dct_engine_factory.h; sourceTree = "<group>"; };
+		9D13849A13EDA46A00C265D1 /* fftw_double_dct_engine_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fftw_double_dct_engine_factory.h; path = ../include/fftw_double_dct_engine_factory.h; sourceTree = "<group>"; };
 		9D13849C13EDA6B500C265D1 /* fftw_dct_engine_factory_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = fftw_dct_engine_factory_test.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9D13849E13EDABA100C265D1 /* fftw_dct_engine_factory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fftw_dct_engine_factory.cpp; sourceTree = "<group>"; };
 		9D1384A013EDAE9400C265D1 /* dct_engine_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dct_engine_factory.h; path = ../include/dct_engine_factory.h; sourceTree = "<group>"; };
@@ -87,44 +71,28 @@
 		9D22195113DD4596003534D6 /* libfftw3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfftw3.dylib; path = /usr/local/lib/libfftw3.dylib; sourceTree = "<absolute>"; };
 		9D2AE34513A5079B003BD84E /* plot_1d.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = plot_1d.py; path = ../../ARD/test/plot/plot_1d.py; sourceTree = "<group>"; };
 		9D6E22DF13F51F7E00851119 /* array_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = array_interface.h; path = ../include/array_interface.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		9D6E22E613F7BF9400851119 /* array_interface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = array_interface.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9D822D7813F163A800C2EAC6 /* fftw_plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fftw_plan.h; path = ../include/fftw_plan.h; sourceTree = "<group>"; };
 		9D8F904613C89C4700A87C85 /* fftw_array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = fftw_array.h; path = ../include/fftw_array.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D8F904813C89C4700A87C85 /* force_field.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = force_field.h; path = ../include/force_field.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D8F904913C89C4700A87C85 /* force_spectrum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = force_spectrum.h; path = ../include/force_spectrum.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D8F904A13C89C4700A87C85 /* microphone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = microphone.h; path = ../include/microphone.h; sourceTree = "<group>"; };
-		9D8F904B13C89C4700A87C85 /* mode_coefficient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = mode_coefficient.h; path = ../include/mode_coefficient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D8F904C13C89C4700A87C85 /* point_microphone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = point_microphone.h; path = ../include/point_microphone.h; sourceTree = "<group>"; };
 		9D8F904D13C89C4700A87C85 /* position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = position.h; path = ../include/position.h; sourceTree = "<group>"; };
-		9D8F904E13C89C4700A87C85 /* power.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = power.h; path = ../include/power.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		9D8F904F13C89C4700A87C85 /* precision.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = precision.h; path = ../include/precision.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D8F905013C89C4700A87C85 /* pressure_field.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = pressure_field.h; path = ../include/pressure_field.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D8F905113C89C4700A87C85 /* pressure_spectrum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = pressure_spectrum.h; path = ../include/pressure_spectrum.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		9D8F905213C89C4700A87C85 /* pressure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = pressure.h; path = ../include/pressure.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D8F905313C89C4700A87C85 /* scene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = scene.h; path = ../include/scene.h; sourceTree = "<group>"; };
-		9D8F905413C89C4700A87C85 /* signal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = signal.h; path = ../include/signal.h; sourceTree = "<group>"; };
 		9D8F905513C89C4700A87C85 /* size.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = size.h; path = ../include/size.h; sourceTree = "<group>"; };
 		9D8F905613C89C4700A87C85 /* source.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = source.h; path = ../include/source.h; sourceTree = "<group>"; };
 		9D8F905713C89C4700A87C85 /* spectrum_pool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = spectrum_pool.h; path = ../include/spectrum_pool.h; sourceTree = "<group>"; };
 		9D8F905913C89C4700A87C85 /* whole_field_microphone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = whole_field_microphone.h; path = ../include/whole_field_microphone.h; sourceTree = "<group>"; };
 		9D8F907013C89C9200A87C85 /* fftw_array.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = fftw_array.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		9D8F907113C89C9200A87C85 /* force_field.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = force_field.cpp; sourceTree = "<group>"; };
-		9D8F907213C89C9200A87C85 /* point_microphone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = point_microphone.cpp; sourceTree = "<group>"; };
-		9D8F907313C89C9200A87C85 /* pressure_spectrum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pressure_spectrum.cpp; sourceTree = "<group>"; };
-		9D8F907413C89C9200A87C85 /* scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = scene.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		9D8F907513C89C9200A87C85 /* signal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = signal.cpp; sourceTree = "<group>"; };
 		9D8F907613C89C9200A87C85 /* size.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = size.cpp; sourceTree = "<group>"; };
-		9D8F907713C89C9200A87C85 /* source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = source.cpp; sourceTree = "<group>"; };
-		9D8F907913C89C9200A87C85 /* spectrum_pool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spectrum_pool.cpp; sourceTree = "<group>"; };
-		9D8F907A13C89C9200A87C85 /* whole_field_microphone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = whole_field_microphone.cpp; sourceTree = "<group>"; };
 		9D8F908713C89CA300A87C85 /* fftw_array_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = fftw_array_test.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9D8F908813C89CA300A87C85 /* fftw_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fftw_test.cpp; sourceTree = "<group>"; };
 		9D8F908913C89CA300A87C85 /* force_field_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = force_field_test.cpp; sourceTree = "<group>"; };
 		9D8F908F13C89CA300A87C85 /* point_microphone_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = point_microphone_test.cpp; sourceTree = "<group>"; };
-		9D8F909013C89CA300A87C85 /* pressure_field_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pressure_field_test.cpp; sourceTree = "<group>"; };
 		9D8F909113C89CA300A87C85 /* pressure_spectrum_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = pressure_spectrum_test.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		9D8F909213C89CA300A87C85 /* scene_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = scene_test.cpp; sourceTree = "<group>"; };
-		9D8F909313C89CA300A87C85 /* signal_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = signal_test.cpp; sourceTree = "<group>"; };
 		9D8F909413C89CA300A87C85 /* size_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = size_test.cpp; sourceTree = "<group>"; };
 		9D8F909513C89CA300A87C85 /* source_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = source_test.cpp; sourceTree = "<group>"; };
 		9D8F909613C89CA300A87C85 /* spectrum_pool_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spectrum_pool_test.cpp; sourceTree = "<group>"; };
@@ -133,9 +101,9 @@
 		9D8FC10613B1F50500D244A9 /* output_fftw_array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = output_fftw_array.h; path = ../../ARD/test/plot/output_fftw_array.h; sourceTree = "<group>"; };
 		9D9EA52D13A733E000994A17 /* plot_2d.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = plot_2d.py; path = ../../ARD/test/plot/plot_2d.py; sourceTree = "<group>"; };
 		9DC6DC5813E85545001B4F82 /* position_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = position_test.cpp; sourceTree = "<group>"; };
-		9DC6DC6613EBE35B001B4F82 /* fftw_dct_engine_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = fftw_dct_engine_test.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		9DC6DC6913EBE395001B4F82 /* fftw_dct_engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = fftw_dct_engine.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		9DC6DC6B13EBE3A2001B4F82 /* fftw_dct_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = fftw_dct_engine.h; path = ../include/fftw_dct_engine.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		9DC6DC6613EBE35B001B4F82 /* fftw_double_dct_engine_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = fftw_double_dct_engine_test.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		9DC6DC6913EBE395001B4F82 /* fftw_double_dct_engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = fftw_double_dct_engine.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		9DC6DC6B13EBE3A2001B4F82 /* fftw_double_dct_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = fftw_double_dct_engine.h; path = ../include/fftw_double_dct_engine.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9DFD7BDD13978BCB0073F9E5 /* ARD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DFD7BE813978BCB0073F9E5 /* ARD-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ARD-Info.plist"; sourceTree = "<group>"; };
 		9DFD7BEA13978BCB0073F9E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -187,22 +155,17 @@
 				9D1384A213EDAF7C00C265D1 /* dct_engine.h */,
 				9D1384A013EDAE9400C265D1 /* dct_engine_factory.h */,
 				9D8F904613C89C4700A87C85 /* fftw_array.h */,
-				9DC6DC6B13EBE3A2001B4F82 /* fftw_dct_engine.h */,
-				9D13849A13EDA46A00C265D1 /* fftw_dct_engine_factory.h */,
+				9DC6DC6B13EBE3A2001B4F82 /* fftw_double_dct_engine.h */,
+				9D13849A13EDA46A00C265D1 /* fftw_double_dct_engine_factory.h */,
 				9D822D7813F163A800C2EAC6 /* fftw_plan.h */,
 				9D8F904813C89C4700A87C85 /* force_field.h */,
 				9D8F904913C89C4700A87C85 /* force_spectrum.h */,
 				9D8F904A13C89C4700A87C85 /* microphone.h */,
-				9D8F904B13C89C4700A87C85 /* mode_coefficient.h */,
 				9D8F904C13C89C4700A87C85 /* point_microphone.h */,
 				9D8F904D13C89C4700A87C85 /* position.h */,
-				9D8F904E13C89C4700A87C85 /* power.h */,
-				9D8F904F13C89C4700A87C85 /* precision.h */,
 				9D8F905013C89C4700A87C85 /* pressure_field.h */,
 				9D8F905113C89C4700A87C85 /* pressure_spectrum.h */,
-				9D8F905213C89C4700A87C85 /* pressure.h */,
 				9D8F905313C89C4700A87C85 /* scene.h */,
-				9D8F905413C89C4700A87C85 /* signal.h */,
 				9D8F905513C89C4700A87C85 /* size.h */,
 				9D8F905613C89C4700A87C85 /* source.h */,
 				9D8F905713C89C4700A87C85 /* spectrum_pool.h */,
@@ -215,18 +178,9 @@
 			isa = PBXGroup;
 			children = (
 				9D8F907013C89C9200A87C85 /* fftw_array.cpp */,
-				9DC6DC6913EBE395001B4F82 /* fftw_dct_engine.cpp */,
+				9DC6DC6913EBE395001B4F82 /* fftw_double_dct_engine.cpp */,
 				9D13849E13EDABA100C265D1 /* fftw_dct_engine_factory.cpp */,
-				9D8F907113C89C9200A87C85 /* force_field.cpp */,
-				9D8F907213C89C9200A87C85 /* point_microphone.cpp */,
-				9D8F907313C89C9200A87C85 /* pressure_spectrum.cpp */,
-				9D8F907413C89C9200A87C85 /* scene.cpp */,
-				9D8F907513C89C9200A87C85 /* signal.cpp */,
 				9D8F907613C89C9200A87C85 /* size.cpp */,
-				9D8F907713C89C9200A87C85 /* source.cpp */,
-				9D8F907913C89C9200A87C85 /* spectrum_pool.cpp */,
-				9D8F907A13C89C9200A87C85 /* whole_field_microphone.cpp */,
-				9D6E22E613F7BF9400851119 /* array_interface.cpp */,
 			);
 			name = src;
 			path = ../src;
@@ -236,16 +190,14 @@
 			isa = PBXGroup;
 			children = (
 				9D8F908713C89CA300A87C85 /* fftw_array_test.cpp */,
-				9DC6DC6613EBE35B001B4F82 /* fftw_dct_engine_test.cpp */,
+				9DC6DC6613EBE35B001B4F82 /* fftw_double_dct_engine_test.cpp */,
 				9D13849C13EDA6B500C265D1 /* fftw_dct_engine_factory_test.cpp */,
 				9D8F908813C89CA300A87C85 /* fftw_test.cpp */,
 				9D8F908913C89CA300A87C85 /* force_field_test.cpp */,
 				9D8F908F13C89CA300A87C85 /* point_microphone_test.cpp */,
 				9DC6DC5813E85545001B4F82 /* position_test.cpp */,
-				9D8F909013C89CA300A87C85 /* pressure_field_test.cpp */,
 				9D8F909113C89CA300A87C85 /* pressure_spectrum_test.cpp */,
 				9D8F909213C89CA300A87C85 /* scene_test.cpp */,
-				9D8F909313C89CA300A87C85 /* signal_test.cpp */,
 				9D8F909413C89CA300A87C85 /* size_test.cpp */,
 				9D8F909513C89CA300A87C85 /* source_test.cpp */,
 				9D8F909613C89CA300A87C85 /* spectrum_pool_test.cpp */,
@@ -310,22 +262,17 @@
 				9D8F905C13C89C4700A87C85 /* force_field.h in Headers */,
 				9D8F905D13C89C4700A87C85 /* force_spectrum.h in Headers */,
 				9D8F905E13C89C4700A87C85 /* microphone.h in Headers */,
-				9D8F905F13C89C4700A87C85 /* mode_coefficient.h in Headers */,
 				9D8F906013C89C4700A87C85 /* point_microphone.h in Headers */,
 				9D8F906113C89C4700A87C85 /* position.h in Headers */,
-				9D8F906213C89C4700A87C85 /* power.h in Headers */,
-				9D8F906313C89C4700A87C85 /* precision.h in Headers */,
 				9D8F906413C89C4700A87C85 /* pressure_field.h in Headers */,
 				9D8F906513C89C4700A87C85 /* pressure_spectrum.h in Headers */,
-				9D8F906613C89C4700A87C85 /* pressure.h in Headers */,
 				9D8F906713C89C4700A87C85 /* scene.h in Headers */,
-				9D8F906813C89C4700A87C85 /* signal.h in Headers */,
 				9D8F906913C89C4700A87C85 /* size.h in Headers */,
 				9D8F906A13C89C4700A87C85 /* source.h in Headers */,
 				9D8F906B13C89C4700A87C85 /* spectrum_pool.h in Headers */,
 				9D8F906D13C89C4700A87C85 /* whole_field_microphone.h in Headers */,
-				9DC6DC6C13EBE3A2001B4F82 /* fftw_dct_engine.h in Headers */,
-				9D13849B13EDA46A00C265D1 /* fftw_dct_engine_factory.h in Headers */,
+				9DC6DC6C13EBE3A2001B4F82 /* fftw_double_dct_engine.h in Headers */,
+				9D13849B13EDA46A00C265D1 /* fftw_double_dct_engine_factory.h in Headers */,
 				9D1384A113EDAE9400C265D1 /* dct_engine_factory.h in Headers */,
 				9D1384A313EDAF7C00C265D1 /* dct_engine.h in Headers */,
 				9D822D7913F163A800C2EAC6 /* fftw_plan.h in Headers */,
@@ -411,18 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8F907B13C89C9200A87C85 /* fftw_array.cpp in Sources */,
-				9D8F907C13C89C9200A87C85 /* force_field.cpp in Sources */,
-				9D8F907D13C89C9200A87C85 /* point_microphone.cpp in Sources */,
-				9D8F907E13C89C9200A87C85 /* pressure_spectrum.cpp in Sources */,
-				9D8F907F13C89C9200A87C85 /* scene.cpp in Sources */,
-				9D8F908013C89C9200A87C85 /* signal.cpp in Sources */,
 				9D8F908113C89C9200A87C85 /* size.cpp in Sources */,
-				9D8F908213C89C9200A87C85 /* source.cpp in Sources */,
-				9D8F908413C89C9200A87C85 /* spectrum_pool.cpp in Sources */,
-				9D8F908513C89C9200A87C85 /* whole_field_microphone.cpp in Sources */,
-				9DC6DC6A13EBE395001B4F82 /* fftw_dct_engine.cpp in Sources */,
+				9DC6DC6A13EBE395001B4F82 /* fftw_double_dct_engine.cpp in Sources */,
 				9D13849F13EDABA100C265D1 /* fftw_dct_engine_factory.cpp in Sources */,
-				9D6E22E713F7BF9400851119 /* array_interface.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,16 +373,14 @@
 				9D8F909913C89CA300A87C85 /* fftw_test.cpp in Sources */,
 				9D8F909A13C89CA300A87C85 /* force_field_test.cpp in Sources */,
 				9D8F909C13C89CA300A87C85 /* point_microphone_test.cpp in Sources */,
-				9D8F909D13C89CA300A87C85 /* pressure_field_test.cpp in Sources */,
 				9D8F909E13C89CA300A87C85 /* pressure_spectrum_test.cpp in Sources */,
 				9D8F909F13C89CA300A87C85 /* scene_test.cpp in Sources */,
-				9D8F90A013C89CA300A87C85 /* signal_test.cpp in Sources */,
 				9D8F90A113C89CA300A87C85 /* size_test.cpp in Sources */,
 				9D8F90A213C89CA300A87C85 /* source_test.cpp in Sources */,
 				9D8F90A313C89CA300A87C85 /* spectrum_pool_test.cpp in Sources */,
 				9D8F90A413C89CA300A87C85 /* whole_field_microphone_test.cpp in Sources */,
 				9DC6DC5913E85545001B4F82 /* position_test.cpp in Sources */,
-				9DC6DC6713EBE35B001B4F82 /* fftw_dct_engine_test.cpp in Sources */,
+				9DC6DC6713EBE35B001B4F82 /* fftw_double_dct_engine_test.cpp in Sources */,
 				9D13849D13EDA6B500C265D1 /* fftw_dct_engine_factory_test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,15 +5,16 @@
 #include "dct_engine.h"
 
 namespace ARD {
+  template<class Precision>
   class DCTEngineFactory
   {
+  private:
+    typedef boost::shared_ptr<DCTEngine<Precision> > DCTEnginePointer;
   public:
     virtual ~DCTEngineFactory() {};
     virtual DCTEnginePointer GenerateForwardEngine(const Size& size) = 0;
     virtual DCTEnginePointer GenerateBackwardEngine(const Size& size) = 0;
   };
-  
-  typedef boost::shared_ptr<DCTEngineFactory> DCTEngineFactoryPointer;
 }
 
 #endif // DCT_ENGINE_FACTORY_H

@@ -2,32 +2,41 @@
 #define PRESSURE_SPECTRUM_H
 
 #include <boost/shared_ptr.hpp>
-#include "fftw_array.h"
-#include "pressure_field.h"
 #include "size.h"
 #include "dct_engine.h"
 #include "dct_engine_factory.h"
-#include <fftw3.h>
 
 namespace ARD
 {
-  class PressureField;
-  typedef boost::shared_ptr<PressureField> PressureFieldPointer;
+  template <class Precision> class PressureField;
 
+  template <class Precision>
   class PressureSpectrum
   {
+  private:
+    typedef boost::shared_ptr<DCTEngineFactory<Precision> > DCTEngineFactoryPointer;
+    typedef boost::shared_ptr<DCTEngine<Precision> > DCTEnginePointer;
+    typedef boost::shared_ptr<PressureField<Precision> > PressureFieldPointer;
   public:
     PressureSpectrum(const Size& size, const DCTEngineFactoryPointer engine_factory);
     PressureFieldPointer InverseDCT();
     const Size size() const { return engine->input()->size(); };
-    const Precision_t content(const Position& position) const { return engine->input()->content(position); };
-    void set_content(const Position& position, const Precision_t input) { engine->input()->set_content(position, input); };
+    const Precision content(const Position& position) const { return engine->input()->content(position); };
+    void set_content(const Position& position, const Precision& input) { engine->input()->set_content(position, input); };
 
   private:
     DCTEnginePointer engine;
-  };  
-
-  typedef boost::shared_ptr<PressureSpectrum> PressureSpectrumPointer;
+  };
+  
+  template <class Precision>
+  PressureSpectrum<Precision>::PressureSpectrum(const Size& size, const boost::shared_ptr<DCTEngineFactory<Precision> > engine_factory) {
+    engine = engine_factory->GenerateBackwardEngine(size);
+  }
+  
+  template <class Precision>
+  boost::shared_ptr<PressureField<Precision> > PressureSpectrum<Precision>::InverseDCT() {
+    return boost::shared_ptr<PressureField<Precision> >(new PressureField<Precision>(engine->Execute()));
+  }
 }
 
 #endif // PRESSURE_SPECTRUM_H

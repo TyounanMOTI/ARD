@@ -6,17 +6,18 @@
 
 namespace ARD
 {
+  template <class Precision>
   class Microphone
   {
+  private:
+    typedef boost::shared_ptr<PressureField<Precision> > PressureFieldPointer;
   public:
     Microphone() {};
     virtual ~Microphone() {};
-    virtual const Pressure Pop() = 0;
+    virtual const Precision Pop() = 0;
     virtual void Record(const PressureFieldPointer field) = 0;
     virtual void Plot(PressureFieldPointer field) = 0;
   };
-
-  typedef boost::shared_ptr<Microphone> MicrophonePointer;
 }
 
 #endif //MICROPHONE_H

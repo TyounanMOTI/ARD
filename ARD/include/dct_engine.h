@@ -5,14 +5,15 @@
 #include "array_interface.h"
 
 namespace ARD {
+  template <class Precision>
   class DCTEngine
   {
+  private:
+    typedef boost::shared_ptr<ArrayInterface<Precision> > ArrayInterfacePointer; 
   public:
     virtual const ArrayInterfacePointer input() const = 0;
     virtual const ArrayInterfacePointer Execute() = 0;
   };
-  
-  typedef boost::shared_ptr<DCTEngine> DCTEnginePointer;
 }
 
 #endif // DCT_ENGINE_H

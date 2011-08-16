@@ -6,18 +6,19 @@
 
 namespace ARD
 {
+  template <class Precision>
   class ForceSpectrum
   {
+  private:
+    typedef boost::shared_ptr<ArrayInterface<Precision> > ArrayInterfacePointer;
   public:
     explicit ForceSpectrum(const ArrayInterfacePointer content) : content_(content->Clone()) {};
     const Size size() const { return content_->size(); };
-    const Precision_t content(const Position& position) const { return content_->content(position); };
+    const Precision content(const Position& position) const { return content_->content(position); };
     
   private:
     ArrayInterfacePointer content_;
   };
-
-  typedef boost::shared_ptr<ForceSpectrum> ForceSpectrumPointer;
 }
 
 #endif // FORCE_SPECTRUM_H

@@ -8,7 +8,7 @@
 #include "transforms.h"
 #include <scene.h>
 #include <whole_field_microphone.h>
-#include <fftw_dct_engine_factory.h>
+#include <fftw_double_dct_engine_factory.h>
 #include <math.h>
 
 #ifdef WIN32
@@ -24,9 +24,18 @@ void draw_pressure_field(double* pressure_field, double max);
 SDL_Window* g_window;
 SDL_Renderer* g_renderer;
 
-ARD::ScenePointer g_scene;
-ARD::WholeFieldMicrophonePointer g_mic;
-ARD::SourcePointer g_source;
+typedef double Precision;
+typedef boost::shared_ptr<ARD::Scene<Precision> > ScenePointer;
+typedef boost::shared_ptr<ARD::Microphone<Precision> > MicrophonePointer;
+typedef boost::shared_ptr<ARD::WholeFieldMicrophone<Precision> > WholeFieldMicrophonePointer;
+typedef boost::shared_ptr<ARD::Source<Precision> > SourcePointer;
+typedef boost::shared_ptr<ARD::DCTEngineFactory<Precision> > DCTEngineFactoryPointer;
+typedef boost::shared_ptr<ARD::PressureField<Precision> > PressureFieldPointer;
+typedef boost::shared_ptr<ARD::ArrayInterface<Precision> > ArrayInterfacePointer;
+
+ScenePointer g_scene;
+WholeFieldMicrophonePointer g_mic;
+SourcePointer g_source;
 ARD::Size size;
 int width;
 int height;
@@ -44,13 +53,13 @@ void Init() {
   g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
 
   size = ARD::Size(width, height);
-  ARD::FFTWDCTEngineFactoryPointer engine_factory(new ARD::FFTWDCTEngineFactory());
-  g_scene.reset(new ARD::Scene(size, 1.0/2000.0, engine_factory));
-  g_mic.reset(new ARD::WholeFieldMicrophone());
+  DCTEngineFactoryPointer engine_factory(new ARD::FFTWDoubleDCTEngineFactory());
+  g_scene.reset(new ARD::Scene<Precision>(size, 1.0/2000.0, engine_factory));
+  g_mic.reset(new ARD::WholeFieldMicrophone<Precision>());
   g_scene->set_microphone(g_mic);
-  std::vector<ARD::Power> sourceContent;
-  sourceContent.push_back(ARD::Power(10000.0));
-  g_source.reset(new ARD::Source(ARD::Position(width/2,height/2), sourceContent));
+  std::vector<Precision> sourceContent;
+  sourceContent.push_back(10000.0);
+  g_source.reset(new ARD::Source<Precision>(ARD::Position(width/2,height/2), sourceContent));
   g_scene->set_source(g_source);
   
   g_iteration = 0;
@@ -91,7 +100,7 @@ void loop() {
   std::cerr << g_iteration << std::endl;
   performance_counter t;
 
-  static ARD::MicrophonePointer mic;
+  static MicrophonePointer mic;
 
   {
     t.start();
@@ -102,9 +111,9 @@ void loop() {
     std::cout << t.get_microseconds()/10e6 << std::endl;
   }
 
-  static ARD::PressureFieldPointer pressure_field;
+  static PressureFieldPointer pressure_field;
 
-  pressure_field.reset(new ARD::PressureField(ARD::FFTWArrayPointer(new ARD::FFTWArray(size))));
+  pressure_field.reset(new ARD::PressureField<Precision>(ArrayInterfacePointer(new ARD::FFTWArray(size))));
   mic->Plot(pressure_field);
   
   {

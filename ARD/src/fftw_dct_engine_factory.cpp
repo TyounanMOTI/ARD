@@ -1,11 +1,11 @@
-#include <fftw_dct_engine_factory.h>
+#include <fftw_double_dct_engine_factory.h>
 
 using namespace ARD;
 
-DCTEnginePointer FFTWDCTEngineFactory::GenerateForwardEngine(const Size& size) {
-  return FFTWDCTEnginePointer(new FFTWDCTEngine(size, FFTWDCTEngine::Forward));
+boost::shared_ptr<DCTEngine<double> > FFTWDoubleDCTEngineFactory::GenerateForwardEngine(const Size& size) {
+  return boost::shared_ptr<FFTWDoubleDCTEngine>(new FFTWDoubleDCTEngine(size, FFTWDoubleDCTEngine::Forward));
 }
 
-DCTEnginePointer FFTWDCTEngineFactory::GenerateBackwardEngine(const Size& size) {
-  return FFTWDCTEnginePointer(new FFTWDCTEngine(size, FFTWDCTEngine::Backward));
+boost::shared_ptr<DCTEngine<double> > FFTWDoubleDCTEngineFactory::GenerateBackwardEngine(const Size& size) {
+  return boost::shared_ptr<FFTWDoubleDCTEngine>(new FFTWDoubleDCTEngine(size, FFTWDoubleDCTEngine::Backward));
 }

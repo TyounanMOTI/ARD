@@ -6,27 +6,26 @@
 #include <boost/shared_array.hpp>
 #include <boost/shared_ptr.hpp>
 #include "position.h"
-#include "precision.h"
 #include "array_interface.h"
 
 namespace ARD
 {
-  class FFTWArray;
-  typedef boost::shared_array<Precision_t> FFTWArrayContent;
-  typedef boost::shared_ptr<FFTWArray> FFTWArrayPointer;
-
-  class FFTWArray : public ArrayInterface
+  class FFTWArray : public ArrayInterface<double>
   {
+  private:
+    typedef boost::shared_array<double> FFTWArrayContent;
+    typedef boost::shared_ptr<ArrayInterface<double> > ArrayInterfacePointer;
+    
   public:
     FFTWArray() : size_(Size(0,0)) {};
     explicit FFTWArray(const Size& size);
     FFTWArray(const FFTWArray& original);
-    virtual ~FFTWArray() {};
+    ~FFTWArray() {};
     
-    Precision_t* get() const { return content_.get(); };
+    double* get() const { return content_.get(); };
     const Size size() const { return size_; };
-    const Precision_t content(const Position& position) const;
-    void set_content(const Position& position, const Precision_t input);
+    const double content(const Position& position) const;
+    void set_content(const Position& position, const double& input);
     ArrayInterfacePointer Clone() const;
 
   private:
@@ -34,14 +33,15 @@ namespace ARD
     FFTWArrayContent content_;
   };
   
-  inline const Precision_t FFTWArray::content(const Position& position) const {
+  typedef boost::shared_ptr<FFTWArray> FFTWArrayPointer;
+  
+  inline const double FFTWArray::content(const Position& position) const {
     return content_[position.Serialize(size_)];
   }
 
-  inline void FFTWArray::set_content(const Position& position, const Precision_t input) {
+  inline void FFTWArray::set_content(const Position& position, const double& input) {
     content_[position.Serialize(size_)] = input;
   }
 }
-
 
 #endif // FFTW_ARRAY_H
