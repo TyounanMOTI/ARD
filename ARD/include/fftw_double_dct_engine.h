@@ -8,6 +8,8 @@
 
 namespace ARD
 {
+  typedef boost::shared_ptr<fftw_plan_s> FFTWPlan;  
+  
   class FFTWDoubleDCTEngine : public DCTEngine<double>
   {
   private:
@@ -26,7 +28,7 @@ namespace ARD
   private:
     void Normalize();
 
-    fftw_plan plan_;
+    FFTWPlan plan_;
     FFTWArrayPointer input_;
     FFTWArrayPointer output_;
     TransformDirection direction_;

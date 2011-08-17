@@ -15,7 +15,6 @@
 		9D22195313DD45A4003534D6 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22195113DD4596003534D6 /* libfftw3.dylib */; };
 		9D22195413DD4BD6003534D6 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22195113DD4596003534D6 /* libfftw3.dylib */; };
 		9D6E22E013F51F7E00851119 /* array_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6E22DF13F51F7E00851119 /* array_interface.h */; };
-		9D822D7913F163A800C2EAC6 /* fftw_plan.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D822D7813F163A800C2EAC6 /* fftw_plan.h */; };
 		9D8F905A13C89C4700A87C85 /* fftw_array.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904613C89C4700A87C85 /* fftw_array.h */; };
 		9D8F905C13C89C4700A87C85 /* force_field.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904813C89C4700A87C85 /* force_field.h */; };
 		9D8F905D13C89C4700A87C85 /* force_spectrum.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904913C89C4700A87C85 /* force_spectrum.h */; };
@@ -71,7 +70,6 @@
 		9D22195113DD4596003534D6 /* libfftw3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfftw3.dylib; path = /usr/local/lib/libfftw3.dylib; sourceTree = "<absolute>"; };
 		9D2AE34513A5079B003BD84E /* plot_1d.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = plot_1d.py; path = ../../ARD/test/plot/plot_1d.py; sourceTree = "<group>"; };
 		9D6E22DF13F51F7E00851119 /* array_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = array_interface.h; path = ../include/array_interface.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		9D822D7813F163A800C2EAC6 /* fftw_plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fftw_plan.h; path = ../include/fftw_plan.h; sourceTree = "<group>"; };
 		9D8F904613C89C4700A87C85 /* fftw_array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = fftw_array.h; path = ../include/fftw_array.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D8F904813C89C4700A87C85 /* force_field.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = force_field.h; path = ../include/force_field.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D8F904913C89C4700A87C85 /* force_spectrum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = force_spectrum.h; path = ../include/force_spectrum.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -157,7 +155,6 @@
 				9D8F904613C89C4700A87C85 /* fftw_array.h */,
 				9DC6DC6B13EBE3A2001B4F82 /* fftw_double_dct_engine.h */,
 				9D13849A13EDA46A00C265D1 /* fftw_double_dct_engine_factory.h */,
-				9D822D7813F163A800C2EAC6 /* fftw_plan.h */,
 				9D8F904813C89C4700A87C85 /* force_field.h */,
 				9D8F904913C89C4700A87C85 /* force_spectrum.h */,
 				9D8F904A13C89C4700A87C85 /* microphone.h */,
@@ -275,7 +272,6 @@
 				9D13849B13EDA46A00C265D1 /* fftw_double_dct_engine_factory.h in Headers */,
 				9D1384A113EDAE9400C265D1 /* dct_engine_factory.h in Headers */,
 				9D1384A313EDAF7C00C265D1 /* dct_engine.h in Headers */,
-				9D822D7913F163A800C2EAC6 /* fftw_plan.h in Headers */,
 				9D6E22E013F51F7E00851119 /* array_interface.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
