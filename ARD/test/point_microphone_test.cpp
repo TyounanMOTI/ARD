@@ -17,7 +17,7 @@ protected:
     position = Position(2,1);
     subject.reset(new PointMicrophone<double>(position));
     size = Size(10,20);
-    field.reset(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
+    field.reset(new PressureField<double>(ArrayInterfacePointer(new FFTWArray<double>(size))));
   }
 
   Position position;
@@ -52,7 +52,7 @@ TEST_F(PointMicrophoneTest_Pop_Test, EmptyPop) {
 TEST_F(PointMicrophoneTest, Plot) {
   field->set_content(position, 10.0);
   subject->Record(field);
-  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
+  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray<double>(size))));
   subject->Plot(result);
 
   EXPECT_EQ(10.0, result->content(position));

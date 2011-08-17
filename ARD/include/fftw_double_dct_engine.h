@@ -12,6 +12,7 @@ namespace ARD
   {
   private:
     typedef boost::shared_ptr<ArrayInterface<double> > ArrayInterfacePointer;
+    typedef boost::shared_ptr<FFTWArray<double> > FFTWArrayPointer;
   public:
     enum TransformDirection {
       Forward = FFTW_REDFT10,

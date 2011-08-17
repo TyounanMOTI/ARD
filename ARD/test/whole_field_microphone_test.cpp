@@ -14,7 +14,7 @@ protected:
   virtual void SetUp() {
     subject.reset(new WholeFieldMicrophone<double>());
     size = Size(20,20);
-    field.reset(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
+    field.reset(new PressureField<double>(ArrayInterfacePointer(new FFTWArray<double>(size))));
   }
 
   Size size;
@@ -26,7 +26,7 @@ TEST_F(WholeFieldMicrophoneTest, Record) {
   field->set_content(Position(10,10), 20.0);
   subject->Record(field);
 
-  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
+  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray<double>(size))));
   subject->Plot(result);
   EXPECT_EQ(20.0, result->content(Position(10,10)));
 }
@@ -36,7 +36,7 @@ TEST_F(WholeFieldMicrophoneTest, RecordCopiesField) {
   subject->Record(field);
   field->set_content(Position(10,10), 10.0);
 
-  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
+  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray<double>(size))));
   subject->Plot(result);
   EXPECT_EQ(20.0, result->content(Position(10,10)));
 }
@@ -46,14 +46,14 @@ TEST_F(WholeFieldMicrophoneTest, Plot) {
   field->set_content(Position(0,0), 5.0);
   subject->Record(field);
   
-  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
+  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray<double>(size))));
   subject->Plot(result);
   EXPECT_EQ(20.0, result->content(Position(10,10)));
   EXPECT_EQ(5.0, result->content(Position(0,0)));
 }
 
 TEST_F(WholeFieldMicrophoneTest, PlotEmpty) {
-  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray(size))));
+  PressureFieldPointer result(new PressureField<double>(ArrayInterfacePointer(new FFTWArray<double>(size))));
   subject->Plot(result);
   EXPECT_EQ(0.0, result->content(Position(0,0)));
 }

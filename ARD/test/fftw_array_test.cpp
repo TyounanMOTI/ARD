@@ -7,9 +7,11 @@ using namespace ARD;
 class FFTWArrayTest : public testing::Test
 {
 protected:
+  typedef boost::shared_ptr<FFTWArray<double> > FFTWArrayPointer;
+  
   virtual void SetUp() {
     size = Size(20, 10);
-    subject = FFTWArrayPointer(new FFTWArray(size));
+    subject = FFTWArrayPointer(new FFTWArray<double>(size));
   }
   
   Size size;
@@ -20,7 +22,7 @@ protected:
 
 TEST_F(FFTWArrayTest, Copy) {
   subject->set_content(Position(1,2), 10.0);
-  FFTWArrayPointer p_copied(new FFTWArray(*subject));
+  FFTWArrayPointer p_copied(new FFTWArray<double>(*subject));
   EXPECT_EQ(10.0, p_copied->content(Position(1,2)));
   subject->set_content(Position(1,2), 5.0);
   EXPECT_EQ(10.0, p_copied->content(Position(1,2)));

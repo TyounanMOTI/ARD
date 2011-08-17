@@ -3,8 +3,8 @@
 using namespace ARD;
 
 FFTWDoubleDCTEngine::FFTWDoubleDCTEngine(const Size& size, const TransformDirection direction) {
-  input_.reset(new FFTWArray(size));
-  output_.reset(new FFTWArray(size));
+  input_.reset(new FFTWArray<double>(size));
+  output_.reset(new FFTWArray<double>(size));
   plan_ = fftw_plan_r2r_2d(size.height(), size.width(), input_->get(), output_->get(), 
                            (fftw_r2r_kind) direction, (fftw_r2r_kind) direction, FFTW_ESTIMATE);
   direction_ = direction;

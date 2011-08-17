@@ -10,11 +10,12 @@
 
 namespace ARD
 {
-  class FFTWArray : public ArrayInterface<double>
+  template <class Precision>
+  class FFTWArray : public ArrayInterface<Precision>
   {
   private:
-    typedef boost::shared_array<double> FFTWArrayContent;
-    typedef boost::shared_ptr<ArrayInterface<double> > ArrayInterfacePointer;
+    typedef boost::shared_array<Precision> FFTWArrayContent;
+    typedef boost::shared_ptr<ArrayInterface<Precision> > ArrayInterfacePointer;
     
   public:
     FFTWArray() : size_(Size(0,0)) {};
@@ -24,24 +25,48 @@ namespace ARD
     
     double* get() const { return content_.get(); };
     const Size size() const { return size_; };
-    const double content(const Position& position) const;
-    void set_content(const Position& position, const double& input);
+    const Precision content(const Position& position) const;
+    void set_content(const Position& position, const Precision& input);
     ArrayInterfacePointer Clone() const;
 
   private:
     FFTWArrayContent Allocate(const Size& size);
+    
     const Size size_;
     FFTWArrayContent content_;
   };
   
-  typedef boost::shared_ptr<FFTWArray> FFTWArrayPointer;
+  template <class Precision>
+  FFTWArray<Precision>::FFTWArray(const Size& size) : size_(size) {
+    content_ = Allocate(size);
+    ArrayInterface<Precision>::FillByZero();
+  }
   
-  inline const double FFTWArray::content(const Position& position) const {
+  template <class Precision>
+  FFTWArray<Precision>::FFTWArray(const FFTWArray& original) : size_(original.size_) {
+    content_ = Allocate(original.size_);
+    memcpy(content_.get(), original.content_.get(), sizeof(Precision)*original.size_.Length());
+  }
+  
+  template <class Precision>
+  inline const Precision FFTWArray<Precision>::content(const Position& position) const {
     return content_[position.Serialize(size_)];
   }
-
-  inline void FFTWArray::set_content(const Position& position, const double& input) {
+  
+  template <class Precision>
+  inline void FFTWArray<Precision>::set_content(const Position& position, const Precision& input) {
     content_[position.Serialize(size_)] = input;
+  }
+  
+  template <class Precision>
+  typename FFTWArray<Precision>::ArrayInterfacePointer FFTWArray<Precision>::Clone() const {
+    return ArrayInterfacePointer(new FFTWArray(*this));
+  }
+  
+  template <class Precision>
+  typename FFTWArray<Precision>::FFTWArrayContent FFTWArray<Precision>::Allocate(const Size& size) {
+    return FFTWArrayContent(static_cast<double*>(fftw_malloc(sizeof(double)*size.Length())),
+                            fftw_free);
   }
 }
 
