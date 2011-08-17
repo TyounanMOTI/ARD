@@ -154,10 +154,6 @@ int main(int argc, char** argv) {
         Quit(status);
       }
     }
-
-    if (g_iteration > 2000) {
-      break;
-    }
   }
 
   Quit(0);
