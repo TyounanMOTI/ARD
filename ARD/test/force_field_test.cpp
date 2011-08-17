@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <force_field.h>
-#include <fftw_double_dct_engine_factory.h>
+#include <fftw_dct_engine_factory.h>
 #include "plot/output_fftw_array.h"
 
 using namespace ARD;
@@ -13,7 +13,7 @@ protected:
   
   virtual void SetUp() {
     size = Size(10, 20);
-    boost::shared_ptr<DCTEngineFactory<double> > engine_factory(new FFTWDoubleDCTEngineFactory());
+    boost::shared_ptr<DCTEngineFactory<double> > engine_factory(new FFTWDCTEngineFactory<double>());
     subject = ForceFieldPointer(new ForceField<double>(size, engine_factory));
   }
   

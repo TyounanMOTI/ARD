@@ -3,20 +3,20 @@
 #include <scene.h>
 #include <microphone.h>
 #include <point_microphone.h>
-#include <fftw_double_dct_engine_factory.h>
+#include <fftw_dct_engine_factory.h>
 
 using namespace ARD;
 
 class SceneTest : public testing::Test
 {
 protected:
-  typedef boost::shared_ptr<FFTWDoubleDCTEngineFactory> FFTWDoubleDCTEngineFactoryPointer;
+  typedef boost::shared_ptr<FFTWDCTEngineFactory<double> > FFTWDCTEngineFactoryPointer;
   typedef boost::shared_ptr<Scene<double> > ScenePointer;
   typedef boost::shared_ptr<Source<double> > SourcePointer;
   typedef boost::shared_ptr<Microphone<double> > MicrophonePointer;
   
   virtual void SetUp() {
-    FFTWDoubleDCTEngineFactoryPointer fftw_dct_engine_factory(new FFTWDoubleDCTEngineFactory());
+    FFTWDCTEngineFactoryPointer fftw_dct_engine_factory(new FFTWDCTEngineFactory<double>());
     size = Size(20, 10);
     subject = ScenePointer(new Scene<double>(size, 0.001, fftw_dct_engine_factory));
     std::vector<double> source_content;

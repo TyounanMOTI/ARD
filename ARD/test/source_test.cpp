@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <source.h>
-#include <fftw_double_dct_engine_factory.h>
+#include <fftw_dct_engine_factory.h>
 
 using namespace ARD;
 
@@ -35,7 +35,7 @@ TEST_F(SourceTest, EmptyPop) {
 TEST_F(SourceTest, Emit) {
   content.push_back(5.0);
   subject.reset(new Source<double>(position, content));
-  DCTEngineFactoryPointer engine_factory(new FFTWDoubleDCTEngineFactory());
+  DCTEngineFactoryPointer engine_factory(new FFTWDCTEngineFactory<double>());
   ForceFieldPointer force(new ForceField<double>(Size(20,10), engine_factory));
   subject->Emit(force);
   EXPECT_EQ(5.0, force->content(position));

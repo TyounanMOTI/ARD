@@ -32,7 +32,7 @@ namespace ARD
   };
   
   template <class Precision>
-  const Precision SpectrumPool<Precision>::c = 340.0;
+  const Precision SpectrumPool<Precision>::c = 340.0f;
   
   template <class Precision>
   SpectrumPool<Precision>::SpectrumPool(const Size& size, const Precision dt, const boost::shared_ptr<DCTEngineFactory<Precision> > engine_factory) : dt_(dt) {

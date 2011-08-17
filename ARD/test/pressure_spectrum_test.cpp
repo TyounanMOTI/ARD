@@ -4,7 +4,7 @@
 
 #include <pressure_field.h>
 #include <pressure_spectrum.h>
-#include "fftw_double_dct_engine_factory.h"
+#include "fftw_dct_engine_factory.h"
 #include "plot/output_fftw_array.h"
 
 using namespace ARD;
@@ -18,7 +18,7 @@ protected:
   
   virtual void SetUp() {
     size = Size(20, 10);
-    DCTEngineFactoryPointer engine_factory(new FFTWDoubleDCTEngineFactory());
+    DCTEngineFactoryPointer engine_factory(new FFTWDCTEngineFactory<double>());
     subject = PressureSpectrumPointer(new PressureSpectrum<double>(size, engine_factory));
   }
 

@@ -8,7 +8,7 @@
 #include "transforms.h"
 #include <scene.h>
 #include <whole_field_microphone.h>
-#include <fftw_double_dct_engine_factory.h>
+#include <fftw_dct_engine_factory.h>
 #include <math.h>
 
 #ifdef WIN32
@@ -19,12 +19,10 @@ using namespace winstl;
 using namespace unixstl;
 #endif // WIN32
 
-void draw_pressure_field(double* pressure_field, double max);
-
 SDL_Window* g_window;
 SDL_Renderer* g_renderer;
 
-typedef double Precision;
+typedef float Precision;
 typedef boost::shared_ptr<ARD::Scene<Precision> > ScenePointer;
 typedef boost::shared_ptr<ARD::Microphone<Precision> > MicrophonePointer;
 typedef boost::shared_ptr<ARD::WholeFieldMicrophone<Precision> > WholeFieldMicrophonePointer;
@@ -32,6 +30,8 @@ typedef boost::shared_ptr<ARD::Source<Precision> > SourcePointer;
 typedef boost::shared_ptr<ARD::DCTEngineFactory<Precision> > DCTEngineFactoryPointer;
 typedef boost::shared_ptr<ARD::PressureField<Precision> > PressureFieldPointer;
 typedef boost::shared_ptr<ARD::ArrayInterface<Precision> > ArrayInterfacePointer;
+
+void draw_pressure_field(Precision* pressure_field, Precision max);
 
 ScenePointer g_scene;
 WholeFieldMicrophonePointer g_mic;
@@ -53,7 +53,7 @@ void Init() {
   g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
 
   size = ARD::Size(width, height);
-  DCTEngineFactoryPointer engine_factory(new ARD::FFTWDoubleDCTEngineFactory());
+  DCTEngineFactoryPointer engine_factory(new ARD::FFTWDCTEngineFactory<Precision>());
   g_scene.reset(new ARD::Scene<Precision>(size, 1.0/2000.0, engine_factory));
   g_mic.reset(new ARD::WholeFieldMicrophone<Precision>());
   g_scene->set_microphone(g_mic);
@@ -113,11 +113,11 @@ void loop() {
 
   static PressureFieldPointer pressure_field;
 
-  pressure_field.reset(new ARD::PressureField<Precision>(ArrayInterfacePointer(new ARD::FFTWArray(size))));
+  pressure_field.reset(new ARD::PressureField<Precision>(ArrayInterfacePointer(new ARD::FFTWArray<Precision>(size))));
   mic->Plot(pressure_field);
   
   {
-    draw_pressure_field(pressure_field->get(), 0.0003);
+    draw_pressure_field(pressure_field->get(), 0.0003f);
     SDL_RenderPresent(g_renderer);
   }
 /*
@@ -130,10 +130,10 @@ void loop() {
   g_iteration++;
 }
 
-void draw_pressure_field(double* pressure_field, double max) {
+void draw_pressure_field(Precision* pressure_field, Precision max) {
   for (int y = 0; y < height/g_zoom; y++) {
     for (int x = 0; x < width/g_zoom; x++) {
-      Uint8 mono = quantize_to_uint8(pressure_field[(int)floor((double)(y*width+x)*g_zoom)], max);
+      Uint8 mono = quantize_to_uint8(pressure_field[(int)floor((Precision)(y*width+x)*g_zoom)], max);
       SDL_SetRenderDrawColor(g_renderer, mono, mono, mono, 255);
       SDL_RenderDrawPoint(g_renderer, x, y);
     }
