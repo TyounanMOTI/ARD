@@ -29,6 +29,7 @@ namespace ARD
     ArrayInterfacePointer Clone() const;
 
   private:
+    FFTWArrayContent Allocate(const Size& size);
     const Size size_;
     FFTWArrayContent content_;
   };
