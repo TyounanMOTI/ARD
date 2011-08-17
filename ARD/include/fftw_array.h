@@ -65,9 +65,12 @@ namespace ARD
   
   template <class Precision>
   typename FFTWArray<Precision>::FFTWArrayContent FFTWArray<Precision>::Allocate(const Size& size) {
-    return FFTWArrayContent(static_cast<double*>(fftw_malloc(sizeof(double)*size.Length())),
-                            fftw_free);
+    return FFTWArrayContent(static_cast<Precision*>(malloc(sizeof(Precision)*size.Length())),
+                            free);
   }
+  
+  template <>
+  FFTWArray<double>::FFTWArrayContent FFTWArray<double>::Allocate(const Size& size);
 }
 
 #endif // FFTW_ARRAY_H
