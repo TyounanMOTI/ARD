@@ -44,8 +44,8 @@ int g_zoom;
 
 void Init() {
   g_zoom = 1;
-  width = 512;
-  height = 512;
+  width = 256;
+  height = 256;
   SDL_Init(SDL_INIT_VIDEO);
   SDL_VideoInit(NULL);
   g_window = SDL_CreateWindow("ARD", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width/g_zoom, height/g_zoom,
@@ -54,7 +54,7 @@ void Init() {
 
   size = ARD::Size(width, height);
   DCTEngineFactoryPointer engine_factory(new ARD::FFTWDCTEngineFactory<Precision>());
-  g_scene.reset(new ARD::Scene<Precision>(size, 1.0/2000.0, engine_factory));
+  g_scene.reset(new ARD::Scene<Precision>(size, 1.0f/2000.0f, engine_factory));
   g_mic.reset(new ARD::WholeFieldMicrophone<Precision>());
   g_scene->set_microphone(g_mic);
   std::vector<Precision> sourceContent;
@@ -103,12 +103,12 @@ void loop() {
   static MicrophonePointer mic;
 
   {
-    t.start();
+//    t.start();
 
     mic = g_scene->Update();
 
-    t.stop();
-    std::cout << t.get_microseconds()/10e6 << std::endl;
+//    t.stop();
+//    std::cout << t.get_microseconds()/10e6 << std::endl;
   }
 
   static PressureFieldPointer pressure_field;
@@ -120,6 +120,8 @@ void loop() {
     draw_pressure_field(pressure_field->get(), 0.0003f);
     SDL_RenderPresent(g_renderer);
   }
+
+  printf("%.14f\n", pressure_field->content(ARD::Position(50,50)));
 /*
   boost::format f = boost::format("/Users/TyounanMOTI/Pictures/visualizer/%05d.bmp") % g_iteration;
   const char* filename = str(f).c_str();
