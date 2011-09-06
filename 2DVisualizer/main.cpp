@@ -21,6 +21,7 @@ using namespace unixstl;
 
 SDL_Window* g_window;
 SDL_Renderer* g_renderer;
+SDL_Surface* g_surface;
 
 typedef float Precision;
 typedef boost::shared_ptr<ARD::Scene<Precision> > ScenePointer;
@@ -51,6 +52,7 @@ void Init() {
   g_window = SDL_CreateWindow("ARD", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width/g_zoom, height/g_zoom,
                               SDL_WINDOW_SHOWN);
   g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
+  g_surface = SDL_GetWindowSurface(g_window);
 
   size = ARD::Size(width, height);
   DCTEngineFactoryPointer engine_factory(new ARD::FFTWDCTEngineFactory<Precision>());
@@ -59,7 +61,7 @@ void Init() {
   g_scene->set_microphone(g_mic);
   std::vector<Precision> sourceContent;
   sourceContent.push_back(10000.0);
-  g_source.reset(new ARD::Source<Precision>(ARD::Position(width/2,height/2), sourceContent));
+  g_source.reset(new ARD::Source<Precision>(ARD::Position(80,100), sourceContent));
   g_scene->set_source(g_source);
   
   g_iteration = 0;
@@ -96,6 +98,11 @@ int act_event(SDL_Event* event) {
   return CONTINUE;
 }
 
+void capture(int iteration) {
+  boost::format f = boost::format("D:\\workspace\\presentation\\intermidiate\\visualizer\\%05d.bmp") % iteration;
+  SDL_SaveBMP(g_surface, f.str().c_str());
+}
+
 void loop() {
   std::cerr << g_iteration << std::endl;
   performance_counter t;
@@ -118,16 +125,12 @@ void loop() {
   
   {
     draw_pressure_field(pressure_field->get(), 0.0003f);
-    SDL_RenderPresent(g_renderer);
+    SDL_UpdateWindowSurface(g_window);
   }
 
-  printf("%.14f\n", pressure_field->content(ARD::Position(50,50)));
-/*
-  boost::format f = boost::format("/Users/TyounanMOTI/Pictures/visualizer/%05d.bmp") % g_iteration;
-  const char* filename = str(f).c_str();
-  SDL_SaveBMP(g_screen, filename);
-  g_iteration++;
-*/
+  printf("%.14f\n", pressure_field->content(ARD::Position(180,220)));
+
+//  capture(g_iteration);
 
   g_iteration++;
 }
@@ -136,8 +139,9 @@ void draw_pressure_field(Precision* pressure_field, Precision max) {
   for (int y = 0; y < height/g_zoom; y++) {
     for (int x = 0; x < width/g_zoom; x++) {
       Uint8 mono = quantize_to_uint8(pressure_field[(int)floor((Precision)(y*width+x)*g_zoom)], max);
-      SDL_SetRenderDrawColor(g_renderer, mono, mono, mono, 255);
-      SDL_RenderDrawPoint(g_renderer, x, y);
+      Uint32 color = SDL_MapRGBA(g_surface->format, mono, mono, mono, 0xFF);
+      Uint32* pixel = (Uint32*)g_surface->pixels + y*width + x;
+      *pixel = color;
     }
   }
 }
