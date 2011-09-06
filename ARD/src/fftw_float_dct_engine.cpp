@@ -20,5 +20,5 @@ const boost::shared_ptr<ArrayInterface<float> > FFTWFloatDCTEngine::Execute() {
 }
 
 void FFTWFloatDCTEngine::Normalize() {
-  (*output_) /= 4*output_->size().Length();
+  (*output_) /= 4.0f*output_->size().Length();
 }
