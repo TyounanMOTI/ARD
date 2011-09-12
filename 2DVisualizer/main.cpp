@@ -110,12 +110,12 @@ void loop() {
   static MicrophonePointer mic;
 
   {
-//    t.start();
+    t.start();
 
     mic = g_scene->Update();
 
-//    t.stop();
-//    std::cout << t.get_microseconds()/10e6 << std::endl;
+    t.stop();
+    std::cout << t.get_microseconds()/10e6 << std::endl;
   }
 
   static PressureFieldPointer pressure_field;
@@ -128,7 +128,7 @@ void loop() {
     SDL_UpdateWindowSurface(g_window);
   }
 
-  printf("%.14f\n", pressure_field->content(ARD::Position(180,220)));
+//  printf("%.14f\n", pressure_field->content(ARD::Position(180,220)));
 
 //  capture(g_iteration);
 
