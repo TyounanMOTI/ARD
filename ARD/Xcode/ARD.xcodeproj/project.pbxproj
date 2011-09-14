@@ -14,6 +14,11 @@
 		9D1384A313EDAF7C00C265D1 /* dct_engine.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1384A213EDAF7C00C265D1 /* dct_engine.h */; };
 		9D22195313DD45A4003534D6 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22195113DD4596003534D6 /* libfftw3.dylib */; };
 		9D22195413DD4BD6003534D6 /* libfftw3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22195113DD4596003534D6 /* libfftw3.dylib */; };
+		9D4881431406271100B336B1 /* cufft_real_array.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D4881421406271100B336B1 /* cufft_real_array.cpp */; };
+		9D4881461406272C00B336B1 /* cufft_real_array_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D4881451406272C00B336B1 /* cufft_real_array_test.cpp */; };
+		9D488148140629AD00B336B1 /* cufft_real_array.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D488147140629AD00B336B1 /* cufft_real_array.h */; };
+		9D4881531406349D00B336B1 /* libcufft.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4881521406349D00B336B1 /* libcufft.dylib */; };
+		9D4881551406395C00B336B1 /* libcudart.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D4881541406395C00B336B1 /* libcudart.dylib */; };
 		9D6E22E013F51F7E00851119 /* array_interface.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6E22DF13F51F7E00851119 /* array_interface.h */; };
 		9D8F905A13C89C4700A87C85 /* fftw_array.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904613C89C4700A87C85 /* fftw_array.h */; };
 		9D8F905C13C89C4700A87C85 /* force_field.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D8F904813C89C4700A87C85 /* force_field.h */; };
@@ -73,6 +78,11 @@
 		9D1384A213EDAF7C00C265D1 /* dct_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = dct_engine.h; path = ../include/dct_engine.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D22195113DD4596003534D6 /* libfftw3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfftw3.dylib; path = /usr/local/lib/libfftw3.dylib; sourceTree = "<absolute>"; };
 		9D2AE34513A5079B003BD84E /* plot_1d.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = plot_1d.py; path = ../../ARD/test/plot/plot_1d.py; sourceTree = "<group>"; };
+		9D4881421406271100B336B1 /* cufft_real_array.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cufft_real_array.cpp; sourceTree = "<group>"; };
+		9D4881451406272C00B336B1 /* cufft_real_array_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cufft_real_array_test.cpp; sourceTree = "<group>"; };
+		9D488147140629AD00B336B1 /* cufft_real_array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cufft_real_array.h; path = ../include/cufft_real_array.h; sourceTree = "<group>"; };
+		9D4881521406349D00B336B1 /* libcufft.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcufft.dylib; path = /usr/local/cuda/lib/libcufft.dylib; sourceTree = "<absolute>"; };
+		9D4881541406395C00B336B1 /* libcudart.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcudart.dylib; path = ../../../../../../usr/local/cuda/lib/libcudart.dylib; sourceTree = "<group>"; };
 		9D6E22DF13F51F7E00851119 /* array_interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = array_interface.h; path = ../include/array_interface.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D8F904613C89C4700A87C85 /* fftw_array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = fftw_array.h; path = ../include/fftw_array.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		9D8F904813C89C4700A87C85 /* force_field.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = force_field.h; path = ../include/force_field.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -125,6 +135,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4881551406395C00B336B1 /* libcudart.dylib in Frameworks */,
+				9D4881531406349D00B336B1 /* libcufft.dylib in Frameworks */,
 				9D22195313DD45A4003534D6 /* libfftw3.dylib in Frameworks */,
 				9DFB009113FC0C6F0006FE11 /* libfftw3f.dylib in Frameworks */,
 			);
@@ -159,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				9D6E22DF13F51F7E00851119 /* array_interface.h */,
+				9D488147140629AD00B336B1 /* cufft_real_array.h */,
 				9D1384A213EDAF7C00C265D1 /* dct_engine.h */,
 				9D1384A013EDAE9400C265D1 /* dct_engine_factory.h */,
 				9D8F904613C89C4700A87C85 /* fftw_array.h */,
@@ -189,6 +202,7 @@
 				9DFB008E13FC0BAD0006FE11 /* fftw_float_dct_engine.cpp */,
 				9D8F907613C89C9200A87C85 /* size.cpp */,
 				9DFB006E13FBF3810006FE11 /* fftw_array.cpp */,
+				9D4881421406271100B336B1 /* cufft_real_array.cpp */,
 			);
 			name = src;
 			path = ../src;
@@ -197,6 +211,7 @@
 		9D8F908613C89CA300A87C85 /* test */ = {
 			isa = PBXGroup;
 			children = (
+				9D4881451406272C00B336B1 /* cufft_real_array_test.cpp */,
 				9D8F908713C89CA300A87C85 /* fftw_array_test.cpp */,
 				9DC6DC6613EBE35B001B4F82 /* fftw_double_dct_engine_test.cpp */,
 				9D13849C13EDA6B500C265D1 /* fftw_dct_engine_factory_test.cpp */,
@@ -242,8 +257,10 @@
 			children = (
 				9DFD7C1013978C730073F9E5 /* gtest.framework */,
 				9DFD7BDD13978BCB0073F9E5 /* ARD.framework */,
+				9D4881541406395C00B336B1 /* libcudart.dylib */,
 				9D22195113DD4596003534D6 /* libfftw3.dylib */,
 				9DFB009013FC0C6F0006FE11 /* libfftw3f.dylib */,
+				9D4881521406349D00B336B1 /* libcufft.dylib */,
 				9DFD7C1713978EAE0073F9E5 /* libgtest_main.a */,
 			);
 			name = Frameworks;
@@ -287,6 +304,7 @@
 				9D1384A313EDAF7C00C265D1 /* dct_engine.h in Headers */,
 				9D6E22E013F51F7E00851119 /* array_interface.h in Headers */,
 				9DFB008D13FC0A0A0006FE11 /* fftw_float_dct_engine.h in Headers */,
+				9D488148140629AD00B336B1 /* cufft_real_array.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +390,7 @@
 				9D13849F13EDABA100C265D1 /* fftw_dct_engine_factory.cpp in Sources */,
 				9DFB006F13FBF3810006FE11 /* fftw_array.cpp in Sources */,
 				9DFB008F13FC0BAD0006FE11 /* fftw_float_dct_engine.cpp in Sources */,
+				9D4881431406271100B336B1 /* cufft_real_array.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +413,7 @@
 				9DC6DC6713EBE35B001B4F82 /* fftw_double_dct_engine_test.cpp in Sources */,
 				9D13849D13EDA6B500C265D1 /* fftw_dct_engine_factory_test.cpp in Sources */,
 				9DFB008A13FC09AA0006FE11 /* fftw_float_dct_engine_test.cpp in Sources */,
+				9D4881461406272C00B336B1 /* cufft_real_array_test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +443,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/usr/local/cuda/include,
+				);
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/cuda/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				USER_HEADER_SEARCH_PATHS = /Users/TyounanMOTI/Develop/ARD/ARD/include;
 			};
@@ -433,7 +457,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/usr/local/cuda/include,
+				);
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/cuda/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				USER_HEADER_SEARCH_PATHS = /Users/TyounanMOTI/Develop/ARD/ARD/include;
 			};
@@ -461,8 +489,15 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/usr/local/cuda/include,
+				);
 				INFOPLIST_FILE = "ARD/ARD-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/cuda/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -492,8 +527,15 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/usr/local/cuda/include,
+				);
 				INFOPLIST_FILE = "ARD/ARD-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/cuda/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -519,10 +561,14 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/cuda/include,
+					/usr/local/include,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib,
 					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/gtest.framework/Versions/A/Resources\"",
+					/usr/local/cuda/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -546,10 +592,14 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/local/include;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/cuda/include,
+					/usr/local/include,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					/usr/local/lib,
 					"\"$(LOCAL_LIBRARY_DIR)/Frameworks/gtest.framework/Versions/A/Resources\"",
+					/usr/local/cuda/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
