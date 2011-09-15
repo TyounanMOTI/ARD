@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 #include <force_field.h>
 #include <fftw_dct_engine_factory.h>
-#include "plot/output_fftw_array.h"
 
 using namespace ARD;
 
@@ -31,6 +30,4 @@ TEST_F(ForceFieldTest, DCT) {
   ForceSpectrumPointer output(subject->DCT());
   EXPECT_EQ(1.0, output->content(Position(0,0)));
   EXPECT_EQ(0.0, output->content(Position(9,19)));
-
-//  OutputFFTWReal2DArray(size.width(), size.height(), output->get());
 }

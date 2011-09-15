@@ -283,7 +283,7 @@
       </Message>
     </PostBuildEvent>
     <Lib>
-      <AdditionalDependencies>libfftw3-3.lib</AdditionalDependencies>
+      <AdditionalDependencies>libfftw3-3.lib;libfftw3f-3.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

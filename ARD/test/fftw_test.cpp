@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 #include <boost/shared_array.hpp>
 #include <fftw3.h>
-#include "plot/output_fftw_array.h"
 
 TEST(FFTWTest, initialization) {
   fftw_complex* subject = static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex) * 100));
@@ -23,7 +22,6 @@ TEST(FFTWTest, DFT) {
   fftw_execute(plan);
   
   EXPECT_EQ(size*10.0, output[0][0]);
-//  OutputRealArrayOfFFTWComplexArray(size, output);
   
   fftw_destroy_plan(plan);
 }
@@ -40,7 +38,6 @@ TEST(FFTWTest, DCT) {
   fftw_execute(plan);
 
   EXPECT_EQ(size*2*10.0, output[0]);
-//  OutputFFTWRealArray(size, output.get());
 
   fftw_destroy_plan(plan);
 }
@@ -59,7 +56,6 @@ TEST(FFTWTest, DCT2D) {
     }
   }
   fftw_execute(plan);
-//  OutputFFTWReal2DArray(width, height, output.get());
   EXPECT_EQ(2*2*width*height*1.0, output[0]);
   EXPECT_EQ(0, output[100]);
   
@@ -81,8 +77,6 @@ TEST(FFTWTest, IDCT2DOnlyValueInHead) {
   }
   input[0] = 1.0;
   fftw_execute(plan);
-  
-//  OutputFFTWReal2DArray(width, height, output.get());
   
   EXPECT_EQ(1.0, output[0]);
   EXPECT_EQ(1.0, output[100]);

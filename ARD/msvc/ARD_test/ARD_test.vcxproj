@@ -189,8 +189,10 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart.lib;cufft.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX64</TargetMachine>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>$(TargetPath)</Command>
@@ -222,10 +224,11 @@ python D:\workspace\ARD\ARD\test\plot\plot_1d.py D:\workspace\ARD\msvc\ARD_test\
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>cudart.lib;cufft.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>$(TargetPath)
-python D:\workspace\ARD\ARD\test\plot\plot_1d.py D:\workspace\ARD\msvc\ARD_test\data.txt</Command>
+python D:\workspace\ARD\ARD\test\plot\plot_1d.py D:\workspace\ARD\ARD\msvc\ARD_test\data.txt</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Plot2D|Win32'">
@@ -254,6 +257,7 @@ python D:\workspace\ARD\ARD\test\plot\plot_2d.py D:\workspace\ARD\msvc\ARD_test\
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>cudart.lib;cufft.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>$(TargetPath)
@@ -286,6 +290,7 @@ python D:\workspace\ARD\ARD\test\plot\plot_2d.py D:\workspace\ARD\msvc\ARD_test\
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>cudart.lib;cufft.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Plot1ED|Win32'">
@@ -313,13 +318,14 @@ python D:\workspace\ARD\ARD\test\plot\plot_1d.py D:\workspace\ARD\msvc\ARD_test\
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\develop\SDK\gmock-1.6.0\src\gmock_main.cc" />
+    <ClCompile Include="..\..\test\cufft_test.cpp" />
     <ClCompile Include="..\..\test\fftw_array_test.cpp" />
     <ClCompile Include="..\..\test\fftw_dct_engine_factory_test.cpp" />
     <ClCompile Include="..\..\test\fftw_double_dct_engine_test.cpp" />
     <ClCompile Include="..\..\test\fftw_float_dct_engine_test.cpp" />
     <ClCompile Include="..\..\test\fftw_test.cpp" />
     <ClCompile Include="..\..\test\force_field_test.cpp" />
-    <ClCompile Include="..\..\test\plot\output_fftw_array.cpp" />
+    <ClCompile Include="..\..\test\plot\output_array.cpp" />
     <ClCompile Include="..\..\test\point_microphone_test.cpp" />
     <ClCompile Include="..\..\test\position_test.cpp" />
     <ClCompile Include="..\..\test\pressure_spectrum_test.cpp" />
@@ -330,7 +336,7 @@ python D:\workspace\ARD\ARD\test\plot\plot_1d.py D:\workspace\ARD\msvc\ARD_test\
     <ClCompile Include="..\..\test\whole_field_microphone_test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\test\plot\output_fftw_array.h" />
+    <ClInclude Include="..\..\test\plot\output_array.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\test\plot\plot_1d.py" />

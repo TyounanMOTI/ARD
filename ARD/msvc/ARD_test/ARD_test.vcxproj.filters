@@ -14,9 +14,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\test\plot\output_fftw_array.cpp">
-      <Filter>グラフ化</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\develop\SDK\gmock-1.6.0\src\gmock_main.cc" />
     <ClCompile Include="..\..\test\fftw_test.cpp">
       <Filter>テスト ファイル</Filter>
@@ -60,11 +57,12 @@
     <ClCompile Include="..\..\test\fftw_float_dct_engine_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\test\plot\output_fftw_array.h">
+    <ClCompile Include="..\..\test\cufft_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\plot\output_array.cpp">
       <Filter>グラフ化</Filter>
-    </ClInclude>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\test\plot\plot_1d.py">
@@ -73,5 +71,10 @@
     <None Include="..\..\test\plot\plot_2d.py">
       <Filter>グラフ化</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\test\plot\output_array.h">
+      <Filter>グラフ化</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
