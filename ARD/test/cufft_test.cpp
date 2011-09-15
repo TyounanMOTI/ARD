@@ -14,15 +14,15 @@ TEST(CUFFTTest, RealToComplexDCT1D) {
   cufftReal *original_host;
   cufftReal *input_host;
   cufftReal *input_device;
-  cufftComplex *output_device;
-  cufftComplex*output_host;
+  cufftReal *output_device;
+  cufftReal *output_host;
   cufftReal *result_host;
 
   cudaMallocHost((void**)&original_host, sizeof(cufftReal)*input_length);
   cudaMallocHost((void**)&input_host, sizeof(cufftReal)*input_length);
   cudaMalloc((void**)&input_device, sizeof(cufftReal)*input_length);
-  cudaMalloc((void**)&output_device, sizeof(cufftComplex)*output_length);
-  cudaMallocHost((void**)&output_host, sizeof(cufftComplex)*output_length);
+  cudaMalloc((void**)&output_device, sizeof(cufftReal)*input_length);
+  cudaMallocHost((void**)&output_host, sizeof(cufftReal)*input_length);
   cudaMallocHost((void**)&result_host, sizeof(cufftReal)*input_length);
 
   for (int i = 0; i < input_length; i++) {
@@ -37,25 +37,25 @@ TEST(CUFFTTest, RealToComplexDCT1D) {
   cudaMemcpy(input_device, input_host, sizeof(cufftReal)*input_length, cudaMemcpyHostToDevice);
    
   cufftPlan1d(&plan, NX, CUFFT_R2C, BATCH);
-  cufftExecR2C(plan, input_device, output_device);
+  cufftExecR2C(plan, input_device, (cufftComplex*)output_device);
   cufftDestroy(plan);
 
-  cudaMemcpy(output_host, output_device, sizeof(cufftComplex)*output_length, cudaMemcpyDeviceToHost);
+  cudaMemcpy(output_host, output_device, sizeof(cufftReal)*input_length, cudaMemcpyDeviceToHost);
 
   cufftReal sum = 0;
   sum += original_host[0]/2.0;
   for (int i = 1; i < input_length-1; i++) {
     sum += original_host[i]*cos(i*CUDART_PI_F/input_max_index);
   }
-  sum += original_host[input_max_index]*cos(CUDART_PI_F)/2.0;
-  result_host[1] = sum*2.0/input_max_index;
+  sum += original_host[input_max_index]/2.0;
+  result_host[1] = sum/input_max_index*2.0;
 
-  result_host[0] = output_host[0].x/input_max_index*2.0;
+  result_host[0] = output_host[0];
   for (int i = 2; i < input_length; i++) {
     if (i % 2 == 0) {
-      result_host[i] = output_host[i/2].x/input_max_index*2.0;
+      result_host[i] = output_host[i]/input_max_index*2.0;
     } else {
-      result_host[i] = result_host[2*i-1] + output_host[i/2].y/input_max_index*2.0;
+      result_host[i] = (result_host[i-2] + output_host[i])/input_max_index*2.0;
     }
   }
 
