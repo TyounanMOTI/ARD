@@ -9,7 +9,7 @@ CufftRealArray::CufftRealArray(const Size& size) {
 
 CufftRealArray::ArrayContent CufftRealArray::Allocate(const Size& size) const {
   float* pHost;
-  cudaHostAlloc(&pHost, sizeof(float)*size.Length(), cudaHostAllocDefault);
+  cudaHostAlloc(&pHost, sizeof(float)*size.Length(), cudaHostAllocMapped);
   return ArrayContent(pHost, cudaFreeHost);
 }
 

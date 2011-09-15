@@ -43,11 +43,11 @@ TEST(CUFFTTest, RealToComplexDCT1D) {
   cudaMemcpy(output_host, output_device, sizeof(cufftReal)*input_length, cudaMemcpyDeviceToHost);
 
   cufftReal sum = 0;
-  sum += original_host[0]/2.0;
+  sum += original_host[0]/2.0f;
   for (int i = 1; i < input_length-1; i++) {
     sum += original_host[i]*cos(i*CUDART_PI_F/input_max_index);
   }
-  sum += original_host[input_max_index]/2.0;
+  sum += original_host[input_max_index]/2.0f;
   result_host[1] = sum/input_max_index*2.0;
 
   result_host[0] = output_host[0];
