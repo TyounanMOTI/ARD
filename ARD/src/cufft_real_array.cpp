@@ -2,7 +2,7 @@
 
 using namespace ARD;
 
-CufftRealArray::CufftRealArray(const Size& size) {
+CufftRealArray::CufftRealArray(const Size& size) : size_(size) {
   content_ = Allocate(size);
   ArrayInterface<float>::FillByZero();
 }
@@ -14,5 +14,7 @@ CufftRealArray::ArrayContent CufftRealArray::Allocate(const Size& size) const {
 }
 
 CufftRealArray::ArrayInterfacePointer CufftRealArray::Clone() const {
-  return ArrayInterfacePointer(new CufftRealArray(size_));
+  ArrayInterfacePointer cloned(new CufftRealArray(size_));
+  cudaMemcpy(cloned->get(), content_.get(), sizeof(cufftReal)*size_.Length(), cudaMemcpyHostToHost);
+  return cloned;
 }

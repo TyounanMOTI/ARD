@@ -3,6 +3,7 @@
 #include <boost/shared_array.hpp>
 #include "array_interface.h"
 #include <cuda_runtime.h>
+#include <cufft.h>
 
 namespace ARD
 {
