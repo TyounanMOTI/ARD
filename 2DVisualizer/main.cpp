@@ -51,7 +51,7 @@ void Init() {
   SDL_VideoInit(NULL);
   g_window = SDL_CreateWindow("ARD", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width/g_zoom, height/g_zoom,
                               SDL_WINDOW_SHOWN);
-  g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
+  //  g_renderer = SDL_CreateRenderer(g_window, -1, SDL_RENDERER_ACCELERATED);
   g_surface = SDL_GetWindowSurface(g_window);
 
   size = ARD::Size(width, height);
