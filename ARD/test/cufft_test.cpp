@@ -12,15 +12,12 @@ TEST(CUFFTTest, RealToComplexDCT1D) {
   const int input_max_index = input_length - 1;
   cufftHandle plan;
   cufftReal *original_host;
-  cufftReal *input_host;
-  cufftReal *input_device;
-  cufftReal *output_device;
-  cufftReal *output_host;
+  cufftReal *buffer_host;
+  cufftReal *buffer_device;
   cufftReal *result_host;
 
   cudaMallocHost((void**)&original_host, sizeof(cufftReal)*input_length);
-  cudaHostAlloc((void**)&input_host, sizeof(cufftReal)*input_length, cudaHostAllocMapped);
-  cudaHostAlloc((void**)&output_host, sizeof(cufftReal)*input_length, cudaHostAllocMapped);
+  cudaHostAlloc((void**)&buffer_host, sizeof(cufftReal)*input_length, cudaHostAllocMapped);
   cudaMallocHost((void**)&result_host, sizeof(cufftReal)*input_length);
 
   for (int i = 0; i < input_length; i++) {
@@ -28,15 +25,14 @@ TEST(CUFFTTest, RealToComplexDCT1D) {
   }
 
   for (int i = 0; i < input_length; i++) {
-    input_host[i] = original_host[i] + original_host[input_max_index - i] +
+    buffer_host[i] = original_host[i] + original_host[input_max_index - i] +
                     2*sin(i*CUDART_PI_F/input_max_index)*(original_host[i] - original_host[input_max_index - i]);
   }
 
-  EXPECT_EQ(cudaSuccess, cudaHostGetDevicePointer(&input_device, input_host, 0));
-  EXPECT_EQ(cudaSuccess, cudaHostGetDevicePointer(&output_device, output_host, 0));
+  EXPECT_EQ(cudaSuccess, cudaHostGetDevicePointer(&buffer_device, buffer_host, 0));
    
   cufftPlan1d(&plan, NX, CUFFT_R2C, BATCH);
-  cufftExecR2C(plan, input_device, (cufftComplex*)output_device);
+  cufftExecR2C(plan, buffer_device, (cufftComplex*)buffer_device);
   cufftDestroy(plan);
   
   cufftReal sum = 0;
@@ -47,21 +43,18 @@ TEST(CUFFTTest, RealToComplexDCT1D) {
   sum += original_host[input_max_index]/2.0f;
   result_host[1] = sum/input_max_index*2.0f;
 
-  result_host[0] = output_host[0];
+  result_host[0] = buffer_host[0];
   for (int i = 2; i < input_length; i++) {
     if (i % 2 == 0) {
-      result_host[i] = output_host[i]/input_max_index*2.0f;
+      result_host[i] = buffer_host[i]/input_max_index*2.0f;
     } else {
-      result_host[i] = (result_host[i-2] + output_host[i])/input_max_index*2.0f;
+      result_host[i] = (result_host[i-2] + buffer_host[i])/input_max_index*2.0f;
     }
   }
 
-  //OutputRealArray(input_length, result_host);
+  OutputRealArray(input_length, result_host);
 
   cudaFreeHost(original_host);
-  cudaFreeHost(input_host);
-  cudaFree(input_device);
-  cudaFreeHost(output_host);
-  cudaFree(output_device);
+  cudaFreeHost(buffer_host);
   cudaFreeHost(result_host);
 }
