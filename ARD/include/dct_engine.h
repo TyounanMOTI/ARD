@@ -11,6 +11,7 @@ namespace ARD {
   private:
     typedef boost::shared_ptr<ArrayInterface<Precision> > ArrayInterfacePointer; 
   public:
+    virtual ~DCTEngine() {};
     virtual const ArrayInterfacePointer input() const = 0;
     virtual const ArrayInterfacePointer Execute() = 0;
   };

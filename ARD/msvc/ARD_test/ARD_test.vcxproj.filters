@@ -66,6 +66,9 @@
     <ClCompile Include="..\..\test\cufft_real_array_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\test\cufft_dct_engine_factory_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\test\plot\plot_1d.py">

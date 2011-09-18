@@ -318,6 +318,7 @@ python D:\workspace\ARD\ARD\test\plot\plot_1d.py D:\workspace\ARD\msvc\ARD_test\
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\develop\SDK\gmock-1.6.0\src\gmock_main.cc" />
+    <ClCompile Include="..\..\test\cufft_dct_engine_factory_test.cpp" />
     <ClCompile Include="..\..\test\cufft_real_array_test.cpp" />
     <ClCompile Include="..\..\test\cufft_test.cpp" />
     <ClCompile Include="..\..\test\fftw_array_test.cpp" />

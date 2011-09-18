@@ -28,6 +28,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\array_interface.h" />
+    <ClInclude Include="..\..\include\cufft_dct_engine_factory.h" />
+    <ClInclude Include="..\..\include\cufft_dct_forward_engine.h" />
     <ClInclude Include="..\..\include\cufft_real_array.h" />
     <ClInclude Include="..\..\include\dct_engine.h" />
     <ClInclude Include="..\..\include\dct_engine_factory.h" />
@@ -47,8 +49,10 @@
     <ClInclude Include="..\..\include\source.h" />
     <ClInclude Include="..\..\include\spectrum_pool.h" />
     <ClInclude Include="..\..\include\whole_field_microphone.h" />
+    <ClCompile Include="..\..\src\cufft_dct_engine_factory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\cufft_dct_forward_engine.cpp" />
     <ClCompile Include="..\..\src\cufft_real_array.cpp" />
     <ClCompile Include="..\..\src\fftw_array.cpp" />
     <ClCompile Include="..\..\src\fftw_dct_engine_factory.cpp" />
