@@ -54,7 +54,7 @@ namespace ARD
 
   template <class Precision, class FFTWPlan>
   void FFTWDCTEngine<Precision, FFTWPlan>::Normalize() {
-    (*output_) /= 4.0*(output_->size().height() - 1)*(output_->size().width() - 1);
+    (*output_) /= (Precision)4.0*(output_->size().height() - 1)*(output_->size().width() - 1);
   }
 
   typedef boost::shared_ptr<fftw_plan_s> FFTWDoublePlan;
