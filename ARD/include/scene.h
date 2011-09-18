@@ -1,5 +1,4 @@
-#ifndef SCENE_H
-#define SCENE_H
+#pragma once
 
 #include <boost/shared_ptr.hpp>
 #include "size.h"
@@ -19,9 +18,10 @@ namespace ARD
     typedef boost::shared_ptr<Source<Precision> > SourcePointer;
     typedef boost::shared_ptr<ForceField<Precision> > ForceFieldPointer;
     typedef boost::shared_ptr<SpectrumPool<Precision> > SpectrumPoolPointer;
+    typedef boost::shared_ptr<DCTEngineFactory<Precision> > DCTEngineFactoryPointer;
     
   public:
-    Scene(const Size& size, const Precision& dt, const boost::shared_ptr<DCTEngineFactory<Precision> > engine_factory);
+    Scene(const Size& size, const Precision& dt, const DCTEngineFactoryPointer engine_factory);
     MicrophonePointer Update();
     Size size() { return size_; };
     void set_microphone(MicrophonePointer microphone) { microphone_ = microphone; };
@@ -36,7 +36,7 @@ namespace ARD
   };
   
   template <class Precision>
-  Scene<Precision>::Scene(const Size& size, const Precision& dt, const boost::shared_ptr<DCTEngineFactory<Precision> > engine_factory) : size_(size) {
+  Scene<Precision>::Scene(const Size& size, const Precision& dt, const DCTEngineFactoryPointer engine_factory) : size_(size) {
     force_field_.reset(new ForceField<Precision>(size, engine_factory));
     spectrum_pool_.reset(new SpectrumPool<Precision>(size, dt, engine_factory));
   }
@@ -51,5 +51,3 @@ namespace ARD
     return microphone_;
   }
 }
-
-#endif // SCENE_H
