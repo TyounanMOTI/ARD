@@ -71,6 +71,24 @@ TEST(FFTWTest, DCTI1D) {
   }
   fftw_execute(plan);
   EXPECT_EQ(1.0, buffer[0]/(2.0*(length-1)));
+
+  fftw_destroy_plan(plan);
+}
+
+TEST(FFTWTest, DCTI2D) {
+  int width = 10;
+  int height = 20;
+  boost::shared_array<double> buffer(static_cast<double*>(fftw_malloc(sizeof(double)*width*height)), fftw_free);
+  fftw_plan plan = fftw_plan_r2r_2d(height, width, buffer.get(), buffer.get(), FFTW_REDFT00, FFTW_REDFT00, FFTW_ESTIMATE);
+  for (int i = 0; i < height; i++) {
+    for (int j = 0; j < width; j++) {
+      buffer[j + i * width] = 1.0;
+    }
+  }
+  fftw_execute(plan);
+  EXPECT_EQ(1.0, buffer[0]/(2.0*(width-1)*2.0*(height-1)));
+
+  fftw_destroy_plan(plan);
 }
 
 TEST(FFTWTest, IDCT2DOnlyValueInHead) {
