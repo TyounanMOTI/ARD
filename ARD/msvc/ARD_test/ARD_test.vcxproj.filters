@@ -51,12 +51,6 @@
     <ClCompile Include="..\..\test\fftw_dct_engine_factory_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\test\fftw_double_dct_engine_test.cpp">
-      <Filter>テスト ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\test\fftw_float_dct_engine_test.cpp">
-      <Filter>テスト ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\test\cufft_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
@@ -67,6 +61,9 @@
       <Filter>テスト ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\..\test\cufft_dct_engine_factory_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\test\fftw_dct_engine_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
   </ItemGroup>

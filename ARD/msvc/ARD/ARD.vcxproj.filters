@@ -50,12 +50,6 @@
     <ClInclude Include="..\..\include\fftw_dct_engine_factory.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\fftw_double_dct_engine.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\fftw_float_dct_engine.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\force_field.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -77,6 +71,9 @@
     <ClInclude Include="..\..\include\cufft_dct_engine_factory.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\fftw_dct_engine.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\size.cpp">
@@ -88,12 +85,6 @@
     <ClCompile Include="..\..\src\fftw_dct_engine_factory.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\fftw_double_dct_engine.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\fftw_float_dct_engine.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\cufft_real_array.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -101,6 +92,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\cufft_dct_engine_factory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\fftw_dct_engine.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

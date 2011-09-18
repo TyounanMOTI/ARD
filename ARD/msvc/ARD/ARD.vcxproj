@@ -35,8 +35,7 @@
     <ClInclude Include="..\..\include\dct_engine_factory.h" />
     <ClInclude Include="..\..\include\fftw_array.h" />
     <ClInclude Include="..\..\include\fftw_dct_engine_factory.h" />
-    <ClInclude Include="..\..\include\fftw_double_dct_engine.h" />
-    <ClInclude Include="..\..\include\fftw_float_dct_engine.h" />
+    <ClInclude Include="..\..\include\fftw_dct_engine.h" />
     <ClInclude Include="..\..\include\force_field.h" />
     <ClInclude Include="..\..\include\force_spectrum.h" />
     <ClInclude Include="..\..\include\microphone.h" />
@@ -56,8 +55,7 @@
     <ClCompile Include="..\..\src\cufft_real_array.cpp" />
     <ClCompile Include="..\..\src\fftw_array.cpp" />
     <ClCompile Include="..\..\src\fftw_dct_engine_factory.cpp" />
-    <ClCompile Include="..\..\src\fftw_double_dct_engine.cpp" />
-    <ClCompile Include="..\..\src\fftw_float_dct_engine.cpp" />
+    <ClCompile Include="..\..\src\fftw_dct_engine.cpp" />
     <ClCompile Include="..\..\src\size.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
