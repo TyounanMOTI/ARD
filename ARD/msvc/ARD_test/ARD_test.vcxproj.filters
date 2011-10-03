@@ -66,6 +66,9 @@
     <ClCompile Include="..\..\test\fftw_dct_engine_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\test\multi_array_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\test\plot\plot_1d.py">
