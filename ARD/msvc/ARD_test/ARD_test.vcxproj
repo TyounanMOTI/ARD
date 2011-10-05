@@ -324,6 +324,7 @@ python D:\workspace\ARD\ARD\test\plot\plot_1d.py D:\workspace\ARD\msvc\ARD_test\
     <ClCompile Include="..\..\test\fftw_array_test.cpp" />
     <ClCompile Include="..\..\test\fftw_dct_engine_factory_test.cpp" />
     <ClCompile Include="..\..\test\fftw_dct_engine_test.cpp" />
+    <ClCompile Include="..\..\test\fftw_multi_array_test.cpp" />
     <ClCompile Include="..\..\test\fftw_test.cpp" />
     <ClCompile Include="..\..\test\force_field_test.cpp" />
     <ClCompile Include="..\..\test\gtest_test.cpp" />

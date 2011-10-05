@@ -74,6 +74,9 @@
     <ClInclude Include="..\..\include\fftw_dct_engine.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\fftw_multi_array.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\size.cpp">

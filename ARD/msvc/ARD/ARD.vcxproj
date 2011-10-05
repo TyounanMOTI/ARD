@@ -48,6 +48,7 @@
     <ClInclude Include="..\..\include\source.h" />
     <ClInclude Include="..\..\include\spectrum_pool.h" />
     <ClInclude Include="..\..\include\whole_field_microphone.h" />
+    <ClInclude Include="..\..\include\fftw_multi_array.h" />
     <ClCompile Include="..\..\src\cufft_dct_engine_factory.cpp" />
   </ItemGroup>
   <ItemGroup>
