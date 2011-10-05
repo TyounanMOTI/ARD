@@ -77,6 +77,9 @@
     <ClInclude Include="..\..\include\fftw_multi_array.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\fftw_float_allocator.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\size.cpp">

@@ -4,8 +4,17 @@
 
 using namespace ARD;
 
-TEST(FFTWFloat2DArrayTest, SetterAndGetter) {
-  FFTWFloat2DArray subject(boost::extents[20][10]);
+class FFTWFloat2DArrayTest : public testing::Test
+{
+protected:
+  virtual void SetUp() {
+    subject.resize(boost::extents[20][10]);
+  }
+
+  FFTWFloat2DArray subject;
+};
+
+TEST_F(FFTWFloat2DArrayTest, SetterAndGetter) {
   subject[10][5] = 10.0f;
   EXPECT_FLOAT_EQ(10.0f, subject[10][5]);
 }

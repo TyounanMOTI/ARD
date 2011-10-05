@@ -36,6 +36,7 @@
     <ClInclude Include="..\..\include\fftw_array.h" />
     <ClInclude Include="..\..\include\fftw_dct_engine_factory.h" />
     <ClInclude Include="..\..\include\fftw_dct_engine.h" />
+    <ClInclude Include="..\..\include\fftw_float_allocator.h" />
     <ClInclude Include="..\..\include\force_field.h" />
     <ClInclude Include="..\..\include\force_spectrum.h" />
     <ClInclude Include="..\..\include\microphone.h" />
