@@ -11,24 +11,21 @@ namespace ARD
   template <class Precision>
   class Source
   {
-  private:
-    typedef boost::shared_ptr<ForceField<Precision> > ForceFieldPointer;
-
   public:
-    Source(const Position& position, std::vector<Precision> content);
+    typedef std::deque<Precision> Content;
+
+    Source(const Position& position, Content content);
     const Precision Pop();
-    void Emit(ForceFieldPointer force);
+    template <class ForceField> void Emit(ForceField& forceField);
     const Position position() const { return position_; };
     
   private:
     Position position_;
-    std::deque<Precision> content_;
+    Content content_;
   };
   
   template <class Precision>
-  Source<Precision>::Source(const Position& position, std::vector<Precision> content) : position_(position) {
-    content_.assign(content.begin(), content.end());
-  }
+  Source<Precision>::Source(const Position& position, Content content) : position_(position), content_(content) {};
   
   template <class Precision>
   const Precision Source<Precision>::Pop() {
@@ -40,10 +37,9 @@ namespace ARD
     return result;
   }
   
-  template <class Precision>
-  void Source<Precision>::Emit(boost::shared_ptr<ForceField<Precision> > force) {
-    force->set_content(position_, Pop());
+  template <class Precision> template <class ForceField>
+  void Source<Precision>::Emit(ForceField& forceField) {
+    forceField(position_) = Pop();
   }
 }
 
-#endif //SOURCE_H

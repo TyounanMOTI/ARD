@@ -28,6 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\fftw_float_allocator.h" />
+    <ClInclude Include="..\..\include\force_field.h" />
     <ClInclude Include="..\..\include\microphone.h" />
     <ClInclude Include="..\..\include\point_microphone.h" />
     <ClInclude Include="..\..\include\position.h" />
