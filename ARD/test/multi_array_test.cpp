@@ -6,6 +6,12 @@ TEST(MultiArrayTest, GetElementType) {
   ::testing::StaticAssertTypeEq<boost::multi_array<int, 3>::element, int>();
 }
 
+TEST(MultiArrayTest, GetElementTypeUsingTypedef) {
+  typedef boost::multi_array<int, 3> MultiArray;
+  typedef MultiArray::element Element;
+  ::testing::StaticAssertTypeEq<Element, int>();
+}
+
 TEST(MultiArrayTest, WeakTyping) {
   typedef float cudaReal;
   typedef float fftwReal;
