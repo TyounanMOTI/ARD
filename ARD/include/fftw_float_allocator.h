@@ -10,8 +10,13 @@ namespace ARD {
 typedef std::allocator<ARD::fftwFloat> fftwFloatAllocator;
 
 template <>
-fftwFloatAllocator::pointer fftwFloatAllocator::allocate(fftwFloatAllocator::size_type num, std::allocator<void>::const_pointer hint = 0) {
+fftwFloatAllocator::pointer fftwFloatAllocator::allocate(size_type num) {
   return (pointer)( fftwf_malloc(num * sizeof(ARD::fftwFloat)) );
+}
+
+template <>
+fftwFloatAllocator::pointer fftwFloatAllocator::allocate(fftwFloatAllocator::size_type num, std::allocator<void>::const_pointer hint) {
+  return allocate(num);
 }
 
 template <>
