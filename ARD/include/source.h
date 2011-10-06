@@ -1,5 +1,4 @@
-#ifndef SOURCE_H
-#define SOURCE_H
+#pragma once
 
 #include <boost/shared_ptr.hpp>
 #include <vector>

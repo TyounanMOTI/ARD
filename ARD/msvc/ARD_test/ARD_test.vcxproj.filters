@@ -42,6 +42,9 @@
     <ClCompile Include="..\..\test\fftw_multi_array_test.cpp">
       <Filter>テスト ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\test\position_test.cpp">
+      <Filter>テスト ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\test\plot\plot_1d.py">
