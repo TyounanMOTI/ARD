@@ -27,38 +27,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\array_interface.h" />
-    <ClInclude Include="..\..\include\cufft_dct_engine_factory.h" />
-    <ClInclude Include="..\..\include\cufft_dct_forward_engine.h" />
-    <ClInclude Include="..\..\include\cufft_real_array.h" />
-    <ClInclude Include="..\..\include\dct_engine.h" />
-    <ClInclude Include="..\..\include\dct_engine_factory.h" />
-    <ClInclude Include="..\..\include\fftw_array.h" />
-    <ClInclude Include="..\..\include\fftw_dct_engine_factory.h" />
-    <ClInclude Include="..\..\include\fftw_dct_engine.h" />
     <ClInclude Include="..\..\include\fftw_float_allocator.h" />
-    <ClInclude Include="..\..\include\force_field.h" />
-    <ClInclude Include="..\..\include\force_spectrum.h" />
     <ClInclude Include="..\..\include\microphone.h" />
     <ClInclude Include="..\..\include\point_microphone.h" />
-    <ClInclude Include="..\..\include\position.h" />
-    <ClInclude Include="..\..\include\pressure_field.h" />
-    <ClInclude Include="..\..\include\pressure_spectrum.h" />
-    <ClInclude Include="..\..\include\scene.h" />
-    <ClInclude Include="..\..\include\size.h" />
     <ClInclude Include="..\..\include\source.h" />
-    <ClInclude Include="..\..\include\spectrum_pool.h" />
     <ClInclude Include="..\..\include\whole_field_microphone.h" />
     <ClInclude Include="..\..\include\fftw_multi_array.h" />
-    <ClCompile Include="..\..\src\cufft_dct_engine_factory.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\cufft_dct_forward_engine.cpp" />
-    <ClCompile Include="..\..\src\cufft_real_array.cpp" />
-    <ClCompile Include="..\..\src\fftw_array.cpp" />
-    <ClCompile Include="..\..\src\fftw_dct_engine_factory.cpp" />
-    <ClCompile Include="..\..\src\fftw_dct_engine.cpp" />
-    <ClCompile Include="..\..\src\size.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{043709F5-5323-4DE4-AAA4-FDFAE619CA92}</ProjectGuid>
