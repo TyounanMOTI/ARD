@@ -21,7 +21,7 @@ TEST(MultiArrayTest, WeakTyping) {
 TEST(StrongTypedefTest, StrongTypedefining) {
   BOOST_STRONG_TYPEDEF(float, cudaReal);
   BOOST_STRONG_TYPEDEF(float, fftwReal);
-  // fails
+  // should fail
   // ::testing::StaticAssertTypeEq<boost::multi_array<cudaReal, 3>, boost::multi_array<fftwReal, 3> >();
   EXPECT_EQ(sizeof(float), sizeof(cudaReal));
   EXPECT_EQ(sizeof(cudaReal), sizeof(fftwReal));
