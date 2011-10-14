@@ -21,7 +21,8 @@ INCLUDE_DIRS = [GTEST_INCLUDE_DIR,
                 ROOT_DIR,
                 "/usr/local/include",
                 "/usr/include",
-                "/usr/local/Cellar/gcc/4.6.0/gcc/include/c++/4.6.0"
+                "/usr/local/Cellar/gcc/4.6.0/gcc/include/c++/4.6.0",
+                "/usr/local/Cellar/gcc/4.6.0/gcc/include/c++/4.6.0/x86_64-apple-darwin11.1.0"
                ]
 CCFLAGS = "#{ENV['CCFLAGS']} -I#{INCLUDE_DIRS.join(' -I')} -g"
 
