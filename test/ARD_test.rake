@@ -8,7 +8,6 @@ namespace "ARD_test" do
   bin_file = "#{build_dir}/ARD_test"
   srcs = FileList.new("#{current_dir}/*.cpp") do |f|
     f.exclude(/.*microphone_test.cpp/)
-    f.exclude(/.*source_test.cpp/)
     f.exclude("*_flymake.*")
   end
   objs = srcs.pathmap("%{#{current_dir},#{build_dir}}X.o")

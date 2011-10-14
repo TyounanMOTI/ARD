@@ -9,7 +9,6 @@ class SourceTest : public testing::Test
 protected:
   typedef Source<float> FloatSource;
   typedef boost::shared_ptr<FloatSource> SourcePointer;
-  typedef ForceField<FFTWFloat2DArray> ForceField;
 
   virtual void SetUp() {
     position = Position(0,0);
