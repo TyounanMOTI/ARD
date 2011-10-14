@@ -25,7 +25,7 @@ namespace "ARD_test" do
   linker_flags = "-Xlinker -rpath -Xlinker #{CUDA_LIB_DIR}"
 
   task :run => bin_file do |t|
-    sh "#{bin_file}"
+    sh "#{bin_file} --gtest_color=yes"
   end
 
   file bin_file => objs + static_libs do |t|
