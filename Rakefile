@@ -70,5 +70,5 @@ namespace "gtest" do
 end
 
 task :check_syntax do
-  sh "#{CC} #{CCFLAGS} -Wextra -fsyntax-only #{ENV["CHK_SOURCES"]}"
+  sh "#{CC} #{CCFLAGS} -fno-var-tracking -Wextra -fsyntax-only #{ENV["CHK_SOURCES"]}"
 end
