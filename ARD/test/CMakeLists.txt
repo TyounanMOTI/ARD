@@ -11,3 +11,6 @@ set(ARD_test_SRCS
 cuda_add_executable(ARD_test ${ARD_test_SRCS})
 cuda_add_cufft_to_target(ARD_test)
 target_link_libraries(ARD_test fftw3 fftw3f gtest gtest_main)
+add_custom_target(run_ARD_test ALL
+  COMMAND ARD_test
+  DEPENDS ARD_test)
