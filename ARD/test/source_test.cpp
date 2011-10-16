@@ -1,7 +1,9 @@
 #include <gtest/gtest.h>
 #include <source.h>
 #include <fftw_multi_array.h>
+#include <boost/assign.hpp>
 
+using namespace boost::assign;
 using namespace ARD;
 
 class SourceTest : public testing::Test
@@ -11,7 +13,7 @@ protected:
   typedef boost::shared_ptr<FloatSource> SourcePointer;
 
   virtual void SetUp() {
-    position = Position(0,0);
+    position += 0,0;
   }
 
   Position position;
@@ -31,3 +33,4 @@ TEST_F(SourceTest, EmptyPop) {
   subject.reset(new FloatSource(position, content));
   EXPECT_EQ(0, subject->Pop());
 }
+
