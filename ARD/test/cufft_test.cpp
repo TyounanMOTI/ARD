@@ -16,9 +16,9 @@ TEST(CUFFTTest, RealToComplexDCT1D) {
   cufftReal *buffer_device;
   cufftReal *result_host;
 
-  cudaSetDeviceFlags(cudaDeviceMapHost);
+  ASSERT_EQ(cudaSuccess, cudaSetDeviceFlags(cudaDeviceMapHost));
   cudaMallocHost((void**)&original_host, sizeof(cufftReal)*input_length);
-  if (cudaHostAlloc((void**)&buffer_host, sizeof(cufftReal)*input_length, cudaHostAllocMapped) != cudaSuccess) { FAIL(); }
+  ASSERT_EQ(cudaSuccess, cudaHostAlloc((void**)&buffer_host, sizeof(cufftReal)*input_length, cudaHostAllocMapped));
   cudaMallocHost((void**)&result_host, sizeof(cufftReal)*input_length);
 
   for (int i = 0; i < input_length; i++) {
