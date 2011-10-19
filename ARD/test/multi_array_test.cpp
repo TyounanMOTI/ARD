@@ -2,6 +2,15 @@
 #include <boost/multi_array.hpp>
 #include <boost/strong_typedef.hpp>
 #include <boost/assign.hpp>
+#include <multi_array.h>
+
+TEST(MultiArrayTest, Fill) {
+  boost::multi_array<int, 2> subject(boost::extents[20][10]);
+  ARD::Fill(subject, 10);
+  EXPECT_EQ(10, subject[0][0]);
+  EXPECT_EQ(10, subject[5][4]);
+  EXPECT_EQ(10, subject[19][9]);
+}
 
 TEST(MultiArrayTest, GetElementType) {
   ::testing::StaticAssertTypeEq<boost::multi_array<int, 3>::element, int>();
