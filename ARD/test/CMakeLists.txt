@@ -7,6 +7,7 @@ set(ARD_test_SRCS
   multi_array_test.cpp
   position_test.cpp
   source_test.cpp
+  valarray_test.cpp
   plot/output_array.cpp)
 cuda_add_executable(ARD_test ${ARD_test_SRCS})
 cuda_add_cufft_to_target(ARD_test)
