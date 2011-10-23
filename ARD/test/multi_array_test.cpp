@@ -3,6 +3,16 @@
 #include <boost/strong_typedef.hpp>
 #include <boost/assign.hpp>
 #include <multi_array.h>
+#include <array>
+
+TEST(MultiArrayTest, InitializeSameShape) {
+  typedef boost::multi_array<int, 2> Subject;
+  Subject subject(boost::extents[20][10]);
+  subject[10][5] = 10;
+  std::vector<Subject::size_type> shape(subject.shape(), subject.shape() + subject.num_dimensions());
+  Subject result(shape);
+  EXPECT_NE(10, result[10][5]);
+}
 
 TEST(MultiArrayTest, Fill) {
   boost::multi_array<int, 2> subject(boost::extents[20][10]);
