@@ -1,6 +1,7 @@
 #pragma once
 
 #include <boost/multi_array.hpp>
+#include <vector>
 #include "fftw_float_allocator.h"
 
 namespace ARD {
@@ -18,6 +19,12 @@ namespace ARD {
 
     template <typename ExtentList>
     explicit MultiArray(const ExtentList& sizes) : super_type(sizes) {}
+
+    typedef std::vector<typename super_type::size_type> shape_type;
+    shape_type shape() {
+      auto _shape = super_type::shape();
+      return shape_type(_shape, _shape + NumDims);
+    }
   };
 
   typedef MultiArray<float, 2, FFTWFloatAllocator> FFTWFloat2DArray;

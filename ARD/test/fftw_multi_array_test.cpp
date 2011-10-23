@@ -18,3 +18,9 @@ TEST_F(FFTWFloat2DArrayTest, SetterAndGetter) {
   subject[10][5] = 10.0f;
   EXPECT_FLOAT_EQ(10.0f, subject[10][5]);
 }
+
+TEST_F(FFTWFloat2DArrayTest, ConstructWithShape) {
+  FFTWFloat2DArray result(subject.shape());
+  result[10][5] = 10.0f;
+  EXPECT_FLOAT_EQ(10.0f, result[10][5]);
+}
