@@ -1,4 +1,5 @@
-include_directories(../include)
+include_directories(../include ${GTEST_INCLUDE_DIR})
+message(${GTEST_INCLUDE_DIR})
 set(ARD_test_SRCS
   cufft_test.cpp
   fftw_multi_array_test.cpp
