@@ -13,24 +13,48 @@ TEST(FFTWTest, DFT) {
   int size = 128;
   fftw_complex* input = static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex) * size));
   fftw_complex* output = static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex) * size));
- 
+
   fftw_plan plan = fftw_plan_dft_1d(size, input, output, FFTW_FORWARD, FFTW_MEASURE);
 
   for (int i = 0; i < size; i++) {
     input[i][0] = 10.0;
   }
   fftw_execute(plan);
-  
+
   EXPECT_EQ(size*10.0, output[0][0]);
-  
+
   fftw_destroy_plan(plan);
+}
+
+struct fftw_plan_deleter
+{
+  void operator()(fftw_plan_s* plan) {
+    fftw_destroy_plan(plan);
+  }
+};
+
+TEST(FFTWTest, DFTPlanWithUniquePtr) {
+  int size = 128;
+  fftw_complex* input = static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex) * size));
+  fftw_complex* output = static_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex) * size));
+
+  typedef std::unique_ptr<fftw_plan_s, fftw_plan_deleter> FFTWPlan;
+
+  FFTWPlan plan(fftw_plan_dft_1d(size, input, output, FFTW_FORWARD, FFTW_MEASURE));
+
+  for (int i = 0; i < size; i++) {
+    input[i][0] = 10.0;
+  }
+  fftw_execute(plan.get());
+
+  EXPECT_EQ(size*10.0, output[0][0]);
 }
 
 TEST(FFTWTest, DCT) {
   int size = 128;
   boost::shared_array<double> input(static_cast<double*>(fftw_malloc(sizeof(double)*size)), fftw_free);
   boost::shared_array<double> output(static_cast<double*>(fftw_malloc(sizeof(double)*size)), fftw_free);
- 
+
   fftw_plan plan = fftw_plan_r2r_1d(size, input.get(), output.get(), FFTW_REDFT10, FFTW_MEASURE);
   for (int i = 0; i < size; i++) {
     input[i] = 10.0;
@@ -48,7 +72,7 @@ TEST(FFTWTest, DCT2D) {
   int length = width*height;
   boost::shared_array<double> input(static_cast<double*>(fftw_malloc(sizeof(double)*length)), fftw_free);
   boost::shared_array<double> output(static_cast<double*>(fftw_malloc(sizeof(double)*length)), fftw_free);
-  
+
   fftw_plan plan = fftw_plan_r2r_2d(width, height, input.get(), output.get(), FFTW_REDFT10, FFTW_REDFT10, FFTW_MEASURE);
   for (int row = 0; row < height; row++) {
     for (int col = 0; col < width; col++) {
@@ -58,7 +82,7 @@ TEST(FFTWTest, DCT2D) {
   fftw_execute(plan);
   EXPECT_EQ(2*2*width*height*1.0, output[0]);
   EXPECT_EQ(0, output[100]);
-  
+
   fftw_destroy_plan(plan);
 }
 
@@ -97,7 +121,7 @@ TEST(FFTWTest, IDCT2DOnlyValueInHead) {
   int length = width*height;
   boost::shared_array<double> input(static_cast<double*>(fftw_malloc(sizeof(double)*length)), fftw_free);
   boost::shared_array<double> output(static_cast<double*>(fftw_malloc(sizeof(double)*length)), fftw_free);
-  
+
   fftw_plan plan = fftw_plan_r2r_2d(width, height, input.get(), output.get(), FFTW_REDFT01, FFTW_REDFT01, FFTW_MEASURE);
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
@@ -106,9 +130,9 @@ TEST(FFTWTest, IDCT2DOnlyValueInHead) {
   }
   input[0] = 1.0;
   fftw_execute(plan);
-  
+
   EXPECT_EQ(1.0, output[0]);
   EXPECT_EQ(1.0, output[100]);
-  
+
   fftw_destroy_plan(plan);
 }
