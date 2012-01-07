@@ -24,6 +24,8 @@ TEST(FFTWTest, DFT) {
   EXPECT_EQ(size*10.0, output[0][0]);
 
   fftw_destroy_plan(plan);
+  fftw_free(input);
+  fftw_free(output);
 }
 
 struct fftw_plan_deleter
@@ -48,6 +50,9 @@ TEST(FFTWTest, DFTPlanWithUniquePtr) {
   fftw_execute(plan.get());
 
   EXPECT_EQ(size*10.0, output[0][0]);
+
+  fftw_free(input);
+  fftw_free(output);
 }
 
 TEST(FFTWTest, DCT) {
