@@ -19,7 +19,7 @@ namespace ARD {
     template <typename ExtentList>
     explicit MultiArray(const ExtentList& sizes) : super_type(sizes) {}
 
-    size_list shape() {
+    size_list shape() const {
       return super_type::extent_list_;
     }
   };
