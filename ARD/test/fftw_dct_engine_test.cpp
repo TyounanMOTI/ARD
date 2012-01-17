@@ -4,7 +4,9 @@
 
 using namespace ARD;
 
-TEST(FFTWDCTEngineTest, Initialize) {
+TEST(FFTWDCTEngineTest, Forward2DFloatDCT) {
   FFTWFloat2DArray data(boost::extents[10][20]);
   DCTEngine<FFTWFloat2DArray, Forward> engine(data);
+  const FFTWFloat2DArray& output = engine.Execute();
+  EXPECT_FLOAT_EQ(0, output[0][0]);
 }

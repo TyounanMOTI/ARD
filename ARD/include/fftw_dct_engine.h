@@ -35,6 +35,11 @@ namespace ARD {
                                ))
     {};
 
+    const Output& Execute() {
+      fftwf_execute(_plan.get());
+      return _output;
+    }
+
   private:
     const Input& _input;
     Output _output;
