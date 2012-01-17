@@ -4,6 +4,8 @@
 #include <multi_array.h>
 #include <array>
 
+using namespace ARD;
+
 TEST(MultiArrayTest, InitializeSameShape) {
   typedef boost::multi_array<int, 2> Subject;
   Subject subject(boost::extents[20][10]);
@@ -14,8 +16,8 @@ TEST(MultiArrayTest, InitializeSameShape) {
 }
 
 TEST(MultiArrayTest, Fill) {
-  boost::multi_array<int, 2> subject(boost::extents[20][10]);
-  ARD::Fill(subject, 10);
+  MultiArray<int, 2> subject(boost::extents[20][10]);
+  subject.Fill(10);
   EXPECT_EQ(10, subject[0][0]);
   EXPECT_EQ(10, subject[5][4]);
   EXPECT_EQ(10, subject[19][9]);

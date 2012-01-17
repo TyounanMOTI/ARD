@@ -22,10 +22,9 @@ namespace ARD {
     size_list shape() const {
       return super_type::extent_list_;
     }
-  };
 
-  template <class ArrayType, class T>
-  void Fill(ArrayType& target, const T& value) {
-    std::fill(target.origin(), target.origin() + target.num_elements(), value);
-  }
+    void Fill(const ValueType& value) {
+      std::fill(super_type::origin(), super_type::origin() + super_type::num_elements(), value);
+    }
+  };
 }
