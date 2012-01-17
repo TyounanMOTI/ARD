@@ -37,9 +37,9 @@ TEST_F(SourceTest, EmptyPop) {
 TEST_F(SourceTest, Emit) {
   content += 1,2,3;
   subject.reset(new FloatSource(position, content));
-  ForceField<FFTWFloat2DArray> forceField(boost::extents[20][10]);
-  subject->Emit(forceField);
-  EXPECT_EQ(1, forceField(position));
-  subject->Emit(forceField);
-  EXPECT_EQ(2, forceField(position));
+  FFTWFloat2DArray field(boost::extents[20][10]);
+  subject->Emit(field);
+  EXPECT_EQ(1, field(position));
+  subject->Emit(field);
+  EXPECT_EQ(2, field(position));
 }

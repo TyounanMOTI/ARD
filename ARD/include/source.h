@@ -4,7 +4,6 @@
 #include <vector>
 #include <deque>
 #include "position.h"
-#include "force_field.h"
 
 namespace ARD
 {
@@ -16,17 +15,17 @@ namespace ARD
 
     Source(const Position& position, Content content);
     const Precision Pop();
-    template <class ForceField> void Emit(ForceField& forceField);
+    template <class ArrayType> void Emit(ArrayType& field);
     const Position position() const { return position_; };
-    
+
   private:
     Position position_;
     Content content_;
   };
-  
+
   template <class Precision>
   Source<Precision>::Source(const Position& position, Content content) : position_(position), content_(content) {};
-  
+
   template <class Precision>
   const Precision Source<Precision>::Pop() {
     if (content_.empty()) {
@@ -36,10 +35,10 @@ namespace ARD
     content_.pop_front();
     return result;
   }
-  
-  template <class Precision> template <class ForceField>
-  void Source<Precision>::Emit(ForceField& forceField) {
-    forceField(position_) = Pop();
+
+  template <class Precision> template <class ArrayType>
+  void Source<Precision>::Emit(ArrayType& field) {
+    field(position_) = Pop();
   }
 }
 

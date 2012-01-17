@@ -2,7 +2,6 @@
 
 #include "dct_engine.h"
 #include "fftw_multi_array.h"
-#include "force_field.h"
 #include <fftw3.h>
 
 namespace ARD {
