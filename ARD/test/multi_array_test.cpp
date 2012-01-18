@@ -42,3 +42,12 @@ TEST(MultiArrayTest, IndexAccessingByVector) {
   subject(index) = 3;
   EXPECT_EQ(3, subject(index));
 }
+
+TEST(MultiArrayTest, DivideAndSubstitute) {
+  using namespace ARD;
+  MultiArray<int, 2> subject(boost::extents[20][10]);
+  subject.Fill(10);
+  subject /= 5;
+  EXPECT_EQ(2, subject[0][0]);
+  EXPECT_EQ(2, subject[19][9]);
+}

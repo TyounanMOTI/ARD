@@ -26,5 +26,10 @@ namespace ARD {
     void Fill(const ValueType& value) {
       std::fill(super_type::origin(), super_type::origin() + super_type::num_elements(), value);
     }
+
+    MultiArray& operator /=(const ValueType& value) {
+      std::transform(super_type::origin(), super_type::origin() + super_type::num_elements(), super_type::origin(), [&value](ValueType x) { return x / value; });
+      return *this;
+    }
   };
 }
