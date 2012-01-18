@@ -31,7 +31,7 @@ namespace ARD {
                                 _output.data(),
                                 FFTW_REDFT10,
                                 FFTW_REDFT10,
-                                FFTW_ESTIMATE
+                                FFTW_MEASURE
                                 ))
     {}
 
@@ -64,7 +64,7 @@ namespace ARD {
                                 _output.data(),
                                 FFTW_REDFT01,
                                 FFTW_REDFT01,
-                                FFTW_ESTIMATE
+                                FFTW_MEASURE
                                 ))
     {}
 
