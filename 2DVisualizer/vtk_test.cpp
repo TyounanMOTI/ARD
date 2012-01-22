@@ -34,4 +34,3 @@ TEST_F(ColorTransferFunctionTest, AddRGBPoint) {
   subject->AddRGBPoint(1, 1, 0, 0);
   EXPECT_FLOAT_EQ(0, subject->GetRedValue(0.5));
 }
-
