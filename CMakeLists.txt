@@ -7,6 +7,6 @@ find_package(CUDA 4.0 REQUIRED)
 set(CMAKE_CXX_FLAGS "-Wall -std=c++0x")
 set(GTEST_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/gtest/include)
 
-#add_subdirectory(2DVisualizer)
+add_subdirectory(2DVisualizer)
 add_subdirectory(ARD)
 add_subdirectory(gtest)
