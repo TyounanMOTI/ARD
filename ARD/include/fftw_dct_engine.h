@@ -23,7 +23,7 @@ namespace ARD {
 
     explicit DCTEngine(const Input& input)
       : _input(input),
-        _output(Output(input.shape())),
+        _output(input.shape()),
         _normalization_factor(input.shape()[0] * input.shape()[1] * 4),
         _plan(fftwf_plan_r2r_2d(input.shape()[0],
                                 input.shape()[1],
@@ -31,8 +31,7 @@ namespace ARD {
                                 _output.data(),
                                 FFTW_REDFT10,
                                 FFTW_REDFT10,
-                                FFTW_MEASURE
-                                ))
+                                FFTW_MEASURE))
     {}
 
     const Output& Execute() {
@@ -57,7 +56,7 @@ namespace ARD {
 
     explicit DCTEngine(const Input& input)
       : _input(input),
-        _output(Output(input.shape())),
+        _output(input.shape()),
         _plan(fftwf_plan_r2r_2d(input.shape()[0],
                                 input.shape()[1],
                                 const_cast<float*>(input.data()),

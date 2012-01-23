@@ -4,6 +4,7 @@ include_directories(../ARD/include)
 
 include_directories(${GTEST_INCLUDE_DIR})
 set(2DVisualizerTest_SRCS
+  constructor_test.cpp
   vtk_test.cpp)
 add_executable(2DVisualizer_test ${2DVisualizerTest_SRCS})
 target_link_libraries(2DVisualizer_test gtest gtest_main vtkHybrid)

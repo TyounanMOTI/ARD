@@ -4,6 +4,7 @@
 #include <vtkImageMapToColors.h>
 #include <vtkColorTransferFunction.h>
 #include <vtkImageViewer.h>
+#include <vtkTIFFWriter.h>
 #include <vtkRenderWindowInteractor.h>
 #include <vtkMath.h>
 #include <ARD.h>
@@ -11,9 +12,27 @@
 
 using namespace ARD;
 
+class Scene {
+public:
+  Scene(const int width, const int height)
+    : _force_field(FFTWFloat2DArray(boost::extents[width][height])),
+      _forward_dct_engine(_force_field)
+  {};
+
+  void Update() {
+    _force_field.Fill(0);
+    //    const FFTWFloat2DArray& _force_spectrum = _forward_dct_engine.Execute();
+  }
+
+private:
+  FFTWFloat2DArray _force_field;
+  DCTEngine<FFTWFloat2DArray, Forward> _forward_dct_engine;
+};
+
 int main(void) {
   const int width = 256;
   const int height = 256;
+  Scene scene(width, height);
   FFTWFloat2DArray force_field = FFTWFloat2DArray(boost::extents[width][height]);
   force_field.Fill(0);
   force_field[height/2][width/2] = 1;
@@ -51,6 +70,12 @@ int main(void) {
   viewer->SetInputConnection(imageMapToColors->GetOutputPort());
   viewer->SetColorWindow(255);
   viewer->SetColorLevel(127.5);
+
+  vtkSmartPointer<vtkTIFFWriter> writer = vtkSmartPointer<vtkTIFFWriter>::New();
+  writer->SetInputConnection(imageMapToColors->GetOutputPort());
+  writer->SetCompressionToNoCompression();
+  writer->SetFileName("out.tiff");
+  writer->Write();
 
   vtkSmartPointer<vtkRenderWindowInteractor> interactor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
   viewer->SetupInteractor(interactor);
