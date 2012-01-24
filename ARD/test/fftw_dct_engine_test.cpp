@@ -14,8 +14,8 @@ TEST(FFTWDCTEngineTest, Forward2DFloatDCT) {
 
 TEST(FFTWDCTEngineTest, Backward2DFloatDCT) {
   FFTWFloat2DArray data(boost::extents[10][20]);
+  DCTEngine<FFTWFloat2DArray, Backward> engine(data, data);
   data[0][0] = 1;
-  DCTEngine<FFTWFloat2DArray, Backward> engine(data);
   const FFTWFloat2DArray& output = engine.Execute();
   EXPECT_FLOAT_EQ(1, output[0][0]);
   EXPECT_FLOAT_EQ(1, output[9][19]);

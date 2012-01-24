@@ -54,9 +54,9 @@ namespace ARD {
     typedef FFTWFloat2DArray Input;
     typedef FFTWFloat2DArray Output;
 
-    explicit DCTEngine(const Input& input)
+    DCTEngine(const Input& input, FFTWFloat2DArray& output)
       : _input(input),
-        _output(input.shape()),
+        _output(output),
         _plan(fftwf_plan_r2r_2d(input.shape()[0],
                                 input.shape()[1],
                                 const_cast<float*>(input.data()),
@@ -74,7 +74,7 @@ namespace ARD {
 
   private:
     const Input& _input;
-    Output _output;
+    Output& _output;
     FFTWFloatPlan _plan;
   };
 }
