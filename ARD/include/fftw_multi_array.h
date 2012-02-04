@@ -7,4 +7,5 @@
 
 namespace ARD {
   typedef MultiArray<float, 2, FFTWFloatAllocator> FFTWFloat2DArray;
+  typedef MultiArray<float, 3, FFTWFloatAllocator> FFTWFloat3DArray;
 }
