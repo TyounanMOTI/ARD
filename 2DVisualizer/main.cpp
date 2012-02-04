@@ -15,35 +15,15 @@
 
 using namespace ARD;
 
-class PressureSpectrum {
-public:
-  template <class ExtentList>
-  PressureSpectrum(const ExtentList& extents, FFTWFloat2DArray& output)
-    : _data(extents),
-      _dct_engine(_data, output)
-  {
-    _data.Fill(0);
-  }
-
-  const FFTWFloat2DArray& InverseDCT() {
-    return _dct_engine.Execute();
-  }
-
-  FFTWFloat2DArray _data;
-
-private:
-  DCTEngine<FFTWFloat2DArray, Backward> _dct_engine;
-};
-
 class Scene {
 public:
   Scene(const int width, const int height, const float dt)
     : _extents(boost::extents[width][height]),
       _force_field(_extents),
       _pressure_field(_extents),
-      _next(new PressureSpectrum(_extents, _pressure_field)),
-      _current(new PressureSpectrum(_extents, _pressure_field)),
-      _previous(new PressureSpectrum(_extents, _pressure_field)),
+      _next(new PressureSpectrum<FFTWFloat2DArray>(_extents, _pressure_field)),
+      _current(new PressureSpectrum<FFTWFloat2DArray>(_extents, _pressure_field)),
+      _previous(new PressureSpectrum<FFTWFloat2DArray>(_extents, _pressure_field)),
       _forward_dct_engine(_force_field),
       _width(width), _height(height),
       _dt(dt), _speed_of_sound(340.0),
@@ -122,7 +102,7 @@ public:
   //private:
   decltype(boost::extents[1][1]) _extents;
   FFTWFloat2DArray _force_field, _pressure_field;
-  std::unique_ptr<PressureSpectrum> _next, _current, _previous;
+  std::unique_ptr<PressureSpectrum<FFTWFloat2DArray> > _next, _current, _previous;
   DCTEngine<FFTWFloat2DArray, Forward> _forward_dct_engine;
   const int _width, _height;
   const float _dt, _speed_of_sound;
@@ -134,7 +114,7 @@ std::unique_ptr<Scene> scene;
 
 void Update(void*) {
   scene->Update();
-  //  std::cout << "updated" << std::endl;
+  std::cout << "updated" << std::endl;
 }
 
 int main(void) {
