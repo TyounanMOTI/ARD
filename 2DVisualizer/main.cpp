@@ -12,7 +12,11 @@
 #include <functional>
 #include <vector>
 #define _USE_MATH_DEFINES
-#include <math.h>
+#include <cmath>
+#include <numeric>
+#include <forward_list>
+
+#include <unixstl/performance/performance_counter.hpp>
 
 using namespace ARD;
 
@@ -84,7 +88,6 @@ public:
   }
 
   void Update() {
-    std::cout << "updated" << std::endl;
     if (_first_frame) {
       _first_frame = false;
     } else {
@@ -119,65 +122,36 @@ public:
   bool _first_frame;
 };
 
-std::unique_ptr<Scene> scene;
-
-void Update(void*) {
-  scene->Update();
-  std::cout << "updated" << std::endl;
-}
 
 int main(int argc, char** argv) {
+
   int depth, height, width;
   if (argc < 3) {
-    depth = 64;
-    height = 64;
-    width = 64;
+    depth = 32;
+    height = 32;
+    width = 32;
   } else {
     depth = atoi(argv[1]);
     height = atoi(argv[2]);
     width = atoi(argv[3]);
   }
-  scene.reset(new Scene(std::vector<FFTWFloat3DArray::index>({depth, height, width}), 0.001));
-  for (int i = 0; i < 10; i++) {
+
+  std::cerr << "<<<< " << depth << " x " << height << " x " << width << " >>>>" << std::endl;
+
+  std::unique_ptr<Scene> scene(new Scene(std::vector<FFTWFloat3DArray::index>({depth, height, width}), 0.001));
+
+  std::forward_list<double> execution_times;
+  unixstl::performance_counter counter;
+  const int MAX_ITER = 30;
+  for (int i = 0; i < MAX_ITER; i++) {
+    counter.start();
     scene->Update();
+    counter.stop();
+    execution_times.push_front(counter.get_microseconds());
+    std::cerr << i << ": " << counter.get_microseconds() << std::endl;
   }
-
-  vtkSmartPointer<vtkImageImport> imageImport = vtkSmartPointer<vtkImageImport>::New();
-  imageImport->SetImportVoidPointer(const_cast<FFTWFloat3DArray::element*>(scene->OutputPtr()));
-  imageImport->SetDataExtent(0,width-1,0,height-1,0,0);
-  imageImport->SetWholeExtent(0,width-1,0,height-1,0,0);
-  imageImport->SetDataScalarTypeToFloat();
-  imageImport->SetUpdateDataCallback(Update);
-  imageImport->Update();
-
-  const double* range = imageImport->GetOutput()->GetScalarRange();
-  const double max_abs = range[1];
-  std::cout << "max_abs: " << max_abs << std::endl;
-
-  vtkSmartPointer<vtkImageMapToColors> imageMapToColors = vtkSmartPointer<vtkImageMapToColors>::New();
-  vtkSmartPointer<vtkColorTransferFunction> colorTransferFunction = vtkSmartPointer<vtkColorTransferFunction>::New();
-  colorTransferFunction->SetColorSpaceToLab();
-  colorTransferFunction->AddRGBPoint(-max_abs, 0, 0, 1);
-  colorTransferFunction->AddRGBPoint(0, 1, 1, 1);
-  colorTransferFunction->AddRGBPoint(max_abs, 1, 0, 0);
-
-  imageMapToColors->SetLookupTable(colorTransferFunction);
-  imageMapToColors->SetInputConnection(imageImport->GetOutputPort());
-
-  vtkSmartPointer<vtkImageViewer> viewer = vtkSmartPointer<vtkImageViewer>::New();
-  viewer->SetInputConnection(imageMapToColors->GetOutputPort());
-  viewer->SetColorWindow(255);
-  viewer->SetColorLevel(127.5);
-
-  vtkSmartPointer<vtkTIFFWriter> writer = vtkSmartPointer<vtkTIFFWriter>::New();
-  writer->SetInputConnection(imageMapToColors->GetOutputPort());
-  writer->SetCompressionToNoCompression();
-
-  vtkSmartPointer<vtkRenderWindowInteractor> interactor = vtkSmartPointer<vtkRenderWindowInteractor>::New();
-  viewer->SetupInteractor(interactor);
-
-  viewer->Render();
-  interactor->Start();
+  std::cout << (double)accumulate(execution_times.begin(), execution_times.end(), 0) / MAX_ITER;
+  std::cerr << std::endl;
 
   return EXIT_SUCCESS;
 }

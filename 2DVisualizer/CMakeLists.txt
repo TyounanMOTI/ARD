@@ -1,6 +1,6 @@
 find_package(VTK REQUIRED)
 include(${VTK_USE_FILE})
-include_directories(../ARD/include)
+include_directories(../ARD/include /usr/local/include)
 
 include_directories(${GTEST_INCLUDE_DIR})
 set(2DVisualizerTest_SRCS

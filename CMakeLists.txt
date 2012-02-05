@@ -6,7 +6,7 @@ find_package(FFTW3 REQUIRED)
 find_package(CUDA 4.0 REQUIRED)
 set(CMAKE_CXX_FLAGS "-Wall -std=c++0x")
 set(GTEST_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/gtest/include)
-
+set(CMAKE_BUILD_TYPE Release)
 add_subdirectory(2DVisualizer)
 add_subdirectory(ARD)
 add_subdirectory(gtest)

@@ -28,7 +28,6 @@ namespace ARD {
         _output(input.shape()),
         _normalization_factor(input.num_elements() * pow(2, NumDims))
     {
-      std::cout << _normalization_factor << std::endl;
       std::array<int, NumDims> shape;
       std::copy_n(input.shape().begin(), NumDims, shape.begin());
       std::vector<fftw_r2r_kind> kind(NumDims, FFTW_REDFT10);
