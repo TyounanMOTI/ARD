@@ -93,7 +93,12 @@ public:
     } else {
       _force_field.Fill(0);
     }
+    _timer.start();
     const FFTWFloat3DArray& _force_spectrum = _forward_dct_engine.Execute();
+    _timer.stop();
+    std::cout << _timer.get_microseconds() << " ";
+
+    _timer.start();
     for (int z = 0; z < _shape[0]; z++) {
       for (int y = 0; y < _shape[1]; y++) {
         for (int x = 0; x < _shape[2]; x++) {
@@ -102,8 +107,14 @@ public:
       }
     }
     _next->_data[0][0][0] = 0;
+    _timer.stop();
+    std::cout << _timer.get_microseconds() << " ";
 
+    _timer.start();
     _next->InverseDCT();
+    _timer.stop();
+    std::cout << _timer.get_microseconds() << std::endl;
+
     TimeShift();
   }
 
@@ -120,6 +131,7 @@ public:
   const float _dt, _speed_of_sound;
   FFTWFloat3DArray _omega_square, _cos, _current_pressure_spectrum_coeffient, _force_spectrum_coeffcient;
   bool _first_frame;
+  unixstl::performance_counter _timer;
 };
 
 
@@ -148,9 +160,9 @@ int main(int argc, char** argv) {
     scene->Update();
     counter.stop();
     execution_times.push_front(counter.get_microseconds());
-    std::cerr << i << ": " << counter.get_microseconds() << std::endl;
+    //    std::cerr << i << ": " << counter.get_microseconds() << std::endl;
   }
-  std::cout << (double)accumulate(execution_times.begin(), execution_times.end(), 0) / MAX_ITER;
+  //  std::cout << (double)accumulate(execution_times.begin(), execution_times.end(), 0) / MAX_ITER;
   std::cerr << std::endl;
 
   return EXIT_SUCCESS;
