@@ -2,7 +2,7 @@ require 'matrix'
 
 $result = []
 exponent = Vector[1,1,1]
-$executable = "~/Develop/ARD/build/2DVisualizer/2DVisualizer"
+$executable = "build/2DVisualizer/2DVisualizer"
 
 def exponent_to_argument(input)
   return input.map{|x| 2**x }.to_a.join(' ')
