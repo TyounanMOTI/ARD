@@ -4,6 +4,7 @@
 #include "fftw_multi_array.h"
 #include <fftw3.h>
 #include <vector>
+#include <array>
 
 namespace ARD {
   struct FFTWFloatPlanDeleter

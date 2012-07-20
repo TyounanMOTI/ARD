@@ -1,6 +1,6 @@
 include_directories(../include ${GTEST_INCLUDE_DIR})
 set(ARD_test_SRCS
-  cufft_test.cpp
+#  cufft_test.cpp # enable for CUDA env.
   fftw_dct_engine_test.cpp
   fftw_multi_array_test.cpp
   fftw_test.cpp
