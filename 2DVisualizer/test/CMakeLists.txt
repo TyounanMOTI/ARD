@@ -1,6 +1,6 @@
 include_directories(${GTEST_INCLUDE_DIR})
 set(2DVisualizerTest_SRCS
-  lambda_test.cpp
+#  lambda_test.cpp
   constructor_test.cpp)
 
 add_executable(2DVisualizer_test ${2DVisualizerTest_SRCS})
