@@ -3,8 +3,9 @@ add_subdirectory(test)
 project(2DVisualizer)
 set(CMAKE_C_COMPILER "gcc")
 set(CMAKE_CXX_COMPILER "g++")
-set(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
+set(CMAKE_CXX_FLAGS_DEBUG "-g -DDEBUG")
 
 set(2DVisualizer_SRCS
   main.cpp)
@@ -27,8 +28,8 @@ if(APPLE)
     MACOSX_BUNDLE_COPYRIGHT "Copyright (C) 2012 Hirotoshi YOSHITAKA"
     )
   add_custom_command(TARGET 2DVisualizer POST_BUILD
-    COMMAND cp
-    ARGS -R ${CMAKE_SOURCE_DIR}/Frameworks 2DVisualizer.app/Contents/
+    COMMAND rsync
+    ARGS -ar --delete ${CMAKE_SOURCE_DIR}/Frameworks 2DVisualizer.app/Contents/
     )
 endif(APPLE)
 
