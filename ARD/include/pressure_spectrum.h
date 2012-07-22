@@ -6,7 +6,6 @@ namespace ARD {
   template <class ArrayType>
   class PressureSpectrum {
   public:
-    template <class ExtentList>
     explicit
     PressureSpectrum(ArrayType& output)
       : data_(output.shape()),
@@ -15,8 +14,8 @@ namespace ARD {
       data_.Fill(0);
     }
 
-    const ArrayType& InverseDCT() {
-      return dct_engine_.Execute();
+    void InverseDCT() {
+      dct_engine_.Execute();
     }
 
     ArrayType data_;
