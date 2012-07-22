@@ -7,20 +7,21 @@ namespace ARD {
   class PressureSpectrum {
   public:
     template <class ExtentList>
-    PressureSpectrum(const ExtentList& extents, ArrayType& output)
-      : _data(extents),
-        _dct_engine(_data, output)
+    explicit
+    PressureSpectrum(ArrayType& output)
+      : data_(output.shape()),
+        dct_engine_(data_, output)
     {
-      _data.Fill(0);
+      data_.Fill(0);
     }
 
     const ArrayType& InverseDCT() {
-      return _dct_engine.Execute();
+      return dct_engine_.Execute();
     }
 
-    ArrayType _data;
+    ArrayType data_;
 
   private:
-    DCTEngine<ArrayType, Backward> _dct_engine;
+    DCTEngine<ArrayType, Backward> dct_engine_;
   };
 }
