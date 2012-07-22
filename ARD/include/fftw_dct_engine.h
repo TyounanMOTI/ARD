@@ -16,6 +16,7 @@ namespace ARD {
 
   typedef std::unique_ptr<fftwf_plan_s, FFTWFloatPlanDeleter> FFTWFloatPlan;
 
+  // Forward DCT
   template <std::size_t NumDims>
   class DCTEngine<MultiArray<float, NumDims, FFTWFloatAllocator>, Forward>
   {
@@ -53,6 +54,7 @@ namespace ARD {
     FFTWFloatPlan _plan;
   };
 
+  // Backward DCT
   template<std::size_t NumDims>
   class DCTEngine<MultiArray<float, NumDims, FFTWFloatAllocator>, Backward>
   {
