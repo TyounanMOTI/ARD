@@ -31,6 +31,10 @@ if(APPLE)
     COMMAND rsync
     ARGS -ar --delete ${CMAKE_SOURCE_DIR}/Frameworks 2DVisualizer.app/Contents/
     )
+  add_custom_target(run_2DVisualizer ALL
+    COMMAND open -a 2DVisualizer
+    DEPENDS 2DVisualizer
+    )
 endif(APPLE)
 
 target_link_libraries(2DVisualizer ${SDL_LIBRARY})
