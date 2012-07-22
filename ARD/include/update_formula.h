@@ -61,7 +61,7 @@ namespace ARD {
       size_t x, y;
       for (y = 0; y < height_; y++) {
 	for (x = 0; x < width_; x++) {
-	  output[y][x] = cos(sqrt(dt_*square_omega[y][x]));
+	  output[y][x] = cos(sqrt(square_omega[y][x])*dt_);
 	}
       }
     }
@@ -84,7 +84,7 @@ namespace ARD {
       }
     }
 
-  private:
+    //  private:
     FFTWFloat2DArray& output_;
     FFTWFloat2DArray coeff_current_pressure_, coeff_force_;
     std::unique_ptr<PressureSpectrum<FFTWFloat2DArray> > previous_, current_, next_;

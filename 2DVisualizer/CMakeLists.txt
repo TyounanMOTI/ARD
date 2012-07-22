@@ -2,7 +2,7 @@ project(2DVisualizer)
 set(CMAKE_C_COMPILER "gcc-4.7")
 set(CMAKE_CXX_COMPILER "g++-4.7")
 
-set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_BUILD_TYPE "Release")
 
 set(2DVisualizer_SRCS
   main.cpp)
@@ -32,10 +32,10 @@ if(APPLE)
     )
   add_custom_command(TARGET 2DVisualizer POST_BUILD
     COMMAND open
-    ARGS -a 2DVisualizer --args 1024 768
+    ARGS -a 2DVisualizer --args 256 128
     )
 endif(APPLE)
 
-target_link_libraries(2DVisualizer ${SDL_LIBRARY})
+target_link_libraries(2DVisualizer ${SDL_LIBRARY} fftw3f)
 
 add_subdirectory(test)

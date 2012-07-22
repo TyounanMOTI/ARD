@@ -31,6 +31,7 @@ namespace ARD {
     }
     
     MicrophoneList Update() {
+      force_field_.Fill(0.0f);
       std::for_each(sources_.begin(), sources_.end(),
 		    [&](typename SourceList::value_type source) {
 		      source->Emit(force_field_);
