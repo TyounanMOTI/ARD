@@ -13,17 +13,23 @@ void Quit() {
   exit(0);
 }
 
+int loop() {
+  return 1;
+}
+
 int SDL_main(int argc, char **argv) {
   Init();
 
   SDL_Event event;
-  while(SDL_WaitEvent(&event)) {
-    switch(event.type) {
-    case SDL_QUIT:
-      Quit();
-      break;
-    default:
-      break;
+  while(loop()) {
+    while(SDL_PollEvent(&event)) {
+      switch(event.type) {
+      case SDL_QUIT:
+	Quit();
+	break;
+      default:
+	break;
+      }
     }
   }
   Quit();
