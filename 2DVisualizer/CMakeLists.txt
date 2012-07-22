@@ -1,6 +1,8 @@
 project(2DVisualizer)
+if(APPLE OR UNIX)
 set(CMAKE_C_COMPILER "gcc-4.7")
 set(CMAKE_CXX_COMPILER "g++-4.7")
+endif(APPLE OR UNIX)
 
 set(CMAKE_BUILD_TYPE "Release")
 
