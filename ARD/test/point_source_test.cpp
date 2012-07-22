@@ -9,7 +9,7 @@ using namespace ARD;
 class PointSourceTest : public testing::Test
 {
 protected:
-  typedef PointSource<float> FloatSource;
+  typedef PointSource<FFTWFloat2DArray> FloatSource;
   typedef boost::shared_ptr<FloatSource> SourcePointer;
 
   virtual void SetUp() {
@@ -17,7 +17,7 @@ protected:
   }
 
   Position position;
-  FloatSource::Content content;
+  FloatSource::TimeSeries content;
   SourcePointer subject;
 };
 

@@ -3,42 +3,39 @@
 #include <boost/shared_ptr.hpp>
 #include <vector>
 #include <deque>
+#include "source.h"
 #include "position.h"
 
 namespace ARD
 {
-  template <class Precision>
-  class PointSource
+  template <class ArrayType>
+  class PointSource : Source<ArrayType>
   {
   public:
-    typedef std::deque<Precision> Content;
+    typedef typename ArrayType::element Precision;
+    typedef std::deque<Precision> TimeSeries;
 
-    PointSource(const Position& position, Content content);
-    const Precision Pop();
-    template <class ArrayType> void Emit(ArrayType& field);
+    PointSource(const Position& position, TimeSeries time_series)
+      : position_(position), time_series_(time_series) {};
+
+    const Precision Pop() {
+      if (time_series_.empty()) {
+	return Precision(0.0);
+      }
+      Precision result = time_series_.front();
+      time_series_.pop_front();
+      return result;
+    }
+    
+    void Emit(ArrayType& field) {
+      field(position_) = Pop();
+    }
+    
     const Position position() const { return position_; };
 
   private:
     Position position_;
-    Content content_;
+    TimeSeries time_series_;
   };
-
-  template <class Precision>
-  PointSource<Precision>::PointSource(const Position& position, Content content) : position_(position), content_(content) {};
-
-  template <class Precision>
-  const Precision PointSource<Precision>::Pop() {
-    if (content_.empty()) {
-      return Precision(0.0);
-    }
-    Precision result = content_.front();
-    content_.pop_front();
-    return result;
-  }
-
-  template <class Precision> template <class ArrayType>
-  void PointSource<Precision>::Emit(ArrayType& field) {
-    field(position_) = Pop();
-  }
 }
 
