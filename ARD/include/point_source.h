@@ -9,7 +9,7 @@
 namespace ARD
 {
   template <class ArrayType>
-  class PointSource : Source<ArrayType>
+  class PointSource : public Source<ArrayType>
   {
   public:
     typedef typename ArrayType::element Precision;
