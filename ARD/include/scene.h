@@ -3,6 +3,7 @@
 #include <algorithm>
 #include "microphone.h"
 #include "source.h"
+#include "dct_engine.h"
 
 namespace ARD {
   template <class ArrayType>
@@ -15,7 +16,9 @@ namespace ARD {
     template <class ExtentList>
     explicit
     Scene(const ExtentList& extents)
-      :pressure_field_(extents)
+      :pressure_field_(extents),
+       force_field_(extents),
+       dct_engine_(force_field_)
     {}
 
     void AddMicrophone(std::shared_ptr<Microphone<ArrayType> > microphone) {
@@ -29,11 +32,13 @@ namespace ARD {
     MicrophoneList Update() {
       std::for_each(sources_.begin(), sources_.end(),
 		    [&](typename SourceList::value_type source) {
-		      source->Emit(pressure_field_);
+		      source->Emit(force_field_);
 		    });
+      const ArrayType& force_spectrum = dct_engine_.Execute();
+      
       std::for_each(microphones_.begin(), microphones_.end(),
 		    [&](typename MicrophoneList::value_type microphone) {
-		      microphone->Record(pressure_field_);
+		      microphone->Record(force_spectrum);
 		    });
       return microphones_;
     }
@@ -43,5 +48,7 @@ namespace ARD {
     SourceList sources_;
 
     ArrayType pressure_field_;
+    ArrayType force_field_;
+    DCTEngine<FFTWFloat2DArray, Forward> dct_engine_;
   };
 }

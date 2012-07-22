@@ -23,12 +23,10 @@ protected:
 };
 
 TEST_F(SceneTest, EmitRecordTest) {
-  std::shared_ptr<Src> source(new Src(Position({10,10}), std::deque<float>({1.0f, 0.0f})));
+  std::shared_ptr<Src> source(new Src(Position({0, 0}), std::deque<float>({1.0f, 0.0f})));
   subject->AddSource(source);
 
   std::deque<std::shared_ptr<Microphone<FFTWFloat2DArray> > > microphones = subject->Update();
   EXPECT_EQ(microphone, microphones.front());
-  EXPECT_EQ(1.0f, microphones.front()->Pop()[10][10]);
-  subject->Update();
-  EXPECT_EQ(0.0f, microphones.front()->Pop()[10][10]);
+  EXPECT_FLOAT_EQ(1.0f/(30*20), microphones.front()->Pop()[0][0]);
 }
