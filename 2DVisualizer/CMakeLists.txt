@@ -30,9 +30,9 @@ if(APPLE)
     COMMAND rsync
     ARGS -ar --delete ${CMAKE_SOURCE_DIR}/Frameworks 2DVisualizer.app/Contents/
     )
-  add_custom_target(run_2DVisualizer ALL
-    COMMAND open -a 2DVisualizer --args 1024 768
-    DEPENDS 2DVisualizer
+  add_custom_command(TARGET 2DVisualizer POST_BUILD
+    COMMAND open
+    ARGS -a 2DVisualizer --args 1024 768
     )
 endif(APPLE)
 
