@@ -8,12 +8,12 @@
 namespace ARD
 {
   template <class Precision>
-  class Source
+  class PointSource
   {
   public:
     typedef std::deque<Precision> Content;
 
-    Source(const Position& position, Content content);
+    PointSource(const Position& position, Content content);
     const Precision Pop();
     template <class ArrayType> void Emit(ArrayType& field);
     const Position position() const { return position_; };
@@ -24,10 +24,10 @@ namespace ARD
   };
 
   template <class Precision>
-  Source<Precision>::Source(const Position& position, Content content) : position_(position), content_(content) {};
+  PointSource<Precision>::PointSource(const Position& position, Content content) : position_(position), content_(content) {};
 
   template <class Precision>
-  const Precision Source<Precision>::Pop() {
+  const Precision PointSource<Precision>::Pop() {
     if (content_.empty()) {
       return Precision(0.0);
     }
@@ -37,7 +37,7 @@ namespace ARD
   }
 
   template <class Precision> template <class ArrayType>
-  void Source<Precision>::Emit(ArrayType& field) {
+  void PointSource<Precision>::Emit(ArrayType& field) {
     field(position_) = Pop();
   }
 }

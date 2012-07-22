@@ -9,7 +9,7 @@ set(ARD_test_SRCS
   multi_array_test.cpp
   position_test.cpp
   scene_test.cpp
-  source_test.cpp
+  point_source_test.cpp
   valarray_test.cpp
   direct_reference_microphone.cpp
   plot/output_array.cpp)

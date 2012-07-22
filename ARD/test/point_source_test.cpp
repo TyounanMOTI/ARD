@@ -1,15 +1,15 @@
 #include <gtest/gtest.h>
-#include <source.h>
+#include <point_source.h>
 #include <fftw_multi_array.h>
 #include <boost/assign.hpp>
 
 using namespace boost::assign;
 using namespace ARD;
 
-class SourceTest : public testing::Test
+class PointSourceTest : public testing::Test
 {
 protected:
-  typedef Source<float> FloatSource;
+  typedef PointSource<float> FloatSource;
   typedef boost::shared_ptr<FloatSource> SourcePointer;
 
   virtual void SetUp() {
@@ -21,7 +21,7 @@ protected:
   SourcePointer subject;
 };
 
-TEST_F(SourceTest, Pop) {
+TEST_F(PointSourceTest, Pop) {
   content.push_back(5.0);
   content.push_back(1.0);
   subject.reset(new FloatSource(position, content));
@@ -29,12 +29,12 @@ TEST_F(SourceTest, Pop) {
   EXPECT_EQ(1.0, subject->Pop());
 }
 
-TEST_F(SourceTest, EmptyPop) {
+TEST_F(PointSourceTest, EmptyPop) {
   subject.reset(new FloatSource(position, content));
   EXPECT_EQ(0, subject->Pop());
 }
 
-TEST_F(SourceTest, Emit) {
+TEST_F(PointSourceTest, Emit) {
   content += 1,2,3;
   subject.reset(new FloatSource(position, content));
   FFTWFloat2DArray field(boost::extents[20][10]);
