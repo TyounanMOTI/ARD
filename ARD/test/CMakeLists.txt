@@ -11,6 +11,7 @@ set(ARD_test_SRCS
   scene_test.cpp
   source_test.cpp
   valarray_test.cpp
+  direct_reference_microphone.cpp
   plot/output_array.cpp)
 cuda_add_executable(ARD_test ${ARD_test_SRCS})
 cuda_add_cufft_to_target(ARD_test)
