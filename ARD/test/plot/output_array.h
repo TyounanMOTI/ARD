@@ -2,13 +2,16 @@
 #define OUTPUT_ARRAY_H
 
 #include <fstream>
-#include <cufft.h>
 
 template <class C> void OutputRealPartOfComplexArray(int length, C* input);
-template <> void OutputRealPartOfComplexArray(int length, cufftComplex* input);
 template <class R> void OutputRealArray(int length, R* input);
 template <class R> void OutputReal2DArray(int width, int height, R* input);
+
+#ifdef CUDA
+#include <cufft.h>
+template <> void OutputRealPartOfComplexArray(int length, cufftComplex* input);
 void OutputInterleavedComplexArray(int length, cufftComplex* input);
+#endif
 
 template <class C>
 void OutputRealPartOfComplexArray(int length, C* input) {

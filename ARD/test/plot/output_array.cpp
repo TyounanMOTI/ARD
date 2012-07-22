@@ -1,3 +1,4 @@
+#ifdef CUDA
 #include "output_array.h"
 
 void OutputInterleavedComplexArray(int length, cufftComplex* input) {
@@ -14,3 +15,6 @@ void OutputRealPartOfComplexArray(int length, cufftComplex* input) {
     ofs << input[i].x << std::endl;
   }
 }
+
+#endif
+

@@ -1,3 +1,4 @@
+#ifdef CUDA
 #include <gtest/gtest.h>
 #include "plot/output_array.h"
 #include <cufft.h>
@@ -59,3 +60,5 @@ TEST(CUFFTTest, RealToComplexDCT1D) {
   cudaFreeHost(buffer_host);
   cudaFreeHost(result_host);
 }
+#endif
+
