@@ -31,7 +31,7 @@ if(APPLE)
     ARGS -ar --delete ${CMAKE_SOURCE_DIR}/Frameworks 2DVisualizer.app/Contents/
     )
   add_custom_target(run_2DVisualizer ALL
-    COMMAND open -a 2DVisualizer
+    COMMAND open -a 2DVisualizer --args 1024 768
     DEPENDS 2DVisualizer
     )
 endif(APPLE)

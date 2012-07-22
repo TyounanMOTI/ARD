@@ -1,11 +1,15 @@
 #include <SDL.h>
 #include <iostream>
+#include <ARD.h>
 
-void Init() {
+void Quit();
+
+void Init(int width, int height, int depth=0) {
   if (SDL_Init(SDL_INIT_VIDEO) == -1) {
     std::cerr << "SDL: video init failed" << std::endl;
+    Quit();
   }
-  SDL_SetVideoMode(800, 600, 32, SDL_SWSURFACE);
+  SDL_SetVideoMode(width, height, 32, SDL_SWSURFACE);
 }
 
 void Quit() {
@@ -18,7 +22,20 @@ int loop() {
 }
 
 int SDL_main(int argc, char **argv) {
-  Init();
+  int width, height, depth;
+  if (argc >= 3) {
+    width = atoi(argv[1]);
+    height = atoi(argv[2]);
+    if (argc >= 4) {
+      depth = atoi(argv[3]);
+    }
+  } else {
+    width = 800;
+    height = 600;
+    depth = 0;
+  }
+
+  Init(width, height, depth);
 
   SDL_Event event;
   while(loop()) {
