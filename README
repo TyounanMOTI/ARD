@@ -19,20 +19,28 @@
 [1]: Nikunj Raghuvanshi, Rahul Narain, Ming C. Lin. "Efﬁcient and Accurate Sound Propagation Using Adaptive Rectangular Decomposition". http://gamma.cs.unc.edu/propagation/main.pdf
 
 # 動作環境
-MacOSX10.7で動作しています。
+Windows7, MacOSX10.7で動作しています。
 
+## Windows7
+同梱のSDL.dllを同一ディレクトリに保ったままで起動をお願いいたします。
+
+## MacOSX10.7
 標準的なディレクトリ構成外のlibstdc++などと
 動的リンクしてしまったため、起動しない可能性があります。
-申し訳ありませんが、実際の動作は上述の動画を参考にしていただければと存じます。
+申し訳ありませんが、起動しない場合は上述の動画を参考にしていただければと存じます。
 
 ## 依存ライブラリ
 - SDL == 1.2.15
 - FFTW > 3.3
 - Boost > 1.48.0
 - CMake > 2.8
-- GCC > 4.7.0 (c++11準拠)
+- GCC > 4.6.0 (c++0x準拠)
+  - WindowsではMinGW/MSYS環境でビルド可能
 
 # 構成
+## bin
+mac, windows用の実行ファイルを同梱しました。
+
 ## ARD
 波動方程式ソルバーの中核となるヘッダーライブラリです。
 /ARD/include 以下に収録しました。
