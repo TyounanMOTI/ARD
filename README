@@ -1,9 +1,50 @@
-re-implementing "Efﬁcient and Accurate Sound Propagation Using Adaptive Rectangular Decomposition" by Nikunj Raghuvanshi, Rahul Narain, Ming C. Lin
+# 何をするプログラムか？
+音波が矩形室内を伝わる様子を描画するソフトウェアです。
+動画：https://vimeo.com/26329667
 
-requires: FFTW, SDL, Boost
-works on: MacOSX, Windows
-MIT License.
+音波の波動方程式を数値的に解くことで、物理現象に忠実な音響効果を
+得ることを狙いました。
+本バージョンでは二次元の音場を解析していますが、三次元の音場にも
+簡単に拡張可能です。
 
-contact: tyounan.moti@gmail.com
-Hirotoshi Yoshitaka
-@tyounanmoti
+ただし、スペクトル法と呼ばれる手法を採用しているため、現状で
+は矩形室しか解析できません。将来的にARD法[1]に拡張することで、
+複雑形状に対応する予定でした。
+
+また、話声の最大周波数と比較して解析のスピードは非常に遅いため、
+現実的にはリアルタイムに音響効果を付与することはできません。
+300m^3程度の部屋をCore i7 970で三次元解析した場合、リアルタイムに
+再現できる最大周波数は444Hzとの結果でした。
+
+[1]: Nikunj Raghuvanshi, Rahul Narain, Ming C. Lin. "Efﬁcient and Accurate Sound Propagation Using Adaptive Rectangular Decomposition". http://gamma.cs.unc.edu/propagation/main.pdf
+
+# 動作環境
+MacOSX10.7で動作しています。
+
+標準的なディレクトリ構成外のlibstdc++などと
+動的リンクしてしまったため、起動しない可能性があります。
+申し訳ありませんが、実際の動作は上述の動画を参考にしていただければと存じます。
+
+## 依存ライブラリ
+- SDL == 1.2.15
+- FFTW > 3.3
+- Boost > 1.48.0
+- CMake > 2.8
+- GCC > 4.7.0 (c++11準拠)
+
+# 構成
+## ARD
+波動方程式ソルバーの中核となるヘッダーライブラリです。
+/ARD/include 以下に収録しました。
+今回はFFTWのみ利用しましたが、将来的にCUFFTと
+比較する予定でしたので、拡張を容易にするために
+C++のテンプレート機能を用いました。
+
+## 2DVisualizer
+音場を解析しながら、SDLを用いて音場の様子を描画する
+アプリケーションです。
+第一、第二引数で横幅・縦幅を設定できます。
+実行中はキーボードの上下矢印で値域を調節できます。
+
+## gtest
+googleによるユニットテスト用ライブラリです。
