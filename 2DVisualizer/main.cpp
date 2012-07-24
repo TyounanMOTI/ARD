@@ -60,7 +60,7 @@ int loop() {
 }
 
 int SDL_main(int argc, char **argv) {
-  int width, height, depth;
+  int width, height, depth = 0;
   if (argc >= 3) {
     width = atoi(argv[1]);
     height = atoi(argv[2]);

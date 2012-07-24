@@ -9,6 +9,7 @@ list(APPEND CMAKE_FRAMEWORK_PATH "${CMAKE_SOURCE_DIR}/Frameworks")
 
 find_package(FFTW3 REQUIRED)
 find_package(CUDA 4.0 QUIET)
+find_package(Boost REQUIRED)
 set(GTEST_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/gtest/include)
 add_subdirectory(2DVisualizer)
 add_subdirectory(ARD)

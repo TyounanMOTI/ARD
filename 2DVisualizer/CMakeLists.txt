@@ -1,7 +1,7 @@
 project(2DVisualizer)
 if(APPLE OR UNIX)
-set(CMAKE_C_COMPILER "gcc-4.7")
-set(CMAKE_CXX_COMPILER "g++-4.7")
+  set(CMAKE_C_COMPILER "gcc-4.7")
+  set(CMAKE_CXX_COMPILER "g++-4.7")
 endif(APPLE OR UNIX)
 
 set(CMAKE_BUILD_TYPE "Release")
@@ -10,12 +10,20 @@ set(2DVisualizer_SRCS
   main.cpp)
 
 find_package(SDL REQUIRED)
-include_directories(${SDL_INCLUDE_DIR} ${CMAKE_SOURCE_DIR}/ARD/include)
+include_directories(${SDL_INCLUDE_DIR} ${CMAKE_SOURCE_DIR}/ARD/include ${Boost_INCLUDE_DIRS})
 add_executable(2DVisualizer ${2DVisualizer_SRCS})
-set_target_properties(2DVisualizer
-  PROPERTIES
-  COMPILE_FLAGS "-std=c++11"
-  )
+
+if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER "4.7")
+  set_target_properties(2DVisualizer
+    PROPERTIES
+    COMPILE_FLAGS "-std=c++11"
+    )
+else(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER "4.7")
+  set_target_properties(2DVisualizer
+    PROPERTIES
+    COMPILE_FLAGS "-std=c++0x"
+    )
+endif(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER "4.7")
 
 if(APPLE)
   add_subdirectory(mac)
@@ -37,7 +45,6 @@ if(APPLE)
     ARGS -a 2DVisualizer --args 256 128
     )
 endif(APPLE)
-
-target_link_libraries(2DVisualizer ${SDL_LIBRARY} fftw3f)
+target_link_libraries(2DVisualizer ${SDL_LIBRARY} ${FFTW3_LIBRARIES})
 
 add_subdirectory(test)

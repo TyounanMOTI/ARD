@@ -25,8 +25,13 @@ find_library(FFTW3_LIBRARY
   PATHS ${FFTW3_PKGCONF_LIBRARY_DIRS}
 )
 
+find_library(FFTW3F_LIBRARY
+  NAMES fftw3f
+  PATHS ${FFTW3_PKGCONF_LIBRARY_DIRS}
+)
+
 # Set the include dir variables and the libraries and let libfind_process do the rest.
 # NOTE: Singular variables for this library, plural for libraries this this lib depends on.
 set(FFTW3_PROCESS_INCLUDES FFTW3_INCLUDE_DIR)
-set(FFTW3_PROCESS_LIBS FFTW3_LIBRARY)
+set(FFTW3_PROCESS_LIBS FFTW3_LIBRARY FFTW3F_LIBRARY)
 libfind_process(FFTW3)

@@ -1,4 +1,4 @@
-include_directories(../include ${GTEST_INCLUDE_DIR})
+include_directories(../include ${GTEST_INCLUDE_DIR} ${Boost_INCLUDE_DIR})
 
 set(ARD_test_SRCS
   cufft_test.cpp
@@ -22,12 +22,19 @@ else(CUDA_FOUND)
   add_executable(ARD_test ${ARD_test_SRCS})
 endif(CUDA_FOUND)
 
-target_link_libraries(ARD_test fftw3 fftw3f gtest gtest_main)
+target_link_libraries(ARD_test ${FFTW3_LIBRARIES} gtest gtest_main)
 add_custom_target(run_ARD_test ALL
   COMMAND ARD_test
   DEPENDS ARD_test)
 
-set_target_properties(ARD_test
-  PROPERTIES
-  COMPILE_FLAGS "-std=c++11"
-  )
+if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER "4.7")
+  set_target_properties(ARD_test
+    PROPERTIES
+    COMPILE_FLAGS "-std=c++11"
+    )
+else(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER "4.7")
+  set_target_properties(ARD_test
+    PROPERTIES
+    COMPILE_FLAGS "-std=gnu++0x"
+    )
+endif(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER "4.7")
