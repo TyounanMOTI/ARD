@@ -15,7 +15,7 @@ set(ARD_test_SRCS
   plot/output_array.cpp)
   
 if(CUDA_FOUND)
-  add_definitions(-DCUDA) # disable for system without CUDA GPU
+#  add_definitions(-DCUDA) # disable for system without CUDA GPU
   cuda_add_executable(ARD_test ${ARD_test_SRCS})
   cuda_add_cufft_to_target(ARD_test)
 else(CUDA_FOUND)
